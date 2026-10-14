@@ -2,23 +2,23 @@
 
 Reference documentation for [Dinamica EGO](https://dinamicaego.com), the environmental modeling and simulation platform developed by the Centro de Sensoriamento Remoto (CSR/UFMG).
 
-**[Read the documentation on the wiki →](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki)**
+**[Read the documentation →](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/)**
 
 ## Where to start
 
 | If you want to… | Go to |
 | --- | --- |
-| Write or read a model as text | [EGO Script](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/EGO-Script) |
-| Understand how a model executes | [Basic Data Flow](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/Basic-Data-Flow) |
-| Reuse parts of a model | [Submodels](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/Submodels) |
-| Run a model from the command line | [Dinamica Console](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/Dinamica-Console) |
-| Look up a functor | [Functor List](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/Functor-List) |
-| Look up a data type | [Type System](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/Type-System) |
-| Troubleshoot an issue | [FAQ](https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs/wiki/FAQ) |
+| Write or read a model as text | [EGO Script](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/EGO-Script.html) |
+| Understand how a model executes | [Basic Data Flow](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/Basic-Data-Flow.html) |
+| Reuse parts of a model | [Submodels](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/Submodels.html) |
+| Run a model from the command line | [Dinamica Console](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/Dinamica-Console.html) |
+| Look up a functor | [Functor List](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/Functor-List.html) |
+| Look up a data type | [Type System](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/Type-System.html) |
+| Troubleshoot an issue | [FAQ](https://centro-de-sensoriamento-remoto.github.io/dinamica-docs/FAQ.html) |
 
 ## Contributing
 
-The wiki lives in a separate git repository: `dinamica-docs.wiki.git`. To update a page, edit it in the wiki (or in `wiki/` and copy it over) and keep links relative, e.g. `[Map Type](Map-Type)`.
+The site is built by GitHub Pages (Jekyll with the [just-the-docs](https://just-the-docs.com) theme) from the `docs/` folder. To update a page, edit the corresponding Markdown file in `docs/` and keep links relative, e.g. `[Map Type](Map-Type.html)`. Each page starts with a front matter block (`title`, plus `nav_order` or `nav_exclude`), and its content is wrapped in `{% raw %}` / `{% endraw %}` so that EGO Script's `{{` and `{%` are not interpreted by Liquid.
 
 ## License
 

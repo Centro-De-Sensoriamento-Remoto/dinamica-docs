@@ -1,0 +1,15 @@
+title: Dinamica EGO Documentation
+description: Reference documentation for Dinamica EGO, the environmental modeling and simulation platform developed by the Centro de Sensoriamento Remoto (CSR/UFMG).
+url: https://centro-de-sensoriamento-remoto.github.io
+baseurl: /dinamica-docs
+
+remote_theme: just-the-docs/just-the-docs@v0.10.1
+plugins:
+  - jekyll-remote-theme
+
+search_enabled: true
+heading_anchors: true
+
+aux_links:
+  GitHub:
+    - https://github.com/Centro-De-Sensoriamento-Remoto/dinamica-docs
