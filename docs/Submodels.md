@@ -15,6 +15,18 @@ Conceptually, a submodel is a combination of functors exporting inputs and outpu
 
 Submodels are also first class citizens that can be transferred from one model to another. They can also be modified and updated at any time without breaking the model where they are being used. They can also depend on other submodels, as long as their definitions do not form a cycle — if an operation (creating, updating, or using a submodel) would introduce a dependency cycle, Dinamica detects the potential cycle and prevents the operation from completing.
 
+# Submodels
+
+Submodels are a way of reusing parts of a model to perform specific operations inside other models.
+
+By using them, we can reduce the amount of work we have to put in when creating models that share similar functionalities. They are also an important tool for abstraction, hiding unnecessary details and making it easier to reason about the model concept and its implementation.
+
+Conceptually, a submodel is a combination of functors exporting inputs and outputs to be bound externally, but, from the user point of view, a submodel is used just like any other ordinary functor.
+
+![Submodel Overview](image/basic_overview_submodels.png)
+
+Submodels are also first class citizens that can be transferred from one model to another. They can also be modified and updated at any time without breaking the model where they are being used. They can also depend on other submodels, as long as their definitions do not form a cycle — if an operation (creating, updating, or using a submodel) would introduce a dependency cycle, Dinamica detects the potential cycle and prevents the operation from completing.
+
 ## Submodel Types
 
 Basically, we have four different types of submodels in Dinamica EGO: system submodels, user submodels, local submodels, and store submodels. The different types of submodels are identified by different icon badges on the representation of the corresponding functors on the model.
@@ -44,7 +56,7 @@ In practice, users can only create local submodels. These local submodels can la
 
 The four submodel types differ in who can see and use them, from narrowest to broadest:
 
-- **Local Submodel** — scoped to the single model it belongs to. It is not automatically visible from any other model, not even other models owned by the same user; to use it elsewhere, it must be explicitly copied into that other model (see [Copying (Importing) a Local Submodel Between Models](#copying-importing-a-local-submodel-between-models)), becoming an independent copy in the process.
+- **Local Submodel** — scoped to the single model it belongs to. It is not automatically visible from any other model, not even other models owned by the same user; to use it elsewhere, it must be explicitly copied into that other model (see [Copying (Importing) a Local Submodel Between Models](gui/Submodels-In-The-GUI.html#copying-importing-a-local-submodel-between-models)), becoming an independent copy in the process.
 - **User Submodel** — scoped to the user account that created it. It is automatically available across all of that user's models, with no import step needed, but it is not visible to other users of the same machine.
 - **Store Submodel** — same per-user scope as a user submodel (available across all of that user's models, not visible to other users), but its content comes from the shared online [Submodel Store](#the-submodel-store) rather than from something the user authored. The distinction from a user submodel is about origin, versioning, and storage, not visibility.
 - **System Submodel** — the broadest scope: bundled with the Dinamica EGO installation itself, so it is available to every user on every model, and cannot be modified by any user.
@@ -77,104 +89,15 @@ System submodels are provided by Dinamica itself: on Windows they are usually lo
 
 ---
 
-## Creating Local Submodels
+## Creating Submodels
 
-Local submodels can be created by simply selecting the parts of a model that will be converted to a submodel and choosing *Edit* → *Create Submodel* (K). The selection will be replaced by the new submodel and the visual representation of the new submodel will be available to be edited as a new tab on the script editor.
-
-At any time, the user can make changes to the local submodel and apply those changes by clicking *Apply Changes / Edit Submodel Properties* on the model toolbar. See the [Updating Local Submodels](#updating-local-submodels) section below for more information.
-
-It is also possible to select parts of a local submodel and create another local submodel using that selection. The new local submodel will be a dependency of the previous one, but the submodel creation process is basically the same.
-
-If the selection is empty, an empty local submodel will be created. The process for updating an empty submodel is the same process used to update any local submodel.
-
-[Video: Creating local submodels](https://www.youtube.com/watch?v=YvoteWC_lnI)
+Local submodels can be created in the graphical interface (see [Creating Local Submodels](gui/Submodels-In-The-GUI.html#creating-local-submodels)) or written directly in any text editor, which is especially convenient when working with the [EGO Script](EGO-Script.html) language. The properties that declare a submodel in a script are described in [Submodels](EGO-Script.html#submodels) in the EGO Script reference.
 
 ### Creating a Submodel Directly as a Script
 
 A submodel does not have to be created through the GUI: any `.ego` file that declares the right set of `@submodel.*` properties (name, description, group, and its input/output port declarations) is a valid submodel. See [Submodels](EGO-Script.html#submodels) in the EGO Script reference for the full property syntax.
 
 Whether a hand-written submodel script becomes a local or a user submodel is determined entirely by where the file is placed, following the same [storage locations](#where-submodels-are-stored) used for submodels created through the GUI — the `@submodel.name` property, not the filename, is what identifies the submodel.
-
-## Instantiating Local Submodels
-
-Local submodels from a model are placed in a special tab on the Functor Library called *Local Submodels*. These local submodels are grouped by model name.
-
-To instantiate a local submodel as part of a model, just expand the group on the *Local Submodels* tab corresponding to the current model and drag the submodel functor representation to the model presentation area.
-
-It is worth noting that dragging the functor representation belonging to a different model will import the definition of the local submodel from that model — see [Copying (Importing) a Local Submodel Between Models](#copying-importing-a-local-submodel-between-models) below.
-
-![Instantiating functor corresponding to local submodel](image/instatiating_local_submodel.gif)
-
-### Searching for Submodels
-
-The search boxes throughout the interface (for example, in the Explorer or in the Functor Library) support special filters that narrow results down to submodels: `is:submodel` (any submodel), `is:systemsubmodel`, `is:usersubmodel`, `is:localsubmodel`, and `is:storesubmodel`. The *Also search for additional info* option must be enabled in the search box menu for these filters to work.
-
-## Navigating Submodels
-
-Navigating between the local submodels and the main model in a script editor can be done by clicking on the corresponding model/submodel tab on the model/submodel tabs or clicking on the submodel overview button above the model/submodel tabs.
-
-![Navigating between local submodels](image/navigating_submodels.png)
-
-## Updating Local Submodels
-
-At any time, the user can add or remove inputs and outputs or even change the combination of functors defining the submodel.
-
-The functor action bar of all functors contained inside a submodel script exhibits additional options for *export functor inputs and outputs*. Exporting a new input or output can be performed following the steps below:
-
-First, click on the functor whose inputs or outputs will be exported.
-
-Select *export functor inputs and outputs* on the functor action bar and choose the inputs or outputs that will be exported. It is possible to define the input and output names and their corresponding descriptions. It is also possible to mark an exported input as advanced or optional. Optional inputs can also define an optional value that will be assigned to the port if no explicit value is provided. A submodel's input ports cannot be declared nullable; a caller-optional input is only made available through this *optional* marking and its associated default value, not by accepting a null value directly.
-
-> **Note:** Any port from the integer family of types can be declared a light enum, which presents it in the GUI as a labeled dropdown instead of a free-form numeric field, via the *Make port available as an enum value* control. This is not specific to submodels — it can be set on any carrier functor of an integer value type in any model, provided the carrier has an editor. When such a carrier's port is exported as a submodel input, its light enum configuration carries over into the submodel's interface.
-
-Choose *Submodel Options* on the model toolbar and then click *Apply Changes / Edit Submodel Properties*. That brings up the submodel editor dialog where you can define a new name, description, documentation URL, and icon for the submodel, or reorder its inputs and outputs (or even remove some of them). Clicking *Ok* propagates the changes to all parts of your model (and dependent submodels) where the submodel is used.
-
-The submodel editor dialog also lets you set the submodel's **group**, which controls where it appears in the Functor Library. A group name can contain subgroups by separating them with a colon (`":"`); for example, `"Elevation Graph:Tools:Debug"` places the submodel in a *Debug* subgroup, itself inside a *Tools* subgroup, inside an *Elevation Graph* group. This is specific to submodels: an ordinary functor's placement in the Library is fixed by its own definition and cannot be changed by the user, but a submodel's group — and therefore whether it appears in a subgroup — is under the control of whoever creates or edits it.
-
-Below you can see two examples of updating the input and output ports of a local submodel:
-
-- **Example 1** — exporting and updating ports using the functor action bar:<br> [Video: Updating local submodels ports](https://www.youtube.com/watch?v=i6T9GGqfU80)
-- **Example 2** — an additional approach to the same task:<br> [Video: Updating local submodels ports (additional approach)](https://www.youtube.com/watch?v=FK5xIYCS0KI)
-
-Beware that connected inputs cannot be exported. They must be disconnected first.
-
-It is also worth noting that it is possible to safely rename inputs and outputs. The connections to the port will be maintained when the changes are propagated.
-
-> **Tip:** Dinamica EGO comes with a set of icons from the [Fat Cow Icon Set](http://www.fatcow.com/free-icons) that can be used to customize the local submodels created by users. The icons come in size 16x16 and 32x32 pixels. The overall color of the chosen icon is automatically used to define the color of the functor representing the submodel on the graphical interface. The set of icons is usually installed in the folder `IconSamples` in your Dinamica EGO installation folder.
-
-When updating a local submodel, the changes from all dependent local submodels will also be propagated. This means that updating a submodel always updates the whole chain of local submodels that use that submodel as part of their definition.
-
-[Video: Updating local submodels (propagation through a chain of dependent submodels)](https://www.youtube.com/watch?v=wDtyrRbUNo4)
-
-Removing ports from a local submodel is also similar to updating the exported ports. You can remove the ports using the *export functor inputs and outputs* option on the functor action bar and unchecking the corresponding port on the *Exported Ports* dialog, or using the *Apply Changes / Edit Submodel Properties* dialog.
-
-Changing the order of the input or output ports can only be done by editing the port list on the *Apply Changes / Edit Submodel Properties* dialog.
-
-[Video: Removing ports and changing port order](https://www.youtube.com/watch?v=zx6moYBS3YU)
-
-## Submodel Dependencies
-
-Since submodels can use other submodels as part of their definitions, it is very convenient to know how those dependencies are organized. The dependency viewer is not limited to local submodels — it shows the local, user, store, and system submodels a model uses, and how they depend on each other.
-
-You can open it by clicking the graph icon at the bottom of the model toolbar, or by choosing *Submodels* → *Show Model Dependencies* (Ctrl+U).
-
-![Local submodel dependency viewer](image/local_submodel_dependencies.png)
-
-On the dependency graph viewer, every submodel involved is represented by its name and corresponding icon. An arrow pointing from a submodel A to a submodel B means that submodel A is used by submodel B. Multiple arrows mean that a submodel is used more than once. Clicking on any local submodel shown in the visualization navigates to it.
-
-Clicking the *Remove Unused* button removes all local submodels defined by the current model that are not being used, either as part of the model's own definition or by any of its other local submodels.
-
-## Copying (Importing) a Local Submodel Between Models
-
-It is possible to copy local submodel definitions between models. Once the submodel is copied from one model to another, the submodels can be modified and updated independently.
-
-You can copy a local submodel definition by dragging a local submodel from the Functor Library to the model presentation area. The process is similar to the instantiation of a regular functor.
-
-[Video: Importing local submodels](https://www.youtube.com/watch?v=v8OKfyWsYoM)
-
-It is also possible to copy the submodel definition by clicking the *Import submodel definition* button on the functor library bar of the local submodel tab of the Functor Library. The definitions of system and user submodels can also be imported using the corresponding *Import submodel definition* button on the functor library bar of the submodel tab of the Functor Library.
-
-Submodels already used in the model can also be imported through the *Submodels* menu: *Submodels* → *Import Selected Submodel* (Ctrl+G) imports the definition of the currently selected submodel instance, while *Submodels* → *Import All Submodels* imports the definitions of every system, store, and user submodel used directly or indirectly by the model.
 
 ## Turning a Local Submodel into a User Submodel (Publishing)
 
@@ -215,7 +138,7 @@ Consider the same local submodel **A**, depending on **B** and **C**, with **B**
 - **A** receives its own local submodel copy of **B** and its own local submodel copy of **C**.
 - **B**, in turn, receives its own local submodel copy of **C** — a separate copy from the one held directly by **A**.
 
-The store submodel package therefore ends up containing two independent copies of **C**: one local to **A**, and one local to **B**. Once packaged, these copies are independent of each other, the same as any other local submodels obtained through copying (see [Copying (Importing) a Local Submodel Between Models](#copying-importing-a-local-submodel-between-models)).
+The store submodel package therefore ends up containing two independent copies of **C**: one local to **A**, and one local to **B**. Once packaged, these copies are independent of each other, the same as any other local submodels obtained through copying (see [Copying (Importing) a Local Submodel Between Models](gui/Submodels-In-The-GUI.html#copying-importing-a-local-submodel-between-models)).
 
 Unlike publishing to a user submodel, this nesting follows the actual dependency graph. If **C** is used only by **B**, and not by **A** itself, the store submodel package nests **C** inside **B** instead of placing it directly inside **A**: **C** becomes a local submodel of **B**, and **B** a local submodel of **A**.
 
@@ -226,12 +149,6 @@ The local submodel copies of **B** and **C** packaged inside store submodel **A*
 ## The Submodel Store
 
 The Submodel Store is Dinamica EGO's online repository of submodels shared by the community.
-
-### Browsing and Installing Submodels
-
-To browse and install submodels from the Submodel Store, choose *Submodels* → *Submodel Store* on the model toolbar. Select the desired submodel from the list and click *Install Selected* to download it; it then becomes available locally as a store submodel.
-
-> **Tip:** To publish your own submodel to the Store instead of installing one, see [Sending a Submodel to the Store](#sending-a-submodel-to-the-store).
 
 ### Versioning and Compatibility
 
@@ -246,37 +163,24 @@ This has a subtle consequence: an update published later using an **older** Dina
 1. A user on Dinamica 8.11 now updates Submodel X to "v4". This creates a new update tagged 8.11. From this point, Dinamica 8.11 users receive "Submodel X v4" (the newest update compatible with 8.11), while Dinamica 8.10 users are unaffected and still receive "Submodel X v3" (the update tagged 8.11 is not compatible with them).
 1. A user on Dinamica 8.10 now updates Submodel X again, to "v3.1". This overrides the existing update tagged 8.10 (previously "v3"). Dinamica 8.10 users now receive "Submodel X v3.1". Because this update is more recent than the "v4" update tagged 8.11, it also becomes the newest compatible update for Dinamica 8.11 users — so Dinamica 8.11 users now receive "Submodel X v3.1" too, even though "v4" still exists.
 
-### Checking for Updates
-
-To check whether an installed store submodel has a newer, compatible update available (see [Versioning and Compatibility](#versioning-and-compatibility) above), choose *Submodels* → *Submodel Manager* (Ctrl+G), then use the *Check for Updates* option.
-
-## Deleting Submodels
-
-### Deleting a Local Submodel
-
-To delete a local submodel, select it among the local submodels of the model and choose *Remove Submodel* on the *Submodel Options* menu. If the submodel is still being used — either by the main model script or by another local submodel — Dinamica reports this, shows where it is being used, and the removal fails.
-
-> **Tip:** Before attempting to remove a local submodel, it is a good idea to check the [dependency viewer](#submodel-dependencies) (*Submodels* → *Show Model Dependencies*) to confirm the submodel is not being used elsewhere.
-
-### Deleting a User or Store Submodel
-
-User and store submodels are both removed through the *Submodel Manager* dialog (*Submodels* → *Submodel Manager*): select the submodel in question and click *Remove*.
-
-> **Warning:** Removing a user submodel will break any model script that uses it as part of its definition, since — unlike local submodels — models do not carry their own copy of a user submodel's definition.
-
 ## Submodel Expansion and Execution
 
 Before executing a model, Dinamica EGO can expand all submodels used in it, replacing each submodel instance with its internal functor definition. This expansion does not modify the model the user is working on — it is applied to a copy of the model that is submitted for execution, leaving the original model and its submodel instances untouched. This removes data copy constraints caused by submodel usage.
 
-- This behavior is controlled by the *Expand submodels before executing a model* option, found under *Tools* → *Options* | *Advanced*. On the command line, it can be disabled using the `-disable-submodel-expansions` flag of the [Dinamica Console](Dinamica-Console.html).
+- This behavior is controlled by the *Expand submodels before executing a model* option, found under *Tools* → *Options* \| *Advanced*. On the command line, it can be disabled using the `-disable-submodel-expansions` flag of the [Dinamica Console](Dinamica-Console.html).
 - When submodel expansion is enabled, the *Remove all unnecessary intermediate carrier functors before executing a model* option (same Options panel; `-remove-redundant-carriers` on the command line) can additionally be enabled to remove unnecessary intermediate carrier functors introduced by the expansion. Use with caution: removal can prevent the content of some output ports from being inspected and, in rare cases, may change model semantics.
 
 It is also possible to manually expand submodels as part of editing the model itself, replacing a submodel instance — local, user, store, or system — with its internal definition. This can be done for the currently selected submodel via *Submodels* → *Expand Selected Submodel* (Ctrl+E), or for every submodel used directly or indirectly by the model via *Submodels* → *Expand All Submodels*. Unlike the automatic expansion that happens before execution, these options do change the model being edited by the user — the expanded functors permanently replace the submodel instance in the model.
 
 ---
 
+## Working with Submodels in the Graphical Interface
+
+The interface operations — instantiating, navigating, updating, inspecting dependencies, importing, installing from the Store, and deleting — are described in [Submodels in the GUI](gui/Submodels-In-The-GUI.html).
+
 ## See Also
 
+- [Submodels in the GUI](gui/Submodels-In-The-GUI.html)
 - Functor Library
 - Model Presentation
 - [Dinamica Console](Dinamica-Console.html)

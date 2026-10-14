@@ -58,7 +58,7 @@ Packages can be installed from **Calculate R Expression** using the `dinamicaPac
 
 ## Wizards
 
-Functors that are part of a submodel cannot export input and/or output ports to wizards.
+See [Wizards](gui/Wizards.html) in the Graphical Interface section.
 
 ## Performance
 

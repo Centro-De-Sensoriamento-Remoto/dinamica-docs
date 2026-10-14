@@ -7,7 +7,7 @@ nav_exclude: true
 
 ## Description
 
-This container runs the functors it contains on a remote agent through a network coordinator, instead of running them on the local machine, letting the computationally heavy parts of a model be distributed to other machines. Using this container requires a coordinator and at least one agent to have been set up beforehand, and the coordinator's address and port to have been configured in Tools -> Options | Execution | Remote Computing, unless that connection information is instead provided through this container's own input ports.
+This container runs the functors it contains on a remote agent through a network coordinator, instead of running them on the local machine, letting the computationally heavy parts of a model be distributed to other machines. Using this container requires a coordinator and at least one agent to have been set up beforehand, and the coordinator's address and port to have been configured in Tools -> Options \| Execution \| Remote Computing, unless that connection information is instead provided through this container's own input ports.
 
 Different Run Remotely containers in the same model can each connect to a different coordinator, letting different parts of a model be distributed across distinct coordinators and agents.
 

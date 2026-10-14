@@ -114,7 +114,7 @@ Once ranges have been calibrated for every continuous variable, [Determine Weigh
 - **Executed_Transitions** -- of those possible cells, how many actually made the transition during the observed period.
 - **Weight_Coefficient** -- the resulting weight (W<sup>+</sup>) for that range or category: its contribution to the transition's probability wherever it applies.
 - **Contrast** -- W<sup>+</sup> minus W<sup>-</sup> for that range or category. Positive values favor the transition, negative values repel it, and values near zero mean the range has little effect. See [What Is Weights of Evidence](#what-is-weights-of-evidence) above for how this is derived.
-- **Significant** -- whether the Contrast passes the 95% confidence threshold (|C| > 1.96 S(C)). Rows marked "No" are exactly the ones the range-tuning loop above targets when adjusting the minimum delta.
+- **Significant** -- whether the Contrast passes the 95% confidence threshold (\|C\| > 1.96 S(C)). Rows marked "No" are exactly the ones the range-tuning loop above targets when adjusting the minimum delta.
 
 A strongly positive, significant Contrast marks a range that meaningfully favors the transition; a strongly negative, significant Contrast marks one that suppresses it; a low-magnitude or non-significant Contrast means that range of that variable isn't doing much explanatory work and may be a candidate for coarsening (larger minimum delta) or dropping.
 

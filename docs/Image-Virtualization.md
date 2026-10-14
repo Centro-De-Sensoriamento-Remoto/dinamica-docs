@@ -37,7 +37,7 @@ The virtual resolution of the resulting virtual maps is always the highest resol
 
 ## Controlling Virtualization
 
-The virtualization process is mostly automatic and happens by simply passing maps with different extents and resolutions to any functor. However, the user can constrain the virtualization process using the options available under *Tools* â†’ *Options* | *Advanced* | *Virtualization*. The user can choose one of the following options:
+The virtualization process is mostly automatic and happens by simply passing maps with different extents and resolutions to any functor. However, the user can constrain the virtualization process using the options available under *Tools* â†’ *Options* \| *Advanced* \| *Virtualization*. The user can choose one of the following options:
 
 - **Not Allowed**: If the simulation needs raster map virtualization to run, an error will be reported. Otherwise, the simulation will run as if using a previous version of Dinamica EGO. It does not have any effect on operations using region managers.
 - **Unrestricted**: If necessary, raster map virtualization will be used to run the simulations, even if its use results in very large maps compared to the dimensions of the input maps.
@@ -69,5 +69,5 @@ It is also worth noting that certain maps should not be mixed with other maps of
 
 ## See Also
 
-- [Useful Tips for Using the Graphical Interface - Virtualization](GUI-Tips.html#virtualization)
+- [Useful Tips for Using the Graphical Interface - Virtualization](gui/Options.html#virtualization)
 {% endraw %}

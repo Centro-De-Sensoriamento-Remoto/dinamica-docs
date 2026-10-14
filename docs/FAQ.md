@@ -67,7 +67,7 @@ After installing this utility, try running Dinamica EGO again.
 
 Dinamica EGO uses an Internet connection to check for new updates and to access the online documentation. No information other than the version of the Dinamica EGO software installed on your system is sent — see question U-2.
 
-If you prefer, you can turn off this version check by disabling "Tools => Options | System | Update," though this is not recommended.
+If you prefer, you can turn off this version check by disabling "Tools => Options \| System \| Update," though this is not recommended.
 
 #### Question U-2
 
@@ -109,7 +109,7 @@ See "Useful Tips: Increasing performance".
 A few things to try:
 
 - Run Dinamica EGO on a machine with as much available memory as possible.
-- Set the memory management option ("Tools" -> "Options" | "Advanced") to "Balanced." If you're using the command line tool, use the option `-memory-allocation-policy` with value `1`.
+- Set the memory management option ("Tools" -> "Options" \| "Advanced") to "Balanced." If you're using the command line tool, use the option `-memory-allocation-policy` with value `1`.
 - Reduce the number of lines and columns in your maps.
 - Reduce the number of different transitions (2 to 1, 5 to 3, etc.) in your simulation — this reduces the number of layers in the probability map and uses less memory.
 - Use sub-regions in your simulation. This lets [Patcher](Patcher.html) and/or [Expander](Expander.html) work through your landscape and probability map one sub-region at a time, using less memory.
@@ -118,9 +118,9 @@ A few things to try:
 
 **How do I change the folder where Dinamica EGO stores temporary images and temporary DLL libraries?**
 
-By default, Dinamica EGO uses the Windows temporary folder to store temporary images and compiled libraries. You can change this directly in the GUI, via "Tools -> Options -> Advanced | Use alternative folder for storing temporary files."
+By default, Dinamica EGO uses the Windows temporary folder to store temporary images and compiled libraries. You can change this directly in the GUI, via "Tools -> Options -> Advanced \| Use alternative folder for storing temporary files."
 
-Alternatively, you can point Dinamica at a different folder — independent of the one Windows itself uses — by defining an environment variable named `DINAMICA_TEMP_DIR` with the path to the new folder. On Windows 10, go to "Start menu -> Settings -> System | About | System Info -> Advanced system settings -> Advanced | Environment Variables | System variables." Click "New," then type `DINAMICA_TEMP_DIR` as the variable name and choose the new path as its value.
+Alternatively, you can point Dinamica at a different folder — independent of the one Windows itself uses — by defining an environment variable named `DINAMICA_TEMP_DIR` with the path to the new folder. On Windows 10, go to "Start menu -> Settings -> System \| About \| System Info -> Advanced system settings -> Advanced \| Environment Variables \| System variables." Click "New," then type `DINAMICA_TEMP_DIR` as the variable name and choose the new path as its value.
 
 ## The Expression Language
 

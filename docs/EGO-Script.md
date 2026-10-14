@@ -643,7 +643,7 @@ A common situation where this matters: if you connect a map or lookup table pure
 
 > **Note:** This constraint applies specifically when the GUI saves a script or generates a fragment in abbreviated syntax. When writing a script by hand in a text editor, the situation does not arise — you simply write the appropriate form directly.
 
-> **Tip:** You can control which form Dinamica EGO uses when saving a script via the *Use abbreviated syntax for Calculate family functors* option, found under *Tools* → *Options* | *EGO Script* — see [Script generation options](#script-generation-options) for the full list of generation options.
+> **Tip:** You can control which form Dinamica EGO uses when saving a script via the *Use abbreviated syntax for Calculate family functors* option, found under *Tools* → *Options* \| *EGO Script* — see [Script generation options](#script-generation-options) for the full list of generation options.
 
 ### The two lookup-table calculators
 
@@ -1125,7 +1125,7 @@ This property describes the underlying model graph, not something specific to on
 
 ## Script generation options
 
-When the GUI saves a script or generates an EGO Script fragment, a set of options controls how the output is formatted. These are found under *Tools* → *Options* | *EGO Script*:
+When the GUI saves a script or generates an EGO Script fragment, a set of options controls how the output is formatted. These are found under *Tools* → *Options* \| *EGO Script*:
 
 | Option | Description |
 | --- | --- |

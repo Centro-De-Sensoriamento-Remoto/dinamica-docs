@@ -9,7 +9,7 @@ nav_exclude: true
 
 ### Log Level
 
-The main log level ("Tools => Options | General | Main Log") controls what is displayed in the GUI Message Log and what is written to the files `debug.txt` and `log.txt`.
+The main log level ("Tools => Options \| General \| Main Log") controls what is displayed in the GUI Message Log and what is written to the files `debug.txt` and `log.txt`.
 
 The different log levels are shown below:
 
