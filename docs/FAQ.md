@@ -194,7 +194,7 @@ See [this post](https://csr.ufmg.br/dinamica/2015/09/22/validation/) on the Dina
 
 **I can't find Dinamica's PDF guidebook file anywhere. Where was it installed?**
 
-It's no longer distributed as a PDF — the guidebook is now part of the online documentation wiki. See [here](Guidebook.html).
+It's no longer distributed as a PDF — the guidebook is now part of the online documentation wiki.
 
 #### Question D-2
 
