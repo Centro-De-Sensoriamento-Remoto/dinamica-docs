@@ -1,6 +1,7 @@
 ---
 title: "EGOML Script"
-nav_order: 3
+nav_order: 2
+parent: "Language and Expressions"
 ---
 {% raw %}
 # EGOML Script

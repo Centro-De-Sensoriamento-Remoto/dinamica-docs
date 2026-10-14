@@ -1,6 +1,7 @@
 ---
 title: "Image Virtualization"
-nav_order: 6
+nav_order: 2
+parent: "Core Concepts"
 ---
 {% raw %}
 # Image Virtualization
@@ -19,7 +20,7 @@ Typically, the only requirement when using virtualization is that all images sha
 
 ![](image/imagevirtualization3.png)
 
-To facilitate the re-projection of maps, ensuring that the projections are the same, a convenient wrapper around [gdal_warp](http://gdal.org/gdalwarp.html) and [gdal_translate](http://gdal.org/gdal_translate.html) called [Transform Map](Transform-Map.html) is provided. This functor simply runs those GDAL utilities distributed with Dinamica EGO.
+To facilitate the re-projection of maps, ensuring that the projections are the same, a convenient wrapper around [gdal_warp](http://gdal.org/gdalwarp.html) and [gdal_translate](http://gdal.org/gdal_translate.html) called [Transform Map](functors/Transform-Map.html) is provided. This functor simply runs those GDAL utilities distributed with Dinamica EGO.
 
 All analysis concerning projections and what they represent is performed internally using [GDAL](http://gdal.org/). However, the map virtualization itself is performed independently by Dinamica.
 
@@ -55,9 +56,9 @@ The following example shows how virtualization works in practice:
 
 ## Limitations
 
-Functors [Calc Cost Allocation Map](Calc-Cost-Allocation-Map.html) and [Calc Pathway Map](Calc-Pathway-Map.html) will always report an error if virtualization is required to make their input maps compatible. The reason behind this behavior is simple: virtualization often replicates a cell, turning it into many cells with the same value when the resolution of a map increases, but these functors need the input cost map to have no local minimums. Replicating a cell would create a local minimum, which would prevent these functors from working properly.
+Functors [Calc Cost Allocation Map](functors/Calc-Cost-Allocation-Map.html) and [Calc Pathway Map](functors/Calc-Pathway-Map.html) will always report an error if virtualization is required to make their input maps compatible. The reason behind this behavior is simple: virtualization often replicates a cell, turning it into many cells with the same value when the resolution of a map increases, but these functors need the input cost map to have no local minimums. Replicating a cell would create a local minimum, which would prevent these functors from working properly.
 
-Some other functors, such as [Extract Map Attributes](Extract-Map-Attributes.html) and [Extract Categorical Map Attributes](Extract-Categorical-Map-Attributes.html), can produce a result that is different from the result that would be obtained using the original versions of the map. Typically, this is not a problem if the information produced by these functors is used with care. For example, it is safe to extract the number of non-null cells and multiply it by the cell resolution, provided that the values come from the *same* call to [Extract Map Attributes](Extract-Map-Attributes.html) or [Extract Categorical Map Attributes](Extract-Categorical-Map-Attributes.html). This works because map virtualization changes the cell resolution and the number of non-null cells of a map simultaneously, making the multiplication result consistent with the one that would be obtained using the original version of the map. The same is true for all other attributes.
+Some other functors, such as [Extract Map Attributes](functors/Extract-Map-Attributes.html) and [Extract Categorical Map Attributes](functors/Extract-Categorical-Map-Attributes.html), can produce a result that is different from the result that would be obtained using the original versions of the map. Typically, this is not a problem if the information produced by these functors is used with care. For example, it is safe to extract the number of non-null cells and multiply it by the cell resolution, provided that the values come from the *same* call to [Extract Map Attributes](functors/Extract-Map-Attributes.html) or [Extract Categorical Map Attributes](functors/Extract-Categorical-Map-Attributes.html). This works because map virtualization changes the cell resolution and the number of non-null cells of a map simultaneously, making the multiplication result consistent with the one that would be obtained using the original version of the map. The same is true for all other attributes.
 
 It is also worth noting that certain maps should not be mixed with other maps of different extents/resolutions, such as maps representing line features, especially roads. Some algorithms might assume that a road is always exactly one cell wide, and the virtualization process might produce a map where this assumption does not hold.
 

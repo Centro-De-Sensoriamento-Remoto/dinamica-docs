@@ -1,6 +1,7 @@
 ---
 title: "How-To"
-nav_exclude: true
+nav_order: 2
+parent: "Getting Started"
 ---
 {% raw %}
 # How-To

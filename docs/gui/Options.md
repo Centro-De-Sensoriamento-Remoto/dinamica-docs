@@ -38,7 +38,7 @@ The "Tools => Options \| Advanced \| Virtualization" option controls how Dinamic
 
 ## Message Log Level
 
-The GUI option "Tools => Options \| System \| Message log level" controls the amount of messages generated during model execution — it is not a performance setting. Setting it to Result reduces the volume of messages shown. *This helps when running models with lots of loop containers like [Repeat](../Repeat.html), [While](../While.html), [For](../For.html) etc, which would otherwise generate a large number of messages*.
+The GUI option "Tools => Options \| System \| Message log level" controls the amount of messages generated during model execution — it is not a performance setting. Setting it to Result reduces the volume of messages shown. *This helps when running models with lots of loop containers like [Repeat](../functors/Repeat.html), [While](../functors/While.html), [For](../functors/For.html) etc, which would otherwise generate a large number of messages*.
 
 When the log level is set to Debug or above, it is also possible to define which specific debugging actions (called **log subsystems**) should be logged.
 

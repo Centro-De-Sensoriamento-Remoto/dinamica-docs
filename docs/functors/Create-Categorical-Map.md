@@ -1,0 +1,56 @@
+---
+title: "Create Categorical Map"
+nav_order: 22
+parent: "Map Algebra Functors"
+grand_parent: "Functor List"
+redirect_from:
+  - /Create-Categorical-Map.html
+---
+{% raw %}
+# Create Categorical Map
+
+## Description
+
+Creates an empty categorical map with the given dimensions, cell type, categorization, projection, and georeferencing. Every cell of the resulting map is initialized with the specified null value.
+
+## Inputs
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Lines | [Positive Integer Value Type](../types/Positive-Integer-Value-Type.html) | Number of lines of the map. |
+| Columns | [Positive Integer Value Type](../types/Positive-Integer-Value-Type.html) | Number of columns of the map. |
+| Cell Type | [Cell Type](../types/Cell-Type.html) | Cell type of the map. |
+| Null Value | [Null Value Type](../types/Null-Value-Type.html) | Null value of the map. |
+| Categories | [Categorization Type](../types/Categorization-Type.html) | Categorization of the map. |
+| Projection | [Projection Type](../types/Projection-Type.html) | Projection assigned to the map. |
+| Cell Width | [Real Value Type](../types/Real-Value-Type.html) | Width of a cell. The unit depends on the assigned projection. |
+| Cell Height | [Real Value Type](../types/Real-Value-Type.html) | Height of a cell. The unit depends on the assigned projection. |
+| Registration Coordinate Y | [Real Value Type](../types/Real-Value-Type.html) | Y registration coordinate of the map (Northing or Latitude). The unit depends on the assigned projection. |
+| Registration Coordinate X | [Real Value Type](../types/Real-Value-Type.html) | X registration coordinate of the map (Easting or Longitude). The unit depends on the assigned projection. |
+
+## Optional Inputs
+
+| Name | Type | Description | Default Value |
+| --- | --- | --- | --- |
+| Registration Cell Y | [Positive Integer Value Type](../types/Positive-Integer-Value-Type.html) | Line index of the cell to which the registration coordinate corresponds. Line 1 is the topmost line. This is an advanced port. | 1 |
+| Registration Cell X | [Positive Integer Value Type](../types/Positive-Integer-Value-Type.html) | Column index of the cell to which the registration coordinate corresponds. Column 1 is the leftmost column. This is an advanced port. | 1 |
+| Create As Sparse | [Boolean Value Type](../types/Boolean-Value-Type.html) | If true, forces the map to be created as a sparse raster set, which stores only non-null cells, trading slower access time for reduced storage. This is an advanced port. | Yes |
+
+## Outputs
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Map | [Categorical Map Type](../types/Categorical-Map-Type.html) | Created map. |
+
+## Group
+
+[Map Algebra](../Functor-List.html#map-algebra)
+
+## Notes
+
+All cells of the created map are initialized with the specified null value.
+
+## Internal Name
+
+CreateCategoricalMap
+{% endraw %}

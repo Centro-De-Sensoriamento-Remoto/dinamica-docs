@@ -1,13 +1,14 @@
 ---
 title: "Weights of Evidence Calibration"
-nav_order: 15
+nav_order: 3
+parent: "Modeling Guides"
 ---
 {% raw %}
 # Weights of Evidence Calibration
 
 ## Overview
 
-This page describes the process of calibrating Weights of Evidence: starting from a pair of landscape maps and a set of predictive variables, and ending with a set of ranges and their corresponding coefficients. It covers the practical steps around the two container functors that do the work, [Determine Weights Of Evidence Ranges](Determine-Weights-Of-Evidence-Ranges.html) and [Determine Weights Of Evidence Coefficients](Determine-Weights-Of-Evidence-Coefficients.html); see those pages for the full port reference of each.
+This page describes the process of calibrating Weights of Evidence: starting from a pair of landscape maps and a set of predictive variables, and ending with a set of ranges and their corresponding coefficients. It covers the practical steps around the two container functors that do the work, [Determine Weights Of Evidence Ranges](functors/Determine-Weights-Of-Evidence-Ranges.html) and [Determine Weights Of Evidence Coefficients](functors/Determine-Weights-Of-Evidence-Coefficients.html); see those pages for the full port reference of each.
 
 ## What Is Weights of Evidence
 
@@ -15,7 +16,7 @@ Weights of Evidence is a Bayesian method, originally used in geology to map favo
 
 For a transition from category i to category j, each class of a predictive variable (a category, or a range of a continuous gray-tone variable) is assigned two numbers: a positive weight (W<sup>+</sup>), reflecting how the transition's likelihood changes for cells that fall inside that class, and a negative weight (W<sup>-</sup>), reflecting the same for cells that fall outside it.
 
-[Calc W. Of E. Probability Map](Calc-W-Of-E-Probability-Map.html) combines these weights with a transition's baseline probability to produce a probability for each cell, based on which range or category the cell falls into for each variable. This is why a weight's sign has a consistent meaning:
+[Calc W. Of E. Probability Map](functors/Calc-W-Of-E-Probability-Map.html) combines these weights with a transition's baseline probability to produce a probability for each cell, based on which range or category the cell falls into for each variable. This is why a weight's sign has a consistent meaning:
 
 - **Zero** -- leaves the baseline probability unchanged. A range with a zero weight carries no information about the transition, one way or the other.
 - **Positive** -- raises the probability above baseline. Cells in that range are more likely than average to make the transition -- the range favors it.
@@ -27,7 +28,7 @@ Every variable's weights combine together to produce a transition's overall prob
 
 ## Preparing the Input Variables
 
-Internally, Weights of Evidence operates only on categorical maps. Every predictive variable must ultimately be represented as a [Categorical Map](Categorical-Map-Type.html), but not every variable starts out that way, and the two cases are handled differently:
+Internally, Weights of Evidence operates only on categorical maps. Every predictive variable must ultimately be represented as a [Categorical Map](types/Categorical-Map-Type.html), but not every variable starts out that way, and the two cases are handled differently:
 
 - **Category variables** -- a map whose values are already the final classes to compare, such as soil type or a protected-area boundary. These enter the calibration directly as categorical.
 - **Continuous gray-tone variables** -- a map of raw, unbinned values, such as a slope raster or a distance-to-roads / distance-to-drainage layer generated as a buffer. These do **not** need to be manually classified into intervals before being used. Calibrating them is exactly what the range-determination step below does: it finds the class boundaries and outputs them as the ranges Weights object.
@@ -36,7 +37,7 @@ If a variable has already been manually classified into intervals outside Dinami
 
 ## The Weights of Evidence Skeleton
 
-The [Weights Of Evidence Skeleton](Weights-Of-Evidence-Skeleton-Type.html) is the structure that lists the selected spatial variables, marks each one as Category or continuous gray-tone, and, for the continuous ones, carries the parameters used to define their ranges:
+The [Weights Of Evidence Skeleton](types/Weights-Of-Evidence-Skeleton-Type.html) is the structure that lists the selected spatial variables, marks each one as Category or continuous gray-tone, and, for the continuous ones, carries the parameters used to define their ranges:
 
 | Parameter | Unit | Description |
 | --- | --- | --- |
@@ -51,9 +52,9 @@ These four parameters apply only to continuous gray-tone variables. A variable m
 
 ## Determining Ranges for a Continuous Variable
 
-[Determine Weights Of Evidence Ranges](Determine-Weights-Of-Evidence-Ranges.html) takes the Skeleton, together with the initial and final landscape maps, and produces the ranges output (a Weights object) used by the coefficient step below.
+[Determine Weights Of Evidence Ranges](functors/Determine-Weights-Of-Evidence-Ranges.html) takes the Skeleton, together with the initial and final landscape maps, and produces the ranges output (a Weights object) used by the coefficient step below.
 
-> **Note:** The ranges output only carries the categorization boundaries -- every weight in it is initialized to zero. It becomes a populated Weights object, with actual coefficients, only after being run through [Determine Weights Of Evidence Coefficients](Determine-Weights-Of-Evidence-Coefficients.html) in the next step.
+> **Note:** The ranges output only carries the categorization boundaries -- every weight in it is initialized to zero. It becomes a populated Weights object, with actual coefficients, only after being run through [Determine Weights Of Evidence Coefficients](functors/Determine-Weights-Of-Evidence-Coefficients.html) in the next step.
 
 ### Why This Works
 
@@ -81,7 +82,7 @@ A commonly used starting point for the Skeleton's parameters, for each continuou
 From there, the minimum delta is tuned iteratively:
 
 1. Run the range-and-coefficient calculation (the two functors chained together, initial landscape and final landscape feeding both, ranges from the first feeding the second).
-1. Inspect the `report` output of [Determine Weights Of Evidence Coefficients](Determine-Weights-Of-Evidence-Coefficients.html) (the same information shown in the message log, in table form). Look at the `Significant` column.
+1. Inspect the `report` output of [Determine Weights Of Evidence Coefficients](functors/Determine-Weights-Of-Evidence-Coefficients.html) (the same information shown in the message log, in table form). Look at the `Significant` column.
 1. The goal is to maximize the number of `Significant = Yes` rows.
 1. For any row where `Significant = No`, read that row's `Possible_Transitions` value and set the minimum delta slightly above it, then repeat from step 1.
 1. If several rows are not significant at once, use the largest `Possible_Transitions` value among them as the basis for the next minimum delta.
@@ -90,7 +91,7 @@ Each continuous gray-tone variable goes through this tuning individually -- the 
 
 ## Determining Coefficients
 
-Once ranges have been calibrated for every continuous variable, [Determine Weights Of Evidence Coefficients](Determine-Weights-Of-Evidence-Coefficients.html) takes the initial landscape, final landscape, and ranges, and produces:
+Once ranges have been calibrated for every continuous variable, [Determine Weights Of Evidence Coefficients](functors/Determine-Weights-Of-Evidence-Coefficients.html) takes the initial landscape, final landscape, and ranges, and produces:
 
 - `weights` -- the Weights of Evidence coefficients themselves.
 - `report` -- a Table with one row per transition / variable / range combination, in this format:
@@ -129,17 +130,17 @@ Both functors also expose two optional inputs that affect this calculation:
 
 Weights of Evidence's one formal requirement is that the input variables be spatially independent -- if two variables are highly correlated, their combined contribution double-counts the same spatial signal.
 
-[Determine Weights Of Evidence Correlation](Determine-Weights-Of-Evidence-Correlation.html) checks this pairwise, for every candidate variable at once, against a chosen transition. Required inputs: `ranges` (Weights -- the same output produced by [Determining Ranges for a Continuous Variable](#determining-ranges-for-a-continuous-variable) above) and `transition` (TransitionSet, editable). Output: `report` (Table), with pairwise statistics including Chi-square, Cramer's V, Contingency, Entropy, and Joint Information.
+[Determine Weights Of Evidence Correlation](functors/Determine-Weights-Of-Evidence-Correlation.html) checks this pairwise, for every candidate variable at once, against a chosen transition. Required inputs: `ranges` (Weights -- the same output produced by [Determining Ranges for a Continuous Variable](#determining-ranges-for-a-continuous-variable) above) and `transition` (TransitionSet, editable). Output: `report` (Table), with pairwise statistics including Chi-square, Cramer's V, Contingency, Entropy, and Joint Information.
 
 There is no fixed universal threshold for "too correlated" -- it's a judgment call based on the report values. When a pair of variables shows high correlation across these measures, drop one of them or combine both into a new derived variable, then re-run the range and coefficient calibration for the surviving variable set.
 
 ## Reusing and Saving Weights
 
-[Save Weights](Save-Weights.html) writes either the ranges or the final coefficients to a file, with the format inferred from the filename extension. For calibrations that vary across model steps, [Number Weights](Number-Weights.html) / [Number Weights Filename](Number-Weights-Filename.html) tag a Weights value or filename with a step number, and the corresponding [Select Weights](Select-Weights.html) / [Select Weights Filename](Select-Weights-Filename.html) container functors pick the right one back out by step during execution.
+[Save Weights](functors/Save-Weights.html) writes either the ranges or the final coefficients to a file, with the format inferred from the filename extension. For calibrations that vary across model steps, [Number Weights](functors/Number-Weights.html) / [Number Weights Filename](functors/Number-Weights-Filename.html) tag a Weights value or filename with a step number, and the corresponding [Select Weights](functors/Select-Weights.html) / [Select Weights Filename](functors/Select-Weights-Filename.html) container functors pick the right one back out by step during execution.
 
 ### Weights file format
 
-When [Save Weights](Save-Weights.html) writes a Weights object to CSV, it uses a five-column table: `From`, `To`, `Variable`, `Range_Lower_Limit`, `Weight`. The upper limit of each range is not stored explicitly -- it is inferred as the next row's `Range_Lower_Limit` for the same transition and variable, with the final range in each group extending to the maximum representable value.
+When [Save Weights](functors/Save-Weights.html) writes a Weights object to CSV, it uses a five-column table: `From`, `To`, `Variable`, `Range_Lower_Limit`, `Weight`. The upper limit of each range is not stored explicitly -- it is inferred as the next row's `Range_Lower_Limit` for the same transition and variable, with the final range in each group extending to the maximum representable value.
 
 A six-column variant is also accepted when loading a Weights CSV, with an explicit `Range_Upper_Limit` column inserted between `Range_Lower_Limit` and `Weight`. This form is useful for hand-edited or externally generated weight tables, but `Save Weights` itself only ever produces the five-column form.
 
@@ -149,7 +150,7 @@ A six-column variant is also accepted when loading a Weights CSV, with an explic
 
 ## Using the Weights Downstream
 
-A finished, calibrated Weights object is not an end in itself -- it becomes an input to [Calc W. Of E. Probability Map](Calc-W-Of-E-Probability-Map.html), which combines it with the current landscape to produce a per-cell transition probability map.
+A finished, calibrated Weights object is not an end in itself -- it becomes an input to [Calc W. Of E. Probability Map](functors/Calc-W-Of-E-Probability-Map.html), which combines it with the current landscape to produce a per-cell transition probability map.
 
 | Port | Direction | Type | Required? | Description |
 | --- | --- | --- | --- | --- |
@@ -160,13 +161,13 @@ A finished, calibrated Weights object is not an end in itself -- it becomes an i
 | `nullValue` | Input | NullValue | No (default `.default`) | Null value of the output map. |
 | `probabilities` | Output | Map | -- | The resulting spatial probability map. |
 
-That probability map, together with a change matrix derived from the transition rates (via [Calc Change Matrix](Calc-Change-Matrix.html)), is what [Patcher](Patcher.html) and [Expander](Expander.html) consume to allocate the simulated changes across the landscape. In a multi-step simulation running inside a [Repeat](Repeat.html) loop, `Calc W. Of E. Probability Map` is typically recalculated every step against the updated landscape, since dynamic variables (such as distance to previously changed cells) change as the simulation progresses.
+That probability map, together with a change matrix derived from the transition rates (via [Calc Change Matrix](functors/Calc-Change-Matrix.html)), is what [Patcher](functors/Patcher.html) and [Expander](functors/Expander.html) consume to allocate the simulated changes across the landscape. In a multi-step simulation running inside a [Repeat](functors/Repeat.html) loop, `Calc W. Of E. Probability Map` is typically recalculated every step against the updated landscape, since dynamic variables (such as distance to previously changed cells) change as the simulation progresses.
 
 ## Example: A Basic Calibration Model
 
 This example ties the pieces above together: one continuous variable, one categorical variable, a range calculation, a coefficient calculation, and saving both results.
 
-Each variable here is loaded as its own separate map, connected to its own [Name Map](Name-Map.html). Every map, cube or not, is organized into named [layers](Map-Type.html) -- a single, non-cube map defaults to one layer named `layer_0`, but the functor that produced the map can assign its own name instead: [Calc Distance Map](Calc-Distance-Map.html), for instance, names its output `distance_to_<category>` rather than using the default. [Extract Map Layer](Extract-Map-Layer.html)'s own editor lists a map's actual layer names, which is the place to check when in doubt, and it also pulls a specific layer out on its own if one is needed outside a Skeleton reference. It's also possible to assemble every predictive variable into a single multi-layer cube via [Create Cube Map](Create-Cube-Map.html), the way Lesson 18's own example does -- but for a handful of variables that adds a layer of indirection without much benefit. A cube's usefulness shows up with many static variables: one [Name Map](Name-Map.html) alias then covers the whole set, and the model loads and connects one file instead of one per variable. Inside a cube, each layer's name comes from [Number And Name Map](Number-And-Name-Map.html) rather than plain Name Map, since it's assigning both an index and a name to a single layer as it's assembled.
+Each variable here is loaded as its own separate map, connected to its own [Name Map](functors/Name-Map.html). Every map, cube or not, is organized into named [layers](types/Map-Type.html) -- a single, non-cube map defaults to one layer named `layer_0`, but the functor that produced the map can assign its own name instead: [Calc Distance Map](functors/Calc-Distance-Map.html), for instance, names its output `distance_to_<category>` rather than using the default. [Extract Map Layer](functors/Extract-Map-Layer.html)'s own editor lists a map's actual layer names, which is the place to check when in doubt, and it also pulls a specific layer out on its own if one is needed outside a Skeleton reference. It's also possible to assemble every predictive variable into a single multi-layer cube via [Create Cube Map](functors/Create-Cube-Map.html), the way Lesson 18's own example does -- but for a handful of variables that adds a layer of indirection without much benefit. A cube's usefulness shows up with many static variables: one [Name Map](functors/Name-Map.html) alias then covers the whole set, and the model loads and connects one file instead of one per variable. Inside a cube, each layer's name comes from [Number And Name Map](functors/Number-And-Name-Map.html) rather than plain Name Map, since it's assigning both an index and a name to a single layer as it's assembled.
 
 ```
 // Input maps
@@ -227,11 +228,11 @@ Group {{
 }};
 ```
 
-The saved `coefficients.dcf` is the finished Weights object -- reload it with [Load Weights](Load-Weights.html) wherever [Calc W. Of E. Probability Map](Calc-W-Of-E-Probability-Map.html) needs it (see [Using the Weights Downstream](#using-the-weights-downstream)). The saved `report.csv` can be opened directly in a spreadsheet to review `Contrast` and `Significant` per range, without needing to scroll the message log.
+The saved `coefficients.dcf` is the finished Weights object -- reload it with [Load Weights](functors/Load-Weights.html) wherever [Calc W. Of E. Probability Map](functors/Calc-W-Of-E-Probability-Map.html) needs it (see [Using the Weights Downstream](#using-the-weights-downstream)). The saved `report.csv` can be opened directly in a spreadsheet to review `Contrast` and `Significant` per range, without needing to scroll the message log.
 
 ## Tips
 
 - A model with more than one transition needs its own ranges and coefficients per transition; the range parameters from one transition can be copied as a starting point for another, but each must still be tuned independently.
-- The [Name Map](Name-Map.html) aliases used inside [Determine Weights Of Evidence Ranges](Determine-Weights-Of-Evidence-Ranges.html) and [Determine Weights Of Evidence Coefficients](Determine-Weights-Of-Evidence-Coefficients.html) must match exactly between the two containers -- this is how each container knows which named map corresponds to which variable in the Skeleton.
-- To inspect or chart a report outside the message log, connect its `report` output to [Save Table](Save-Table.html) and export to CSV.
+- The [Name Map](functors/Name-Map.html) aliases used inside [Determine Weights Of Evidence Ranges](functors/Determine-Weights-Of-Evidence-Ranges.html) and [Determine Weights Of Evidence Coefficients](functors/Determine-Weights-Of-Evidence-Coefficients.html) must match exactly between the two containers -- this is how each container knows which named map corresponds to which variable in the Skeleton.
+- To inspect or chart a report outside the message log, connect its `report` output to [Save Table](functors/Save-Table.html) and export to CSV.
 {% endraw %}

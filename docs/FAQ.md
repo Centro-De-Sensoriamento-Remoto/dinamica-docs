@@ -1,6 +1,6 @@
 ---
 title: "Frequently Answered Questions"
-nav_order: 20
+nav_order: 8
 ---
 {% raw %}
 # Frequently Answered Questions
@@ -75,7 +75,7 @@ If you prefer, you can turn off this version check by disabling "Tools => Option
 
 - From time to time, it sends a request to our servers checking whether the user has the latest version of the software. If not, it downloads and applies an update. The user is free to turn off automatic update checking, which prevents any version checking from happening at all. The only information ever sent to our servers during this check is the current version of the Dinamica software running on the computer — nothing that could be used to identify the user or the computer is ever sent.
 - Users can send data to our servers by accessing the "[submodel](Submodels.html)" repository within the application, or by downloading "[submodels](Submodels.html)" from our server. Both actions have to be explicitly started by the user. When browsing the "[submodel](Submodels.html)" repository, the user sees a list of "[submodels](Submodels.html)" available for download; installing one downloads a file into the user's `%localappdata%\Dinamica EGO X` folder (where X is Dinamica EGO's major version number) so it can be used by the software.
-- When browsing a model and clicking the "?" button on the action bar, the user opens an online wiki page with documentation for that functor or operator — for instance, [Calc Cost Map](Calc-Cost-Map.html). This is just a standard request for a static page and doesn't send any information that could identify the user or the computer.
+- When browsing a model and clicking the "?" button on the action bar, the user opens an online wiki page with documentation for that functor or operator — for instance, [Calc Cost Map](functors/Calc-Cost-Map.html). This is just a standard request for a static page and doesn't send any information that could identify the user or the computer.
 
 ## Runtime Errors and Crashes
 
@@ -112,7 +112,7 @@ A few things to try:
 - Set the memory management option ("Tools" -> "Options" \| "Advanced") to "Balanced." If you're using the command line tool, use the option `-memory-allocation-policy` with value `1`.
 - Reduce the number of lines and columns in your maps.
 - Reduce the number of different transitions (2 to 1, 5 to 3, etc.) in your simulation — this reduces the number of layers in the probability map and uses less memory.
-- Use sub-regions in your simulation. This lets [Patcher](Patcher.html) and/or [Expander](Expander.html) work through your landscape and probability map one sub-region at a time, using less memory.
+- Use sub-regions in your simulation. This lets [Patcher](functors/Patcher.html) and/or [Expander](functors/Expander.html) work through your landscape and probability map one sub-region at a time, using less memory.
 
 #### Question P-3
 
@@ -156,7 +156,7 @@ Dinamica EGO automatically detects the incorrect expression and rewrites it to r
 
 > **Editor's note:** The null-poisoning behaviour of `i1 == null` described above is confirmed and consistent with the rest of this wiki's documentation. The specific claim that Dinamica EGO **automatically rewrites** the expression in the saved model, however, is not something the editor has an independent source to confirm. It's plausible as a GUI-level safeguard, but should be verified before being relied upon.
 
-For more on expression syntax, see the documentation of the [Image Expression Type](Image-Expression-Type.html). For more on how null values are handled during map and value calculations, see [Null Value Handling](Calculate-Functors.html#null-value-handling) on Calculate Functors.
+For more on expression syntax, see the documentation of the [Image Expression Type](types/Image-Expression-Type.html). For more on how null values are handled during map and value calculations, see [Null Value Handling](Calculate-Functors.html#null-value-handling) on Calculate Functors.
 
 ## Modeling and Calibration
 
@@ -170,7 +170,7 @@ There is no mechanism for calibrating those values automatically in Dinamica EGO
 
 **Why does Dinamica EGO say it can't calculate the multi-step transition matrix?**
 
-The multi-step matrix can only be calculated with the [Determine Transition Matrix](Determine-Transition-Matrix.html) functor if the single-step matrix has a decomposition into its corresponding eigenvectors and eigenvalues. Without that decomposition, the process can't be represented as an ergodic matrix — that is, the eigenvalues aren't real numbers. The time-step matrix is obtained as follows:
+The multi-step matrix can only be calculated with the [Determine Transition Matrix](functors/Determine-Transition-Matrix.html) functor if the single-step matrix has a decomposition into its corresponding eigenvectors and eigenvalues. Without that decomposition, the process can't be represented as an ergodic matrix — that is, the eigenvalues aren't real numbers. The time-step matrix is obtained as follows:
 
 P = M \* V \* INVM
 
@@ -220,7 +220,7 @@ For now, the software is only available in English.
 
 **What's the difference between each log level available in Dinamica EGO?**
 
-See [Log Levels](Log-Tag-Type.html#log-level).
+See [Log Levels](types/Log-Tag-Type.html#log-level).
 
 #### Question G-3
 

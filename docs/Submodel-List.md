@@ -1,6 +1,8 @@
 ---
 title: "Submodel List"
-nav_exclude: true
+nav_order: 1
+parent: "Submodels"
+grand_parent: "Language and Expressions"
 ---
 {% raw %}
 # Submodel List

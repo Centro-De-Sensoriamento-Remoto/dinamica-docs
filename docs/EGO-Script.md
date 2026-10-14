@@ -1,6 +1,7 @@
 ---
 title: "EGO Script Language"
-nav_order: 2
+nav_order: 1
+parent: "Language and Expressions"
 ---
 {% raw %}
 # EGO Script Language
@@ -38,7 +39,7 @@ The `Script {{ }}` block delimits the script text. A single file can carry sever
 
 ## Functors, variables, and binding
 
-Each statement inside the block calls a **functor** — a processing unit that consumes inputs and produces outputs. The second line of the example calls a [Load Map](Load-Map.html) to load the GeoTiff file `"map.tif"`, and binds the resulting map to the variable `x`. Two conventions are worth noting right away. First, a functor's name is written **without spaces** (`LoadMap`, not `Load Map`). Second, a variable is always defined and bound with the `:=` operator. The third line calls [Save Map](Save-Map.html) to write the map held by `x` to an ERMapper file named `"c:/map-copy.ers"`. The position of a value relative to the functor name determines whether it is an input or an output:
+Each statement inside the block calls a **functor** — a processing unit that consumes inputs and produces outputs. The second line of the example calls a [Load Map](functors/Load-Map.html) to load the GeoTiff file `"map.tif"`, and binds the resulting map to the variable `x`. Two conventions are worth noting right away. First, a functor's name is written **without spaces** (`LoadMap`, not `Load Map`). Second, a variable is always defined and bound with the `:=` operator. The third line calls [Save Map](functors/Save-Map.html) to write the map held by `x` to an ERMapper file named `"c:/map-copy.ers"`. The position of a value relative to the functor name determines whether it is an input or an output:
 
 - Values and variables written **after** the functor name are bound to its **input** ports.
 - Variables written **before** the `:=` operator are bound to its **output** ports.
@@ -69,7 +70,7 @@ A functor call binds **outputs** — the variables written before `:=` — and c
 areaTable := CalcAreas landscape .no;
 ```
 
-Here [Calc Areas](Calc-Areas.html) reads two inputs (`landscape` and the constant `.no`) and produces one output, bound to the variable `areaTable`. Constants are written with a leading dot (`.no`, `.default`, `.int32`, `.none`) — see [Constants](#constants) below.
+Here [Calc Areas](functors/Calc-Areas.html) reads two inputs (`landscape` and the constant `.no`) and produces one output, bound to the variable `areaTable`. Constants are written with a leading dot (`.no`, `.default`, `.int32`, `.none`) — see [Constants](#constants) below.
 
 Inputs can be supplied in three interchangeable styles — [positional](#positional-syntax), [nominal](#nominal-syntax), and [inline](#inline-syntax). The styles may be mixed freely between calls, and even within a single call.
 
@@ -108,9 +109,9 @@ Automatic type conversion — such as a Real value becoming a Tuple, or a String
 "distanceToRoads"
 ```
 
-[Code](Code-Type.html) ports also accept this basic `"text"` form, but interpret it differently from the types above: rather than validating the text itself, the content is decoded as base64 to produce the script — see the note below.
+[Code](types/Code-Type.html) ports also accept this basic `"text"` form, but interpret it differently from the types above: rather than validating the text itself, the content is decoded as base64 to produce the script — see the note below.
 
-For `String` ports that contain line breaks or double-quote characters, use the extended form `$"DELIMITER(content)DELIMITER"`. The content is everything between the opening `(` and the closing `)`, and the DELIMITER — any sequence of characters placed between the `%%"%%` and the `(`, including empty — makes the closing `)"` unambiguous. The delimiter must be identical on both sides. [Code](Code-Type.html) ports accept this same extended form directly too, using the content as the literal script text with no encoding involved — see [Code Type](Code-Type.html) for the full grammar. No other port type accepts it:
+For `String` ports that contain line breaks or double-quote characters, use the extended form `$"DELIMITER(content)DELIMITER"`. The content is everything between the opening `(` and the closing `)`, and the DELIMITER — any sequence of characters placed between the `%%"%%` and the `(`, including empty — makes the closing `)"` unambiguous. The delimiter must be identical on both sides. [Code](types/Code-Type.html) ports accept this same extended form directly too, using the content as the literal script text with no encoding involved — see [Code Type](types/Code-Type.html) for the full grammar. No other port type accepts it:
 
 ```
 // basic form — line break inside the content
@@ -134,7 +135,7 @@ Lookup table literals support an additional shorthand: `startKey startValue .. e
 [ "Key" "Value", 1 1 .. 4 1, 5 -8, 6 1 .. 9 1 ]
 ```
 
-Since the start and end values in each range above are equal, interpolating between them keeps the value constant — keys 1–4 and 6–9 all map to `1`, and key 5 maps to `-8`. When a script is saved from the GUI, ranges like this are automatically collapsed back into `..` notation where possible. See [Lookup Table Type](Lookup-Table-Type.html) for the full syntax, including optional key/value column names, and [Table Type](Table-Type.html) for the syntax rules that apply to tables in general.
+Since the start and end values in each range above are equal, interpolating between them keeps the value constant — keys 1–4 and 6–9 all map to `1`, and key 5 maps to `-8`. When a script is saved from the GUI, ranges like this are automatically collapsed back into `..` notation where possible. See [Lookup Table Type](types/Lookup-Table-Type.html) for the full syntax, including optional key/value column names, and [Table Type](types/Table-Type.html) for the syntax rules that apply to tables in general.
 
 A general table follows the same bracket syntax but allows any number of columns, mixing Real and String data, with types inferred from each column's own values unless overridden with a `#type` suffix:
 
@@ -162,7 +163,7 @@ changes := CalcChangeMatrix landscape [ 2->1 0.05 ];
 
 Here `[ 2->1 0.05 ]` is a structured constant representing a transition matrix with a 5% rate from class 2 to class 1.
 
-> **Note:** [Code](Code-Type.html) — the type used for expression inputs such as the Python code in [Calculate Python Expression](Calculate-Python-Expression.html) — has its own literal syntax, parsed directly rather than through a conversion, and accepts two forms: the extended `$"DELIMITER(content)DELIMITER"` form described above, taken directly as the script's text with no encoding involved; and the basic double-quoted `"text"` form, whose content is instead decoded as base64 to produce the script. See [Code Type](Code-Type.html) for the full grammar and examples of both forms.
+> **Note:** [Code](types/Code-Type.html) — the type used for expression inputs such as the Python code in [Calculate Python Expression](functors/Calculate-Python-Expression.html) — has its own literal syntax, parsed directly rather than through a conversion, and accepts two forms: the extended `$"DELIMITER(content)DELIMITER"` form described above, taken directly as the script's text with no encoding involved; and the basic double-quoted `"text"` form, whose content is instead decoded as base64 to produce the script. See [Code Type](types/Code-Type.html) for the full grammar and examples of both forms.
 
 ### Positional syntax
 
@@ -175,7 +176,7 @@ areaTable := CalcAreas landscape .no;
 
 **Omitting optional inputs.** A functor's optional input ports always come after its required ones. In positional syntax you may stop supplying arguments early, but you cannot skip an optional input and then supply a later one — once you omit a port, every port after it is omitted too. To leave a gap, use [nominal syntax](#nominal-syntax) (described below) for that call.
 
-[Load Categorical Map](Load-Categorical-Map.html), for example, takes a required filename followed by several optional inputs; this call supplies the first few of them positionally and omits the rest:
+[Load Categorical Map](functors/Load-Categorical-Map.html), for example, takes a required filename followed by several optional inputs; this call supplies the first few of them positionally and omits the rest:
 
 ```
 landscape := LoadCategoricalMap "c:/landscape.ers" .none .default 0 0 0 100 100;
@@ -191,7 +192,7 @@ _ _ _ _ _ _ coordinateType _ _ := GetProjectionInfo landscape;
 patchInfo _ _ := GetElevationGraphInfo elevationGraph .no .no;
 ```
 
-A functor with no outputs at all is written as a bare call, with no assignment and no underscore — there is nothing to discard. [Print](Print.html) and [Save Map](Save-Map.html) are the common cases.
+A functor with no outputs at all is written as a bare call, with no assignment and no underscore — there is nothing to discard. [Print](functors/Print.html) and [Save Map](functors/Save-Map.html) are the common cases.
 
 ### Nominal syntax
 
@@ -244,7 +245,7 @@ landscape := LoadCategoricalMap { filename = "c:/landscape.tif" };
 SaveTable { table = areaTable, filename = "c:/areas.csv" };
 ```
 
-The port names used in nominal syntax are the input and output names defined by each functor (for instance, [Calc Patch Label Map](Calc-Patch-Label-Map.html) defines the inputs `source`, `initialPatchLabel`, `windowLines`, and so on). Names are case-sensitive.
+The port names used in nominal syntax are the input and output names defined by each functor (for instance, [Calc Patch Label Map](functors/Calc-Patch-Label-Map.html) defines the inputs `source`, `initialPatchLabel`, `windowLines`, and so on). Names are case-sensitive.
 
 ### Inline syntax
 
@@ -291,11 +292,11 @@ Containers are the second source of execution ordering in Dinamica EGO, alongsid
 
 Containers fall into a few families:
 
-- **Sequencing.** [Group](Group.html) runs its contents as a unit, with no repetition or condition. It exists to organize a model and to give a block a shared property such as a label or color.
-- **Conditional.** [If Then](If-Then.html) runs its contents only when a condition is true; [If Not Then](If-Not-Then.html) runs them only when a condition is false.
-- **Loops.** Several containers repeat their contents. [Repeat](Repeat.html) runs them a fixed number of times; [For](For.html) iterates over a numeric range; [For Each](For-Each.html) iterates over the rows of a table; [For Each Category](For-Each-Category.html) iterates over the categories of a map; [For Each Region](For-Each-Region.html) iterates over the regions of a map; and [While](While.html) and [Do While](Do-While.html) repeat for as long as a condition holds.
-- **Region management.** [Region Manager](Region-Manager.html) establishes a region context and runs its contents once for that context, exposing the region to the functors inside it.
-- **Error handling.** [Skip On Error](Skip-On-Error.html) and [Skip All On Error](Skip-All-On-Error.html) execute their contained functors while capturing and ignoring any error that occurs. Both accept a `trapAndIgnoreErrors` boolean input — when set to false, they behave as a plain `Group` and errors are not suppressed. Both also produce an `executionCompletedSuccessfully` output that can be tested by subsequent functors. The two differ in what happens to results already produced when an error is raised: [Skip On Error](Skip-On-Error.html) preserves the outputs of any functors that completed successfully before the error; [Skip All On Error](Skip-All-On-Error.html) discards all of them. They are typically paired with a junction outside the container to react to the outcome — see [Error-handling pattern](#error-handling-pattern) below.
+- **Sequencing.** [Group](functors/Group.html) runs its contents as a unit, with no repetition or condition. It exists to organize a model and to give a block a shared property such as a label or color.
+- **Conditional.** [If Then](functors/If-Then.html) runs its contents only when a condition is true; [If Not Then](functors/If-Not-Then.html) runs them only when a condition is false.
+- **Loops.** Several containers repeat their contents. [Repeat](functors/Repeat.html) runs them a fixed number of times; [For](functors/For.html) iterates over a numeric range; [For Each](functors/For-Each.html) iterates over the rows of a table; [For Each Category](functors/For-Each-Category.html) iterates over the categories of a map; [For Each Region](functors/For-Each-Region.html) iterates over the regions of a map; and [While](functors/While.html) and [Do While](functors/Do-While.html) repeat for as long as a condition holds.
+- **Region management.** [Region Manager](functors/Region-Manager.html) establishes a region context and runs its contents once for that context, exposing the region to the functors inside it.
+- **Error handling.** [Skip On Error](functors/Skip-On-Error.html) and [Skip All On Error](functors/Skip-All-On-Error.html) execute their contained functors while capturing and ignoring any error that occurs. Both accept a `trapAndIgnoreErrors` boolean input — when set to false, they behave as a plain `Group` and errors are not suppressed. Both also produce an `executionCompletedSuccessfully` output that can be tested by subsequent functors. The two differ in what happens to results already produced when an error is raised: [Skip On Error](functors/Skip-On-Error.html) preserves the outputs of any functors that completed successfully before the error; [Skip All On Error](functors/Skip-All-On-Error.html) discards all of them. They are typically paired with a junction outside the container to react to the outcome — see [Error-handling pattern](#error-handling-pattern) below.
 
 The [calculator functors](#calculator-functor-shorthand) described later in this section are also containers: each holds the expression it evaluates, and in its verbose form holds a block of operand definitions.
 
@@ -315,7 +316,7 @@ A container exchanges data with the functors inside it through **internal ports*
 
 Not all containers are about control flow. Some functors are implemented as containers specifically to exploit the execution ordering guarantee that containers provide. In a dataflow language, two functors with no data dependency between them may execute in any order. Making a functor a container means its contents execute as part of that functor's own execution — the container starts, its contents run, then it finishes. This makes it possible to bracket a computation with side effects that are guaranteed to happen before and after it.
 
-[Print](Print.html) is the clearest example. It prints an `initialMessage` before its contents run and a `finalMessage` after they complete. Because the calculation lives inside the container, the ordering is guaranteed:
+[Print](functors/Print.html) is the clearest example. It prints an `initialMessage` before its contents run and a `finalMessage` after they complete. Because the calculation lives inside the container, the ordering is guaranteed:
 
 ```
 Print "Beginning execution" "Finished execution" {{
@@ -324,7 +325,7 @@ Print "Beginning execution" "Finished execution" {{
 }};
 ```
 
-Either message can be omitted with `.none`. If the final message needs to include a value produced by the computation, a nested [Print](Print.html) can be placed at the end of the body. The inner `Print` only runs after `result` is computed, since it depends on it — and [Create String](Create-String.html) with [Number Value](Number-Value.html) is used to embed the computed value in the message string:
+Either message can be omitted with `.none`. If the final message needs to include a value produced by the computation, a nested [Print](functors/Print.html) can be placed at the end of the body. The inner `Print` only runs after `result` is computed, since it depends on it — and [Create String](functors/Create-String.html) with [Number Value](functors/Number-Value.html) is used to embed the computed value in the message string:
 
 ```
 Print "Beginning execution" .none {{
@@ -359,7 +360,7 @@ _ := Group sequenceOut {{
 }};
 ```
 
-> **Note:** Sequence ports are only needed when two containers have no natural data dependency between them — if one container already produces a value that the other consumes, the ordering is already established and no sequencing port is required. Before sequence ports were available, models used a **forced-dependency pattern** — creating a dummy data value inside one container and consuming it inside another to manufacture an artificial data dependency. This idiom still appears in older scripts but is now a last resort, used only for functors that do not expose `sequenceInput` and `sequenceOutput` ports (such as [Skip On Error](Skip-On-Error.html) and [Skip All On Error](Skip-All-On-Error.html), which instead expose an `executionCompletedSuccessfully` boolean output that can serve the same purpose).
+> **Note:** Sequence ports are only needed when two containers have no natural data dependency between them — if one container already produces a value that the other consumes, the ordering is already established and no sequencing port is required. Before sequence ports were available, models used a **forced-dependency pattern** — creating a dummy data value inside one container and consuming it inside another to manufacture an artificial data dependency. This idiom still appears in older scripts but is now a last resort, used only for functors that do not expose `sequenceInput` and `sequenceOutput` ports (such as [Skip On Error](functors/Skip-On-Error.html) and [Skip All On Error](functors/Skip-All-On-Error.html), which instead expose an `executionCompletedSuccessfully` boolean output that can serve the same purpose).
 
 ### Internal output ports
 
@@ -378,7 +379,7 @@ ForEachCategory categorization {{
 
 Here `step` is the port the loop provides, and `currentCategory` is the variable that receives it for use inside the block.
 
-The binding is optional in this particular case. [Step](Step.html)'s own input is auto-bound to the enclosing container's `step` port — see [Auto-bound ports](#auto-bound-ports) below — so `categoryId := Step;` on its own would have worked. It is written out here to make the port visible; internal outputs with no such auto-bound consumer, like the one in the next example, always have to be read explicitly.
+The binding is optional in this particular case. [Step](functors/Step.html)'s own input is auto-bound to the enclosing container's `step` port — see [Auto-bound ports](#auto-bound-ports) below — so `categoryId := Step;` on its own would have worked. It is written out here to make the port visible; internal outputs with no such auto-bound consumer, like the one in the next example, always have to be read explicitly.
 
 `RegionManager` provides another example. It creates a region context and exposes it to the functors inside its block through an internal output port:
 
@@ -390,13 +391,13 @@ RegionManager regionMap 0 {{
 }};
 ```
 
-`manager = regionManager;` reads the container's internal output port `regionManager` into the variable `manager`, which [Get All Regions Info](Get-All-Regions-Info.html) then consumes. The name on the right is always the port; the name on the left is your variable.
+`manager = regionManager;` reads the container's internal output port `regionManager` into the variable `manager`, which [Get All Regions Info](functors/Get-All-Regions-Info.html) then consumes. The name on the right is always the port; the name on the left is your variable.
 
 ### Internal input ports
 
 An **internal input port** carries a value the other way: from the functors inside the block back to the container. The contained functors produce the value; the container consumes it. The condition that decides whether a loop repeats is the clearest example.
 
-A `While` or `DoWhile` loop has an internal input port for its repeat condition. It is fed by placing a [Set While Condition](Set-While-Condition.html) functor inside the loop body — the `condition` output port of `SetWhileCondition` is **auto-bound** (see [Auto-bound ports](#auto-bound-ports) below) to the loop's `condition` internal input, so no explicit connection is needed:
+A `While` or `DoWhile` loop has an internal input port for its repeat condition. It is fed by placing a [Set While Condition](functors/Set-While-Condition.html) functor inside the loop body — the `condition` output port of `SetWhileCondition` is **auto-bound** (see [Auto-bound ports](#auto-bound-ports) below) to the loop's `condition` internal input, so no explicit connection is needed:
 
 ```
 _ := DoWhile .none {{
@@ -412,52 +413,52 @@ A container may also expose a sequencing-only internal port (carrying no data) u
 
 ### Auto-bound ports
 
-Some ports are **auto-bound** — when a functor is placed inside a compatible container, the port connects automatically to that container's matching internal port, with no explicit binding needed. This is the general mechanism behind two examples already seen above: [Step](Step.html)'s input auto-binds to a loop's `step` internal output, and [Set While Condition](Set-While-Condition.html)'s output auto-binds to a loop's `condition` internal input.
+Some ports are **auto-bound** — when a functor is placed inside a compatible container, the port connects automatically to that container's matching internal port, with no explicit binding needed. This is the general mechanism behind two examples already seen above: [Step](functors/Step.html)'s input auto-binds to a loop's `step` internal output, and [Set While Condition](functors/Set-While-Condition.html)'s output auto-binds to a loop's `condition` internal input.
 
 **Auto-bound input ports** connect automatically to an internal output of the enclosing container:
 
-- `step` — on [Step](Step.html), all `Load*` and `Save*` file I/O functors, and all `Select*` functors. Binds to the `step` internal output of the enclosing loop container ([Repeat](Repeat.html), [For](For.html), [For Each](For-Each.html), [For Each Category](For-Each-Category.html), [For Each Region](For-Each-Region.html), [While](While.html), [Do While](Do-While.html)).
-- `workdir` — on all `Load*` and `Save*` file I/O functors. Binds to the `workdir` internal output of the enclosing [Workdir](Workdir.html) container.
-- `regionManager` — on [Get All Regions Info](Get-All-Regions-Info.html), [Get Region Info](Get-Region-Info.html), [Region](Region.html), [Region Manager Value](Region-Manager-Value.html), [Regional Map](Regional-Map.html), [Regional Categorical Map](Regional-Categorical-Map.html), [Regionalize Map](Regionalize-Map.html), [Regionalize Categorical Map](Regionalize-Categorical-Map.html), [Merge Regional Maps](Merge-Regional-Maps.html), [Merge Regional Categorical Maps](Merge-Regional-Categorical-Maps.html). Binds to the `regionManager` internal output of the enclosing [Region Manager](Region-Manager.html), [Region](Region.html), or [For Each Region](For-Each-Region.html) container.
-- `regionId` — on [Get Region Info](Get-Region-Info.html), [Region](Region.html), [Regional Map](Regional-Map.html), [Regional Categorical Map](Regional-Categorical-Map.html), [Regionalize Map](Regionalize-Map.html), [Regionalize Categorical Map](Regionalize-Categorical-Map.html). Binds to the `regionId` internal output of the enclosing [Region](Region.html) container.
-- `tableManager` — on [Merge Sub Tables](Merge-Sub-Tables.html), [Sub Table](Sub-Table.html), [Table Manager Value](Table-Manager-Value.html). Binds to the `tableManager` internal output of the enclosing [Table Manager](Table-Manager.html) container.
-- `currentIndividual` — on [Get Current Individual](Get-Current-Individual.html). Binds to the `currentIndividual` internal output of the enclosing [Genetic Algorithm Tool](Genetic-Algorithm-Tool.html) container.
+- `step` — on [Step](functors/Step.html), all `Load*` and `Save*` file I/O functors, and all `Select*` functors. Binds to the `step` internal output of the enclosing loop container ([Repeat](functors/Repeat.html), [For](functors/For.html), [For Each](functors/For-Each.html), [For Each Category](functors/For-Each-Category.html), [For Each Region](functors/For-Each-Region.html), [While](functors/While.html), [Do While](functors/Do-While.html)).
+- `workdir` — on all `Load*` and `Save*` file I/O functors. Binds to the `workdir` internal output of the enclosing [Workdir](functors/Workdir.html) container.
+- `regionManager` — on [Get All Regions Info](functors/Get-All-Regions-Info.html), [Get Region Info](functors/Get-Region-Info.html), [Region](functors/Region.html), [Region Manager Value](functors/Region-Manager-Value.html), [Regional Map](functors/Regional-Map.html), [Regional Categorical Map](functors/Regional-Categorical-Map.html), [Regionalize Map](functors/Regionalize-Map.html), [Regionalize Categorical Map](functors/Regionalize-Categorical-Map.html), [Merge Regional Maps](functors/Merge-Regional-Maps.html), [Merge Regional Categorical Maps](functors/Merge-Regional-Categorical-Maps.html). Binds to the `regionManager` internal output of the enclosing [Region Manager](functors/Region-Manager.html), [Region](functors/Region.html), or [For Each Region](functors/For-Each-Region.html) container.
+- `regionId` — on [Get Region Info](functors/Get-Region-Info.html), [Region](functors/Region.html), [Regional Map](functors/Regional-Map.html), [Regional Categorical Map](functors/Regional-Categorical-Map.html), [Regionalize Map](functors/Regionalize-Map.html), [Regionalize Categorical Map](functors/Regionalize-Categorical-Map.html). Binds to the `regionId` internal output of the enclosing [Region](functors/Region.html) container.
+- `tableManager` — on [Merge Sub Tables](functors/Merge-Sub-Tables.html), [Sub Table](functors/Sub-Table.html), [Table Manager Value](functors/Table-Manager-Value.html). Binds to the `tableManager` internal output of the enclosing [Table Manager](functors/Table-Manager.html) container.
+- `currentIndividual` — on [Get Current Individual](functors/Get-Current-Individual.html). Binds to the `currentIndividual` internal output of the enclosing [Genetic Algorithm Tool](functors/Genetic-Algorithm-Tool.html) container.
 
 **Auto-bound output ports** connect automatically to an internal input of the enclosing container:
 
-- `condition` — on [Set While Condition](Set-While-Condition.html). Binds to the `condition` internal input of the enclosing [While](While.html) or [Do While](Do-While.html) container.
-- `fitness` — on [Set Fitness](Set-Fitness.html). Binds to the `fitness` internal input of the enclosing [Genetic Algorithm Tool](Genetic-Algorithm-Tool.html) container.
+- `condition` — on [Set While Condition](functors/Set-While-Condition.html). Binds to the `condition` internal input of the enclosing [While](functors/While.html) or [Do While](functors/Do-While.html) container.
+- `fitness` — on [Set Fitness](functors/Set-Fitness.html). Binds to the `fitness` internal input of the enclosing [Genetic Algorithm Tool](functors/Genetic-Algorithm-Tool.html) container.
 
 The full set of internal ports exposed by each container:
 
 | Container | Internal output port | Type | Description |
 | --- | --- | --- | --- |
-| [Do While](Do-While.html) | `step` | NonNegativeIntegerValue | Current iteration index, starting at 1. |
-| [For](For.html) | `step` | RealValue | Current value in the numeric range being iterated. |
-| [For Each](For-Each.html) | `step` | RealValue | Current row value from the table being iterated. |
-| [For Each Category](For-Each-Category.html) | `step` | IntegerValue | Current category code from the categorical map. |
-| [For Each Region](For-Each-Region.html) | `step` | IntegerValue | Current region identifier. |
-| [For Each Region](For-Each-Region.html) | `regionManager` | RegionManager | The region manager for the current region. |
-| [Repeat](Repeat.html) | `step` | NonNegativeIntegerValue | Current iteration index, starting at 1. |
-| [While](While.html) | `step` | NonNegativeIntegerValue | Current iteration index, starting at 1. |
-| [Region Manager](Region-Manager.html) | `regionManager` | RegionManager | The region manager for the current region context. |
-| [Region](Region.html) | `regionManager` | RegionManager | The region manager. |
-| [Region](Region.html) | `regionId` | IntegerValue | The current region identifier. |
-| [Workdir](Workdir.html) | `workdir` | Workdir | The working directory defined by the container. |
-| [Table Manager](Table-Manager.html) | `tableManager` | TableManager | The table manager defined by the container. |
-| [Genetic Algorithm Tool](Genetic-Algorithm-Tool.html) | `currentIndividual` | LookupTableGroup | The current individual in the genetic algorithm population. |
+| [Do While](functors/Do-While.html) | `step` | NonNegativeIntegerValue | Current iteration index, starting at 1. |
+| [For](functors/For.html) | `step` | RealValue | Current value in the numeric range being iterated. |
+| [For Each](functors/For-Each.html) | `step` | RealValue | Current row value from the table being iterated. |
+| [For Each Category](functors/For-Each-Category.html) | `step` | IntegerValue | Current category code from the categorical map. |
+| [For Each Region](functors/For-Each-Region.html) | `step` | IntegerValue | Current region identifier. |
+| [For Each Region](functors/For-Each-Region.html) | `regionManager` | RegionManager | The region manager for the current region. |
+| [Repeat](functors/Repeat.html) | `step` | NonNegativeIntegerValue | Current iteration index, starting at 1. |
+| [While](functors/While.html) | `step` | NonNegativeIntegerValue | Current iteration index, starting at 1. |
+| [Region Manager](functors/Region-Manager.html) | `regionManager` | RegionManager | The region manager for the current region context. |
+| [Region](functors/Region.html) | `regionManager` | RegionManager | The region manager. |
+| [Region](functors/Region.html) | `regionId` | IntegerValue | The current region identifier. |
+| [Workdir](functors/Workdir.html) | `workdir` | Workdir | The working directory defined by the container. |
+| [Table Manager](functors/Table-Manager.html) | `tableManager` | TableManager | The table manager defined by the container. |
+| [Genetic Algorithm Tool](functors/Genetic-Algorithm-Tool.html) | `currentIndividual` | LookupTableGroup | The current individual in the genetic algorithm population. |
 
 | Container | Internal input port | Type | Set by |
 | --- | --- | --- | --- |
-| [While](While.html) | `condition` | BooleanValue | [Set While Condition](Set-While-Condition.html) — the `condition` output port is auto-bound to this internal input. |
-| [Do While](Do-While.html) | `condition` | BooleanValue | [Set While Condition](Set-While-Condition.html) — the `condition` output port is auto-bound to this internal input. |
-| [Genetic Algorithm Tool](Genetic-Algorithm-Tool.html) | `fitness` | RealValue | [Set Fitness](Set-Fitness.html) — the `fitness` output port is auto-bound to this internal input. |
+| [While](functors/While.html) | `condition` | BooleanValue | [Set While Condition](functors/Set-While-Condition.html) — the `condition` output port is auto-bound to this internal input. |
+| [Do While](functors/Do-While.html) | `condition` | BooleanValue | [Set While Condition](functors/Set-While-Condition.html) — the `condition` output port is auto-bound to this internal input. |
+| [Genetic Algorithm Tool](functors/Genetic-Algorithm-Tool.html) | `fitness` | RealValue | [Set Fitness](functors/Set-Fitness.html) — the `fitness` output port is auto-bound to this internal input. |
 
 ### Carrying and selecting values across iterations
 
 Two families of functors are commonly used together with loops and manage how a value flows from one place, or one iteration, to the next.
 
-A **mux** carries a value across the iterations of a loop. On the first iteration it emits its *initial* input. On every later iteration it emits its *feedback* input — the value produced by the previous pass — so the loop can build on its own prior result. Muxes are typed: [Mux Map](Mux-Map.html), [Mux Categorical Map](Mux-Categorical-Map.html), [Mux Table](Mux-Table.html), [Mux Lookup Table](Mux-Lookup-Table.html), [Mux Value](Mux-Value.html), [Mux Tuple](Mux-Tuple.html), and so on. A mux at the top of a loop body, paired with a variable assigned at the bottom, forms the loop's running state. This loop counts from 0 and stops once the counter reaches 10:
+A **mux** carries a value across the iterations of a loop. On the first iteration it emits its *initial* input. On every later iteration it emits its *feedback* input — the value produced by the previous pass — so the loop can build on its own prior result. Muxes are typed: [Mux Map](functors/Mux-Map.html), [Mux Categorical Map](functors/Mux-Categorical-Map.html), [Mux Table](functors/Mux-Table.html), [Mux Lookup Table](functors/Mux-Lookup-Table.html), [Mux Value](functors/Mux-Value.html), [Mux Tuple](functors/Mux-Tuple.html), and so on. A mux at the top of a loop body, paired with a variable assigned at the bottom, forms the loop's running state. This loop counts from 0 and stops once the counter reaches 10:
 
 ```
 _ := DoWhile .none {{
@@ -476,7 +477,7 @@ _ := DoWhile .none {{
 
 > **Note:** A mux's feedback input is the one exception to the dependency rule in [Functors, variables, and binding](#functors-variables-and-binding) — the mux does not wait for the functor that produces its feedback value to run before it runs; it emits the value that functor produced on the previous iteration instead. This is also why, in the example above, `nextCount` is passed into `MuxValue` on a line above the line that assigns `nextCount`: the mux and the calculator each depend on the other's output, so no matter which one is written first in the script, the other's variable is necessarily used before it is assigned. See [Basic Data Flow](Basic-Data-Flow.html#the-one-exception-feedback-in-loops) for this same exception explained generally, independent of EGO Script, including why it's what makes loops schedulable at all and when a loop's iterations can run in parallel.
 
-A **junction** selects between two dataflows. It reads its first input; if that input carries data, the junction passes it through. If the first input is empty, it passes the second input through instead. If both are empty, the junction reports an error. Junctions are typed, with one per data kind — [Map Junction](Map-Junction.html), [Categorical Map Junction](Categorical-Map-Junction.html), [Table Junction](Table-Junction.html), [Lookup Table Junction](Lookup-Table-Junction.html), [Value Junction](Value-Junction.html), [String Junction](String-Junction.html), and so on:
+A **junction** selects between two dataflows. It reads its first input; if that input carries data, the junction passes it through. If the first input is empty, it passes the second input through instead. If both are empty, the junction reports an error. Junctions are typed, with one per data kind — [Map Junction](functors/Map-Junction.html), [Categorical Map Junction](functors/Categorical-Map-Junction.html), [Table Junction](functors/Table-Junction.html), [Lookup Table Junction](functors/Lookup-Table-Junction.html), [Value Junction](functors/Value-Junction.html), [String Junction](functors/String-Junction.html), and so on:
 
 ```
 // `primary` if it has data, otherwise `fallback`:
@@ -485,9 +486,9 @@ chosen := MapJunction primary fallback;
 
 ### Error-handling pattern
 
-The error-handling containers are most useful when paired with something outside the block that reacts to the outcome — a [junction](#carrying-and-selecting-values-across-iterations) when the goal is a fallback value, [If Then](If-Then.html)/[If Not Then](If-Not-Then.html) when the branches need to do different things (see below). The functors inside the container are typically independent of each other, with no data dependency forcing a particular order; what changes between the two containers is what happens to their results if one of them fails partway through. The pattern works as follows:
+The error-handling containers are most useful when paired with something outside the block that reacts to the outcome — a [junction](#carrying-and-selecting-values-across-iterations) when the goal is a fallback value, [If Then](functors/If-Then.html)/[If Not Then](functors/If-Not-Then.html) when the branches need to do different things (see below). The functors inside the container are typically independent of each other, with no data dependency forcing a particular order; what changes between the two containers is what happens to their results if one of them fails partway through. The pattern works as follows:
 
-1. If any functor inside raises an error, [Skip All On Error](Skip-All-On-Error.html) captures it and discards **all** results produced by functors inside the container — even results that had already completed successfully on their own.
+1. If any functor inside raises an error, [Skip All On Error](functors/Skip-All-On-Error.html) captures it and discards **all** results produced by functors inside the container — even results that had already completed successfully on their own.
 1. Outside the container, a **junction** tests whether a given value propagated out. If it was discarded (the error case), the junction falls back to its default. If no error occurred, the value propagates normally and the junction forwards it.
 
 This example loads a categorical map together with a lookup table of transition weights that only makes sense paired with that specific map; if either file is missing, both should fall back to a matched pair of defaults, rather than risking a real map paired with mismatched default weights, or the reverse:
@@ -509,7 +510,7 @@ mapOrDefault := MapJunction loadedMap defaultMap;
 weightsOrDefault := LookupTableJunction loadedWeights defaultWeights;
 ```
 
-When only a pass/fail signal is needed — not an actual fallback value — a junction is unnecessary: [Skip All On Error](Skip-All-On-Error.html) already reports success or failure directly through its own `executionCompletedSuccessfully` output, with no sentinel or junction required:
+When only a pass/fail signal is needed — not an actual fallback value — a junction is unnecessary: [Skip All On Error](functors/Skip-All-On-Error.html) already reports success or failure directly through its own `executionCompletedSuccessfully` output, with no sentinel or junction required:
 
 ```
 result := SkipAllOnError .yes {{
@@ -519,9 +520,9 @@ result := SkipAllOnError .yes {{
 
 `result` is that boolean directly. The paired-fallback pattern above earns its extra complexity only when a real value, not just a flag, needs a fallback on failure.
 
-[Skip On Error](Skip-On-Error.html) behaves differently: instead of discarding all results, it preserves the outputs of any functors that had already completed when the error was raised. Substituting it into the paired-loading example above would be a mistake: since `loadedMap` and `loadedWeights` have no data dependency on each other — see [Functors, variables, and binding](#functors-variables-and-binding) for that execution-order rule stated generally — nothing guarantees which of the two, if either, has already completed by the time the other's error is raised. The outcome would be a race: a real map could end up paired with default weights, or the reverse, unpredictably from run to run. [Skip All On Error](Skip-All-On-Error.html) sidesteps that race entirely — it discards both regardless of which one failed or how far the other had gotten — which is exactly what "succeed together or not at all" requires. [Skip On Error](Skip-On-Error.html) instead earns its place when partial results are genuinely fine to keep on their own — see below.
+[Skip On Error](functors/Skip-On-Error.html) behaves differently: instead of discarding all results, it preserves the outputs of any functors that had already completed when the error was raised. Substituting it into the paired-loading example above would be a mistake: since `loadedMap` and `loadedWeights` have no data dependency on each other — see [Functors, variables, and binding](#functors-variables-and-binding) for that execution-order rule stated generally — nothing guarantees which of the two, if either, has already completed by the time the other's error is raised. The outcome would be a race: a real map could end up paired with default weights, or the reverse, unpredictably from run to run. [Skip All On Error](functors/Skip-All-On-Error.html) sidesteps that race entirely — it discards both regardless of which one failed or how far the other had gotten — which is exactly what "succeed together or not at all" requires. [Skip On Error](functors/Skip-On-Error.html) instead earns its place when partial results are genuinely fine to keep on their own — see below.
 
-Whatever [Skip On Error](Skip-On-Error.html) preserves is what each branch has to work with. If the branches only need to pick between two values — the case in the [generic printer](Manipulating-Tables-And-Lookup-Tables.html#printing-a-table-with-a-generic-format) above — a junction is the simplest tool. But when the branches need to carry out different logic rather than just hand a value onward, [If Then](If-Then.html)/[If Not Then](If-Not-Then.html) can test [Skip On Error](Skip-On-Error.html)'s own `executionCompletedSuccessfully` output directly — no separate sentinel needed, unlike the paired-loading [Skip All On Error](Skip-All-On-Error.html) pattern above. This example attempts to load an optional mask map; if it loads, the matching branch has the mask itself to work with, and if it's missing or fails to load, the other branch proceeds without one:
+Whatever [Skip On Error](functors/Skip-On-Error.html) preserves is what each branch has to work with. If the branches only need to pick between two values — the case in the [generic printer](Manipulating-Tables-And-Lookup-Tables.html#printing-a-table-with-a-generic-format) above — a junction is the simplest tool. But when the branches need to carry out different logic rather than just hand a value onward, [If Then](functors/If-Then.html)/[If Not Then](functors/If-Not-Then.html) can test [Skip On Error](functors/Skip-On-Error.html)'s own `executionCompletedSuccessfully` output directly — no separate sentinel needed, unlike the paired-loading [Skip All On Error](functors/Skip-All-On-Error.html) pattern above. This example attempts to load an optional mask map; if it loads, the matching branch has the mask itself to work with, and if it's missing or fails to load, the other branch proceeds without one:
 
 ```
 maskLoaded := SkipOnError .yes {{
@@ -571,7 +572,7 @@ Each of these functors can be written in two syntactic forms: the **verbose form
 
 ### Verbose form
 
-In the verbose form, data is connected through **hook** functors — [Number Map](Number-Map.html), [Number Table](Number-Table.html), and [Number Value](Number-Value.html) — which supply maps, tables, and scalar values to the expression respectively. Each hook is assigned a number, and the expression references it by a type-specific numbered prefix: `i1`, `i2`… for maps; `t1`, `t2`… for tables and lookup tables; `v1`, `v2`… for values. Each type is numbered independently:
+In the verbose form, data is connected through **hook** functors — [Number Map](functors/Number-Map.html), [Number Table](functors/Number-Table.html), and [Number Value](functors/Number-Value.html) — which supply maps, tables, and scalar values to the expression respectively. Each hook is assigned a number, and the expression references it by a type-specific numbered prefix: `i1`, `i2`… for maps; `t1`, `t2`… for tables and lookup tables; `v1`, `v2`… for values. Each type is numbered independently:
 
 ```
 proximityMap := CalculateCategoricalMap {

@@ -1,6 +1,7 @@
 ---
 title: "Basic Data Flow"
-nav_order: 5
+nav_order: 1
+parent: "Core Concepts"
 ---
 {% raw %}
 # Basic Data Flow
@@ -31,7 +32,7 @@ This makes containers useful even when nothing inside them shares data with anyt
 
 ## Containers control whether and how their content runs
 
-Grouping and ordering are only part of what a container does. A container has full control over whether its contents run at all, and how many times. [Group](Group.html) runs its contents exactly once, unconditionally — it exists purely for organization and ordering. [If Then](If-Then.html) and [If Not Then](If-Not-Then.html) run their contents only when a condition holds. Loop containers — [Repeat](Repeat.html), [For](For.html), [For Each](For-Each.html), [For Each Category](For-Each-Category.html), [For Each Region](For-Each-Region.html), [While](While.html), [Do While](Do-While.html), and others — run their contents repeatedly, each according to its own rule: a fixed count, a numeric range, the rows of a table, the categories of a map, or a condition re-evaluated before every pass. From inside the block, a functor has no say in any of this — it simply runs, or doesn't, or runs again, whenever the container decides to.
+Grouping and ordering are only part of what a container does. A container has full control over whether its contents run at all, and how many times. [Group](functors/Group.html) runs its contents exactly once, unconditionally — it exists purely for organization and ordering. [If Then](functors/If-Then.html) and [If Not Then](functors/If-Not-Then.html) run their contents only when a condition holds. Loop containers — [Repeat](functors/Repeat.html), [For](functors/For.html), [For Each](functors/For-Each.html), [For Each Category](functors/For-Each-Category.html), [For Each Region](functors/For-Each-Region.html), [While](functors/While.html), [Do While](functors/Do-While.html), and others — run their contents repeatedly, each according to its own rule: a fixed count, a numeric range, the rows of a table, the categories of a map, or a condition re-evaluated before every pass. From inside the block, a functor has no say in any of this — it simply runs, or doesn't, or runs again, whenever the container decides to.
 
 A container that branches or repeats generally needs to exchange a small amount of state with its contents beyond ordinary connections — a loop's current element going in, or its repeat condition coming back out. This happens through dedicated **internal ports**, a separate channel between the container and the functors nested inside it. See [Internal output ports](EGO-Script.html#internal-output-ports) and [Internal input ports](EGO-Script.html#internal-input-ports) for how this is expressed in EGO Script.
 

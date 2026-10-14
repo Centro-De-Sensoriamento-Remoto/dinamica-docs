@@ -48,7 +48,7 @@ This panel is also referred to as the Model Presentation panel; see Model Presen
 ## Drag and Drop
 
 - Models, images, R and Python scripts, and files in general can be dragged into the sketch. What is done with the file depends on its representation.
-- Dragging an R or a Python script into the sketch creates a [Calculate R Expression](../Calculate-R-Expression.html) or a [Calculate Python Expression](../Calculate-Python-Expression.html) functor, respectively. The script's content is used to fill in the `expression` port.
+- Dragging an R or a Python script into the sketch creates a [Calculate R Expression](../functors/Calculate-R-Expression.html) or a [Calculate Python Expression](../functors/Calculate-Python-Expression.html) functor, respectively. The script's content is used to fill in the `expression` port.
 - A filename can be dragged into any filename editor (`MapFilename`, `TableFilename`, `Folder`, etc.). The filename is used to fill in the editor.
 - If the application is run as administrator (using "Run as Administrator" or equivalent), drag and drop of files from Windows Explorer is disabled. This is done by Windows and affects any application, not just Dinamica EGO.
 {% endraw %}

@@ -1,6 +1,7 @@
 ---
 title: "Modeling Environmental Dynamics with Dinamica EGO"
-nav_exclude: true
+nav_order: 1
+parent: "Getting Started"
 ---
 {% raw %}
 # Modeling Environmental Dynamics with Dinamica EGO

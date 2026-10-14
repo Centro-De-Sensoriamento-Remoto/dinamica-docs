@@ -1,11 +1,11 @@
 ---
 title: "Graphical Interface"
-nav_order: 18
-has_children: true
 permalink: /gui/
 redirect_from:
   - /GUI-Tips.html
   - /GUI-Basics.html
+nav_order: 4
+has_children: true
 ---
 {% raw %}
 # Dinamica EGO Graphical Interface

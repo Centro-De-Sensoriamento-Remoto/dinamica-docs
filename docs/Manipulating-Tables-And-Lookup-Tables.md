@@ -1,21 +1,22 @@
 ---
 title: "Manipulating Tables and Lookup Tables"
-nav_order: 13
+nav_order: 1
+parent: "Modeling Guides"
 ---
 {% raw %}
 # Manipulating Tables and Lookup Tables
 
 ## Overview
 
-This page covers the functors and techniques used to read, iterate over, and restructure Tables and Lookup Tables once they exist. See [Table Type](Table-Type.html) and [Lookup Table Type](Lookup-Table-Type.html) for the general format of these two types — column naming, key marking, and type inference — which this page assumes as background.
+This page covers the functors and techniques used to read, iterate over, and restructure Tables and Lookup Tables once they exist. See [Table Type](types/Table-Type.html) and [Lookup Table Type](types/Lookup-Table-Type.html) for the general format of these two types — column naming, key marking, and type inference — which this page assumes as background.
 
 ## Tuple Type
 
 A **Tuple** is a sequence of table cells, most often used to represent the key (or full set of keys) identifying a table row. Tuple elements are ordered by column index and have no names of their own — a Tuple by itself doesn't say which column each element belongs to; that mapping only exists in the context of the table it's being used against.
 
-A Tuple literal uses bracket syntax — `[2007]` for a single-element Tuple, `[2007, "Boston"]` for several at once, the same list syntax a Table or Lookup Table literal uses. This bracket form is required when writing a Tuple as a literal constant: automatic conversion between types, such as a Real value becoming a one-element Tuple, only happens when a value is **connected** from one port to another — a variable reference, or a functor call inlined directly into the argument — never when a literal constant is parsed straight into a port (see [Constants](EGO-Script.html#constants) for this rule stated generally, beyond just Tuples). Each port's literal syntax is parsed by that type's own parser, which only accepts its own type's literal form; a bare `2007` fails wherever a Tuple is expected, even though a Real *value*, once connected, converts to a Tuple automatically. Binding a Tuple literal to a reusable name goes through the [Tuple](Tuple.html) functor, the same way [Table](Table.html) and [Lookup Table](Lookup-Table.html) wrap their own literals.
+A Tuple literal uses bracket syntax — `[2007]` for a single-element Tuple, `[2007, "Boston"]` for several at once, the same list syntax a Table or Lookup Table literal uses. This bracket form is required when writing a Tuple as a literal constant: automatic conversion between types, such as a Real value becoming a one-element Tuple, only happens when a value is **connected** from one port to another — a variable reference, or a functor call inlined directly into the argument — never when a literal constant is parsed straight into a port (see [Constants](EGO-Script.html#constants) for this rule stated generally, beyond just Tuples). Each port's literal syntax is parsed by that type's own parser, which only accepts its own type's literal form; a bare `2007` fails wherever a Tuple is expected, even though a Real *value*, once connected, converts to a Tuple automatically. Binding a Tuple literal to a reusable name goes through the [Tuple](functors/Tuple.html) functor, the same way [Table](functors/Table.html) and [Lookup Table](functors/Lookup-Table.html) wrap their own literals.
 
-[Add Tuple Value](Add-Tuple-Value.html) serves a different case: appending one element — often a connected variable, rather than a literal — to a Tuple that already exists. Every example below that builds a key from a variable, rather than writing every element as a literal, uses it for exactly this.
+[Add Tuple Value](functors/Add-Tuple-Value.html) serves a different case: appending one element — often a connected variable, rather than a literal — to a Tuple that already exists. Every example below that builds a key from a variable, rather than writing every element as a literal, uses it for exactly this.
 
 ```
 // A Tuple literal can hold more than one element directly, the same as a
@@ -72,7 +73,7 @@ Reads a single cell.
 | --- | --- | --- | --- | --- |
 | `table` | Input | Table | Yes | The table to read from. |
 | `keys` | Input | Tuple | Yes | The key identifying the row. |
-| `column` | Input | name or index | Yes | Which value column to read. An index counts every column left to right, starting at 1, including key columns: the first key column has index 1, and the first value column's index is one past the number of key columns, not 1 (see [Table Type](Table-Type.html)). |
+| `column` | Input | name or index | Yes | Which value column to read. An index counts every column left to right, starting at 1, including key columns: the first key column has index 1, and the first value column's index is one past the number of key columns, not 1 (see [Table Type](types/Table-Type.html)). |
 | `valueIfNotFound` | Input | TableValue | No | Returned instead of failing if the key isn't present. |
 | `result` | Output | TableValue | — | The value at that key and column, as a generic value holding either a Real or a String. It converts to whichever of the two the column actually holds when it is connected onward. |
 
@@ -107,7 +108,7 @@ Retrieves an entire column, across every row, as a new table containing just the
 | `columnIndexOrName` | Input | name or index | Yes | Which value column to retrieve. |
 | `result` | Output | Table | — | A table with the same keys as the input, holding only the one retrieved column. |
 
-**Example** — [Calc Areas](Calc-Areas.html) returns a single output of type Table, with columns `Category` (key), `Area_In_Cells`, `Area_In_Hectares`, and `Area_In_Square_Meters` — every area measure for every category, in one call. A common mistake is to treat this output as if it were a single hectares figure; it's a table, and the column of interest has to be read out of it:
+**Example** — [Calc Areas](functors/Calc-Areas.html) returns a single output of type Table, with columns `Category` (key), `Area_In_Cells`, `Area_In_Hectares`, and `Area_In_Square_Meters` — every area measure for every category, in one call. A common mistake is to treat this output as if it were a single hectares figure; it's a table, and the column of interest has to be read out of it:
 
 ```
 areaTable := CalcAreas landscape .no;
@@ -151,15 +152,15 @@ Lists the keys of a table's first key column.
 
 ## Iterating over Lookup Table values
 
-A [For Each](For-Each.html) loop executes once per row of the table connected to its `elements` port, which accepts either a general Table or a Lookup Table; over a Lookup Table that means once per key. Inside the loop, a [Step](Step.html) functor retrieves the current key — its input auto-binds to the container's current iteration value, the same mechanism described in [Internal output ports](EGO-Script.html#internal-output-ports), so it needs no explicit wiring. From there, the key can be used directly, or passed to [Get Lookup Table Value](Get-Lookup-Table-Value.html) to retrieve the corresponding value.
+A [For Each](functors/For-Each.html) loop executes once per row of the table connected to its `elements` port, which accepts either a general Table or a Lookup Table; over a Lookup Table that means once per key. Inside the loop, a [Step](functors/Step.html) functor retrieves the current key — its input auto-binds to the container's current iteration value, the same mechanism described in [Internal output ports](EGO-Script.html#internal-output-ports), so it needs no explicit wiring. From there, the key can be used directly, or passed to [Get Lookup Table Value](functors/Get-Lookup-Table-Value.html) to retrieve the corresponding value.
 
 A loop like this can often run its iterations in parallel — see [Basic Data Flow](Basic-Data-Flow.html) for the conditions that allow it.
 
 > **Note:** A loop that only prints, like the one below, meets those conditions — no mux, nothing consumed outside the loop, no submodel output port — so the engine is free to run iterations in any order, or concurrently. The printed lines can come out in a different order than the source table, and if two iterations genuinely run at the same time, their output can even interleave rather than appearing as clean, separate lines. Forcing a specific order means forcing sequential execution, which means introducing a mux — a plain `MuxValue 0 0` is enough, at the cost of losing the parallelism these loops would otherwise qualify for; see [The one exception: feedback in loops](Basic-Data-Flow.html#the-one-exception-feedback-in-loops).
 
-> **Note:** Dinamica prints every functor's own start and end at the Info level. Left unfiltered, a `Print` call's message would be buried in that noise. Wrapping the loop in [Log Policy](Log-Policy.html), with `maximumLogLevel = .result`, restricts what gets logged from inside it to Result and anything more severe — Unconditional, Error, Warning, Result; Info and the Debug levels are suppressed. `Print`'s own `logLevel = .result` then places the custom message at exactly that threshold, so it stays visible. Every example on this page that prints uses both together for that reason.
+> **Note:** Dinamica prints every functor's own start and end at the Info level. Left unfiltered, a `Print` call's message would be buried in that noise. Wrapping the loop in [Log Policy](functors/Log-Policy.html), with `maximumLogLevel = .result`, restricts what gets logged from inside it to Result and anything more severe — Unconditional, Error, Warning, Result; Info and the Debug levels are suppressed. `Print`'s own `logLevel = .result` then places the custom message at exactly that threshold, so it stays visible. Every example on this page that prints uses both together for that reason.
 
-**Example** — printing every entry of a Lookup Table. [Print](Print.html) is itself a container — its `initialMessage` is printed before whatever it contains runs, so an empty `{{ }}` block is enough when the only goal is to print something. [Create String](Create-String.html) builds a message from a format string and the values connected inside it, referenced the same way a Code expression references a hook (see [Verbose form](EGO-Script.html#verbose-form)) — by a numbered, type-prefixed tag (`<v1>` for the first connected value, and so on). This example also uses `{ initialMessage = message, logLevel = .result }` [nominal syntax](EGO-Script.html#nominal-syntax) for `Print`, and the `_` [discard convention](EGO-Script.html#positional-syntax) for outputs that aren't needed:
+**Example** — printing every entry of a Lookup Table. [Print](functors/Print.html) is itself a container — its `initialMessage` is printed before whatever it contains runs, so an empty `{{ }}` block is enough when the only goal is to print something. [Create String](functors/Create-String.html) builds a message from a format string and the values connected inside it, referenced the same way a Code expression references a hook (see [Verbose form](EGO-Script.html#verbose-form)) — by a numbered, type-prefixed tag (`<v1>` for the first connected value, and so on). This example also uses `{ initialMessage = message, logLevel = .result }` [nominal syntax](EGO-Script.html#nominal-syntax) for `Print`, and the `_` [discard convention](EGO-Script.html#positional-syntax) for outputs that aren't needed:
 
 ```
 myLookupTable := LookupTable [
@@ -186,7 +187,7 @@ LogPolicy { maximumLogLevel = .result } {{
 
 ## Iterating over Table rows
 
-Table rows are iterated the same way, but need one extra functor: [Get Table Keys](Get-Table-Keys.html) returns a table mapping unique indices to the keys of the input table's first key column. When the key column is already Real-typed, those indices and the keys are the same numbers, so the mapping is trivial. When the key column is String-typed, the indices are distinct numeric placeholders, and a `GetTableValue` call inside the loop is needed to map the current index back to its actual String key — this indirection is *why* String-typed key columns are usually avoided when a table will be iterated (see [Table Type](Table-Type.html)).
+Table rows are iterated the same way, but need one extra functor: [Get Table Keys](functors/Get-Table-Keys.html) returns a table mapping unique indices to the keys of the input table's first key column. When the key column is already Real-typed, those indices and the keys are the same numbers, so the mapping is trivial. When the key column is String-typed, the indices are distinct numeric placeholders, and a `GetTableValue` call inside the loop is needed to map the current index back to its actual String key — this indirection is *why* String-typed key columns are usually avoided when a table will be iterated (see [Table Type](types/Table-Type.html)).
 
 A table with more than one key column can only be iterated one key column at a time this way. To examine every key column, nest loops — see [Sub-Tables](#sub-tables) below.
 
@@ -298,7 +299,7 @@ Inserts or replaces the rows matching the given key(s).
 | `combineSubTables` | Input | Boolean | No | Merges the incoming rows with the sub-table already stored under those keys instead of replacing it. Default `.no`. |
 | `result` | Output | Table | — | The updated table. |
 
-Both [Get Table From Key](Get-Table-From-Key.html) and [Set Table By Key](Set-Table-By-Key.html) only operate on the table's **leftmost** key column(s) — they can't reach into the middle of a composite key. If the key you need isn't leftmost, reorder the columns first with [Reorder Table Column](Reorder-Table-Column.html), which moves one column (key or value) to a new index; key and value columns can't be moved across each other.
+Both [Get Table From Key](functors/Get-Table-From-Key.html) and [Set Table By Key](functors/Set-Table-By-Key.html) only operate on the table's **leftmost** key column(s) — they can't reach into the middle of a composite key. If the key you need isn't leftmost, reorder the columns first with [Reorder Table Column](functors/Reorder-Table-Column.html), which moves one column (key or value) to a new index; key and value columns can't be moved across each other.
 
 ### ReorderTableColumn
 
@@ -341,7 +342,7 @@ Retrieving the sub-table for `Year` 2007 — a single key, since `Year` is leftm
 
 To instead retrieve by `City` first, `City` would need to be reordered ahead of `Year`, since `GetTableFromKey` can only key off the leftmost column(s). With three key columns, the same idea nests: peel off the leftmost key to get a sub-table, then peel off the next leftmost key of *that* sub-table, and so on — which is exactly how nested `ForEach` loops iterate a multi-key table one column at a time; see [Container functors](EGO-Script.html#container-functors) for how nesting containers this way affects execution order.
 
-**Example** — building the table above, retrieving the 2007 sub-table, updating one of its prices with [Set Table Cell Value](Set-Table-Cell-Value.html), writing it back, and finally reordering `City` ahead of `Year` to key by `City` instead:
+**Example** — building the table above, retrieving the 2007 sub-table, updating one of its prices with [Set Table Cell Value](functors/Set-Table-Cell-Value.html), writing it back, and finally reordering `City` ahead of `Year` to key by `City` instead:
 
 ```
 priceTable := Table [
@@ -452,7 +453,7 @@ LogPolicy { maximumLogLevel = .result } {{
 
 ## Storing results across a loop
 
-A [Mux Table](Mux-Table.html) or [Mux Lookup Table](Mux-Lookup-Table.html) can carry a Table or Lookup Table across the iterations of a loop, the same way [Mux Value](Mux-Value.html) carries a single value — see [Carrying and selecting values across iterations](EGO-Script.html#carrying-and-selecting-values-across-iterations). Each iteration reads the mux's current output, adds a row to it with `AddTableRow`, and feeds the result back in as the mux's `feedback` input for the next iteration, building up a result table one row at a time.
+A [Mux Table](functors/Mux-Table.html) or [Mux Lookup Table](functors/Mux-Lookup-Table.html) can carry a Table or Lookup Table across the iterations of a loop, the same way [Mux Value](functors/Mux-Value.html) carries a single value — see [Carrying and selecting values across iterations](EGO-Script.html#carrying-and-selecting-values-across-iterations). Each iteration reads the mux's current output, adds a row to it with `AddTableRow`, and feeds the result back in as the mux's `feedback` input for the next iteration, building up a result table one row at a time.
 
 The accumulated table is read after the loop the same way any container's internal result is read from outside it: a functor after the loop simply takes the accumulator's feedback variable as an input. There's nothing special about this — the loop is guaranteed to finish before anything depending on it runs, per [Basic Data Flow](Basic-Data-Flow.html).
 
@@ -530,7 +531,7 @@ A container functor. It creates the manager instance and exposes it to whatever 
 
 | Port | Direction | Type | Description |
 | --- | --- | --- | --- |
-| `tableManager` | Internal Output | TableManager | The manager instance. Auto-binds to the `tableManager` input of [SubTable](#subtable) and [MergeSubTables](#mergesubtables) calls nested anywhere inside this container, including inside further nested containers such as a [For](For.html) loop or a [Group](Group.html). |
+| `tableManager` | Internal Output | TableManager | The manager instance. Auto-binds to the `tableManager` input of [SubTable](#subtable) and [MergeSubTables](#mergesubtables) calls nested anywhere inside this container, including inside further nested containers such as a [For](functors/For.html) loop or a [Group](functors/Group.html). |
 
 The container itself takes no inputs and defines no regular outputs.
 
@@ -563,7 +564,7 @@ Combines every sub-table registered under a name into a base table, then discard
 
 Each sub-table's `keys` tuple can hold more than one element; every element becomes its own leading key column on `baseTable`. A `tableName` can only be merged once -- the merge removes its sub-tables from the manager as it runs.
 
-> **Warning:** `MergeSubTables` has no data dependency on the `SubTable` calls that feed it -- its `baseTable` input, its literal `tableName`, and its auto-bound manager are all available from the moment the container starts, and none of them depend on the loop that registered the sub-tables. Placing it after a loop in the script, even inside the same `TableManager` container, does **not** guarantee it runs after that loop finishes; the two have no connection, so the engine is free to run them in either order or at the same time. Force the ordering explicitly with a [Group](Group.html) gated by the loop's `sequenceOutput`, as in the example below -- see [Ordering without data: sequence connections](Basic-Data-Flow.html#ordering-without-data-sequence-connections) and [Sequence ports](EGO-Script.html#sequence-ports).
+> **Warning:** `MergeSubTables` has no data dependency on the `SubTable` calls that feed it -- its `baseTable` input, its literal `tableName`, and its auto-bound manager are all available from the moment the container starts, and none of them depend on the loop that registered the sub-tables. Placing it after a loop in the script, even inside the same `TableManager` container, does **not** guarantee it runs after that loop finishes; the two have no connection, so the engine is free to run them in either order or at the same time. Force the ordering explicitly with a [Group](functors/Group.html) gated by the loop's `sequenceOutput`, as in the example below -- see [Ordering without data: sequence connections](Basic-Data-Flow.html#ordering-without-data-sequence-connections) and [Sequence ports](EGO-Script.html#sequence-ports).
 
 ### TableManagerValue
 
@@ -621,9 +622,9 @@ The loop's own iterations are still eligible to run in parallel with each other:
 
 Every example so far assumes the reader already knows a table's shape — its column names and their types — since `GetTableValue` and `CreateString`'s hooks are each wired to one specific name and type at authoring time. Printing a table generically, with any number of columns of any mix of Real and String, needs a different approach: read each row as a Tuple, discover how many elements it has, and determine each element's type at runtime rather than assuming it.
 
-[Get Table Row](Get-Table-Row.html), [Get Tuple Size](Get-Tuple-Size.html), and [Get Tuple Value](Get-Tuple-Value.html) make the column-count side of this possible: a row read as a Tuple can be measured with `GetTupleSize`, and each of its elements retrieved by position, rather than by column name, with `GetTupleValue`. Each retrieved element has type `TableValue` — a generic type able to hold either a Real or a String.
+[Get Table Row](functors/Get-Table-Row.html), [Get Tuple Size](functors/Get-Tuple-Size.html), and [Get Tuple Value](functors/Get-Tuple-Value.html) make the column-count side of this possible: a row read as a Tuple can be measured with `GetTupleSize`, and each of its elements retrieved by position, rather than by column name, with `GetTupleValue`. Each retrieved element has type `TableValue` — a generic type able to hold either a Real or a String.
 
-[String](String.html) and [Real Value](Real-Value.html) each convert a `TableValue` the same conditional way: the conversion only succeeds if the `TableValue` actually holds that type, and raises an error otherwise — converting an already-typed, known `RealValue` or String, by contrast, never fails. Wrapping each attempt in its own [Skip On Error](Skip-On-Error.html) turns that failure into "produced nothing" instead of aborting the model, so only the attempt that actually matches the `TableValue`'s real type ever produces a display string; the other attempt simply fails silently and produces nothing. A [String Junction](String-Junction.html) then picks whichever one exists.
+[String](functors/String.html) and [Real Value](functors/Real-Value.html) each convert a `TableValue` the same conditional way: the conversion only succeeds if the `TableValue` actually holds that type, and raises an error otherwise — converting an already-typed, known `RealValue` or String, by contrast, never fails. Wrapping each attempt in its own [Skip On Error](functors/Skip-On-Error.html) turns that failure into "produced nothing" instead of aborting the model, so only the attempt that actually matches the `TableValue`'s real type ever produces a display string; the other attempt simply fails silently and produces nothing. A [String Junction](functors/String-Junction.html) then picks whichever one exists.
 
 > **Note:** A junction always tries its first port before its second — see [Carrying and selecting values across iterations](EGO-Script.html#carrying-and-selecting-values-across-iterations) for this rule stated generally, since it applies identically to every Junction functor (`String`, `Table`, `Value`, `Lookup Table`, `Map`, `Categorical Map`, `Folder`). It makes no practical difference here, though: the two attempts below are mutually exclusive by construction, so only one of `stringDisplay`/`realDisplay` is ever available for the junction to pick regardless of port order.
 
@@ -685,7 +686,7 @@ This generalizes the value side of printing — any number of columns, any mix o
 
 ## Computing new columns for a table
 
-A new column can be derived from an existing table's own data, one metric at a time. [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html) evaluates an expression once per key of a base lookup table, producing a new Lookup Table keyed the same way — so each derived metric comes out as its own separate result — and a later expression can reference an earlier result directly, the same way it references any other connected table. A general Table cannot serve as that base, since the `baseLookupTable` port only accepts a Lookup Table; `GetTableKeys` supplies one, its index-to-key result already having the right shape. Its keys are the source table's own only while the first key column is Real-typed, so that index and key coincide; a String-typed key column would supply placeholder indices instead, as [Iterating over Table rows](#iterating-over-table-rows) describes. [Add Table Column](Add-Table-Column.html) then merges each of those results back into the original table as a new column, one call per column, since each call only ever adds one.
+A new column can be derived from an existing table's own data, one metric at a time. [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) evaluates an expression once per key of a base lookup table, producing a new Lookup Table keyed the same way — so each derived metric comes out as its own separate result — and a later expression can reference an earlier result directly, the same way it references any other connected table. A general Table cannot serve as that base, since the `baseLookupTable` port only accepts a Lookup Table; `GetTableKeys` supplies one, its index-to-key result already having the right shape. Its keys are the source table's own only while the first key column is Real-typed, so that index and key coincide; a String-typed key column would supply placeholder indices instead, as [Iterating over Table rows](#iterating-over-table-rows) describes. [Add Table Column](functors/Add-Table-Column.html) then merges each of those results back into the original table as a new column, one call per column, since each call only ever adds one.
 
 ### AddTableColumn
 
@@ -745,7 +746,7 @@ enrichedStationData := AddTableColumn { table = withAverage, columnName = "StdDe
 
 `stdDevs` demonstrates the chaining directly: rather than re-deriving the twelve-term average a second time inside the deviation formula, `%averages[line]` looks up the already-computed mean for the current row, the same way `%stationData[[line]["Jan_mm"]]` looks up a raw monthly value — both are just references to a connected table, one newly derived and one original.
 
-Each `AddTableColumn` call only adds a single column, so producing two new columns takes two calls, the second operating on the first's result — `withAverage` is a genuine intermediate table, not a byproduct to discard. `columnValues` expects a table with the same key column(s) as the target and exactly one data column; a Lookup Table's `*#real, #real` shape already matches that, converting the same way documented in [Automatic Conversions](Table-Type.html#automatic-conversions) on Table Type.
+Each `AddTableColumn` call only adds a single column, so producing two new columns takes two calls, the second operating on the first's result — `withAverage` is a genuine intermediate table, not a byproduct to discard. `columnValues` expects a table with the same key column(s) as the target and exactly one data column; a Lookup Table's `*#real, #real` shape already matches that, converting the same way documented in [Automatic Conversions](types/Table-Type.html#automatic-conversions) on Table Type.
 
 ## Computing statistics for an arbitrary number of data columns
 
@@ -813,7 +814,7 @@ averages := LookupTable nextAveragesAccum;
 stdDevs := LookupTable nextStdDevsAccum;
 ```
 
-Four muxes are threaded through this loop, at two nesting levels. Inside a station, two separate `MuxValue` passes sum that station's own daily values — one for the average, a second for the squared deviations from it, since the standard deviation formula needs the average already known before it can compute those deviations. Outside them, two `MuxLookupTable` accumulators carry the growing results across stations, one per statistic. [Set Lookup Table Value](Set-Lookup-Table-Value.html) is what actually inserts each computed value into its growing table — the write counterpart to `GetLookupTableValue`. `RealValue cellValue` is used directly here, without the `SkipOnError` type test from the generic printer — this example assumes every data column is genuinely numeric, which is reasonable for daily measurements, unlike the printer, which had to handle either type. The second pass's variable names all carry a `dev` marker (`devDayIndex`, `devCellValue`, `devDailyValue`, `devRunningSum`, `nextDevRunningSum`) to keep them clearly distinct from the first pass's, even though each `For` loop is its own separate container.
+Four muxes are threaded through this loop, at two nesting levels. Inside a station, two separate `MuxValue` passes sum that station's own daily values — one for the average, a second for the squared deviations from it, since the standard deviation formula needs the average already known before it can compute those deviations. Outside them, two `MuxLookupTable` accumulators carry the growing results across stations, one per statistic. [Set Lookup Table Value](functors/Set-Lookup-Table-Value.html) is what actually inserts each computed value into its growing table — the write counterpart to `GetLookupTableValue`. `RealValue cellValue` is used directly here, without the `SkipOnError` type test from the generic printer — this example assumes every data column is genuinely numeric, which is reasonable for daily measurements, unlike the printer, which had to handle either type. The second pass's variable names all carry a `dev` marker (`devDayIndex`, `devCellValue`, `devDailyValue`, `devRunningSum`, `nextDevRunningSum`) to keep them clearly distinct from the first pass's, even though each `For` loop is its own separate container.
 
 ### Looping column by column
 
@@ -870,7 +871,7 @@ The second loop repeats this shape for the sum of squared deviations, referencin
 
 ### Aggregating across rows instead of columns
 
-The two techniques above both compute one result per station, aggregating across days. The opposite direction — one result per day, aggregating across stations — needs a different pair of functors: [Get Table Column](Get-Table-Column.html) still extracts one day's values, but instead of folding them together with `%`, [Extract Lookup Table Attributes](Extract-Lookup-Table-Attributes.html) computes summary statistics over an entire Lookup Table directly, including `meanValue` — the mean of the values themselves, exactly the average across stations this needs. `valueStd` is the matching standard deviation, taken over the population of values in the lookup table, so it divides by the number of entries rather than one less — the same convention as the hand-written formulas earlier on this page, and the two therefore agree.
+The two techniques above both compute one result per station, aggregating across days. The opposite direction — one result per day, aggregating across stations — needs a different pair of functors: [Get Table Column](functors/Get-Table-Column.html) still extracts one day's values, but instead of folding them together with `%`, [Extract Lookup Table Attributes](functors/Extract-Lookup-Table-Attributes.html) computes summary statistics over an entire Lookup Table directly, including `meanValue` — the mean of the values themselves, exactly the average across stations this needs. `valueStd` is the matching standard deviation, taken over the population of values in the lookup table, so it divides by the number of entries rather than one less — the same convention as the hand-written formulas earlier on this page, and the two therefore agree.
 
 Its result is a Lookup Table like any other — a Real key for each attribute (see the port table below), a Real value holding that attribute's figure. The names such as `"meanValue"` are labels for those keys, not a key type of their own; the `tX["NAME"]` operator, one of the [Lookup Table Operators](Calculate-Functors.html#5-lookup-table-operators), is what lets an expression address a key by its name instead of its number, resolving one to the other at evaluation time. No conversion or carrier is needed either way — `attrs` connects to it exactly as any Lookup Table would.
 
@@ -1059,7 +1060,7 @@ Both follow the same shape as the single-key examples above, just wrapped in a `
 
 Long format, as above, is a good fit for computing a statistic — one row per key naturally supports "summarize everything for this key." It's a poor fit for a different goal: printing or otherwise working with a table's rows exactly as given, preserving its actual key structure, rather than reshaping it into something new. That's a harder problem: printing every row means iterating the first key's values, and for each of those, the second key's values, and so on, with a nesting depth that has to match however many key columns the table actually has. A model's graph is fixed before it runs, so there's no direct way to wire up "however many nested loops turn out to be needed" for an arbitrary table.
 
-The practical way to solve this different goal is to reshape the table's *keys* instead of its rows, using a tool built for arbitrary shapes to begin with. [Calculate Python Expression](Calculate-Python-Expression.html) can read a table with any number of key columns as a plain list of lists — see [Expression inputs](Calculate-Python-Expression.html#expression-inputs) — regardless of how many of its columns are keys, since Python doesn't need to know that shape in advance the way EGO Script's connections do. Turning every original key column into a plain data column, and generating a single new sequential key to replace them, collapses the table down to the simple single-key shape the earlier examples on this page already handle.
+The practical way to solve this different goal is to reshape the table's *keys* instead of its rows, using a tool built for arbitrary shapes to begin with. [Calculate Python Expression](functors/Calculate-Python-Expression.html) can read a table with any number of key columns as a plain list of lists — see [Expression inputs](functors/Calculate-Python-Expression.html#expression-inputs) — regardless of how many of its columns are keys, since Python doesn't need to know that shape in advance the way EGO Script's connections do. Turning every original key column into a plain data column, and generating a single new sequential key to replace them, collapses the table down to the simple single-key shape the earlier examples on this page already handle.
 
 ```
 myTable := Table [

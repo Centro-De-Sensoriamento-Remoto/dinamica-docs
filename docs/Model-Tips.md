@@ -1,6 +1,7 @@
 ---
 title: "Useful Tips for Creating Models"
-nav_order: 17
+nav_order: 4
+parent: "Modeling Guides"
 ---
 {% raw %}
 # Useful Tips for Creating Models
@@ -15,7 +16,7 @@ The Dinamica EGO interface shows absolute filepaths for easier reading, but they
 
 The following functors can be placed, directly or indirectly, inside a **Workdir**: Load Map, Load Categorical Map, Load Table, Load Lookup Table, Load Weights, Save Map, Save Categorical Map, Save Table, Save Lookup Table, and Save Weights.
 
-When placed inside a Workdir, the file name used by the functor becomes relative to the folder defined by the Workdir. This simplifies switching the input data folder for multiple functors in the same model. You can use several [Workdir](Workdir.html) in the same model.
+When placed inside a Workdir, the file name used by the functor becomes relative to the folder defined by the Workdir. This simplifies switching the input data folder for multiple functors in the same model. You can use several [Workdir](functors/Workdir.html) in the same model.
 
 See the example located in the folder `Examples\run_lucc_northern_mato_grosso\run_roads_with_comments_and_workdirs` of the Dinamica examples.
 
@@ -27,7 +28,7 @@ Maps, tables, lookup tables and Weights of Evidence files can be loaded from [zi
 
 [Zip](https://en.wikipedia.org/wiki/Zip_(file_format)) files are also limited to 4 GBytes in Dinamica. If you use a file outside the zip archive, these files can be much bigger than that.
 
-To read a file located in a [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) file, you have to use a [Workdir](Workdir.html) container. Then, edit the [Workdir](Workdir.html) and use the [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) file name in the "folder" input port. Place a file loader ([Load Map](Load-Map.html), [Load Weights](Load-Weights.html) etc) inside the [Workdir](Workdir.html) container. The file name mentioned in the file loader must match the name used by the file contained in the [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) archive.
+To read a file located in a [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) file, you have to use a [Workdir](functors/Workdir.html) container. Then, edit the [Workdir](functors/Workdir.html) and use the [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) file name in the "folder" input port. Place a file loader ([Load Map](functors/Load-Map.html), [Load Weights](functors/Load-Weights.html) etc) inside the [Workdir](functors/Workdir.html) container. The file name mentioned in the file loader must match the name used by the file contained in the [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) archive.
 
 ## Loops
 
@@ -50,11 +51,11 @@ For example, the value `-14.0392632603687`, formatted as `"<v1, 7, 4>"` (7 chara
 
 ## Calculate Python Expression
 
-Packages can be installed either by calling `dinamica.package(...)` from within the expression (runs during execution, so it can be called conditionally) or by listing them on the *packages* input port (installed before the script runs). See [Calculate Python Expression — Utilities](Calculate-Python-Expression.html#utilities) for the full `dinamica.package()` syntax and examples.
+Packages can be installed either by calling `dinamica.package(...)` from within the expression (runs during execution, so it can be called conditionally) or by listing them on the *packages* input port (installed before the script runs). See [Calculate Python Expression — Utilities](functors/Calculate-Python-Expression.html#utilities) for the full `dinamica.package()` syntax and examples.
 
 ## Calculate R Expression
 
-Packages can be installed from **Calculate R Expression** using the `dinamicaPackage("package name")` function (one function call per package). `dinamicaPackage("package")` also acts as an `import` clause: when the package name is the same as the name of the module to be loaded via `import`, the package is installed and the module of the same name is loaded. See [Calculate R Expression — Installing Packages](Calculate-R-Expression.html#installing-packages) for more detail.
+Packages can be installed from **Calculate R Expression** using the `dinamicaPackage("package name")` function (one function call per package). `dinamicaPackage("package")` also acts as an `import` clause: when the package name is the same as the name of the module to be loaded via `import`, the package is installed and the module of the same name is loaded. See [Calculate R Expression — Installing Packages](functors/Calculate-R-Expression.html#installing-packages) for more detail.
 
 ## Wizards
 
@@ -62,6 +63,6 @@ See [Wizards](gui/Wizards.html) in the Graphical Interface section.
 
 ## Performance
 
-- Avoid the definition of maps using [cell type](Cell-Type.html) "1 Bit Integer". This cell type saves memory, but it also has a huge negative impact in performance.
+- Avoid the definition of maps using [cell type](types/Cell-Type.html) "1 Bit Integer". This cell type saves memory, but it also has a huge negative impact in performance.
 - Keep updated the Dinamica EGO installed in your system.
 {% endraw %}
