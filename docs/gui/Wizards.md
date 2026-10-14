@@ -1,7 +1,7 @@
 ---
 title: "Wizards"
 parent: Graphical Interface
-nav_order: 6
+nav_order: 7
 ---
 {% raw %}
 # Wizards

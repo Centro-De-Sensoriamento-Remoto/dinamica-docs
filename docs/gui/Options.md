@@ -1,7 +1,7 @@
 ---
 title: "Options (Tools => Options)"
 parent: Graphical Interface
-nav_order: 1
+nav_order: 2
 ---
 {% raw %}
 # Options (Tools => Options)

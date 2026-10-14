@@ -1,7 +1,7 @@
 ---
 title: "Library and Sketch"
 parent: Graphical Interface
-nav_order: 2
+nav_order: 3
 ---
 {% raw %}
 # Library and Sketch
@@ -16,13 +16,13 @@ nav_order: 2
 
 ## Sketch
 
-This panel is also referred to as the Model Presentation panel; see Model Presentation for the full reference on its panels and bars.
+This panel is also referred to as the Model Presentation panel; see [Interface Elements](Interface-Elements.html#model-presentation) for the full reference on its panels and bars.
 
 - You can zoom using the mouse wheel.
 - You can pan by dragging the mouse while holding down the right button.
 - If a selected functor is not visible, you can center the view on it by clicking its name in its action bar (the bar shown above a functor when it is selected).
 - You can copy the path of the model open in the sketch by hovering the mouse over the tab bearing the model's name and pressing **Ctrl+C**, or by left-clicking the tab and choosing the corresponding option from the menu that opens. In this menu, you can choose between the full file name of the model and the name of the folder where the model is saved.
-- To connect functors that are far apart and not visible on screen at the same time, select the source functor and—without selecting the destination functor—scroll the view so that the destination functor becomes visible (note that the source functor's action bar remains visible). Choose the "create connection" option in the action bar and click the destination functor. See Connecting Distant Functors for this and the alternative method below.
+- To connect functors that are far apart and not visible on screen at the same time, select the source functor and—without selecting the destination functor—scroll the view so that the destination functor becomes visible (note that the source functor's action bar remains visible). Choose the "create connection" option in the action bar and click the destination functor.
 - Another way to connect distant functors that are not simultaneously visible is to use the selection-navigation mechanism:
   1. Click the source (output) functor. You may also simply search for this functor in the interface's functor Explorer and then click the **"View functor"** button in that Explorer.
   1. Do the same for the destination (input) functor.

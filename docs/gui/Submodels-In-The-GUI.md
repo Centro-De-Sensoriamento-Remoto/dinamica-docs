@@ -1,7 +1,7 @@
 ---
 title: "Submodels in the GUI"
 parent: Graphical Interface
-nav_order: 5
+nav_order: 6
 ---
 {% raw %}
 # Submodels in the GUI

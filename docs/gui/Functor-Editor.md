@@ -1,7 +1,7 @@
 ---
 title: "Functor Editor"
 parent: Graphical Interface
-nav_order: 4
+nav_order: 5
 ---
 {% raw %}
 # Functor Editor
