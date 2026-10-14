@@ -2,7 +2,6 @@
 title: "Submodels"
 nav_order: 3
 parent: "Language and Expressions"
-has_children: true
 ---
 {% raw %}
 # Submodels
@@ -183,9 +182,8 @@ The interface operations — instantiating, navigating, updating, inspecting dep
 ## See Also
 
 - [Submodels in the GUI](gui/Submodels-In-The-GUI.html)
-- [Submodel List](Submodel-List.html)
-- Functor Library
-- Model Presentation
+- [Functor Library](gui/Interface-Elements.html#functor-library)
+- [Model Presentation](gui/Interface-Elements.html#model-presentation)
 - [Dinamica Console](Dinamica-Console.html)
 - [EGO Script — Submodels](EGO-Script.html#submodels)
 {% endraw %}
