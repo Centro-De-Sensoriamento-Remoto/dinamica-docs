@@ -43,13 +43,13 @@ Dinamica EGO´s GA tool provides a means to overcome overspecialization by enabl
 
 Open model `GAReciprocal_fitness1x1.ego` from `\Guidebook_Dinamica_5\Models\Genetic_Algorithm\GALimitedRanges120\Reciprocal_fitness1x1` and examine *[Group](../functors/Group.html)* "Lower Bound Envelope". Open it. Each *[Calculate Lookup Table](../functors/Calculate-Lookup-Table.html)* establishes a lower bound for a weights of evidence table by using the following equation:
 
-**t1[line] - t1[line] * 1.2**
+**t1[line] - abs(t1[line]) * 1.2**
 
 Likewise, the *[Group](../functors/Group.html)* "Upper Bound Envelope" will set an upper bound as follows:
 
-**t1[line] + t1[line] * 1.2**
+**t1[line] + abs(t1[line]) * 1.2**
 
-The use of these tables as gene bounds will constrain the new genes to an envelope of ±1.2 times the values of the original weights of evidence coefficients, thus providing a trend around which the global optimum solution must be found. Although this constraint will result in lower calibration scores (Run `validation_fitness1x1.ego` located in `\Guidebook_Dinamica_5\Models\Genetic_Algorithm\GALimitedRanges120\Reciprocal_fitness1x1`), it will tame the *GA tool* engine, allowing it to improve the Weights of Evidence result for application to a general prediction process (Figs. 2 and 3).
+The use of these tables as gene bounds will constrain the new genes to an envelope of ±120% of the absolute values of the original weights of evidence coefficients (using the absolute value keeps the lower bound below the upper bound for negative coefficients), thus providing a trend around which the global optimum solution must be found. Although this constraint will result in lower calibration scores (Run `validation_fitness1x1.ego` located in `\Guidebook_Dinamica_5\Models\Genetic_Algorithm\GALimitedRanges120\Reciprocal_fitness1x1`), it will tame the *GA tool* engine, allowing it to improve the Weights of Evidence result for application to a general prediction process (Figs. 2 and 3).
 
 In conclusion, hard predictors like GA tool must incorporate prior knowledge in order to overcome overspecialization. When this is taken into consideration, GA tool can really push the envelope of model optimization.  Use your expertise to develop other GA tool calibration processes following the scheme of Fig. 1 and examples provided.
 

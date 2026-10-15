@@ -21,7 +21,7 @@ First, click on the Input/Output tab, grab and place on the sketch one [Load Map
 
 ![](../image/guidebook_imagem28.png)
 
-Now you can connect the functor [Load Map](../functors/Load-Map.html) to [Extract Map Attributes](../functors/Extract-Map-Attributes.html) and [Extract Map Attributes](../functors/Extract-Map-Attributes.html) to Decorate Map attributes Table. A Connect Ports window should pop up when making the last connection, connect Attributes to Attribute Lookup Table.
+Now you can connect the functor [Load Map](../functors/Load-Map.html) to [Extract Map Attributes](../functors/Extract-Map-Attributes.html) and [Extract Map Attributes](../functors/Extract-Map-Attributes.html) to Decorate Map attributes Table. A Connect Ports window should pop up when making the last connection, connect Attributes to Attribute [Lookup Table](../functors/Lookup-Table.html).
 
 Click once on the Decorate Map Attribute Table to prompt the functor toolbar, then click on the eye icon - Inspect functor. Inside the functor viewer window that will pop up, click on the eye icon - Inspect port output, this will mark the port for inspection. You can close the window, save and run the model.
 

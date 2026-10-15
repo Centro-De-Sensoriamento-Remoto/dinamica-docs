@@ -54,7 +54,7 @@ Next, click OK, and again OK:
 
 ![](../image/guidebook_aaa5.png)
 
-- Create a new model script, grab a **Load Table Functor** and place it on the sketch. Double click the Load Table Functor and open the IBGE_crop_information_complete.csv file located in `\Guidebook_Dinamica_5\Database\Tables`. Grab a **Reorder Table Column** and place it on the sketch to switch the order of the year and crop key columns. Connect the Load Table to Reorder Table Column. In the Functor Editor window insert the index of the column to be moved (1) and the new column index (0) and click OK.
+- Create a new model script, grab a **[Load Table](../functors/Load-Table.html) Functor** and place it on the sketch. Double click the Load Table Functor and open the IBGE_crop_information_complete.csv file located in `\Guidebook_Dinamica_5\Database\Tables`. Grab a **[Reorder Table Column](../functors/Reorder-Table-Column.html)** and place it on the sketch to switch the order of the year and crop key columns. Connect the Load Table to Reorder Table Column. In the Functor Editor window insert the index of the column to be moved (1) and the new column index (0) and click OK.
 
 ![](../image/guidebook_imagem82.jpg)
 
@@ -64,7 +64,7 @@ Next, click OK, and again OK:
 
 ![](../image/guidebook_aaa7.png)
 
-- To save the results to a file, grab three **Save Table** functors, place them on the sketch and connect to each Submodel (for the three crops). Open **Save Table** Functors, browse to the `\Guidebook_Dinamica_5\Models\creating_and_using_local_submodels` and write the file names (e.g. most_productive_year_for_crop_1.csv,  most_productive_year_for_crop_2.csv and most_productive_year_for_crop_3.csv).
+- To save the results to a file, grab three **[Save Table](../functors/Save-Table.html)** functors, place them on the sketch and connect to each Submodel (for the three crops). Open **Save Table** Functors, browse to the `\Guidebook_Dinamica_5\Models\creating_and_using_local_submodels` and write the file names (e.g. most_productive_year_for_crop_1.csv,  most_productive_year_for_crop_2.csv and most_productive_year_for_crop_3.csv).
 
 - The final model will look like the one in the imagem below. Save and run the model.
 

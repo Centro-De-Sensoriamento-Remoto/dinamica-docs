@@ -55,12 +55,12 @@ The first line of the lookup table must contain the columns titles “Key” and
 
 ## Transition Matrix
 
-A transition matrix is also represented by the following format:
+A transition matrix is represented by the following format, in which each row gives the rate of transition from one category to another:
 
-| To* | From* | Rate |
+| From* | To* | Rate |
 |---|---|---|
 | 1 | 2 | 0.223567 |
-| 1 | 3 | 0.223567 |
+| 1 | 3 | 0.379618 |
 | 2 | 1 | 0.024841 |
 | 2 | 3 | 0.030573 |
 | 3 | 2 | 0.000348 |
@@ -71,7 +71,7 @@ The previous table is equivalent to the following transition matrix. Note that t
 |---|---|---|---|
 | **1** | - | 0.223567 | 0.379618 |
 | **2** | 0.024841 | - | 0.030573 |
-| **3** | 0 | 0 | - |
+| **3** | 0 | 0.000348 | - |
 
 Another supported format is the Weights of Evidence file, a text file containing the Weights of Evidence coefficients. This file is obtained through the Weights of Evidence method used in the calibration process of the model.
 

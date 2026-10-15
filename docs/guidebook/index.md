@@ -69,12 +69,12 @@ Email: dinamica@csr.ufmg.br<br>
 ### [Module V: Incorporating control structures into a model](Module-5-Control-Structures.html)
 
 - [Lesson 13: Loop structures](Loop-Structures.html)
-- [Lesson 14: Using "For Each Category" and "Region Manager" to works with the concept of region](Regions-With-For-Each-Category.html)
-- [Lesson 15: Using "while" to make successive calculations](Successive-Calculations-With-While.html)
+- [Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region](Regions-With-For-Each-Category.html)
+- [Lesson 15: Using "Repeat" to make successive calculations](Successive-Calculations-With-Repeat.html)
 
 ### [Module VI: Spatial features and spatial analyses](Module-6-Spatial-Analyses.html)
 
-- [Lesson 16: Calculating Landscape metrics](Landscape-Metrics.html)
+- [Lesson 16: Calculating landscape metrics](Landscape-Metrics.html)
 - [Lesson 17: Calculating accumulated cost surface and least-cost pathway](Cost-Surface-And-Least-Cost-Pathway.html)
 - [Lesson 18: Building a land-use and land-cover change simulation model](Land-Use-Change-Simulation-Model.html)
 

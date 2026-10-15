@@ -25,7 +25,7 @@ Double click the [Load Map](../functors/Load-Map.html) functor in the model sket
 
 ![](../image/guidebook_imagem16.png)
 
-> **Note:** Dinamica EGO Map Viewer application can also be opened as a stand-alone application (check the “Dinamica EGO 4 Map Viewer” icon on your desktop or within Dinamica EGO folder).
+> **Note:** Dinamica EGO Map Viewer application can also be opened as a stand-alone application (check the “Dinamica EGO Map Viewer” icon on your desktop or within Dinamica EGO folder).
 
 To view the loaded map, double click on your [Load Map](../functors/Load-Map.html) functor and then click on the eye button. The map will be opened in Dinamica Map Viewer. Click on the down arrow next to the map name on the map list inside of the map viewer, then click on the Histogram icon to adjust the visualization of the map. Select “Limits to Actual” inside the “Limits” options and then choose one of the transformations options. The following image depicts a map with an “Equalize” transformation:
 

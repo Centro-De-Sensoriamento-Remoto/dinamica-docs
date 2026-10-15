@@ -47,12 +47,12 @@ Friction increases as a function of slope ranges as follows:
 
 | Slope (degrees) | Friction |
 |---|---|
-| 0-1 | 1 |
-| 2-5 | 1.3 |
-| 5-10 | 1.5 |
-| 10-15 | 1.9 |
-| 15-20 | 2.5 |
-| > 20 | 5 |
+| < 1 | 1 |
+| 1 to < 5 | 1.3 |
+| 5 to < 10 | 1.5 |
+| 10 to < 15 | 1.9 |
+| 15 to < 20 | 2.5 |
+| ≥ 20 | 5 |
 
 Let’s begin the model by loading the maps `landuse.tif` and `slope.tif` using the functor *[Load Map](../functors/Load-Map.html)*. Then, let’s incorporate the two previous tables. Add a *[Lookup Table](../functors/Lookup-Table.html)* from Lookup Table tab.
 
@@ -140,7 +140,7 @@ Save the model to a new file `my_pathway.egoml`, and run it. This is going to ta
 
 You may try to maximize the solution for the *[Calc Cost Map](../functors/Calc-Cost-Map.html)* algorithm by setting the **Maximum Number of Passes** to “0”. Compare the time spent by this run and its resulting path with that of previous model. Did it make a big difference?
 
-This type of model can also be modified to develop simultaneously multiple paths. Open the model `join_towns.egoml` in lesson 4 folder.![](../image/guidebook_cost12.jpg)
+This type of model can also be modified to develop simultaneously multiple paths. Open the model `join_towns.egoml` in the folder of this lesson.![](../image/guidebook_cost12.jpg)
 
 This model shows how you can use *[Calculate Map](../functors/Calculate-Map.html)* to merge information from several maps into a single one. The product will be a map depicting the center cells for four towns. TIP: use always a sole cell to represent a location to be reached by *[Calc Pathway Map](../functors/Calc-Pathway-Map.html)*.
 

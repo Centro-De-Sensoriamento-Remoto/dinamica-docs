@@ -10,7 +10,7 @@ nav_order: 2
 ## What will you learn?
 
 - Couple R to Dinamica EGO
-- Calculate R Expression
+- [Calculate R Expression](../functors/Calculate-R-Expression.html)
 - Select the R Interpreter to Use
 
 > R Coupling

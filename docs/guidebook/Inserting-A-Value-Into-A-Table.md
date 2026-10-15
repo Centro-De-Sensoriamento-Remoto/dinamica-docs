@@ -11,7 +11,7 @@ The aim of this lesson is getting and inserting specifics values from and into a
 
 - The IBGE crop information Table (`Guidebook_Dinamica_5\Database\Tables\IBGE_crop_information.csv`)
 - The 1999_production_value Table (`Guidebook_Dinamica_5\Database\Tables\1999_production_value.csv`)
-- The 1999_harvested_area Table (`Guidebook_Dinamica_5\Database\Tables\1999_harvested_area.csv.csv`)
+- The 1999_harvested_area Table (`Guidebook_Dinamica_5\Database\Tables\1999_harvested_area.csv`)
 - The 1999_production Table (`Guidebook_Dinamica_5\Database\Tables\1999_production.csv`)
 
 **Let's go!**

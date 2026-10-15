@@ -5,7 +5,7 @@ grand_parent: "Guidebook"
 nav_order: 1
 ---
 {% raw %}
-# Lesson 10: Submodels on Dinamica EGO?
+# Lesson 10: Submodels in Dinamica EGO
 
 Submodels enable the reusing of parts of a model to perform specific operations inside other models. By using them, we can reduce the amount of work we have to put on when creating models that share similar functionalities. They are also an important tool for abstraction, hiding unnecessary details and making easier to reason about the model concept and its implementation. Conceptually, a submodel is a combination of functors exporting inputs and outputs to be bound externally, but, from the user point of view, a submodel is used just like any other ordinary functor.
 
@@ -39,9 +39,9 @@ In practice, users can only create local submodels. These local submodels can la
 
 Local submodels are stored in a folder based on the model name. If the model containing the local submodel is named `simulation model.egoml`, its local submodels will be stored in a subfolder called `simulation model_egoml_Submodels`. Basically, the naming algorithm just replaces "." with "_" and appends "_Submodels" to the file name. Using a unique submodel folder for each model guarantees that submodels from one model are completely independent from the submodels from any other model. Local submodels can also be defined in a folder called "Submodels" located in the same folder where the model file is located, and shared among all the models located in that folder. However, the folder is automatically converted into an unique submodel folder when the model is saved by the graphical interface.
 
-User submodels are stored typically in the folder `c:\<User>\Documents\Dinamica EGO 5\Submodels`.
+User submodels are stored typically in the folder `C:\Users\<User>\Documents\Dinamica EGO <version>\Submodels` on Windows, or `/home/<User>/Dinamica EGO <version>/Submodels` on Linux.
 
-Store submodels are stored typically in the folder `c:\<User>\AppData\Local\Dinamica EGO 5\StoreSubmodels`.
+Store submodels are kept in a SQLite database, typically `C:\Users\<User>\AppData\Local\Dinamica EGO <version>\SubmodelDatabase.sqlite` on Windows.
 
 ## Congratulations, you have successfully completed this lesson!
 

@@ -11,7 +11,7 @@ nav_order: 1
 
 ![](../image/guidebook_imagem43.png)
 
-- Now we can create a new column merge between the `1999_harvested_area.csv` and `1999_production.csv` files. On the Input/Output tab, grab an [Add Table Column](../functors/Add-Table-Column.html) and place it on the sketch. Connect the [Load Lookup Table](../functors/Load-Lookup-Table.html) which contains the file `1999_harvested_area.csv` to [Add Table Column](../functors/Add-Table-Column.html), selecting <u>Table</u> as an input port. On the Functor Editor window, write a name for the created column (e.g. “production_value”).
+- Now we can create a new column merge between the `1999_harvested_area.csv` and `1999_production.csv` files. On the Table tab, grab an [Add Table Column](../functors/Add-Table-Column.html) and place it on the sketch. Connect the [Load Lookup Table](../functors/Load-Lookup-Table.html) which contains the file `1999_harvested_area.csv` to [Add Table Column](../functors/Add-Table-Column.html), selecting <u>Table</u> as an input port. On the Functor Editor window, write a name for the created column (e.g. “production_value”).
 
 > **Important:** The position where the new column is inserted determines whether the new column is a key or data column.
 

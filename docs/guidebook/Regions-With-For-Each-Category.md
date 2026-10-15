@@ -1,11 +1,11 @@
 ---
-title: "Lesson 14: Using \"For Each Category\" and \"Region Manager\" to works with the concept of region"
+title: "Lesson 14: Using \"For Each Category\" and \"Region Manager\" to work with the concept of region"
 parent: "Module V: Incorporating control structures into a model"
 grand_parent: "Guidebook"
 nav_order: 2
 ---
 {% raw %}
-# Lesson 14: Using "For Each Category" and "Region Manager" to works with the concept of region
+# Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region
 
 ## What will you learn?
 
@@ -20,7 +20,7 @@ These functors can be combined to produce regional maps and submodels, as well a
 
 ![](../image/guidebook_inc._it._model_17.jpg)![](../image/guidebook_region2.jpg)
 
-> **Tip:** **TIP**: Use Crtl + right button to keep continually selecting the functors, this will avoid selecting *[Repeat](../functors/Repeat.html)* as well. The functor *[Repeat](../functors/Repeat.html)* will shrink.
+> **Tip:** **TIP**: Use Ctrl + right button to keep continually selecting the functors, this will avoid selecting *[Repeat](../functors/Repeat.html)* as well. The functor *[Repeat](../functors/Repeat.html)* will shrink.
 
 Delete the container *[Repeat](../functors/Repeat.html)* and place the containers *[Region Manager](../functors/Region-Manager.html)* from the Region tab and *[For Each Category](../functors/For-Each-Category.html)* from the Control tab. Place the latter within the first.![](../image/guidebook_region3.jpg)
 
@@ -37,7 +37,7 @@ Now break the link between *[Load Categorical Map](../functors/Load-Categorical-
 ![](../image/guidebook_region6.jpg)
 
 Note that there are two *[Number Map](../functors/Number-Map.html)* functors disconnected within *[Calculate Map](../functors/Calculate-Map.html)*. You do not need the Map #2 and Value #1 anymore, so delete them. Now connect *[Regionalize Map](../functors/Regionalize-Map.html)* to Map #1. Open the [Save 
-Lookup Table](../functors/Save-Lookup-Table.html) functor and change the file name to `remaining_forest_extent_per_state`. Make sure it will be saved into folder `\Guidebook_Dinamica_5\Models\using_concept_of_region`
+[Save Lookup Table](../functors/Save-Lookup-Table.html) functor and change the file name to `remaining_forest_extent_per_state`. Make sure it will be saved into folder `\Guidebook_Dinamica_5\Models\using_concept_of_region`
 
 ![](../image/guidebook_region7.jpg)
 
@@ -55,5 +55,5 @@ Observe that you did not need to segregate the information per state in *[Calcul
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Successive-Calculations-With-While.html)
+☞[Next Lesson](Successive-Calculations-With-Repeat.html)
 {% endraw %}

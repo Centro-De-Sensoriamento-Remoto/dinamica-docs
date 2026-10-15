@@ -209,7 +209,7 @@ Close the right-most container to show the comments, save the model as `my_MCE_p
 
 ![](../image/guidebook_mce16.jpg)
 
-To further simplifier the view of the model, another resource available in Dinamica EGO is the *[Group](../functors/Group.html)* functor. Drag five *[Group](../functors/Group.html)* functors from the Control tab and place them on the sketch. Now select each functor of a data flow chain that ends up in *[Calculate Map](../functors/Calculate-Map.html)* "Combine five criteria" (Press **Crt + right button** to keep on continually selecting functors), leave the *[Categorical Map](../functors/Categorical-Map.html)* functors out, now drag them into a *[Group](../functors/Group.html)*. Repeat this procedure for the five criteria.
+To further simplifier the view of the model, another resource available in Dinamica EGO is the *[Group](../functors/Group.html)* functor. Drag five *[Group](../functors/Group.html)* functors from the Control tab and place them on the sketch. Now select each functor of a data flow chain that ends up in *[Calculate Map](../functors/Calculate-Map.html)* "Combine five criteria" (Press **Crt + right button** to keep on continually selecting functors), leave the *[Categorical Map](../functors/Categorical-Map.html)* functors out, now drag them into a *[Group](../functors/Group.html)*. [Repeat](../functors/Repeat.html) this procedure for the five criteria.
 
 ![](../image/guidebook_mce18.jpg)
 
@@ -263,7 +263,7 @@ Write: **i1*i2**, close the functor and insert the comment "Keep labels only for
 
 ## Sixth step: identifying suitable areas 2
 
-The final criterion establishes that the average slope on the selected patches must be less than 0.5 degrees. Place *Load Map* and load it with `\lesson4\originals\slope.tif`. Now revise Lesson3, as you will to need to reapply the concept of region.
+The final criterion establishes that the average slope on the selected patches must be less than 0.5 degrees. Place *[Load Map](../functors/Load-Map.html)* and load it with `\lesson4\originals\slope.tif`. Now revise Lesson3, as you will to need to reapply the concept of region.
 
 Drag *[For Each Region](../functors/For-Each-Region.html)*, *[Regionalize Map](../functors/Regionalize-Map.html)*, and *[Step](../functors/Step.html)*, insert the two latter functors within the previous and connect them as follows.
 

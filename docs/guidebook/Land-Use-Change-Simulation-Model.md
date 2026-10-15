@@ -37,7 +37,7 @@ The landscape maps have the following classes; the null is represented by 0:
 | 2 | Forested |
 | 3 | Non-forest |
 
-> **Tip:** **TIP**: Keep in mind the numbers that identify the map classes, since Dinamica EGO does not explicitly handle class names, although they can be visualized in the viewer with customized colors and specified in the metadata as well as in the header of geotiff files. See functor Assign Map Categories.
+> **Tip:** **TIP**: Keep in mind the numbers that identify the map classes, since Dinamica EGO does not explicitly handle class names, although they can be visualized in the viewer with customized colors and specified in the metadata as well as in the header of geotiff files. See functor [Assign Map Categories](../functors/Assign-Map-Categories.html).
 
 ## First step: Calculating transition matrices
 
@@ -61,7 +61,7 @@ Open the functor *[Determine Transition Matrix](../functors/Determine-Transition
 
 ![](../image/guidebook_lucc_5.jpg)
 
-Note that *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `2367_1997.ers` connects to the **Initial Landscape** port and the `23267_2000.tif` to the **Final Landscape**. Check the number of time steps. In this case “3”, therefore, you want to determine the multi-step matrix per annual steps (2000 – 1997 = 3 years).
+Note that *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267_1997.ers` connects to the **Initial Landscape** port and the `23267_2000.tif` to the **Final Landscape**. Check the number of time steps. In this case “3”, therefore, you want to determine the multi-step matrix per annual steps (2000 – 1997 = 3 years).
 
 Set **Register viewer** on in the output ports and run the model. Open the resulting matrices by clicking with the right button on the output ports. Is this what you got?
 
@@ -127,7 +127,7 @@ This functor receives as input a categorical map, in this case the landscape map
 
 Instead of *[Number Map](../functors/Number-Map.html)*, now you find *[Name Map](../functors/Name-Map.html)* within this container. This functor is applied to containers that need a map name or alias to identify the maps passed to them. *[Name Map](../functors/Name-Map.html)* is found in the Create Hook into container action bar. This can be any name, but you must be consistent, therefore using the same names when setting the container internal parameters, as shown below. Examples of containers that need Name Map are *[Determine Weights Of Evidence Ranges](../functors/Determine-Weights-Of-Evidence-Ranges.html)*, *[Determine Weights Of Evidence Coefficients](../functors/Determine-Weights-Of-Evidence-Coefficients.html)*, and *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*.
 
-There are two *[Name Map](../functors/Name-Map.html)* functors within this container, one for the map `23267statitcs.tif` and another for the distance map output from the *[Calc Distance Map](../functors/Calc-Distance-Map.html)*.
+There are two *[Name Map](../functors/Name-Map.html)* functors within this container, one for the map `23267statics.tif` and another for the distance map output from the *[Calc Distance Map](../functors/Calc-Distance-Map.html)*.
 
 Now open *[Determine Weights Of Evidence Ranges](../functors/Determine-Weights-Of-Evidence-Ranges.html)* with the Edit Functor. Resize the window as follows:
 
@@ -177,7 +177,7 @@ Notice that the first ranges show a positive association, favoring deforestation
 
 The Contrast measures the association/repelling effect. Near zero, there is no effect at all, while the larger and more positive it becomes, the greater is the attraction; on the other hand, the larger and more negative the value, the greater is the repelling effect.
 
-Now open the graphical Weights of Evidence editor within the Save Weights functor (eye icon).
+Now open the graphical Weights of Evidence editor within the [Save Weights](../functors/Save-Weights.html) functor (eye icon).
 
 ![](../image/guidebook_lucc_23.1.jpg)
 
@@ -223,7 +223,7 @@ Now, drag a *[Repeat](../functors/Repeat.html)*, and place within it one *[Calc 
 
 ![](../image/guidebook_lucc_29.jpg)
 
-Drag a *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* from Simulation tab within *[Repeat](../functors/Repeat.html)*. Now let’s connect the functors: first *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267_1997.ers` to the **Initial** port of the *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)*, the output from this to *[Calc Distance Map](../functors/Calc-Distance-Map.html)*, *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* and *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*. Connect *[Load Table](../functors/Load-Table.html)* `multiple_steps.csv` to *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)*, *[Load Map](../functors/Load-Map.html)* `23267statics.ers` to *[Name Map](../functors/Name-Map.html)* "static_var", the output from *[Calc Distance Map](../functors/Calc-Distance-Map.html)* to *[Name Map](../functors/Name-Map.html)* "distance", *[Load Weights](../functors/Load-Weights.html)* `new_weigths.dcf` to *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* and its output to *[Save Map](../functors/Save-Map.html)* `probabities.ers` (Note that this map will receive a ## suffix from the model iteration).
+Drag a *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* from Simulation tab within *[Repeat](../functors/Repeat.html)*. Now let’s connect the functors: first *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267_1997.ers` to the **Initial** port of the *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)*, the output from this to *[Calc Distance Map](../functors/Calc-Distance-Map.html)*, *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* and *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*. Connect *[Load Table](../functors/Load-Table.html)* `multiple_steps.csv` to *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)*, *[Load Map](../functors/Load-Map.html)* `23267statics.ers` to *[Name Map](../functors/Name-Map.html)* "static_var", the output from *[Calc Distance Map](../functors/Calc-Distance-Map.html)* to *[Name Map](../functors/Name-Map.html)* "distance", *[Load Weights](../functors/Load-Weights.html)* `new_weigths.dcf` to *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* and its output to *[Save Map](../functors/Save-Map.html)* `probabilities.ers` (Note that this map will receive a ## suffix from the model iteration).
 
 ![](../image/guidebook_lucc_30.jpg)
 
@@ -329,7 +329,7 @@ The *[Step](../functors/Step.html)* coming from the enveloping *[For](../functor
 
 In this *[For](../functors/For.html)* container, step goes from 1 to 11 by an increment of two. This is necessary because **Window Size** must be odd numbers. As a result Window Size will vary from 1x1, to 3x3, 5x5, 7x7, 9x9, and 11x11.
 
-Similar to lesson 2, *[Mux Table](../functors/Mux-Table.html)* is employed to update the table containing the minimum and maximum similarity means of window sizes. Open *[Group](../functors/Group.html)* containing the functors that update these tables.
+Similar to the use of *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* in the fifth step, *[Mux Table](../functors/Mux-Table.html)* is employed to update the table containing the minimum and maximum similarity means of window sizes. Open *[Group](../functors/Group.html)* containing the functors that update these tables.
 
 ![](../image/guidebook_lucc_44.jpg)
 
@@ -403,7 +403,7 @@ Now, open the model `simulate_deforestation_from_1997_2000_with_patch_formation_
 >
 > ![](../image/guidebook_lucc_64.jpg)
 >
-> Also, the probability map coming from the *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* goes first to *[Expander](../functors/Expander.html)*, usually placed before *[Patcher](../functors/Patcher.html)*, because one can not ensure that the *[Expander](../functors/Expander.html)* will execute the total quantity of changes passed to it. The output **Changed Landscape** and **Corroded Probabilities** are conected to *[Patcher](../functors/Patcher.html)*, and **Remaining Changes** to *[Add Change Matrix](../functors/Add-Change-Matrix.html)*.
+> Also, the probability map coming from the *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* goes first to *[Expander](../functors/Expander.html)*, usually placed before *[Patcher](../functors/Patcher.html)*, because one can not ensure that the *[Expander](../functors/Expander.html)* will execute the total quantity of changes passed to it. The output **Changed Landscape** and **Corroded Probabilities** are connected to *[Patcher](../functors/Patcher.html)*, and **Remaining Changes** to *[Add Change Matrix](../functors/Add-Change-Matrix.html)*.
 >
 > ![](../image/guidebook_lucc_65.jpg)
 >
