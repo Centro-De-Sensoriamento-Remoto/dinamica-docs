@@ -70,5 +70,5 @@ It is also worth noting that certain maps should not be mixed with other maps of
 
 ## See Also
 
-- [Useful Tips for Using the Graphical Interface - Virtualization](gui/Options.html#virtualization)
+- [Useful Tips for Using the Graphical Interface - Virtualization](gui/Options-And-Performance.html#virtualization)
 {% endraw %}

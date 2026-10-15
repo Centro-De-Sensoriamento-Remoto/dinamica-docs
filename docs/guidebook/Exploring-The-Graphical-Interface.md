@@ -20,7 +20,7 @@ The five components of the Dinamica EGO interface are described in more detail i
 
 The menu bar is a graphical control element with several dropdown menus. It provides access to various features using a standard hierarchical menu. The top-level menus and a summary of some of the menu options are listed below together with the associated icons.
 
-> **More information:** [Options](../gui/Options.html) describes every setting in the Options window. [Keyboard Shortcuts](../gui/Keyboard-Shortcuts.html) lists the available shortcuts.
+> **More information:** [Options and Performance](../gui/Options-And-Performance.html) describes every setting in the Options window. [Keyboard Shortcuts](../gui/Keyboard-Shortcuts.html) lists the available shortcuts.
 
 The icons on the menu bar are shortcuts to create, open, save a model, save model to a new file, work with model wizards, check model script operator integrity, check model script connection integrity, run a model, open the map viewer and work with submodels:
 
@@ -40,7 +40,7 @@ The Options window is divided into 7 tabs. The General tab has options for filli
 
 In the library window you will find the available functors and submodels organized in subsets according to their nature and application.
 
-> **More information:** [Functor Library](../gui/Interface-Elements.html#functor-library), [Functor Library Bar](../gui/Interface-Elements.html#functor-library-bar) and [Library and Sketch](../gui/Library-And-Sketch.html).
+> **More information:** [Functor Library](../gui/Interface-Elements.html#functor-library) and [Functor Library Bar](../gui/Interface-Elements.html#functor-library-bar).
 
 ---
 
@@ -48,7 +48,7 @@ In the library window you will find the available functors and submodels organiz
 
 The sketch toolset enables deleting selections, provides grouping options, executing layout options, zooming in, out and fitting the model to sketch and container options.
 
-> **More information:** [Model Presentation](../gui/Interface-Elements.html#model-presentation), [Model Selection Tabs](../gui/Interface-Elements.html#model-selection-tabs) and [Library and Sketch](../gui/Library-And-Sketch.html).
+> **More information:** [Model Presentation](../gui/Interface-Elements.html#model-presentation), [Model Selection Tabs](../gui/Interface-Elements.html#model-selection-tabs) and [Copying and Pasting](../gui/Interface-Elements.html#copying-and-pasting).
 
 ![](../image/guidebook_imagem7.png)
 
@@ -58,7 +58,7 @@ The sketch toolset enables deleting selections, provides grouping options, execu
 
 The Model Overview provides a synoptic view of the model and is especially useful for large models that do not fit entirely on the sketch when shown at default size. The shaded area on the bird view corresponds to the sketch window. Move the shade to zoom to a particular part of the model. The tree view provides a hierarchical view of the model allowing one to select or locate a functor and subsequently to edit its properties through the functor property window.
 
-> **More information:** [Model Overview](../gui/Interface-Elements.html#model-overview) and [Panels and Model Execution](../gui/Panels-And-Model-Execution.html).
+> **More information:** [Model Overview](../gui/Interface-Elements.html#model-overview) and [Searching in the Panels](../gui/Interface-Elements.html#searching-in-the-panels).
 
 ![](../image/guidebook_imagem13.png)
 
@@ -90,7 +90,7 @@ Models are expressed in Dinamica EGO as a sequence of functors connected via com
 
 In the functor action bar you will find tools that allow connecting, editing, inspecting, selecting, moving functors, editing the functor ports, writing comments to a functor and organizing the model layout:
 
-> **More information:** [Functor Action Bar](../gui/Interface-Elements.html#functor-action-bar), [Connection Action Bar](../gui/Interface-Elements.html#connection-action-bar) and [Functor Editor](../gui/Functor-Editor.html).
+> **More information:** [Functor Action Bar](../gui/Interface-Elements.html#functor-action-bar), [Connection Action Bar](../gui/Interface-Elements.html#connection-action-bar) and [Functor and Port Editors](../gui/Functor-And-Port-Editors.html).
 
 ![](../image/guidebook_imagem15.png)
 

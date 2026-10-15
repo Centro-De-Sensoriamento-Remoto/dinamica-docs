@@ -81,16 +81,11 @@ This wiki documents Dinamica EGO's scripting language, execution model, and the 
 ## Graphical Interface
 
 - [Graphical Interface](gui/index.html) — the interface map and its components, with the pages below.
-- [Interface Elements](gui/Interface-Elements.html) — the Functor Library, Model Presentation panel, tabs, action bars, Overview, Explorer, Issue Panel, Message Log, and Documentation Panel.
-- [Options](gui/Options.html) — workers, memory management, native expression compilation, virtualization, message log level, model backups, and EGO Script formatting.
-- [Library and Sketch](gui/Library-And-Sketch.html) — the Functor Library, the Sketch panel, copy and paste, and drag and drop.
-- [Panels and Model Execution](gui/Panels-And-Model-Execution.html) — search filters, the Overview, the Explorer, the Issue Panel, and the execution progress bar.
-- [Functor Editor](gui/Functor-Editor.html) — port tooltips and the editors of the calculator functors.
+- [Interface Elements](gui/Interface-Elements.html) — the Functor Library, the Sketch, tabs and action bars, connecting and copying functors, the Overview, Explorer, Issue Panel, Message Log, Documentation Panel, and panel search filters.
+- [Functor and Port Editors](gui/Functor-And-Port-Editors.html) — port tooltips, the editors of the calculator functors, the editor of each port type, and wizards.
 - [Submodels in the GUI](gui/Submodels-In-The-GUI.html) — creating, instantiating, updating, importing, installing, and deleting submodels in the interface.
-- [Wizards](gui/Wizards.html) — exporting ports to wizards.
-- [Port Editors by Type](gui/Port-Editors-By-Type.html) — the GUI Editor section of every type page.
+- [Options and Performance](gui/Options-And-Performance.html) — workers, memory management, native expressions, virtualization, message log level, model backups, EGO Script formatting, file paths, and loading files from zip files.
 - [Keyboard Shortcuts](gui/Keyboard-Shortcuts.html) — global, script graph, window size, Weights Editor, and debug monitor shortcuts.
-- [Performance and File Handling](gui/Performance-And-File-Handling.html) — settings that speed up execution, file paths, and loading files from zip files.
 - [Map Viewer](gui/Map-Viewer.html) — viewing maps: interface, palettes, histograms, expressions, map groups, aliases, movies, and the command line.
 
 ## Practical Guidance

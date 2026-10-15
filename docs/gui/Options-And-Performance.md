@@ -1,12 +1,23 @@
 ---
-title: "Options (Tools => Options)"
+title: "Options and Performance"
 parent: Graphical Interface
-nav_order: 2
+nav_order: 4
 ---
 {% raw %}
-# Options (Tools => Options)
+# Options and Performance
 
-Several interface options are accessible from **Tools => Options**. They are grouped below by what each one actually controls.
+Several interface options are accessible from **Tools => Options**. This page groups them by what each one controls, starting with the ones that make models run faster, and then covers how model files are located and loaded.
+
+## Increasing Performance
+
+- Select "Tools => Options \| Advanced \| Automatically detect the number of processors available". When running models from the command line, set the `-processor` option of each model to 0.
+- Set the memory management option under "Tools => Options \| Advanced" to "Balanced" or "Aggressive". On the command line, use the option `-memory-allocation-policy` with the value 1 or 4, respectively.
+- Install the Enhancement Plugin for Dinamica EGO and clear "Tools => Options \| Advanced \| Disable compilation of native expressions".
+- Set "Tools => Options \| System \| Message log level" to Result. This helps most in models with many loop containers such as [Repeat](../functors/Repeat.html), [While](../functors/While.html), and [For](../functors/For.html).
+- Avoid maps with the [cell type](../types/Cell-Type.html) "1 Bit Integer". It saves memory, but has a large negative impact on performance.
+- Keep Dinamica EGO updated.
+
+Each of these settings is described below.
 
 ## Number of Workers
 
@@ -50,5 +61,19 @@ The "Backup Folder" field controls where these copies are placed. If left empty,
 
 ## EGO Script Formatting
 
-The settings under "Options \| EGO Script" control how a model selection is formatted when it is copied and pasted as EGO Script into an external text editor. See [Sketch](Library-And-Sketch.html#sketch) for the copy/paste mechanism itself.
+The settings under "Options \| EGO Script" control how a model selection is formatted when it is copied and pasted as EGO Script into an external text editor. See [Copying and Pasting](Interface-Elements.html#copying-and-pasting) for the copy/paste mechanism itself.
+
+## File Paths
+
+The interface shows absolute file paths for readability, but the paths are stored as relative paths. To move a model without breaking its file references, keep the same relative location between the script file ([EGO Script](../EGO-Script.html) or [EGOML](../EGOML-Script.html)) and the data directory.
+
+Alternatively, use the [Workdir](../functors/Workdir.html) functor: every Load and Save functor inside it is relative to the directory set in the Workdir. A model can contain several Workdir containers. For an example, see the folder `Examples\run_lucc_northern_mato_grosso\run_roads_with_comments_and_workdirs` in the Dinamica EGO examples.
+
+## Loading Files from Zip Files
+
+Maps, tables, lookup tables, and Weights of Evidence files can be loaded from [zip](https://en.wikipedia.org/wiki/ZIP_(file_format)) files.
+
+- A zip file packs all the files of a model in a single archive. It does not increase the amount of data Dinamica EGO can handle at once: Dinamica unzips the files into a temporary folder and loads them from there.
+- Zip files are limited to 4 GB. Files kept outside the archive can be larger.
+- To read a file inside a zip file, use a [Workdir](../functors/Workdir.html) container. Set its `folder` input port to the zip file name, and place a loader such as [Load Map](../functors/Load-Map.html) or [Load Weights](../functors/Load-Weights.html) inside it. The file name in the loader must match the name of the file in the archive.
 {% endraw %}

@@ -1,7 +1,7 @@
 ---
 title: "Map Viewer"
 parent: Graphical Interface
-nav_order: 11
+nav_order: 6
 has_children: true
 ---
 {% raw %}
@@ -15,15 +15,12 @@ The Map Viewer displays and interprets raster maps, including the results of sim
 - From the Sketch toolbar, with the "Inspect Functor" icon (the eye).
 - From the eye icon of the [Load Map](../functors/Load-Map.html) and [Save Map](../functors/Save-Map.html) functors.
 - As a separate application, from the Windows Start menu.
-- From the Output pages of a [wizard](Wizards.html) created to present resulting maps.
+- From the Output pages of a [wizard](Functor-And-Port-Editors.html#wizards) created to present resulting maps.
 
 ## In this section
 
 - [Map Viewer Interface](Map-Viewer-Interface.html) — the main window, the toolbar, loading maps, and the functions available for each map.
-- [Color Palette](Color-Palette.html) — choosing and editing the colors that represent cell values.
-- [Histogram Editor](Histogram-Editor.html) — mapping cell values to the palette range.
-- [Expressions and Map Groups](Expressions-And-Map-Groups.html) — calculating expressions over maps and groups of maps.
-- [Map Alias](Map-Alias.html) — assigning descriptive names to maps.
-- [Making a Movie](Making-A-Movie.html) — creating mp4 movies from a series of maps.
-- [Map Viewer Command Line](Map-Viewer-Command-Line.html) — saving images from the command line.
+- [Palettes and Histograms](Palettes-And-Histograms.html) — choosing and editing the colors that represent cell values, and mapping cell values to the palette range.
+- [Expressions, Groups and Aliases](Expressions-Groups-And-Aliases.html) — calculating expressions over maps and groups of maps, and assigning descriptive names to maps.
+- [Movies and Command Line](Movies-And-Command-Line.html) — creating mp4 movies from a series of maps, and saving images from the command line.
 {% endraw %}

@@ -21,8 +21,8 @@ The main window holds the viewer state. On the left is the toolbar for the viewe
 2. Save the viewer state (transformations, map stack settings, background color, and movie maker settings).
 3. Save the current visualization as a bitmap image, including the legend and the overview map if visible.
 4. Reload the selected map.
-5. Open the movie maker. See [Making a Movie](Making-A-Movie.html).
-6. Create or split map groups. Groups allow calculate expressions over a custom stack of maps. See [Expressions and Map Groups](Expressions-And-Map-Groups.html).
+5. Open the movie maker. See [Making a Movie](Movies-And-Command-Line.html#making-a-movie).
+6. Create or split map groups. Groups allow calculate expressions over a custom stack of maps. See [Expressions and Map Groups](Expressions-Groups-And-Aliases.html#expressions-and-map-groups).
 7. Toggle the map legend. If the map is in category mode, toggle the categories instead.
 8. Toggle the birdview, a small overview map showing the location of the current zoomed view.
 9. Zoom to fit the window.
@@ -70,10 +70,10 @@ For maps with category information, an additional button toggles between normal 
 ![Map functions](../image/map_viewer_loaded_map_buttons.png)
 
 1. Change the map layer. For maps with several layers, only one layer is shown at a time.
-2. Change the map [palette](Color-Palette.html).
+2. Change the map [palette](Palettes-And-Histograms.html#color-palette).
 3. Opacity. Maps are opaque by default; a transparency threshold can be set to combine maps in the stack.
-4. [Image expression](Expressions-And-Map-Groups.html) (calculate expression) for the map values.
-5. [Histogram](Histogram-Editor.html) transformation.
+4. [Image expression](Expressions-Groups-And-Aliases.html#expressions-and-map-groups) (calculate expression) for the map values.
+5. [Histogram](Palettes-And-Histograms.html#histogram-editor) transformation.
 6. Edit the palette selected in the combo box (2).
 7. Toggle category view. Available only for maps with category information.
 8. Toggle map visibility.
@@ -87,5 +87,5 @@ Click the information icon to show information about the map.
 
 ![Map information](../image/map_viewer_map_info.png)
 
-The information comes from Dinamica EGO, and the available rows vary from map to map. The alias of the map or map group can be set at the top of the dialog; see [Map Alias](Map-Alias.html).
+The information comes from Dinamica EGO, and the available rows vary from map to map. The alias of the map or map group can be set at the top of the dialog; see [Map Alias](Expressions-Groups-And-Aliases.html#map-alias).
 {% endraw %}

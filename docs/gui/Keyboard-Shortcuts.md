@@ -1,7 +1,7 @@
 ---
 title: "Keyboard Shortcuts"
 parent: Graphical Interface
-nav_order: 9
+nav_order: 5
 ---
 {% raw %}
 # Keyboard Shortcuts

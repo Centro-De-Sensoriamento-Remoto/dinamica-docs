@@ -416,7 +416,7 @@ Now, open the model `simulate_deforestation_from_1997_2000_with_patch_formation_
 
 Now run the model, access the log for the report, and compare its output with the previous ones.
 
-![](../image/guidebook_lucc_67.jpg)8thStep---------------------------------------------------------------------------9th Step----------------------------------------------------------------23367_2000
+![](../image/guidebook_lucc_67.jpg)
 
 Did this model approximate more closely to the structure of the final historical landscape?
 
@@ -448,7 +448,7 @@ This is what you get:
 
 Note that the forest virtually disappears outside of protected areas, which begin to be encroached. This is what will happen if the recent historical deforestation trend persists into the future.
 
-Animated maps are a very powerful tool to make the general public aware of the possible outcomes of system dynamics, such as the Amazon deforestation. Go to our [movie maker tutorial](../gui/Making-A-Movie.html) to learn how to do it.
+Animated maps are a very powerful tool to make the general public aware of the possible outcomes of system dynamics, such as the Amazon deforestation. Go to our [movie maker tutorial](../gui/Movies-And-Command-Line.html#making-a-movie) to learn how to do it.
 
 You may want to improve this model by incorporating dynamic rates, other dynamic variables, submodels, such as the road constructor, and feedbacks from the landscape attributes to the transition rate calculation. All of these are possible in Dinamica EGO. An example of road constructor module is found in the model mato_grosso_road.xml in `Examples\run_lucc_northern_mato_grosso\run_roads_with_comments`. Also, Dinamica EGO allows the incorporation of economic, social and political scenarios into a model that integrates the effect of  these underlying causes [(Geist, & Lambin, 2001)](http://www.eldis.org/go/topics&id=14501&type=Document#.Ufba_421EZ4) on the trajectory of deforestation (usually these variables are input to the model using tables with keys assigned to a geographic unit, such as county, state or country).
 

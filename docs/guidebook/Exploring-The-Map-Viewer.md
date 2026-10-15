@@ -32,7 +32,7 @@ Each toolbar button is described below:
 
 4. Reload current selected map.
 
-5. Open movie maker (allow users to [make *.mp4 movies from a series of maps](../gui/Making-A-Movie.html) in a easy way).
+5. Open movie maker (allow users to [make *.mp4 movies from a series of maps](../gui/Movies-And-Command-Line.html#making-a-movie) in a easy way).
 
 6. Create/Split map groups (grouping maps allow users to apply calculate expressions on top of a custom stack).
 
@@ -76,7 +76,7 @@ The color corresponding to each individual value can be changed by clicking on t
 
 ![](../image/map_viewer_palette_color_hover.png)
 
-> **Important:** Values changed by [histogram transformation](../gui/Histogram-Editor.html) may not correspond to palette colors as expected, specially when the user is trying to edit the colors for specific cells/categories. To avoid this issue, remove the histogram transformation (set them to None) before editing the colors for specific cell values.
+> **Important:** Values changed by [histogram transformation](../gui/Palettes-And-Histograms.html#histogram-editor) may not correspond to palette colors as expected, specially when the user is trying to edit the colors for specific cells/categories. To avoid this issue, remove the histogram transformation (set them to None) before editing the colors for specific cell values.
 
 ## Generated palette
 
@@ -156,11 +156,11 @@ The functions you have for each map are described below:
 ![](../image/map_viewer_loaded_map_buttons.png)
 
 1. Change map layer. If your map has many layers, you can select the active layer to be shown. Only one layer can be used at a time.
-2. Change map [palette](../gui/Color-Palette.html).
+2. Change map [palette](../gui/Palettes-And-Histograms.html#color-palette).
 3. Opacity (by default, viewer show opaque maps, but you can set a transparency threshold for better visualization).
-4. [Image Expression](../gui/Expressions-And-Map-Groups.html) (calculate expression - just like calculate map on Dinamica EGO - for map values).
-5. [Histogram](../gui/Histogram-Editor.html) transformation.
-6. Edit color [palette](../gui/Color-Palette.html) selected on the left combo box (2).
+4. [Image Expression](../gui/Expressions-Groups-And-Aliases.html#expressions-and-map-groups) (calculate expression - just like calculate map on Dinamica EGO - for map values).
+5. [Histogram](../gui/Palettes-And-Histograms.html#histogram-editor) transformation.
+6. Edit color [palette](../gui/Palettes-And-Histograms.html#color-palette) selected on the left combo box (2).
 7. Toggle category view (only available for maps with category information).
 8. Toggle map visibility.
 9. Remove map from [stack](../gui/Map-Viewer-Interface.html)
@@ -184,7 +184,7 @@ Usually, when you see formats as (.mp4) it means that you have a set of images a
 #### Making a movie
 
 1. User load the maps to display on the movie. Check out [Load a map](../gui/Map-Viewer-Interface.html#loading-maps), if you are unsure about how to load maps.
-1. Transformations are configured, [histogram](../gui/Histogram-Editor.html) curves are defined and [color palette](../gui/Color-Palette.html) set.
+1. Transformations are configured, [histogram](../gui/Palettes-And-Histograms.html#histogram-editor) curves are defined and [color palette](../gui/Palettes-And-Histograms.html#color-palette) set.
 1. The movie maker is invoked.
 
 ![](../image/movie_maker_button.png)

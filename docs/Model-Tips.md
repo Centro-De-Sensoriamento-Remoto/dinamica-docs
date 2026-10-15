@@ -59,7 +59,7 @@ Packages can be installed from **[Calculate R Expression](functors/Calculate-R-E
 
 ## Wizards
 
-See [Wizards](gui/Wizards.html) in the Graphical Interface section.
+See [Wizards](gui/Functor-And-Port-Editors.html#wizards) in the Graphical Interface section.
 
 ## Performance
 
