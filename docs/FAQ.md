@@ -59,6 +59,14 @@ Go to the [Microsoft website](https://learn.microsoft.com/en-us/cpp/windows/late
 
 After installing this utility, try running Dinamica EGO again.
 
+#### Question I-6
+
+**How do I copy my store submodels to another computer, or keep a copy of them?**
+
+The submodels downloaded from the Submodel Store are all kept in a single file, `SubmodelDatabase.sqlite`. On Windows, open Windows File Explorer, type `%LOCALAPPDATA%` in the address bar, and press Enter. Then open the `Dinamica EGO <version>` folder and copy `SubmodelDatabase.sqlite`. To use the submodels on another computer, close Dinamica EGO there and paste the file into the same folder, `%LOCALAPPDATA%\Dinamica EGO <version>`. Pasting the file replaces the one already in that folder, so any store submodels that exist only on the destination computer are replaced.
+
+User submodels are stored separately, in `Documents\Dinamica EGO <version>\Submodels`. See [Copying Submodels to Another Computer](Submodels.html#copying-submodels-to-another-computer) for details and for the Linux locations.
+
 ## Updates, Security, and Privacy
 
 #### Question U-1

@@ -82,6 +82,15 @@ User submodels are typically stored in the folder `C:\Users\<User>\Documents\Din
 
 Store submodels — those downloaded by the user from the online Submodel Store — are kept in a SQLite database. On Windows, it is typically located at `C:\Users\<User>\AppData\Local\Dinamica EGO <version>\SubmodelDatabase.sqlite`. On Linux, it is typically located at `/home/<User>/.local/share/Dinamica EGO <version>/SubmodelDatabase.sqlite`.
 
+#### Copying Submodels to Another Computer
+
+To use the same submodels on another computer, copy the files that hold them to the same locations on that computer:
+
+- **Store submodels:** copy the `SubmodelDatabase.sqlite` file. On Windows, type `%LOCALAPPDATA%` in the address bar of Windows File Explorer, open the `Dinamica EGO <version>` folder, and copy the file from there. This single file contains all the store submodels downloaded on that computer.
+- **User submodels:** copy the contents of the `Submodels` folder in `Documents\Dinamica EGO <version>`.
+
+Close Dinamica EGO before copying files into the destination. Copying `SubmodelDatabase.sqlite` replaces the file already in the destination folder, so any store submodels that exist only on the destination computer are replaced.
+
 #### System Submodels
 
 System submodels are provided by Dinamica itself: on Windows they are usually located at `C:\Program Files\Dinamica EGO <version>\Submodels`, while on Linux they are stored inside the application itself, with no corresponding filesystem path.
