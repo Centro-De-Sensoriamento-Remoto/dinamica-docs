@@ -14,7 +14,7 @@ The Dinamica EGO interface shows absolute filepaths for easier reading, but they
 
 ## Workdir
 
-The following functors can be placed, directly or indirectly, inside a **Workdir**: Load Map, Load Categorical Map, Load Table, Load Lookup Table, Load Weights, Save Map, Save Categorical Map, Save Table, Save Lookup Table, and Save Weights.
+The following functors can be placed, directly or indirectly, inside a **[Workdir](functors/Workdir.html)**: [Load Map](functors/Load-Map.html), [Load Categorical Map](functors/Load-Categorical-Map.html), [Load Table](functors/Load-Table.html), [Load Lookup Table](functors/Load-Lookup-Table.html), [Load Weights](functors/Load-Weights.html), [Save Map](functors/Save-Map.html), [Save Table](functors/Save-Table.html), [Save Lookup Table](functors/Save-Lookup-Table.html), and [Save Weights](functors/Save-Weights.html).
 
 When placed inside a Workdir, the file name used by the functor becomes relative to the folder defined by the Workdir. This simplifies switching the input data folder for multiple functors in the same model. You can use several [Workdir](functors/Workdir.html) in the same model.
 
@@ -42,7 +42,7 @@ Sometimes, however, it is convenient to force a loop that *could* run its steps 
 
 ## Create String
 
-In the formatting parameters of **Create String**:
+In the formatting parameters of **[Create String](functors/Create-String.html)**:
 
 - **Padding** specifies the *total length* of the final string, in number of characters, including characters such as `"."` and `"-"`.
 - **Precision** specifies the total number of numeric digits, before any padding is added.
@@ -55,7 +55,7 @@ Packages can be installed either by calling `dinamica.package(...)` from within 
 
 ## Calculate R Expression
 
-Packages can be installed from **Calculate R Expression** using the `dinamicaPackage("package name")` function (one function call per package). `dinamicaPackage("package")` also acts as an `import` clause: when the package name is the same as the name of the module to be loaded via `import`, the package is installed and the module of the same name is loaded. See [Calculate R Expression — Installing Packages](functors/Calculate-R-Expression.html#installing-packages) for more detail.
+Packages can be installed from **[Calculate R Expression](functors/Calculate-R-Expression.html)** using the `dinamicaPackage("package name")` function (one function call per package). `dinamicaPackage("package")` also acts as an `import` clause: when the package name is the same as the name of the module to be loaded via `import`, the package is installed and the module of the same name is loaded. See [Calculate R Expression — Installing Packages](functors/Calculate-R-Expression.html#installing-packages) for more detail.
 
 ## Wizards
 
