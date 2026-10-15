@@ -54,7 +54,11 @@ The size of new patches and expansion fringes is set according to a lognormal pr
 
 Probabilities carries one spatial-probability layer per transition, named `probability_i_to_j`, where i and j are the origin and destination categories of the transition.
 
-See Patterns of Change for different examples of patches generated using [Patcher](Patcher.html) and [Expander](Expander.html).
+See [Simulating the patterns of change](../guidebook/Simulating-Patterns-Of-Change.html) for examples of patches generated with Expander and [Patcher](Patcher.html), alone and combined.
+
+### Neighbor Window and Prune Factor
+
+The **Neighbor Window Lines**, **Neighbor Window Columns** and **Prune Factor** ports work as described in [How Patches Are Formed](Patcher.html#how-patches-are-formed): the window defines the neighbors considered around a cell, and the prune factor sets how many of the highest-probability cells take part in the selection of patch nuclei.
 
 ## Internal Name
 

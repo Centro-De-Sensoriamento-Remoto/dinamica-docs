@@ -54,7 +54,15 @@ The size of new patches is set according to a lognormal probability distribution
 
 Probabilities carries one spatial-probability layer per transition, named `probability_i_to_j`, where i and j are the origin and destination categories of the transition.
 
-See Patterns of Change for different examples of patches generated using [Patcher](Patcher.html) and [Expander](Expander.html).
+See [Simulating the patterns of change](../guidebook/Simulating-Patterns-Of-Change.html) for examples of patches generated with Patcher and [Expander](Expander.html), alone and combined.
+
+### How Patches Are Formed
+
+Forming patches has two stages: choosing a patch seed and forming the patch itself.
+
+**Choosing the patch seed.** The seed is called the pivot cell. To choose it, Patcher collects the probabilities of all cells where the transition is possible, sorts them, and keeps only the cells with the highest probabilities. This step is called pruning. The number of cells kept is the number of expected transitions multiplied by the **Prune Factor**, and the resulting cells are the pivot candidates. A cell is drawn at random from the candidates and submitted to a rejection test. If it passes, it becomes the base of a new patch. Otherwise, another cell is drawn, until a pivot cell is accepted.
+
+**Forming the patch.** The pivot's neighbors are selected using a window with the number of lines and columns defined by **Neighbor Window Lines** and **Neighbor Window Columns**, centered on the pivot cell. All neighbors where the transition is possible are placed in a patch formation pool, which is separate from the pool of pivot candidates. A cell is drawn from this pool in the same way as the pivot, with a rejection test. If the cell passes, it becomes part of the patch and its neighbors are added to the pool. If a neighbor is already in the pool, its probability is increased or decreased using the isometry as a factor. The process repeats until the number of cells expected for the patch is reached. That number is drawn at random from a distribution defined by the mean and variance of the patch size.
 
 ## Internal Name
 
