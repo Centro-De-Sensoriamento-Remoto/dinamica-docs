@@ -3,8 +3,6 @@ title: "Integer Value Type"
 nav_order: 6
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Integer-Value-Type.html
 ---
 {% raw %}
 # Integer Value Type

@@ -3,8 +3,6 @@ title: "Table Junction"
 nav_order: 35
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Table-Junction.html
 ---
 {% raw %}
 # Table Junction

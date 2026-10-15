@@ -3,8 +3,6 @@ title: "Determine Weights Of Evidence Coefficients"
 nav_order: 2
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Determine-Weights-Of-Evidence-Coefficients.html
 ---
 {% raw %}
 # Determine Weights Of Evidence Coefficients

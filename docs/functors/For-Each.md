@@ -3,8 +3,6 @@ title: "For Each"
 nav_order: 7
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /For-Each.html
 ---
 {% raw %}
 # For Each

@@ -3,8 +3,6 @@ title: "Send Lookup Table"
 nav_order: 13
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Send-Lookup-Table.html
 ---
 {% raw %}
 # Send Lookup Table

@@ -3,8 +3,6 @@ title: "Calc Neighborhood"
 nav_order: 3
 parent: "Statistics Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Neighborhood.html
 ---
 {% raw %}
 # Calc Neighborhood

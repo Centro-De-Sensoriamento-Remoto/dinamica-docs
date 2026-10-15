@@ -3,8 +3,6 @@ title: "Number Map Filename"
 nav_order: 12
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Map-Filename.html
 ---
 {% raw %}
 # Number Map Filename

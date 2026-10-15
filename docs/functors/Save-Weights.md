@@ -3,8 +3,6 @@ title: "Save Weights"
 nav_order: 14
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Weights.html
 ---
 {% raw %}
 # Save Weights

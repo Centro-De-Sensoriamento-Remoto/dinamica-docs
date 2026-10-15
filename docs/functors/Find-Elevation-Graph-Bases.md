@@ -3,8 +3,6 @@ title: "Find Elevation Graph Bases"
 nav_order: 3
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Find-Elevation-Graph-Bases.html
 ---
 {% raw %}
 # Find Elevation Graph Bases

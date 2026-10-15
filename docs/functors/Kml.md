@@ -3,8 +3,6 @@ title: "Kml"
 nav_order: 48
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Kml.html
 ---
 {% raw %}
 # Kml

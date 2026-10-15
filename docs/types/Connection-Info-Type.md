@@ -3,8 +3,6 @@ title: "Connection Info Type"
 nav_order: 46
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Connection-Info-Type.html
 ---
 {% raw %}
 # Connection Info Type

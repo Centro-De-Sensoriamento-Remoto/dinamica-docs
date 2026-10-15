@@ -3,8 +3,6 @@ title: "Map Filename Type"
 nav_order: 20
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Map-Filename-Type.html
 ---
 {% raw %}
 # Map Filename Type

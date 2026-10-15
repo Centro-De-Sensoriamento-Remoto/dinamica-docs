@@ -3,8 +3,6 @@ title: "Crop Map To Extents"
 nav_order: 27
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Crop-Map-To-Extents.html
 ---
 {% raw %}
 # Crop Map To Extents

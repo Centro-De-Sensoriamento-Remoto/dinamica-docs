@@ -3,8 +3,6 @@ title: "Calc Kernel Map"
 nav_order: 2
 parent: "Statistics Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Kernel-Map.html
 ---
 {% raw %}
 # Calc Kernel Map

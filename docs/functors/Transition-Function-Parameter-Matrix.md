@@ -3,8 +3,6 @@ title: "Transition Function Parameter Matrix"
 nav_order: 10
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Transition-Function-Parameter-Matrix.html
 ---
 {% raw %}
 # Transition Function Parameter Matrix

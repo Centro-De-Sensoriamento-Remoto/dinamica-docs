@@ -3,8 +3,6 @@ title: "Kml Type"
 nav_order: 48
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Kml-Type.html
 ---
 {% raw %}
 # Kml Type

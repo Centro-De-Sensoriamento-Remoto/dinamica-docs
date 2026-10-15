@@ -3,8 +3,6 @@ title: "Cell Type"
 nav_order: 34
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Cell-Type.html
 ---
 {% raw %}
 # Cell Type

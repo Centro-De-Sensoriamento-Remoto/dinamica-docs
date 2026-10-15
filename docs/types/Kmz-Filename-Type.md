@@ -3,8 +3,6 @@ title: "Kmz Filename Type"
 nav_order: 18
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Kmz-Filename-Type.html
 ---
 {% raw %}
 # Kmz Filename Type

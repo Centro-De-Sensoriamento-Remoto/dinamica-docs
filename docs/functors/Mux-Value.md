@@ -3,8 +3,6 @@ title: "Mux Value"
 nav_order: 23
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Mux-Value.html
 ---
 {% raw %}
 # Mux Value

@@ -3,8 +3,6 @@ title: "Percent Matrix Type"
 nav_order: 39
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Percent-Matrix-Type.html
 ---
 {% raw %}
 # Percent Matrix Type

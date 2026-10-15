@@ -3,8 +3,6 @@ title: "Int Set"
 nav_order: 46
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Int-Set.html
 ---
 {% raw %}
 # Int Set

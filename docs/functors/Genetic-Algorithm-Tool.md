@@ -3,8 +3,6 @@ title: "Genetic Algorithm Tool"
 nav_order: 6
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Genetic-Algorithm-Tool.html
 ---
 {% raw %}
 # Genetic Algorithm Tool

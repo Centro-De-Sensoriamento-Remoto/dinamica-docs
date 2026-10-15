@@ -3,8 +3,6 @@ title: "Create Categorical Map"
 nav_order: 22
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Categorical-Map.html
 ---
 {% raw %}
 # Create Categorical Map

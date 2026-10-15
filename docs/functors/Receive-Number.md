@@ -3,8 +3,6 @@ title: "Receive Number"
 nav_order: 9
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Receive-Number.html
 ---
 {% raw %}
 # Receive Number

@@ -3,8 +3,6 @@ title: "Categorization Type"
 nav_order: 33
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Categorization-Type.html
 ---
 {% raw %}
 # Categorization Type

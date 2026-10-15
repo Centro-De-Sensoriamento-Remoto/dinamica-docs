@@ -3,8 +3,6 @@ title: "Create Kml"
 nav_order: 24
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Kml.html
 ---
 {% raw %}
 # Create Kml

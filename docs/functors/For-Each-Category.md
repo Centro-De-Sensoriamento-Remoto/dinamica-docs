@@ -3,8 +3,6 @@ title: "For Each Category"
 nav_order: 8
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /For-Each-Category.html
 ---
 {% raw %}
 # For Each Category

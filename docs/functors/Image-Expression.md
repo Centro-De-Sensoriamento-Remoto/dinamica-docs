@@ -3,8 +3,6 @@ title: "Image Expression"
 nav_order: 45
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Image-Expression.html
 ---
 {% raw %}
 # Image Expression

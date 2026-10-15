@@ -3,8 +3,6 @@ title: "Send Table"
 nav_order: 16
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Send-Table.html
 ---
 {% raw %}
 # Send Table

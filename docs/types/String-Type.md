@@ -3,8 +3,6 @@ title: "String Type"
 nav_order: 15
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /String-Type.html
 ---
 {% raw %}
 # String Type

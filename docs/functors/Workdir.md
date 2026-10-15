@@ -3,8 +3,6 @@ title: "Workdir"
 nav_order: 15
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Workdir.html
 ---
 {% raw %}
 # Workdir

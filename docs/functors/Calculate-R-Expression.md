@@ -2,8 +2,6 @@
 title: "Calculate R Expression"
 nav_order: 5
 parent: "Language and Expressions"
-redirect_from:
-  - /Calculate-R-Expression.html
 ---
 {% raw %}
 # Calculate R Expression

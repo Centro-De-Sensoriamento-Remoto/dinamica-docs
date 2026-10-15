@@ -3,8 +3,6 @@ title: "Save Map"
 nav_order: 11
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Map.html
 ---
 {% raw %}
 # Save Map

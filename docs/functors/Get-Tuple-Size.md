@@ -3,8 +3,6 @@ title: "Get Tuple Size"
 nav_order: 15
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Tuple-Size.html
 ---
 {% raw %}
 # Get Tuple Size

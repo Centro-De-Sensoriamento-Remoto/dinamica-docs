@@ -3,8 +3,6 @@ title: "Null Value"
 nav_order: 58
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Null-Value.html
 ---
 {% raw %}
 # Null Value

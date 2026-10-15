@@ -3,8 +3,6 @@ title: "Change Matrix"
 nav_order: 7
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Change-Matrix.html
 ---
 {% raw %}
 # Change Matrix

@@ -3,8 +3,6 @@ title: "Calc Pathway Map"
 nav_order: 15
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Pathway-Map.html
 ---
 {% raw %}
 # Calc Pathway Map

@@ -3,8 +3,6 @@ title: "Number Percent Matrix"
 nav_order: 13
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Percent-Matrix.html
 ---
 {% raw %}
 # Number Percent Matrix

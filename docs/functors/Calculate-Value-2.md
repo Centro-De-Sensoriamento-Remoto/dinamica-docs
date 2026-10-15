@@ -3,8 +3,6 @@ title: "Calculate Value 2"
 nav_order: 5
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calculate-Value-2.html
 ---
 {% raw %}
 # Calculate Value 2

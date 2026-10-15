@@ -3,8 +3,6 @@ title: "Get Environment Value"
 nav_order: 2
 parent: "Tools Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Environment-Value.html
 ---
 {% raw %}
 # Get Environment Value

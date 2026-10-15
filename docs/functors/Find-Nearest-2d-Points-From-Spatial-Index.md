@@ -3,8 +3,6 @@ title: "Find Nearest 2D Points From Spatial Index"
 nav_order: 2
 parent: "Spatial Index: 2D Points Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Find-Nearest-2d-Points-From-Spatial-Index.html
 ---
 {% raw %}
 # Find Nearest 2D Points From Spatial Index

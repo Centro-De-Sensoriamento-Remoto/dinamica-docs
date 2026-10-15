@@ -3,8 +3,6 @@ title: "Skip On Error"
 nav_order: 31
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Skip-On-Error.html
 ---
 {% raw %}
 # Skip On Error

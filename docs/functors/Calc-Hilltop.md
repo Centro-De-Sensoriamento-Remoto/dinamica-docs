@@ -3,8 +3,6 @@ title: "Calc Hilltop"
 nav_order: 11
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Hilltop.html
 ---
 {% raw %}
 # Calc Hilltop

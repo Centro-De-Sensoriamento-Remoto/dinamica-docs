@@ -3,8 +3,6 @@ title: "Table Cell Type"
 nav_order: 29
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Table-Cell-Type.html
 ---
 {% raw %}
 # Table Cell Type

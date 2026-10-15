@@ -3,8 +3,6 @@ title: "Extract Struct Tuple"
 nav_order: 7
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Struct-Tuple.html
 ---
 {% raw %}
 # Extract Struct Tuple

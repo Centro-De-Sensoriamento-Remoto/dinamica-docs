@@ -3,8 +3,6 @@ title: "Calc Lookup Table Intersection"
 nav_order: 2
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Lookup-Table-Intersection.html
 ---
 {% raw %}
 # Calc Lookup Table Intersection

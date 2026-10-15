@@ -3,8 +3,6 @@ title: "Set Fitness"
 nav_order: 8
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Fitness.html
 ---
 {% raw %}
 # Set Fitness

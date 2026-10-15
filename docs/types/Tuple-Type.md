@@ -3,8 +3,6 @@ title: "Tuple Type"
 nav_order: 31
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Tuple-Type.html
 ---
 {% raw %}
 # Tuple Type

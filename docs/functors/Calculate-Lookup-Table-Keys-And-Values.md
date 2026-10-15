@@ -3,8 +3,6 @@ title: "Calculate Lookup Table Keys And Values"
 nav_order: 6
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calculate-Lookup-Table-Keys-And-Values.html
 ---
 {% raw %}
 # Calculate Lookup Table Keys And Values

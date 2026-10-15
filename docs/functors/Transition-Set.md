@@ -3,8 +3,6 @@ title: "Transition Set"
 nav_order: 12
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Transition-Set.html
 ---
 {% raw %}
 # Transition Set

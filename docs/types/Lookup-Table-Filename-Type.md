@@ -3,8 +3,6 @@ title: "Lookup Table Filename Type"
 nav_order: 19
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Lookup-Table-Filename-Type.html
 ---
 {% raw %}
 # Lookup Table Filename Type

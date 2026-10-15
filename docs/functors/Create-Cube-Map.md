@@ -3,8 +3,6 @@ title: "Create Cube Map"
 nav_order: 23
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Cube-Map.html
 ---
 {% raw %}
 # Create Cube Map

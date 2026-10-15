@@ -3,8 +3,6 @@ title: "Load Compressed Kml"
 nav_order: 3
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Load-Compressed-Kml.html
 ---
 {% raw %}
 # Load Compressed Kml

@@ -3,8 +3,6 @@ title: "Determine Weights Of Evidence Continuous Occurrences"
 nav_order: 3
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Determine-Weights-Of-Evidence-Continuous-Occurrences.html
 ---
 {% raw %}
 # Determine Weights Of Evidence Continuous Occurrences

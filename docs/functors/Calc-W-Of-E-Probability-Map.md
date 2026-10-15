@@ -3,8 +3,6 @@ title: "Calc W Of E Probability Map"
 nav_order: 17
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-W-Of-E-Probability-Map.html
 ---
 {% raw %}
 # Calc W Of E Probability Map

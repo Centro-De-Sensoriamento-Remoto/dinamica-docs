@@ -3,8 +3,6 @@ title: "Determine Transition Matrix"
 nav_order: 1
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Determine-Transition-Matrix.html
 ---
 {% raw %}
 # Determine Transition Matrix

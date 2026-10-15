@@ -3,8 +3,6 @@ title: "String Junction"
 nav_order: 33
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /String-Junction.html
 ---
 {% raw %}
 # String Junction

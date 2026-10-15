@@ -3,8 +3,6 @@ title: "Folder Type"
 nav_order: 16
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Folder-Type.html
 ---
 {% raw %}
 # Folder Type

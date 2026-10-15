@@ -3,8 +3,6 @@ title: "Get Region Info"
 nav_order: 2
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Region-Info.html
 ---
 {% raw %}
 # Get Region Info

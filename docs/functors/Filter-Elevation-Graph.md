@@ -3,8 +3,6 @@ title: "Filter Elevation Graph"
 nav_order: 2
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Filter-Elevation-Graph.html
 ---
 {% raw %}
 # Filter Elevation Graph

@@ -3,8 +3,6 @@ title: "Categorical Map"
 nav_order: 39
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Categorical-Map.html
 ---
 {% raw %}
 # Categorical Map

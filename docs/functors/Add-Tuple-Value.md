@@ -3,8 +3,6 @@ title: "Add Tuple Value"
 nav_order: 3
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Add-Tuple-Value.html
 ---
 {% raw %}
 # Add Tuple Value

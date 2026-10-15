@@ -3,8 +3,6 @@ title: "Struct Type"
 nav_order: 50
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Struct-Type.html
 ---
 {% raw %}
 # Struct Type

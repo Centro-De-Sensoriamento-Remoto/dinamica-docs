@@ -3,8 +3,6 @@ title: "Extract Struct String"
 nav_order: 5
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Struct-String.html
 ---
 {% raw %}
 # Extract Struct String

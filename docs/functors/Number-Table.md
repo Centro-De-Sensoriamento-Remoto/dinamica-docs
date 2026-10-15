@@ -3,8 +3,6 @@ title: "Number Table"
 nav_order: 63
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Table.html
 ---
 {% raw %}
 # Number Table

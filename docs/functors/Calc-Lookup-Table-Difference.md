@@ -3,8 +3,6 @@ title: "Calc Lookup Table Difference"
 nav_order: 1
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Lookup-Table-Difference.html
 ---
 {% raw %}
 # Calc Lookup Table Difference

@@ -3,8 +3,6 @@ title: "Number Weights Filename"
 nav_order: 18
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Weights-Filename.html
 ---
 {% raw %}
 # Number Weights Filename

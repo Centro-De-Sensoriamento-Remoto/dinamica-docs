@@ -3,8 +3,6 @@ title: "Mux Kml Timeline"
 nav_order: 18
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Mux-Kml-Timeline.html
 ---
 {% raw %}
 # Mux Kml Timeline

@@ -3,8 +3,6 @@ title: "Transition Matrix"
 nav_order: 11
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Transition-Matrix.html
 ---
 {% raw %}
 # Transition Matrix

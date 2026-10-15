@@ -3,8 +3,6 @@ title: "Select Transition Function Parameter Matrix"
 nav_order: 8
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Transition-Function-Parameter-Matrix.html
 ---
 {% raw %}
 # Select Transition Function Parameter Matrix

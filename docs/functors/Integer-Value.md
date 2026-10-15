@@ -3,8 +3,6 @@ title: "Integer Value"
 nav_order: 47
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Integer-Value.html
 ---
 {% raw %}
 # Integer Value

@@ -3,8 +3,6 @@ title: "Select Folder"
 nav_order: 1
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Folder.html
 ---
 {% raw %}
 # Select Folder

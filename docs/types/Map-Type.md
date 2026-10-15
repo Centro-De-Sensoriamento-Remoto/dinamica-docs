@@ -3,8 +3,6 @@ title: "Map Type"
 nav_order: 35
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Map-Type.html
 ---
 {% raw %}
 # Map Type

@@ -3,8 +3,6 @@ title: "Boolean Value Type"
 nav_order: 1
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Boolean-Value-Type.html
 ---
 {% raw %}
 # Boolean Value Type

@@ -3,8 +3,6 @@ title: "Mux Map"
 nav_order: 20
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Mux-Map.html
 ---
 {% raw %}
 # Mux Map

@@ -3,8 +3,6 @@ title: "Send Number"
 nav_order: 14
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Send-Number.html
 ---
 {% raw %}
 # Send Number

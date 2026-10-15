@@ -3,8 +3,6 @@ title: "Number Value"
 nav_order: 64
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Value.html
 ---
 {% raw %}
 # Number Value

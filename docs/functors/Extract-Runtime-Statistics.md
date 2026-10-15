@@ -3,8 +3,6 @@ title: "Extract Runtime Statistics"
 nav_order: 1
 parent: "Tools Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Runtime-Statistics.html
 ---
 {% raw %}
 # Extract Runtime Statistics

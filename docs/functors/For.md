@@ -3,8 +3,6 @@ title: "For"
 nav_order: 6
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /For.html
 ---
 {% raw %}
 # For

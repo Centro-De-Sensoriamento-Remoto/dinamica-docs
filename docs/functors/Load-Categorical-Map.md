@@ -3,8 +3,6 @@ title: "Load Categorical Map"
 nav_order: 2
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Load-Categorical-Map.html
 ---
 {% raw %}
 # Load Categorical Map

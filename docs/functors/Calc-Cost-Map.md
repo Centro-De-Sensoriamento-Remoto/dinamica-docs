@@ -3,8 +3,6 @@ title: "Calc Cost Map"
 nav_order: 4
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Cost-Map.html
 ---
 {% raw %}
 # Calc Cost Map

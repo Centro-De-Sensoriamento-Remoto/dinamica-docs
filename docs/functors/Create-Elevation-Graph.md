@@ -3,8 +3,6 @@ title: "Create Elevation Graph"
 nav_order: 1
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Elevation-Graph.html
 ---
 {% raw %}
 # Create Elevation Graph

@@ -3,8 +3,6 @@ title: "Remove Table Column"
 nav_order: 19
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Remove-Table-Column.html
 ---
 {% raw %}
 # Remove Table Column

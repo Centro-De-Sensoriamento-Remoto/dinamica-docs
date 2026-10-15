@@ -3,8 +3,6 @@ title: "Weights Filename"
 nav_order: 14
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Weights-Filename.html
 ---
 {% raw %}
 # Weights Filename

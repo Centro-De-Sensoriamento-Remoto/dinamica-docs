@@ -3,8 +3,6 @@ title: "Extract Struct Table"
 nav_order: 6
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Struct-Table.html
 ---
 {% raw %}
 # Extract Struct Table

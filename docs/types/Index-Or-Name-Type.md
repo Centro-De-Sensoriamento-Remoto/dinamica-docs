@@ -3,8 +3,6 @@ title: "Index Or Name Type"
 nav_order: 5
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Index-Or-Name-Type.html
 ---
 {% raw %}
 # Index Or Name Type

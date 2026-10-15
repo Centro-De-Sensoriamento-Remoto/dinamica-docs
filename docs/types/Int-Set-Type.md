@@ -3,8 +3,6 @@ title: "Int Set Type"
 nav_order: 27
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Int-Set-Type.html
 ---
 {% raw %}
 # Int Set Type

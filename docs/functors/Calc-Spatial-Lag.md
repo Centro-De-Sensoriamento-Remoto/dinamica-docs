@@ -3,8 +3,6 @@ title: "Calc Spatial Lag"
 nav_order: 4
 parent: "Statistics Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Spatial-Lag.html
 ---
 {% raw %}
 # Calc Spatial Lag

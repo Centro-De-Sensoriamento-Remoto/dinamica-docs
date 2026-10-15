@@ -3,8 +3,6 @@ title: "Lookup Table Junction"
 nav_order: 15
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Lookup-Table-Junction.html
 ---
 {% raw %}
 # Lookup Table Junction

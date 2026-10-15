@@ -3,8 +3,6 @@ title: "Weights Type"
 nav_order: 43
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Weights-Type.html
 ---
 {% raw %}
 # Weights Type

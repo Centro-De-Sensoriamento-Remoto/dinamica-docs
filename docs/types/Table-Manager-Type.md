@@ -3,8 +3,6 @@ title: "Table Manager Type"
 nav_order: 51
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Table-Manager-Type.html
 ---
 {% raw %}
 # Table Manager Type

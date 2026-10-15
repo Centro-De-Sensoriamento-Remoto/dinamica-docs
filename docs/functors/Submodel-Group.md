@@ -3,8 +3,6 @@ title: "Submodel Group"
 nav_order: 34
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Submodel-Group.html
 ---
 {% raw %}
 # Submodel Group

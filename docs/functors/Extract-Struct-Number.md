@@ -3,8 +3,6 @@ title: "Extract Struct Number"
 nav_order: 4
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Struct-Number.html
 ---
 {% raw %}
 # Extract Struct Number

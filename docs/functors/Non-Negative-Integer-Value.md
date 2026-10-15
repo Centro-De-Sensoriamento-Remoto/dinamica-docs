@@ -3,8 +3,6 @@ title: "Non Negative Integer Value"
 nav_order: 56
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Non-Negative-Integer-Value.html
 ---
 {% raw %}
 # Non Negative Integer Value

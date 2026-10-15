@@ -3,8 +3,6 @@ title: "Base Table Type"
 nav_order: 26
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Base-Table-Type.html
 ---
 {% raw %}
 # Base Table Type

@@ -3,8 +3,6 @@ title: "Create String"
 nav_order: 26
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-String.html
 ---
 {% raw %}
 # Create String

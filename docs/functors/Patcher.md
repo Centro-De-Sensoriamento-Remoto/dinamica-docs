@@ -3,8 +3,6 @@ title: "Patcher"
 nav_order: 5
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Patcher.html
 ---
 {% raw %}
 # Patcher

@@ -3,8 +3,6 @@ title: "Calc Distance Map"
 nav_order: 8
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Distance-Map.html
 ---
 {% raw %}
 # Calc Distance Map

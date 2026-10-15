@@ -3,8 +3,6 @@ title: "Code Type"
 nav_order: 2
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Code-Type.html
 ---
 {% raw %}
 # Code Type

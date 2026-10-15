@@ -3,8 +3,6 @@ title: "Non Negative Integer Value Type"
 nav_order: 9
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Non-Negative-Integer-Value-Type.html
 ---
 {% raw %}
 # Non Negative Integer Value Type

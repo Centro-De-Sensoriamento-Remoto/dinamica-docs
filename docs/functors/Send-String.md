@@ -3,8 +3,6 @@ title: "Send String"
 nav_order: 15
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Send-String.html
 ---
 {% raw %}
 # Send String

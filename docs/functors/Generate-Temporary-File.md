@@ -3,8 +3,6 @@ title: "Generate Temporary File"
 nav_order: 1
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Generate-Temporary-File.html
 ---
 {% raw %}
 # Generate Temporary File

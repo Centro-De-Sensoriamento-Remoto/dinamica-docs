@@ -3,8 +3,6 @@ title: "Calculate Lookup Table Values"
 nav_order: 7
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calculate-Lookup-Table-Values.html
 ---
 {% raw %}
 # Calculate Lookup Table Values

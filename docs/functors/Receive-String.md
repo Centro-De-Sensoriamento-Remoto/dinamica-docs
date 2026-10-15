@@ -3,8 +3,6 @@ title: "Receive String"
 nav_order: 10
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Receive-String.html
 ---
 {% raw %}
 # Receive String

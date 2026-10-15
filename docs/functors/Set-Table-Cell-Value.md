@@ -3,8 +3,6 @@ title: "Set Table Cell Value"
 nav_order: 22
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Table-Cell-Value.html
 ---
 {% raw %}
 # Set Table Cell Value

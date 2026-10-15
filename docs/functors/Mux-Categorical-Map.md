@@ -3,8 +3,6 @@ title: "Mux Categorical Map"
 nav_order: 17
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Mux-Categorical-Map.html
 ---
 {% raw %}
 # Mux Categorical Map

@@ -3,8 +3,6 @@ title: "Extract Categorical Map Attributes"
 nav_order: 28
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Categorical-Map-Attributes.html
 ---
 {% raw %}
 # Extract Categorical Map Attributes

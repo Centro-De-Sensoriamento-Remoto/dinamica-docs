@@ -3,8 +3,6 @@ title: "Get Map Value"
 nav_order: 32
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Map-Value.html
 ---
 {% raw %}
 # Get Map Value

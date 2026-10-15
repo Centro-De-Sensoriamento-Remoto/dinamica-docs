@@ -3,8 +3,6 @@ title: "Load Map"
 nav_order: 5
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Load-Map.html
 ---
 {% raw %}
 # Load Map

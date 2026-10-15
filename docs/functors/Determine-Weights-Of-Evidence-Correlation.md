@@ -3,8 +3,6 @@ title: "Determine Weights Of Evidence Correlation"
 nav_order: 4
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Determine-Weights-Of-Evidence-Correlation.html
 ---
 {% raw %}
 # Determine Weights Of Evidence Correlation

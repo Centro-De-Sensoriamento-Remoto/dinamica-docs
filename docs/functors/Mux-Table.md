@@ -3,8 +3,6 @@ title: "Mux Table"
 nav_order: 21
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Mux-Table.html
 ---
 {% raw %}
 # Mux Table

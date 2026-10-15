@@ -3,8 +3,6 @@ title: "Image Expression Type"
 nav_order: 47
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Image-Expression-Type.html
 ---
 {% raw %}
 # Image Expression Type

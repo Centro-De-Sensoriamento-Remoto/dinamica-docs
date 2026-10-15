@@ -3,8 +3,6 @@ title: "Save Elevation Graph"
 nav_order: 8
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Elevation-Graph.html
 ---
 {% raw %}
 # Save Elevation Graph

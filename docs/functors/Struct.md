@@ -3,8 +3,6 @@ title: "Struct"
 nav_order: 70
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Struct.html
 ---
 {% raw %}
 # Struct

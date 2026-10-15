@@ -3,8 +3,6 @@ title: "Get Current Individual"
 nav_order: 7
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Current-Individual.html
 ---
 {% raw %}
 # Get Current Individual

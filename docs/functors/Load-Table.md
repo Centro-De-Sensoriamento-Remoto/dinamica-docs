@@ -3,8 +3,6 @@ title: "Load Table"
 nav_order: 6
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Load-Table.html
 ---
 {% raw %}
 # Load Table

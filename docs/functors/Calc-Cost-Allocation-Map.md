@@ -3,8 +3,6 @@ title: "Calc Cost Allocation Map"
 nav_order: 3
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Cost-Allocation-Map.html
 ---
 {% raw %}
 # Calc Cost Allocation Map

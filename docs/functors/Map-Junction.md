@@ -3,8 +3,6 @@ title: "Map Junction"
 nav_order: 16
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Map-Junction.html
 ---
 {% raw %}
 # Map Junction

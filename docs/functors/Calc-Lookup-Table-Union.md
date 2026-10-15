@@ -3,8 +3,6 @@ title: "Calc Lookup Table Union"
 nav_order: 3
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Lookup-Table-Union.html
 ---
 {% raw %}
 # Calc Lookup Table Union

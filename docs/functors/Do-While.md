@@ -3,8 +3,6 @@ title: "Do While"
 nav_order: 2
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Do-While.html
 ---
 {% raw %}
 # Do While

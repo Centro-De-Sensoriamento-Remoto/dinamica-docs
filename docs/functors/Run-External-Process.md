@@ -3,8 +3,6 @@ title: "Run External Process"
 nav_order: 27
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Run-External-Process.html
 ---
 {% raw %}
 # Run External Process

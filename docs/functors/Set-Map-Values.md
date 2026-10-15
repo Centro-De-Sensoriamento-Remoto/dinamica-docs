@@ -3,8 +3,6 @@ title: "Set Map Values"
 nav_order: 37
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Map-Values.html
 ---
 {% raw %}
 # Set Map Values

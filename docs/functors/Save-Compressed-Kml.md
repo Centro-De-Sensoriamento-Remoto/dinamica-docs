@@ -3,8 +3,6 @@ title: "Save Compressed Kml"
 nav_order: 9
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Compressed-Kml.html
 ---
 {% raw %}
 # Save Compressed Kml

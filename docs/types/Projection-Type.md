@@ -3,8 +3,6 @@ title: "Projection Type"
 nav_order: 21
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Projection-Type.html
 ---
 {% raw %}
 # Projection Type

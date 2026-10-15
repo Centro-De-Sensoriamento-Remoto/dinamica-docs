@@ -3,8 +3,6 @@ title: "Get Table Keys"
 nav_order: 12
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Table-Keys.html
 ---
 {% raw %}
 # Get Table Keys

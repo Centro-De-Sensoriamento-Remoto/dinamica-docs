@@ -3,8 +3,6 @@ title: "Value Junction"
 nav_order: 36
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Value-Junction.html
 ---
 {% raw %}
 # Value Junction

@@ -3,8 +3,6 @@ title: "Calc Reciprocal Similarity Map"
 nav_order: 1
 parent: "Validation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Reciprocal-Similarity-Map.html
 ---
 {% raw %}
 # Calc Reciprocal Similarity Map

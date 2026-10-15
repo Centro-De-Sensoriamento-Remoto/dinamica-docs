@@ -3,8 +3,6 @@ title: "Print"
 nav_order: 24
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Print.html
 ---
 {% raw %}
 # Print

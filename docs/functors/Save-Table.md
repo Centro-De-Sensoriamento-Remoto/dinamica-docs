@@ -3,8 +3,6 @@ title: "Save Table"
 nav_order: 12
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Table.html
 ---
 {% raw %}
 # Save Table

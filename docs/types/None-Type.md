@@ -3,8 +3,6 @@ title: "None Type"
 nav_order: 10
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /None-Type.html
 ---
 {% raw %}
 # None Type

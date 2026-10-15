@@ -3,8 +3,6 @@ title: "Transition Matrix Type"
 nav_order: 41
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Transition-Matrix-Type.html
 ---
 {% raw %}
 # Transition Matrix Type

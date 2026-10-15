@@ -3,8 +3,6 @@ title: "Name Table"
 nav_order: 54
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Name-Table.html
 ---
 {% raw %}
 # Name Table

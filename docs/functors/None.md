@@ -3,8 +3,6 @@ title: "None"
 nav_order: 57
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /None.html
 ---
 {% raw %}
 # None

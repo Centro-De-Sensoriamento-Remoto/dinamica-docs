@@ -3,8 +3,6 @@ title: "Add Change Matrix"
 nav_order: 1
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Add-Change-Matrix.html
 ---
 {% raw %}
 # Add Change Matrix

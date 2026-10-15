@@ -3,8 +3,6 @@ title: "Select Percent Matrix"
 nav_order: 5
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Percent-Matrix.html
 ---
 {% raw %}
 # Select Percent Matrix

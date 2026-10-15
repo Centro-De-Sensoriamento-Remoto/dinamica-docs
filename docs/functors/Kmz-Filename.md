@@ -3,8 +3,6 @@ title: "Kmz Filename"
 nav_order: 49
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Kmz-Filename.html
 ---
 {% raw %}
 # Kmz Filename

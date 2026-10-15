@@ -3,8 +3,6 @@ title: "Table Filename"
 nav_order: 27
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Table-Filename.html
 ---
 {% raw %}
 # Table Filename

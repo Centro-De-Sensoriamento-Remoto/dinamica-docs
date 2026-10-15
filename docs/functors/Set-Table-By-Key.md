@@ -3,8 +3,6 @@ title: "Set Table By Key"
 nav_order: 21
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Table-By-Key.html
 ---
 {% raw %}
 # Set Table By Key

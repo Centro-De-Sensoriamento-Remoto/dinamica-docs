@@ -3,8 +3,6 @@ title: "Send Tuple"
 nav_order: 17
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Send-Tuple.html
 ---
 {% raw %}
 # Send Tuple

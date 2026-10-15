@@ -3,8 +3,6 @@ title: "Table Value Type"
 nav_order: 30
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Table-Value-Type.html
 ---
 {% raw %}
 # Table Value Type

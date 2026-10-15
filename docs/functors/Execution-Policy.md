@@ -3,8 +3,6 @@ title: "Execution Policy"
 nav_order: 3
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Execution-Policy.html
 ---
 {% raw %}
 # Execution Policy

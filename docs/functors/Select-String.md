@@ -3,8 +3,6 @@ title: "Select String"
 nav_order: 6
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-String.html
 ---
 {% raw %}
 # Select String

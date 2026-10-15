@@ -3,8 +3,6 @@ title: "Elevation Graph Type"
 nav_order: 37
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Elevation-Graph-Type.html
 ---
 {% raw %}
 # Elevation Graph Type

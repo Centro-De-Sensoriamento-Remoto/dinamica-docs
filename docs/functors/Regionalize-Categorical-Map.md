@@ -3,8 +3,6 @@ title: "Regionalize Categorical Map"
 nav_order: 10
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Regionalize-Categorical-Map.html
 ---
 {% raw %}
 # Regionalize Categorical Map

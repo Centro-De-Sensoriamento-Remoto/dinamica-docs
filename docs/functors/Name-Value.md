@@ -3,8 +3,6 @@ title: "Name Value"
 nav_order: 55
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Name-Value.html
 ---
 {% raw %}
 # Name Value

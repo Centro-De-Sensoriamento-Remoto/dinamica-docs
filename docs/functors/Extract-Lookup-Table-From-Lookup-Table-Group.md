@@ -3,8 +3,6 @@ title: "Extract Lookup Table From Lookup Table Group"
 nav_order: 11
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Lookup-Table-From-Lookup-Table-Group.html
 ---
 {% raw %}
 # Extract Lookup Table From Lookup Table Group

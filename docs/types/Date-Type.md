@@ -3,8 +3,6 @@ title: "Date Type"
 nav_order: 3
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Date-Type.html
 ---
 {% raw %}
 # Date Type

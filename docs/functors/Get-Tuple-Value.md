@@ -3,8 +3,6 @@ title: "Get Tuple Value"
 nav_order: 16
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Tuple-Value.html
 ---
 {% raw %}
 # Get Tuple Value

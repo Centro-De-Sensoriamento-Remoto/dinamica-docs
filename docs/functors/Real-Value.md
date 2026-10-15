@@ -3,8 +3,6 @@ title: "Real Value"
 nav_order: 68
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Real-Value.html
 ---
 {% raw %}
 # Real Value

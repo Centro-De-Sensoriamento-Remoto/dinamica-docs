@@ -3,8 +3,6 @@ title: "Calc Integral Map"
 nav_order: 12
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Integral-Map.html
 ---
 {% raw %}
 # Calc Integral Map

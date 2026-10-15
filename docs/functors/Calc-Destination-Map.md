@@ -3,8 +3,6 @@ title: "Calc Destination Map"
 nav_order: 6
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Destination-Map.html
 ---
 {% raw %}
 # Calc Destination Map

@@ -3,8 +3,6 @@ title: "Determine Weights Of Evidence Ranges"
 nav_order: 5
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Determine-Weights-Of-Evidence-Ranges.html
 ---
 {% raw %}
 # Determine Weights Of Evidence Ranges

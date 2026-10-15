@@ -3,8 +3,6 @@ title: "Merge Sub Tables"
 nav_order: 18
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Merge-Sub-Tables.html
 ---
 {% raw %}
 # Merge Sub Tables

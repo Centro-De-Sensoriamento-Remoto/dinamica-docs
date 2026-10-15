@@ -3,8 +3,6 @@ title: "Receive Table"
 nav_order: 11
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Receive-Table.html
 ---
 {% raw %}
 # Receive Table

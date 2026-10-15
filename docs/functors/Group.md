@@ -3,8 +3,6 @@ title: "Group"
 nav_order: 10
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Group.html
 ---
 {% raw %}
 # Group

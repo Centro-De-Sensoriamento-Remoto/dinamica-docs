@@ -3,8 +3,6 @@ title: "Set Lookup Table Value"
 nav_order: 15
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Lookup-Table-Value.html
 ---
 {% raw %}
 # Set Lookup Table Value

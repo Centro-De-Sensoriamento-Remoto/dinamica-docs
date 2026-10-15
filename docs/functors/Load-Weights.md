@@ -3,8 +3,6 @@ title: "Load Weights"
 nav_order: 8
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Load-Weights.html
 ---
 {% raw %}
 # Load Weights

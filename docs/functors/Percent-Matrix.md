@@ -3,8 +3,6 @@ title: "Percent Matrix"
 nav_order: 9
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Percent-Matrix.html
 ---
 {% raw %}
 # Percent Matrix

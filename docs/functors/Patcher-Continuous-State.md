@@ -3,8 +3,6 @@ title: "Patcher Continuous State"
 nav_order: 6
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Patcher-Continuous-State.html
 ---
 {% raw %}
 # Patcher Continuous State

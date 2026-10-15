@@ -3,8 +3,6 @@ title: "Number Transition Function Parameter Matrix"
 nav_order: 15
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Transition-Function-Parameter-Matrix.html
 ---
 {% raw %}
 # Number Transition Function Parameter Matrix

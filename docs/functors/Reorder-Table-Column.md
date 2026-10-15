@@ -3,8 +3,6 @@ title: "Reorder Table Column"
 nav_order: 20
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Reorder-Table-Column.html
 ---
 {% raw %}
 # Reorder Table Column

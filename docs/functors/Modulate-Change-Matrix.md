@@ -3,8 +3,6 @@ title: "Modulate Change Matrix"
 nav_order: 4
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Modulate-Change-Matrix.html
 ---
 {% raw %}
 # Modulate Change Matrix

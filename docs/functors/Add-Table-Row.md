@@ -3,8 +3,6 @@ title: "Add Table Row"
 nav_order: 2
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Add-Table-Row.html
 ---
 {% raw %}
 # Add Table Row

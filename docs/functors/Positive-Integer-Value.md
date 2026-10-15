@@ -3,8 +3,6 @@ title: "Positive Integer Value"
 nav_order: 66
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Positive-Integer-Value.html
 ---
 {% raw %}
 # Positive Integer Value

@@ -3,8 +3,6 @@ title: "Regionalize Map"
 nav_order: 11
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Regionalize-Map.html
 ---
 {% raw %}
 # Regionalize Map

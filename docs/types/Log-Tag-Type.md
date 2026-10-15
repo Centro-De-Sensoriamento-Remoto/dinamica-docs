@@ -3,8 +3,6 @@ title: "Log Tag Type"
 nav_order: 7
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Log-Tag-Type.html
 ---
 {% raw %}
 # Log Tag Type

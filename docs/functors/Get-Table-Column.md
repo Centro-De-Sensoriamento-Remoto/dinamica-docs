@@ -3,8 +3,6 @@ title: "Get Table Column"
 nav_order: 9
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Table-Column.html
 ---
 {% raw %}
 # Get Table Column

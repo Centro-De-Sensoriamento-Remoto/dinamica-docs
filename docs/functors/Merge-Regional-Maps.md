@@ -3,8 +3,6 @@ title: "Merge Regional Maps"
 nav_order: 4
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Merge-Regional-Maps.html
 ---
 {% raw %}
 # Merge Regional Maps

@@ -3,8 +3,6 @@ title: "Create Table"
 nav_order: 7
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Table.html
 ---
 {% raw %}
 # Create Table

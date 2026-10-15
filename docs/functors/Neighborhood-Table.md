@@ -3,8 +3,6 @@ title: "Neighborhood Table"
 nav_order: 8
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Neighborhood-Table.html
 ---
 {% raw %}
 # Neighborhood Table

@@ -3,8 +3,6 @@ title: "Percent Type"
 nav_order: 12
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Percent-Type.html
 ---
 {% raw %}
 # Percent Type

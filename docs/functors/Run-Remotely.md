@@ -3,8 +3,6 @@ title: "Run Remotely"
 nav_order: 28
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Run-Remotely.html
 ---
 {% raw %}
 # Run Remotely

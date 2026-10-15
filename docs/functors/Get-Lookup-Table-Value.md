@@ -3,8 +3,6 @@ title: "Get Lookup Table Value"
 nav_order: 12
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Lookup-Table-Value.html
 ---
 {% raw %}
 # Get Lookup Table Value

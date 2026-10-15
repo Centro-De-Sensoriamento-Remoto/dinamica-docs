@@ -3,8 +3,6 @@ title: "Repeat"
 nav_order: 26
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Repeat.html
 ---
 {% raw %}
 # Repeat

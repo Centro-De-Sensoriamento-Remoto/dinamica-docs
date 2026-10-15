@@ -3,8 +3,6 @@ title: "Projection"
 nav_order: 67
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Projection.html
 ---
 {% raw %}
 # Projection

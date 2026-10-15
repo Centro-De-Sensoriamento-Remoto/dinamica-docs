@@ -3,8 +3,6 @@ title: "Calc Patch Label Map"
 nav_order: 14
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Patch-Label-Map.html
 ---
 {% raw %}
 # Calc Patch Label Map

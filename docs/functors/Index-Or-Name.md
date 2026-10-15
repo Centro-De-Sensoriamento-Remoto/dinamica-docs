@@ -3,8 +3,6 @@ title: "Index Or Name"
 nav_order: 13
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Index-Or-Name.html
 ---
 {% raw %}
 # Index Or Name

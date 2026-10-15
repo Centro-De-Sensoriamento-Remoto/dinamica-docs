@@ -3,8 +3,6 @@ title: "Percent"
 nav_order: 65
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Percent.html
 ---
 {% raw %}
 # Percent

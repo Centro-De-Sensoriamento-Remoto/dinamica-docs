@@ -3,8 +3,6 @@ title: "While"
 nav_order: 37
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /While.html
 ---
 {% raw %}
 # While

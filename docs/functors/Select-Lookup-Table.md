@@ -3,8 +3,6 @@ title: "Select Lookup Table"
 nav_order: 2
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Lookup-Table.html
 ---
 {% raw %}
 # Select Lookup Table

@@ -3,8 +3,6 @@ title: "Expander"
 nav_order: 3
 parent: "Simulation Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Expander.html
 ---
 {% raw %}
 # Expander

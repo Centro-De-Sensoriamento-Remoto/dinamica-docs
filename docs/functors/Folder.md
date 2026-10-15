@@ -3,8 +3,6 @@ title: "Folder"
 nav_order: 43
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Folder.html
 ---
 {% raw %}
 # Folder

@@ -3,8 +3,6 @@ title: "Find Elevation Graph Paths"
 nav_order: 4
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Find-Elevation-Graph-Paths.html
 ---
 {% raw %}
 # Find Elevation Graph Paths

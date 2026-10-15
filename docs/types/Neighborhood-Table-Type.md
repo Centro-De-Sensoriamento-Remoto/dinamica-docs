@@ -3,8 +3,6 @@ title: "Neighborhood Table Type"
 nav_order: 38
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Neighborhood-Table-Type.html
 ---
 {% raw %}
 # Neighborhood Table Type

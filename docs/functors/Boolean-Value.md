@@ -3,8 +3,6 @@ title: "Boolean Value"
 nav_order: 38
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Boolean-Value.html
 ---
 {% raw %}
 # Boolean Value

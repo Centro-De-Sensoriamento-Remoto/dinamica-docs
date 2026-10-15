@@ -3,8 +3,6 @@ title: "Create Spatial Index For 2D Points"
 nav_order: 1
 parent: "Spatial Index: 2D Points Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Spatial-Index-For-2d-Points.html
 ---
 {% raw %}
 # Create Spatial Index For 2D Points

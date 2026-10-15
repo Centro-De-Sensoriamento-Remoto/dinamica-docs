@@ -3,8 +3,6 @@ title: "Folder Junction"
 nav_order: 5
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Folder-Junction.html
 ---
 {% raw %}
 # Folder Junction

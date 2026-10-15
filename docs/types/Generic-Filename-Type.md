@@ -3,8 +3,6 @@ title: "Generic Filename Type"
 nav_order: 17
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Generic-Filename-Type.html
 ---
 {% raw %}
 # Generic Filename Type

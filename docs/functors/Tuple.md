@@ -3,8 +3,6 @@ title: "Tuple"
 nav_order: 31
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Tuple.html
 ---
 {% raw %}
 # Tuple

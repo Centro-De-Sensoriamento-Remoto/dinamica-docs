@@ -3,8 +3,6 @@ title: "Step"
 nav_order: 32
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Step.html
 ---
 {% raw %}
 # Step

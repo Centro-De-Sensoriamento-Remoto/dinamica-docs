@@ -3,8 +3,6 @@ title: "Table Filename Type"
 nav_order: 22
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Table-Filename-Type.html
 ---
 {% raw %}
 # Table Filename Type

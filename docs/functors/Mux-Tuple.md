@@ -3,8 +3,6 @@ title: "Mux Tuple"
 nav_order: 22
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Mux-Tuple.html
 ---
 {% raw %}
 # Mux Tuple

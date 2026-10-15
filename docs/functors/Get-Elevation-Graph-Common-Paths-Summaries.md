@@ -3,8 +3,6 @@ title: "Get Elevation Graph Common Paths Summaries"
 nav_order: 5
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Elevation-Graph-Common-Paths-Summaries.html
 ---
 {% raw %}
 # Get Elevation Graph Common Paths Summaries

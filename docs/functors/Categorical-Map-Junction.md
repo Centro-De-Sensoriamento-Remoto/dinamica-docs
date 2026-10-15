@@ -3,8 +3,6 @@ title: "Categorical Map Junction"
 nav_order: 1
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Categorical-Map-Junction.html
 ---
 {% raw %}
 # Categorical Map Junction

@@ -3,8 +3,6 @@ title: "Name Type"
 nav_order: 8
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Name-Type.html
 ---
 {% raw %}
 # Name Type

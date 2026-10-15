@@ -3,8 +3,6 @@ title: "Regional Categorical Map"
 nav_order: 8
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Regional-Categorical-Map.html
 ---
 {% raw %}
 # Regional Categorical Map

@@ -3,8 +3,6 @@ title: "Get Projection Info"
 nav_order: 33
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Projection-Info.html
 ---
 {% raw %}
 # Get Projection Info

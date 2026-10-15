@@ -2,8 +2,6 @@
 title: "Calculate Python Expression"
 nav_order: 6
 parent: "Language and Expressions"
-redirect_from:
-  - /Calculate-Python-Expression.html
 ---
 {% raw %}
 # Calculate Python Expression

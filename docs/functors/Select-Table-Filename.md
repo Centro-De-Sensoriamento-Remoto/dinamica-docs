@@ -3,8 +3,6 @@ title: "Select Table Filename"
 nav_order: 7
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Table-Filename.html
 ---
 {% raw %}
 # Select Table Filename

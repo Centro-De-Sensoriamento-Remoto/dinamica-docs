@@ -3,8 +3,6 @@ title: "Receive Lookup Table"
 nav_order: 8
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Receive-Lookup-Table.html
 ---
 {% raw %}
 # Receive Lookup Table

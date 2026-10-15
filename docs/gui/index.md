@@ -1,9 +1,6 @@
 ---
 title: "Graphical Interface"
 permalink: /gui/
-redirect_from:
-  - /GUI-Tips.html
-  - /GUI-Basics.html
 nav_order: 4
 has_children: true
 ---

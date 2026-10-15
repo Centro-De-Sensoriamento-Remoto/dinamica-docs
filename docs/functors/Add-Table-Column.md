@@ -3,8 +3,6 @@ title: "Add Table Column"
 nav_order: 1
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Add-Table-Column.html
 ---
 {% raw %}
 # Add Table Column

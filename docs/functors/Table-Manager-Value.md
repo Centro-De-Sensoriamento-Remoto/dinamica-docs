@@ -3,8 +3,6 @@ title: "Table Manager Value"
 nav_order: 29
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Table-Manager-Value.html
 ---
 {% raw %}
 # Table Manager Value

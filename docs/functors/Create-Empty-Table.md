@@ -3,8 +3,6 @@ title: "Create Empty Table"
 nav_order: 6
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Empty-Table.html
 ---
 {% raw %}
 # Create Empty Table

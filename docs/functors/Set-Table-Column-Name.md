@@ -3,8 +3,6 @@ title: "Set Table Column Name"
 nav_order: 23
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Table-Column-Name.html
 ---
 {% raw %}
 # Set Table Column Name

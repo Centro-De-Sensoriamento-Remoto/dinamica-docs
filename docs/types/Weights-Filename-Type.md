@@ -3,8 +3,6 @@ title: "Weights Filename Type"
 nav_order: 23
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Weights-Filename-Type.html
 ---
 {% raw %}
 # Weights Filename Type

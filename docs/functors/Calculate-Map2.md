@@ -3,8 +3,6 @@ title: "Calculate Map2"
 nav_order: 21
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calculate-Map2.html
 ---
 {% raw %}
 # Calculate Map2

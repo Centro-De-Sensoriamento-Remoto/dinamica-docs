@@ -3,8 +3,6 @@ title: "Log Tag"
 nav_order: 38
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Log-Tag.html
 ---
 {% raw %}
 # Log Tag

@@ -3,8 +3,6 @@ title: "Number Map"
 nav_order: 61
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Map.html
 ---
 {% raw %}
 # Number Map

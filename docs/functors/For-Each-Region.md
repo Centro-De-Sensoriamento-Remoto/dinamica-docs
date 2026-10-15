@@ -3,8 +3,6 @@ title: "For Each Region"
 nav_order: 9
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /For-Each-Region.html
 ---
 {% raw %}
 # For Each Region

@@ -3,8 +3,6 @@ title: "Kml Timeline Type"
 nav_order: 49
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Kml-Timeline-Type.html
 ---
 {% raw %}
 # Kml Timeline Type

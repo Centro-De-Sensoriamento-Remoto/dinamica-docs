@@ -3,8 +3,6 @@ title: "Set Kml Timeline"
 nav_order: 36
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-Kml-Timeline.html
 ---
 {% raw %}
 # Set Kml Timeline

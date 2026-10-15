@@ -3,8 +3,6 @@ title: "Save Lookup Table"
 nav_order: 10
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Lookup-Table.html
 ---
 {% raw %}
 # Save Lookup Table

@@ -3,8 +3,6 @@ title: "Get Table Row"
 nav_order: 13
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Table-Row.html
 ---
 {% raw %}
 # Get Table Row

@@ -3,8 +3,6 @@ title: "Calculate Categorical Map2"
 nav_order: 19
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calculate-Categorical-Map2.html
 ---
 {% raw %}
 # Calculate Categorical Map2

@@ -3,8 +3,6 @@ title: "Region"
 nav_order: 5
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Region.html
 ---
 {% raw %}
 # Region

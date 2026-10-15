@@ -3,8 +3,6 @@ title: "Enum Type"
 nav_order: 4
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Enum-Type.html
 ---
 {% raw %}
 # Enum Type

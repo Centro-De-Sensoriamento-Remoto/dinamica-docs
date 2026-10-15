@@ -3,8 +3,6 @@ title: "Set While Condition"
 nav_order: 29
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Set-While-Condition.html
 ---
 {% raw %}
 # Set While Condition

@@ -3,8 +3,6 @@ title: "Insert Map Layer"
 nav_order: 34
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Insert-Map-Layer.html
 ---
 {% raw %}
 # Insert Map Layer

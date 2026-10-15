@@ -3,8 +3,6 @@ title: "Save Text File"
 nav_order: 13
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Save-Text-File.html
 ---
 {% raw %}
 # Save Text File

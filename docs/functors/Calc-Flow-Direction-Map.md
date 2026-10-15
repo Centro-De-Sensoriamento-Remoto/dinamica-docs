@@ -3,8 +3,6 @@ title: "Calc Flow Direction Map"
 nav_order: 10
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Flow-Direction-Map.html
 ---
 {% raw %}
 # Calc Flow Direction Map

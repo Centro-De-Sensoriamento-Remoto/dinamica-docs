@@ -3,8 +3,6 @@ title: "Calc Distance Allocation Map"
 nav_order: 7
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Distance-Allocation-Map.html
 ---
 {% raw %}
 # Calc Distance Allocation Map

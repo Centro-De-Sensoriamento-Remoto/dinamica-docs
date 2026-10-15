@@ -3,8 +3,6 @@ title: "If Not Then"
 nav_order: 11
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /If-Not-Then.html
 ---
 {% raw %}
 # If Not Then

@@ -3,8 +3,6 @@ title: "Load Text File"
 nav_order: 7
 parent: "Input / Output Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Load-Text-File.html
 ---
 {% raw %}
 # Load Text File

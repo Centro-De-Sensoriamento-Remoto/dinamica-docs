@@ -3,8 +3,6 @@ title: "Real Value Type"
 nav_order: 14
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Real-Value-Type.html
 ---
 {% raw %}
 # Real Value Type

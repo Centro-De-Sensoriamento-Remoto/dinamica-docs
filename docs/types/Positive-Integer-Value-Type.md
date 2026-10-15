@@ -3,8 +3,6 @@ title: "Positive Integer Value Type"
 nav_order: 13
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Positive-Integer-Value-Type.html
 ---
 {% raw %}
 # Positive Integer Value Type

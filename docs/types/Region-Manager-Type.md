@@ -3,8 +3,6 @@ title: "Region Manager Type"
 nav_order: 45
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Region-Manager-Type.html
 ---
 {% raw %}
 # Region Manager Type

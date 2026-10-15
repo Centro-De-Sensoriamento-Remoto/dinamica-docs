@@ -3,8 +3,6 @@ title: "Calc Cumulative Flow Map"
 nav_order: 5
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Cumulative-Flow-Map.html
 ---
 {% raw %}
 # Calc Cumulative Flow Map

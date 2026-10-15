@@ -3,8 +3,6 @@ title: "Calc Slope Map"
 nav_order: 16
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Slope-Map.html
 ---
 {% raw %}
 # Calc Slope Map

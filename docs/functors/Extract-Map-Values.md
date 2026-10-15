@@ -3,8 +3,6 @@ title: "Extract Map Values"
 nav_order: 8
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Map-Values.html
 ---
 {% raw %}
 # Extract Map Values

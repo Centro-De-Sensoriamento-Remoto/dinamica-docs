@@ -3,8 +3,6 @@ title: "Extract Map Layer"
 nav_order: 30
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Map-Layer.html
 ---
 {% raw %}
 # Extract Map Layer

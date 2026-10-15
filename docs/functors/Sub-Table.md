@@ -3,8 +3,6 @@ title: "Sub Table"
 nav_order: 24
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Sub-Table.html
 ---
 {% raw %}
 # Sub Table

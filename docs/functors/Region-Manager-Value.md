@@ -3,8 +3,6 @@ title: "Region Manager Value"
 nav_order: 7
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Region-Manager-Value.html
 ---
 {% raw %}
 # Region Manager Value

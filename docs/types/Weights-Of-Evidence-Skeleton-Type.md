@@ -3,8 +3,6 @@ title: "Weights of Evidence Calibration"
 nav_order: 44
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Weights-Of-Evidence-Skeleton-Type.html
 ---
 {% raw %}
 # Weights of Evidence Calibration

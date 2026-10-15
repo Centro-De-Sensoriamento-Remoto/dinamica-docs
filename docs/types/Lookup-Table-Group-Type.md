@@ -3,8 +3,6 @@ title: "Lookup Table Group Type"
 nav_order: 28
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Lookup-Table-Group-Type.html
 ---
 {% raw %}
 # Lookup Table Group Type

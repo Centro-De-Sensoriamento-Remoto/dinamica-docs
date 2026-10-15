@@ -3,8 +3,6 @@ title: "Processor Policy"
 nav_order: 25
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Processor-Policy.html
 ---
 {% raw %}
 # Processor Policy

@@ -3,8 +3,6 @@ title: "Regional Map"
 nav_order: 9
 parent: "Region Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Regional-Map.html
 ---
 {% raw %}
 # Regional Map

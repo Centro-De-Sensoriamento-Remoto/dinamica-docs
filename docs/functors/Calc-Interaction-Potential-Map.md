@@ -3,8 +3,6 @@ title: "Calc Interaction Potential Map"
 nav_order: 13
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Interaction-Potential-Map.html
 ---
 {% raw %}
 # Calc Interaction Potential Map

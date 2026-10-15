@@ -3,8 +3,6 @@ title: "Calc Histogram"
 nav_order: 1
 parent: "Statistics Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Histogram.html
 ---
 {% raw %}
 # Calc Histogram

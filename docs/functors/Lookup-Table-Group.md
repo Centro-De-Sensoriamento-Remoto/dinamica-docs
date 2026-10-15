@@ -3,8 +3,6 @@ title: "Lookup Table Group"
 nav_order: 17
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Lookup-Table-Group.html
 ---
 {% raw %}
 # Lookup Table Group

@@ -3,8 +3,6 @@ title: "Extract Lookup Table Attributes"
 nav_order: 10
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Lookup-Table-Attributes.html
 ---
 {% raw %}
 # Extract Lookup Table Attributes

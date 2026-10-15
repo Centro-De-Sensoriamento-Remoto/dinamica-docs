@@ -3,8 +3,6 @@ title: "Get Map Categories"
 nav_order: 31
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Map-Categories.html
 ---
 {% raw %}
 # Get Map Categories

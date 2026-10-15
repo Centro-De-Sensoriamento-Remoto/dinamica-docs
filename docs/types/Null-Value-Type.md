@@ -3,8 +3,6 @@ title: "Null Value Type"
 nav_order: 11
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Null-Value-Type.html
 ---
 {% raw %}
 # Null Value Type

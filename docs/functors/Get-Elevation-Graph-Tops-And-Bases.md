@@ -3,8 +3,6 @@ title: "Get Elevation Graph Tops And Bases"
 nav_order: 7
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Elevation-Graph-Tops-And-Bases.html
 ---
 {% raw %}
 # Get Elevation Graph Tops And Bases

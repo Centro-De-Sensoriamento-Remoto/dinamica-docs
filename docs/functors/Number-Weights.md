@@ -3,8 +3,6 @@ title: "Number Weights"
 nav_order: 17
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-Weights.html
 ---
 {% raw %}
 # Number Weights

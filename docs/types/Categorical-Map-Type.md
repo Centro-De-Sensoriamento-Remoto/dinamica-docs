@@ -3,8 +3,6 @@ title: "Categorical Map Type"
 nav_order: 32
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Categorical-Map-Type.html
 ---
 {% raw %}
 # Categorical Map Type

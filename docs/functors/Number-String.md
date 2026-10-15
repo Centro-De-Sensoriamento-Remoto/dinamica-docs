@@ -3,8 +3,6 @@ title: "Number String"
 nav_order: 62
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Number-String.html
 ---
 {% raw %}
 # Number String

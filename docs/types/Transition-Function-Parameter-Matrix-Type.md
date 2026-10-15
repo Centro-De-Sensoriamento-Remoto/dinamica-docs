@@ -3,8 +3,6 @@ title: "Transition Function Parameter Matrix Type"
 nav_order: 40
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Transition-Function-Parameter-Matrix-Type.html
 ---
 {% raw %}
 # Transition Function Parameter Matrix Type

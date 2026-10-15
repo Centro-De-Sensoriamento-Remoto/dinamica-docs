@@ -3,8 +3,6 @@ title: "Workdir Type"
 nav_order: 52
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Workdir-Type.html
 ---
 {% raw %}
 # Workdir Type

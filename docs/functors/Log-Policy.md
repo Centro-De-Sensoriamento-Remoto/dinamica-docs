@@ -3,8 +3,6 @@ title: "Log Policy"
 nav_order: 14
 parent: "Control Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Log-Policy.html
 ---
 {% raw %}
 # Log Policy

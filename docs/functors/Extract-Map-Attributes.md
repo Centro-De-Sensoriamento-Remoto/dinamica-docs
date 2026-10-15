@@ -3,8 +3,6 @@ title: "Extract Map Attributes"
 nav_order: 29
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Extract-Map-Attributes.html
 ---
 {% raw %}
 # Extract Map Attributes

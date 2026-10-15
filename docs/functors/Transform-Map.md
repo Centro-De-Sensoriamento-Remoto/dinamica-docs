@@ -3,8 +3,6 @@ title: "Transform Map"
 nav_order: 2
 parent: "GDAL / OGR Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Transform-Map.html
 ---
 {% raw %}
 # Transform Map

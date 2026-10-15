@@ -3,8 +3,6 @@ title: "Create Connection Info"
 nav_order: 1
 parent: "Distributed Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Create-Connection-Info.html
 ---
 {% raw %}
 # Create Connection Info

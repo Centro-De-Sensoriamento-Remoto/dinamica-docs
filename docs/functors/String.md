@@ -3,8 +3,6 @@ title: "String"
 nav_order: 69
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /String.html
 ---
 {% raw %}
 # String

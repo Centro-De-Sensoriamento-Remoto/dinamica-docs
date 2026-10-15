@@ -3,8 +3,6 @@ title: "Select Weights"
 nav_order: 10
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Weights.html
 ---
 {% raw %}
 # Select Weights

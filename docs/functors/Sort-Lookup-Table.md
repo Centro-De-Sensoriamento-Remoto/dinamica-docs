@@ -3,8 +3,6 @@ title: "Sort Lookup Table"
 nav_order: 16
 parent: "Lookup Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Sort-Lookup-Table.html
 ---
 {% raw %}
 # Sort Lookup Table

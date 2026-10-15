@@ -3,8 +3,6 @@ title: "Get Elevation Graph Info"
 nav_order: 6
 parent: "Elevation Graph Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Elevation-Graph-Info.html
 ---
 {% raw %}
 # Get Elevation Graph Info

@@ -3,8 +3,6 @@ title: "Get Table Info"
 nav_order: 11
 parent: "Table Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Get-Table-Info.html
 ---
 {% raw %}
 # Get Table Info

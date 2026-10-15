@@ -3,8 +3,6 @@ title: "Generic Filename"
 nav_order: 44
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Generic-Filename.html
 ---
 {% raw %}
 # Generic Filename

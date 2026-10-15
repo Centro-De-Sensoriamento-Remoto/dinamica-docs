@@ -3,8 +3,6 @@ title: "Spatial Index 2D Point"
 nav_order: 3
 parent: "Spatial Index: 2D Points Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Spatial-Index-2d-Point.html
 ---
 {% raw %}
 # Spatial Index 2D Point

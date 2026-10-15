@@ -3,8 +3,6 @@ title: "Map Indexer"
 nav_order: 35
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Map-Indexer.html
 ---
 {% raw %}
 # Map Indexer

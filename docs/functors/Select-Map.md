@@ -3,8 +3,6 @@ title: "Select Map"
 nav_order: 3
 parent: "Stack Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Select-Map.html
 ---
 {% raw %}
 # Select Map

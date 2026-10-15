@@ -3,8 +3,6 @@ title: "Change Matrix Type"
 nav_order: 36
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Change-Matrix-Type.html
 ---
 {% raw %}
 # Change Matrix Type

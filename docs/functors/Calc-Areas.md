@@ -3,8 +3,6 @@ title: "Calc Areas"
 nav_order: 2
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Areas.html
 ---
 {% raw %}
 # Calc Areas

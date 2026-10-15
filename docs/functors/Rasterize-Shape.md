@@ -3,8 +3,6 @@ title: "Rasterize Shape"
 nav_order: 1
 parent: "GDAL / OGR Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Rasterize-Shape.html
 ---
 {% raw %}
 # Rasterize Shape

@@ -3,8 +3,6 @@ title: "Receive Tuple"
 nav_order: 12
 parent: "Integration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Receive-Tuple.html
 ---
 {% raw %}
 # Receive Tuple

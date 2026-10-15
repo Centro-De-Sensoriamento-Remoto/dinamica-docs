@@ -3,8 +3,6 @@ title: "Calc Distance To Feature Map"
 nav_order: 9
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Calc-Distance-To-Feature-Map.html
 ---
 {% raw %}
 # Calc Distance To Feature Map

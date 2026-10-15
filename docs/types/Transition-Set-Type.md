@@ -3,8 +3,6 @@ title: "Transition Set Type"
 nav_order: 42
 parent: "Type System"
 grand_parent: "Core Concepts"
-redirect_from:
-  - /Transition-Set-Type.html
 ---
 {% raw %}
 # Transition Set Type

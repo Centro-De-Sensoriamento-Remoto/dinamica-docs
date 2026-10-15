@@ -3,8 +3,6 @@ title: "Weights Of Evidence Skeleton"
 nav_order: 9
 parent: "Calibration Functors"
 grand_parent: "Functor List"
-redirect_from:
-  - /Weights-Of-Evidence-Skeleton.html
 ---
 {% raw %}
 # Weights Of Evidence Skeleton
