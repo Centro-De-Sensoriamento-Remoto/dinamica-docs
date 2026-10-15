@@ -18,6 +18,7 @@ Reference documentation for [Dinamica EGO](https://dinamicaego.com), the environ
 | Run a model from the command line | [Dinamica Console](Dinamica-Console.html) |
 | Look up a functor | [Functor List](Functor-List.html) |
 | Look up a data type | [Type System](Type-System.html) |
+| Learn Dinamica EGO step by step | [Guidebook](guidebook/index.html) |
 | Work in the graphical interface | [Graphical Interface](gui/index.html) |
 | Troubleshoot an issue | [FAQ](FAQ.html) |
 
@@ -72,6 +73,10 @@ This wiki documents Dinamica EGO's scripting language, execution model, and the 
 ## Command-Line Execution
 
 - [Dinamica Console](Dinamica-Console.html) — running a model script from the command line instead of the GUI: execution flags, worker and memory control, logging, accelerators, metadata, and converting a script to another format without running it.
+
+## Guidebook
+
+- [Guidebook](guidebook/index.html) — the step-by-step course *Modeling Environmental Dynamics with Dinamica EGO*: eight modules from data structures and the interface, through map algebra, tables, control flow, and spatial analysis, to land-use change simulation, calibration, validation, and case studies.
 
 ## Graphical Interface
 
