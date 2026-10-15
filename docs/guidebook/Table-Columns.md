@@ -1,8 +1,7 @@
 ---
 title: "Lesson 7: Creating a new column and retrieving a column data from a specified table"
-parent: "Module III: Working with tables"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 9
 ---
 {% raw %}
 # Lesson 7: Creating a new column and retrieving a data column from tables

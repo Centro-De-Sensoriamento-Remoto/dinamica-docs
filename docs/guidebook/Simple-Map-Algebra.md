@@ -1,8 +1,7 @@
 ---
 title: "Lesson 5: Implementing a simple map algebra"
-parent: "Module II: Working with maps"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 7
 ---
 {% raw %}
 # Lesson 5: Implementing simple map algebra on Dinamica EGO

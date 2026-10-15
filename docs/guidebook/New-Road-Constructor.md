@@ -1,8 +1,7 @@
 ---
 title: "Simulating road expansion according to various road lattices"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 5
+parent: "Guidebook"
+nav_order: 29
 ---
 {% raw %}
 # New Road Constructor

@@ -1,8 +1,7 @@
 ---
 title: "Lesson 4: Opening and Saving maps"
-parent: "Module II: Working with maps"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 6
 ---
 {% raw %}
 # Lesson 4: Opening and Saving maps

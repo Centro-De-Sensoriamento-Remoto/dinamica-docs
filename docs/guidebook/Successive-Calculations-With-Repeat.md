@@ -1,8 +1,7 @@
 ---
 title: "Lesson 15: Using \"Repeat\" to make successive calculations"
-parent: "Module V: Incorporating control structures into a model"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 17
 ---
 {% raw %}
 # Lesson 15: Using "Repeat" to make successive calculations

@@ -1,8 +1,7 @@
 ---
 title: "Heuristic calibration of models using Genetic Algorithm"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 25
 ---
 {% raw %}
 # Heuristic calibration of models by using Genetic Algorithm

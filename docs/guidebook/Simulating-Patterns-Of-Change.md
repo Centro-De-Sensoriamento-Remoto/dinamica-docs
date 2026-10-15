@@ -1,8 +1,7 @@
 ---
 title: "Simulating the patterns of change"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 27
 ---
 {% raw %}
 # Simulating the patterns of change

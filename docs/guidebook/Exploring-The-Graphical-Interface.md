@@ -1,8 +1,7 @@
 ---
 title: "Lesson 2: Exploring the Graphical Interface"
-parent: "Module I: Welcome to Dinamica EGO!"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 4
 ---
 {% raw %}
 # Lesson 2: Exploring the Graphical Interface

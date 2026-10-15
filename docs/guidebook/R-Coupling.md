@@ -1,8 +1,7 @@
 ---
 title: "R Coupling"
-parent: "Module VII: Additional Features"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 22
 ---
 {% raw %}
 # Dinamica EGO and R Coupling

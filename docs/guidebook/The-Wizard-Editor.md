@@ -1,8 +1,7 @@
 ---
 title: "The wizard editor"
-parent: "Module VII: Additional Features"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 21
 ---
 {% raw %}
 # The wizard editor in Dinamica EGO

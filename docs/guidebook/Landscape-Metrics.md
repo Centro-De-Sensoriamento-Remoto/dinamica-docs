@@ -1,8 +1,7 @@
 ---
 title: "Lesson 16: Calculating landscape metrics"
-parent: "Module VI: Spatial features and spatial analyses"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 18
 ---
 {% raw %}
 # Lesson 16: Calculating landscape metrics

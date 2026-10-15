@@ -1,8 +1,7 @@
 ---
 title: "Lesson 8: Inserting a value into a table"
-parent: "Module III: Working with tables"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 10
 ---
 {% raw %}
 # Lesson 8: Inserting and getting a specific value into a table

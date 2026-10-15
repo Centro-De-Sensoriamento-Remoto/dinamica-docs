@@ -1,8 +1,7 @@
 ---
 title: "Multiple Criteria Evaluation"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 4
+parent: "Guidebook"
+nav_order: 28
 ---
 {% raw %}
 # Multiple Criteria Evaluation

@@ -1,8 +1,7 @@
 ---
 title: "Lesson 13: Loop structures"
-parent: "Module V: Incorporating control structures into a model"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 15
 ---
 {% raw %}
 # Lesson 13: Loop structures introduction

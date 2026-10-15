@@ -1,8 +1,7 @@
 ---
 title: "Lesson 10: What is a submodel, their types and where they are stored"
-parent: "Module IV: Creating and using Submodels"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 12
 ---
 {% raw %}
 # Lesson 10: Submodels in Dinamica EGO

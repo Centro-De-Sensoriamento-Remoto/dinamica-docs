@@ -1,8 +1,7 @@
 ---
 title: "Lesson 3: Exploring the Map Viewer"
-parent: "Module I: Welcome to Dinamica EGO!"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 5
 ---
 {% raw %}
 # Lesson 3: Exploring the Map Viewer

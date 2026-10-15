@@ -1,8 +1,7 @@
 ---
 title: "Lesson 17: Calculating accumulated cost surface and least-cost pathway"
-parent: "Module VI: Spatial features and spatial analyses"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 19
 ---
 {% raw %}
 # Lesson 17: Calculating accumulated cost surface and least-cost pathway

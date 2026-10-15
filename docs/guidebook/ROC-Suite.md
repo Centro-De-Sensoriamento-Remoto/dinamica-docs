@@ -1,8 +1,7 @@
 ---
 title: "Receiver Operating Characteristic (ROC) suite"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 9
+parent: "Guidebook"
+nav_order: 33
 ---
 {% raw %}
 # Receiver Operating Characteristic (ROC) suite

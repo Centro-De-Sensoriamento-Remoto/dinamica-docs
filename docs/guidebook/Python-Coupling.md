@@ -1,8 +1,7 @@
 ---
 title: "Python Coupling"
-parent: "Module VII: Additional Features"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 23
 ---
 {% raw %}
 # Dinamica EGO and Python Coupling

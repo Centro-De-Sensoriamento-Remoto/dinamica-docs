@@ -1,8 +1,7 @@
 ---
 title: "Calculate variable time-step net transition rates"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 8
+parent: "Guidebook"
+nav_order: 32
 ---
 {% raw %}
 # Calculate variable time-step net transition rates

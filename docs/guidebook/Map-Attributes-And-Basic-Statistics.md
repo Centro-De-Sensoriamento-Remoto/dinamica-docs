@@ -1,8 +1,7 @@
 ---
 title: "Lesson 6: Extracting map attributes and basic statistics"
-parent: "Module II: Working with maps"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 8
 ---
 {% raw %}
 # Lesson 6: Extracting the attributes and calculating basic statistics from a map

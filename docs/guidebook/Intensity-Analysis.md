@@ -1,8 +1,7 @@
 ---
 title: "Intensity Analysis"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 7
+parent: "Guidebook"
+nav_order: 31
 ---
 {% raw %}
 # Intensity Analysis

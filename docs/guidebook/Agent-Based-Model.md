@@ -1,8 +1,7 @@
 ---
 title: "Agent Based Model"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 26
 ---
 {% raw %}
 # Agent Based Model

@@ -1,8 +1,7 @@
 ---
 title: "Lesson 18: Building a land-use and land-cover change simulation model"
-parent: "Module VI: Spatial features and spatial analyses"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 20
 ---
 {% raw %}
 # Lesson 18: Building a land-use and land-cover change simulation model

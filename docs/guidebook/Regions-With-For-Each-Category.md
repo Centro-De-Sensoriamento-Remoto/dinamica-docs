@@ -1,8 +1,7 @@
 ---
 title: "Lesson 14: Using \"For Each Category\" and \"Region Manager\" to work with the concept of region"
-parent: "Module V: Incorporating control structures into a model"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 16
 ---
 {% raw %}
 # Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region

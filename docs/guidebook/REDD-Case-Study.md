@@ -1,8 +1,7 @@
 ---
 title: "Projecting deforestation rates based on socioeconomic variables and developing a carbon bookkeeping model"
-parent: "Module VIII: Additional applications"
-grand_parent: "Guidebook"
-nav_order: 6
+parent: "Guidebook"
+nav_order: 30
 ---
 {% raw %}
 # Projecting deforestation rates based on socioeconomic variables and developing a carbon bookkeeping model

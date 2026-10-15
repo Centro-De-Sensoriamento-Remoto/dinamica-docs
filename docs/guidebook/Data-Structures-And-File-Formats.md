@@ -1,8 +1,7 @@
 ---
 title: "Lesson 1: Data structures and file formats"
-parent: "Module I: Welcome to Dinamica EGO!"
-grand_parent: "Guidebook"
-nav_order: 1
+parent: "Guidebook"
+nav_order: 3
 ---
 {% raw %}
 # Lesson 1: Dinamica EGO data structures and file format

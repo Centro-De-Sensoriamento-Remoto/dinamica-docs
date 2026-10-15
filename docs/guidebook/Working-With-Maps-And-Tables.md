@@ -1,8 +1,7 @@
 ---
 title: "Lesson 9: Working with maps and tables"
-parent: "Module III: Working with tables"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 11
 ---
 {% raw %}
 # Lesson 9: Working with maps and tables

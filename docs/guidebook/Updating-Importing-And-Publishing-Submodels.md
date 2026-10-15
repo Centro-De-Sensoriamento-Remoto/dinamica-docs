@@ -1,8 +1,7 @@
 ---
 title: "Lesson 12: Updating, importing and publishing a local submodel"
-parent: "Module IV: Creating and using Submodels"
-grand_parent: "Guidebook"
-nav_order: 3
+parent: "Guidebook"
+nav_order: 14
 ---
 {% raw %}
 # Lesson 12: Updating, importing and publishing a local submodel on Dinamica EGO

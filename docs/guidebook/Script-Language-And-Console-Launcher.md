@@ -1,8 +1,7 @@
 ---
 title: "Script language and console launcher"
-parent: "Module VII: Additional Features"
-grand_parent: "Guidebook"
-nav_order: 4
+parent: "Guidebook"
+nav_order: 24
 ---
 {% raw %}
 # Dinamica EGO script language and command line tool

@@ -1,8 +1,7 @@
 ---
 title: "Lesson 11: Creating a submodel"
-parent: "Module IV: Creating and using Submodels"
-grand_parent: "Guidebook"
-nav_order: 2
+parent: "Guidebook"
+nav_order: 13
 ---
 {% raw %}
 # Lesson 11: Creating local Submodels and using a Submodel in a Model
