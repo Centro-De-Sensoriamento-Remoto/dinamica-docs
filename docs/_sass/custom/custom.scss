@@ -1,9 +1,9 @@
-// Fonte maior: escala todas as unidades rem do tema em 25%
+// Larger font: scales all of the theme's rem units by 25%
 html {
   font-size: 125%;
 }
 
-/* Conteúdo alinhado à esquerda, ao lado do menu, com largura máxima de 90rem. */
+/* Content aligned to the left, next to the menu, with a maximum width of 90rem. */
 @media (min-width: 50rem) {
   .side-bar + .main {
     margin-left: 15.5rem;
@@ -22,7 +22,7 @@ html {
   }
 }
 
-/* Imagens do conteúdo: cartão claro para que figuras feitas sobre fundo branco não destoem do tema escuro. O filtro de brilho aplica-se ao cartão inteiro (fundo e imagem), suavizando o branco sem criar contraste interno. */
+/* Content images: light card so that figures made on a white background do not clash with the dark theme. The brightness filter applies to the whole card (background and image), softening the white without creating internal contrast. */
 .main-content img:not([src*="logo"]) {
   box-sizing: border-box;
   max-width: 100%;
