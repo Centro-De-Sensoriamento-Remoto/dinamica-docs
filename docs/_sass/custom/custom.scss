@@ -21,3 +21,16 @@ html {
     margin-left: 16.5rem;
   }
 }
+
+/* Imagens do conteúdo: cartão claro para que figuras feitas sobre fundo branco não destoem do tema escuro. O filtro de brilho aplica-se ao cartão inteiro (fundo e imagem), suavizando o branco sem criar contraste interno. */
+.main-content img:not([src*="logo"]) {
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  filter: brightness(0.92);
+}
