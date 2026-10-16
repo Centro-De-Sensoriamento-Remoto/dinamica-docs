@@ -51,7 +51,7 @@ Select the current model.
 
 - Drag a tab to reorder it.
 - Hover over the tabs and use the mouse wheel to scroll through a long list of open models.
-- Hover over a tab and press **Ctrl+C**, or click the tab and choose the option from its menu, to copy the model's full file name or the name of its folder.
+- Hover over a tab and press **Ctrl+C**, or right-click the tab and choose the option from its context menu, to copy the model's full file name or the name of its folder.
 
 ### Local Submodel Selection Tabs
 
