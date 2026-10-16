@@ -35,14 +35,17 @@
     if (fromUrl && valid[fromUrl]) { save(fromUrl); }
     else if (fromUrl === 'auto') { save(null); }
 
+    /* The URL value is applied directly, so it works even when the browser blocks local storage. */
     var saved = load();
     window.dinamicaTheme = { apply: apply, save: save, load: load, current: null };
-    apply(saved && valid[saved] ? saved : systemTheme());
+    if (fromUrl && valid[fromUrl]) { apply(fromUrl); }
+    else if (saved && valid[saved]) { apply(saved); }
+    else { apply(systemTheme()); }
 
     /* Without a saved choice, keep following the operating system when its setting changes. */
     if (window.matchMedia) {
       window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () {
-        if (!load()) { apply(systemTheme()); }
+        if (!load() && !(fromUrl && valid[fromUrl])) { apply(systemTheme()); }
       });
     }
   })();
