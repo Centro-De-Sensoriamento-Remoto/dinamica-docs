@@ -50,6 +50,8 @@ During execution, the console only displays messages at the `INFO2` level and be
 
 ## Metadata
 
+Options for the metadata files written next to saved maps. See [Map Metadata](Map-Metadata.html) for the template keywords.
+
 - `-metadata-profile=[metadata-profile]` — Type of the profile used to write file metadata. Values: `CUSTOM=0`, `CSR/UFMG_ptBR=1`, `CSR/UFMG_en=2`.
 - `-map-metadata-template-filename=[filename]` — Filename with the template used to write map metadata. Assumes the use of the `CUSTOM` profile.
 - `-map-metadata-file-extension=[extension]` — File extension used to write map metadata. Assumes the use of the `CUSTOM` profile.

@@ -28,7 +28,7 @@ Reference documentation for [Dinamica EGO](https://dinamicaego.com), the environ
 - [Core Concepts](Core-Concepts.html) — how a model executes ([Basic Data Flow](Basic-Data-Flow.html)), how maps of different extents and resolutions are combined ([Image Virtualization](Image-Virtualization.html)), and the data types and their conversions ([Type System](Type-System.html)).
 - [Graphical Interface](gui/index.html) — the model editor, functor and port editors, submodels in the interface, options, keyboard shortcuts, and the Map Viewer.
 - [Language and Expressions](Language-And-Expressions.html) — [EGO Script](EGO-Script.html), [EGOML](EGOML-Script.html), [Submodels](Submodels.html), and the expression languages of the calculator functors, including R and Python.
-- [Modeling Guides](Modeling-Guides.html) — tables and lookup tables, subregions, Weights of Evidence calibration, and practical tips for building models.
+- [Modeling Guides](Modeling-Guides.html) — tables and lookup tables, subregions, Weights of Evidence calibration, map metadata, and practical tips for building models.
 - [Functor List](Functor-List.html) — every functor, grouped by category.
 - [FAQ](FAQ.html) — answers to common questions and problems.
 {% endraw %}

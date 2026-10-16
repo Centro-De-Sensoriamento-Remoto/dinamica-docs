@@ -40,6 +40,8 @@ None.
 
 If Step is .none, the saved filename has no numeric suffix.
 
+Save Map can also write a metadata file next to each saved map, enabled on the *Metadata* tab of its editor. See [Map Metadata](../Map-Metadata.html).
+
 See Lesson 4, "Opening and Saving maps," for a practical example of this functor.
 
 ## Internal Name
