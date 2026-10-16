@@ -56,7 +56,7 @@ During execution, the console only displays messages at the `INFO2` level and be
 
 ## Model Output
 
-- `-output=[output]` — Write an output file representing the input model script, without needing to open the GUI to export it. The output format is chosen based on the file extension: `.ego` for EGO Script, `.xml`/`.egoml` for XML Script, `.dot` for a Graphviz representation of the model, and `.egomlx` for a bundle script.
+- `-output=[output]` — Write an output file representing the input model script, without needing to open the GUI to export it. The output format is chosen based on the file extension: `.ego` for EGO Script, `.egoml` for EGOML Script, `.dot` for a Graphviz representation of the model, and `.egomlx` for a bundle script.
 - `-dont-run` — Combine with `-output` to only convert a script to another format without executing it.
 - `-verifier=[verifier]` — Set the functor verifier used to validate the script before execution. Values: `NonIntrusiveScriptVerifier`, `IntrusiveScriptVerifier`.
 - `-write-semicolon-in-csv` — Write CSV files using semicolons as value separators (and commas as decimal marks) instead of the English standard format.
@@ -95,10 +95,10 @@ Run a model script with 4 workers, the Aggressive memory policy, and beep when f
 DinamicaConsole -processors=4 -memory-allocation-policy=4 -beep "C:\models\my_model.ego"
 ```
 
-Convert a model script to XML without running it:
+Convert a model script to EGOML without running it:
 
 ```powershell
-DinamicaConsole -dont-run -output="C:\models\my_model.xml" "C:\models\my_model.ego"
+DinamicaConsole -dont-run -output="C:\models\my_model.egoml" "C:\models\my_model.ego"
 ```
 
 List the available accelerator devices:
