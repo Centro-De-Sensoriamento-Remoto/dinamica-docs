@@ -5,9 +5,7 @@ nav_order: 8
 {% raw %}
 # Frequently Answered Questions
 
-## GNU/Linux
-
-For GNU/Linux related questions, please refer to Dinamica GNU/Linux - Frequently Asked Questions
+Questions that apply to only one operating system are marked **(Windows)** or **(Linux)** in their heading. Unmarked questions apply to both.
 
 ## Installation and Startup
 
@@ -23,7 +21,7 @@ Typically, this problem only occurs on the first run of a new Dinamica EGO insta
 
 **Dinamica EGO will not start because it says 'Could not create the Java virtual machine'. What is wrong?**
 
-Edit the file `Dinamica.vmoptions` located in the Dinamica EGO installation folder using a plain text editor (like Notepad or [Notepad++](https://notepad-plus-plus.org)). The content of the original file can be seen below:
+Edit the file `Dinamica.vmoptions` located in the Dinamica EGO installation folder using a plain text editor. The content of the original file can be seen below:
 
 ```
 -Xss1m
@@ -39,9 +37,9 @@ These values represent the maximum amount of memory available to the Dinamica gr
 
 The perspective file used to store the layout of the graphical interface is probably corrupted. To work around this issue, remove the folder containing the perspective configuration and restart the application.
 
-The perspective configuration file is usually stored in the folder `C:\Users\<User>\.jydocking`.
+On Windows, the perspective configuration file is usually stored in the folder `C:\Users\<User>\.jydocking`.
 
-#### Question I-4
+#### Question I-4 (Windows)
 
 **Dinamica EGO does not install on my computer. When I click on the Dinamica EGO installer, nothing happens. What is wrong?**
 
@@ -49,7 +47,7 @@ First, make sure the installer is not corrupted. Also, make sure your anti-virus
 
 Windows Defender (and some anti-virus software) tends to warn the user about a potential hazard when installing Dinamica EGO. This isn't caused by Dinamica itself — it's simply that Dinamica EGO isn't as widely used as software like Microsoft Office or Google Chrome, so anti-virus tools flag it as unknown or suspicious. It's safe to ignore these warnings and proceed with the installation, as long as you've downloaded Dinamica EGO from a reliable source, preferably the Dinamica EGO website.
 
-#### Question I-5
+#### Question I-5 (Windows)
 
 **When I try to run Dinamica EGO, I get a message box that says 'Unable to load library "JavaBinding"'. What is wrong?**
 
@@ -65,7 +63,69 @@ After installing this utility, try running Dinamica EGO again.
 
 The submodels downloaded from the Submodel Store are all kept in a single file, `SubmodelDatabase.sqlite`. On Windows, open Windows File Explorer, type `%LOCALAPPDATA%` in the address bar, and press Enter. Then open the `Dinamica EGO <version>` folder and copy `SubmodelDatabase.sqlite`. To use the submodels on another computer, close Dinamica EGO there and paste the file into the same folder, `%LOCALAPPDATA%\Dinamica EGO <version>`. Pasting the file replaces the one already in that folder, so any store submodels that exist only on the destination computer are replaced.
 
-User submodels are stored separately, in `Documents\Dinamica EGO <version>\Submodels`. See [Copying Submodels to Another Computer](Submodels.html#copying-submodels-to-another-computer) for details and for the Linux locations.
+On Linux, the file is in `~/.local/share/Dinamica EGO <version>`.
+
+User submodels are stored separately, in `Documents\Dinamica EGO <version>\Submodels` on Windows and in `~/Dinamica EGO <version>/Submodels` on Linux. See [Copying Submodels to Another Computer](Submodels.html#copying-submodels-to-another-computer) for details.
+
+## GNU/Linux
+
+#### Question L-1 (Linux)
+
+**Which GNU/Linux distributions does Dinamica EGO support?**
+
+Dinamica EGO is officially supported on Ubuntu Desktop, running in an X.org session (see question L-4). It may run on other distributions, but they are not officially supported. The supported versions are listed on the [Download](https://www.csr.ufmg.br/dinamica/download) page.
+
+Dinamica EGO depends on the versions of `libc`, `libpthread`, `libdl`, `libz`, and `libfuse` shipped with the supported Ubuntu release. To list the versions installed on your system, run:
+
+```
+ldconfig -v
+```
+
+#### Question L-2 (Linux)
+
+**Dinamica EGO won't start. What should I do?**
+
+Start Dinamica EGO from a terminal instead of the application menu, so its error message is visible:
+
+- If it shows "Segmentation fault," see question L-3.
+- If you are in a Wayland session, see question L-4.
+- For any other error, ask in the [Dinamica Google Group](https://groups.google.com/forum/#!forum/dinamica-ego).
+
+#### Question L-3 (Linux)
+
+**Dinamica EGO shows "Segmentation fault" right when it starts. What does it mean?**
+
+A segmentation fault shown just before the application starts means the distribution is not supported: its system libraries differ from the ones Dinamica EGO was built against. Use a supported distribution — see question L-1.
+
+#### Question L-4 (Linux)
+
+**Dinamica EGO doesn't work in a Wayland session. How do I fix it?**
+
+The Dinamica EGO interface runs on Java, which does not work properly under Wayland, the display protocol Ubuntu uses by default since version 17.10. Log in with an X.org session instead: on the login screen, click the cogwheel next to the login button and select **Ubuntu on Xorg**.
+
+To check which kind of session you are in, run:
+
+```
+echo $XDG_SESSION_TYPE
+```
+
+It prints `wayland` or `x11`.
+
+#### Question L-5 (Linux)
+
+**[Calculate R Expression](functors/Calculate-R-Expression.html) fails with "there is no package called 'Dinamica'". What is wrong?**
+
+The full error looks like this:
+
+```
+Running "CalculateRExpression" ...
+R error output:
+Error in loadNamespace(name) : there is no package called 'Dinamica'
+Calls: tryCatch ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
+"CalculateRExpression": R execution failed with an unknown error. Check the "Message Log" for more details.
+```
+
+The Dinamica package for R is not installed in the R installation Dinamica EGO uses — for example, after R was updated. On Linux, Dinamica EGO always uses the R installed on the system, so the package must be installed there. The same error can occur on Windows when the local R installation is selected instead of the Enhancement Plugin. See [Setup](functors/Calculate-R-Expression.html#setup) on Calculate R Expression.
 
 ## Updates, Security, and Privacy
 
@@ -82,12 +142,12 @@ If you prefer, you can turn off this version check by disabling "Tools => Option
 **How does Dinamica EGO interact with the CSR/UFMG servers? What kind of information does it send back while I'm running the software?**
 
 - From time to time, it sends a request to our servers checking whether the user has the latest version of the software. If not, it downloads and applies an update. The user is free to turn off automatic update checking, which prevents any version checking from happening at all. The only information ever sent to our servers during this check is the current version of the Dinamica software running on the computer — nothing that could be used to identify the user or the computer is ever sent.
-- Users can send data to our servers by accessing the "[submodel](Submodels.html)" repository within the application, or by downloading "[submodels](Submodels.html)" from our server. Both actions have to be explicitly started by the user. When browsing the "[submodel](Submodels.html)" repository, the user sees a list of "[submodels](Submodels.html)" available for download; installing one downloads a file into the user's `%localappdata%\Dinamica EGO X` folder (where X is Dinamica EGO's major version number) so it can be used by the software.
+- Users can send data to our servers by accessing the "[submodel](Submodels.html)" repository within the application, or by downloading "[submodels](Submodels.html)" from our server. Both actions have to be explicitly started by the user. When browsing the "[submodel](Submodels.html)" repository, the user sees a list of "[submodels](Submodels.html)" available for download; installing one downloads a file into the user's `%localappdata%\Dinamica EGO X` folder on Windows, or `~/.local/share/Dinamica EGO X` on Linux (where X is Dinamica EGO's major version number) so it can be used by the software.
 - When browsing a model and clicking the "?" button on the action bar, the user opens an online wiki page with documentation for that functor or operator — for instance, [Calc Cost Map](functors/Calc-Cost-Map.html). This is just a standard request for a static page and doesn't send any information that could identify the user or the computer.
 
 ## Runtime Errors and Crashes
 
-#### Question R-1
+#### Question R-1 (Windows)
 
 **When I'm running a simulation model, Dinamica EGO closes without showing any error message. What should I do?**
 
@@ -124,11 +184,14 @@ A few things to try:
 
 #### Question P-3
 
-**How do I change the folder where Dinamica EGO stores temporary images and temporary DLL libraries?**
+**How do I change the folder where Dinamica EGO stores temporary images and compiled libraries?**
 
-By default, Dinamica EGO uses the Windows temporary folder to store temporary images and compiled libraries. You can change this directly in the GUI, via "Tools -> Options -> Advanced \| Use alternative folder for storing temporary files."
+By default, Dinamica EGO uses the system's temporary folder to store temporary images and compiled libraries. You can change this directly in the GUI, via "Tools -> Options -> Advanced \| Use alternative folder for storing temporary files."
 
-Alternatively, you can point Dinamica at a different folder — independent of the one Windows itself uses — by defining an environment variable named `DINAMICA_TEMP_DIR` with the path to the new folder. On Windows 10, go to "Start menu -> Settings -> System \| About \| System Info -> Advanced system settings -> Advanced \| Environment Variables \| System variables." Click "New," then type `DINAMICA_TEMP_DIR` as the variable name and choose the new path as its value.
+Alternatively, you can point Dinamica at a different folder — independent of the one the system uses — by defining an environment variable named `DINAMICA_EGO_X_TEMP_DIR`, where `X` is Dinamica EGO's major version number (for example, `DINAMICA_EGO_8_TEMP_DIR`), with the path to the new folder as its value:
+
+- **Windows:** open *Edit the system environment variables* from the Start menu, click *Environment Variables*, and under *System variables* click *New*. Type `DINAMICA_EGO_X_TEMP_DIR` as the variable name and the new path as its value.
+- **Linux:** add `export DINAMICA_EGO_X_TEMP_DIR=/path/to/folder` to your shell startup file (for example, `~/.profile`), then log out and back in.
 
 ## The Expression Language
 
