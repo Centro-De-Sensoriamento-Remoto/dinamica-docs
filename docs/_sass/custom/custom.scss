@@ -87,3 +87,10 @@ html[data-nav="hidden"] .side-bar + .main {
   margin-right: 0 !important;
   max-width: 90rem;
 }
+
+/* Font option (?font=sans-serif): generic sans-serif instead of system-ui for the text; code keeps its monospaced font. */
+html[data-font="sans-serif"] body,
+html[data-font="sans-serif"] input,
+html[data-font="sans-serif"] button {
+  font-family: sans-serif;
+}

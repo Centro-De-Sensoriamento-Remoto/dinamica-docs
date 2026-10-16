@@ -70,3 +70,20 @@
     });
   })();
 </script>
+<script>
+  /* Font option: ?font=sans-serif renders the text with the generic sans-serif font and saves the choice in the browser. */
+  /* ?font=system-ui clears the saved choice and goes back to the theme's system-ui font. */
+  (function () {
+    var KEY = 'dinamica-docs-font';
+    var fromUrl = new URLSearchParams(window.location.search).get('font');
+    try {
+      if (fromUrl === 'sans-serif') { localStorage.setItem(KEY, 'sans-serif'); }
+      else if (fromUrl === 'system-ui') { localStorage.removeItem(KEY); }
+    } catch (e) {}
+    var font = null;
+    try { font = localStorage.getItem(KEY); } catch (e) {}
+    if (fromUrl === 'sans-serif') { font = 'sans-serif'; }
+    if (fromUrl === 'system-ui') { font = null; }
+    if (font === 'sans-serif') { document.documentElement.setAttribute('data-font', 'sans-serif'); }
+  })();
+</script>
