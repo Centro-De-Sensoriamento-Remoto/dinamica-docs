@@ -24,7 +24,7 @@ Reference documentation for [Dinamica EGO](https://dinamicaego.com), the environ
 
 ## Sections
 
-- [Getting Started](Getting-Started.html) — the [Guidebook](guidebook/index.html), a step-by-step course from the interface basics to land-use change simulation and calibration, and [Dinamica Console](Dinamica-Console.html), for running models from the command line.
+- [Getting Started](Getting-Started.html) — the [Guidebook](guidebook/index.html), a step-by-step course from the interface basics to land-use change simulation and calibration, [Dinamica Console](Dinamica-Console.html), for running models from the command line, and the [Environment Variables](Environment-Variables.html) Dinamica EGO reads.
 - [Core Concepts](Core-Concepts.html) — how a model executes ([Basic Data Flow](Basic-Data-Flow.html)), how maps of different extents and resolutions are combined ([Image Virtualization](Image-Virtualization.html)), and the data types and their conversions ([Type System](Type-System.html)).
 - [Graphical Interface](gui/index.html) — the model editor, functor and port editors, submodels in the interface, options, keyboard shortcuts, and the Map Viewer.
 - [Language and Expressions](Language-And-Expressions.html) — [EGO Script](EGO-Script.html), [EGOML](EGOML-Script.html), [Submodels](Submodels.html), and the expression languages of the calculator functors, including R and Python.

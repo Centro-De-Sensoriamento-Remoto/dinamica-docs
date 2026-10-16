@@ -193,6 +193,8 @@ Alternatively, you can point Dinamica at a different folder — independent of t
 - **Windows:** open *Edit the system environment variables* from the Start menu, click *Environment Variables*, and under *System variables* click *New*. Type `DINAMICA_EGO_X_TEMP_DIR` as the variable name and the new path as its value.
 - **Linux:** add `export DINAMICA_EGO_X_TEMP_DIR=/path/to/folder` to your shell startup file (for example, `~/.profile`), then log out and back in.
 
+See [Environment Variables](Environment-Variables.html) for the other variables Dinamica EGO reads.
+
 ## The Expression Language
 
 #### Question E-1

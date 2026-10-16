@@ -26,9 +26,9 @@ The different log levels are shown below:
 | @lightgray:6 | Debug | Displays debug information and all the information from the levels below this. |
 | @lightgray:7 | Debug 2 | Displays additional debug information and all the information from the levels below this. |
 
-The log files `debug.txt` and `log.txt` are typically located in the folder `C:\Users\<User>\Documents\Dinamica EGO 4`.
+The log files `debug.txt` and `log.txt` are typically located in the folder `C:\Users\<User>\Documents\Dinamica EGO <version>` on Windows, or `~/Dinamica EGO <version>` on Linux.
 
-This default location can be overridden by defining an environment variable, `DINAMICA_LOG_PATH`, containing the desired log path.
+This default location can be overridden with the environment variable `DINAMICA_EGO_X_LOG_PATH`, where `X` is the major version number. See [Environment Variables](../Environment-Variables.html).
 
 ## GUI Editor
 
