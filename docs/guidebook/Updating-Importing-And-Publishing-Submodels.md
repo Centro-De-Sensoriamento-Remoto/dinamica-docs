@@ -27,11 +27,15 @@ Below you can see two examples of updating the inputs and output ports of a loca
 
 #### Example 1
 
-[Video: Updating local submodels ports](https://www.youtube.com/watch?v=i6T9GGqfU80)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/i6T9GGqfU80?mute=1" title="Updating local submodels ports" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 #### Example 2
 
-[Video: Updating local submodels ports (additional approach)](https://www.youtube.com/watch?v=FK5xIYCS0KI)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/FK5xIYCS0KI?mute=1" title="Updating local submodels ports (additional approach)" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 - Beware that connected inputs cannot be exported. They must be disconnected first. It is also worth noting that it is possible to safely rename inputs and outputs. The connections to the port will be maintained when the changes are propagated.
 
@@ -40,11 +44,15 @@ Below you can see two examples of updating the inputs and output ports of a loca
 
 - When updating a local submodel, the changes from all dependent local submodels will also be propagated. It means that updating a submodel always updates the whole chain of local submodels that uses that submodel as part of their definition.
 
-[Video: Updating local submodels](https://www.youtube.com/watch?v=wDtyrRbUNo4)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/wDtyrRbUNo4?mute=1" title="Updating local submodels" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 - Removing ports from a local submodel is also similar to updating the exported ports. You can remove the ports using the **export functor inputs and outputs** option on the [functor action bar](../gui/Interface-Elements.html#functor-action-bar) and unchecking the corresponding port on the **Exported Ports** dialog or using the **Apply Changes / Edit Submodel Properties** dialog. Changing the order of the inputs or output ports can only be done by editing the port list on the **Apply Changes / Edit Submodel Properties** dialog.
 
-[Video: Removing portos and changing port order](https://www.youtube.com/watch?v=zx6moYBS3YU)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/zx6moYBS3YU?mute=1" title="Removing ports and changing port order" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 ### Importing a Local Submodel Between Models
 
@@ -52,7 +60,9 @@ It is possible to copy local submodels definitions between models. Once the subm
 
 You can copy a local submodel definition by dragging a local submodel from the [functor library](../gui/Interface-Elements.html#functor-library) to the [model presentation](../gui/Interface-Elements.html#model-presentation) area. The process is similar to the instantiation of a regular functor.
 
-[Video: Importing local submodels](https://www.youtube.com/watch?v=v8OKfyWsYoM)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/v8OKfyWsYoM?mute=1" title="Importing local submodels" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 It is also possible to copy the submodel definition by clicking on the **Import submodel definition** button on the [functor library bar](../gui/Interface-Elements.html#functor-library-bar) of the local submodel tab of the [functor library](../gui/Interface-Elements.html#functor-library). The definition of system submodel and system submodels can also be imported using the corresponding "Import submodel definition" button on the [functor library bar](../gui/Interface-Elements.html#functor-library-bar) of the submodel tab of the [functor library](../gui/Interface-Elements.html#functor-library).
 

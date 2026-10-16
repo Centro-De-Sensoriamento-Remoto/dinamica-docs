@@ -30,11 +30,15 @@ An author can create his own Wizard Tutorial to present and explain its concepts
 
 The Wizard should be a logical sequence of pages, each using a graphical area to convey information and possibly ports linked to the model. This is a very clear idea that can be seen in the wizard editor. The following videos provide directions on using the wizard tool:
 
-[Video: YouTube](https://www.youtube.com/watch?v=_Jc61ARsHuA)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/_Jc61ARsHuA?mute=1" title="Using the wizard editor" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 Here is how to run a Wizard in the current interface:
 
-[Video: YouTube](https://www.youtube.com/watch?v=I7DPear5yao)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/I7DPear5yao?mute=1" title="Running a wizard" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 To open the Wizard tool click on the edit bar in the menu:
 

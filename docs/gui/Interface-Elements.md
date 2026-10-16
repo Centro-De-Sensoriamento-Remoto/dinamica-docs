@@ -96,7 +96,9 @@ Shown in the upper-right corner of the panel whenever a connection is selected. 
 
 Hovering over a port name in the bar shows a tooltip for the port and for the functor it belongs to, including its banner, comment, and alias.
 
-[Video: navigating connections with the connection action bar](https://www.youtube.com/watch?v=SgMmfTxYg3A)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/SgMmfTxYg3A?mute=1" title="navigating connections with the connection action bar" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 ### Connecting Functors That Are Far Apart
 
@@ -143,7 +145,9 @@ Shows an overview of the current model or local submodel. Use it to pan and zoom
 
 You can also zoom with the mouse wheel in either the Overview or the sketch.
 
-[Video: zooming and panning with the model overview](https://www.youtube.com/watch?v=SXikUDsbsXo)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/SXikUDsbsXo?mute=1" title="zooming and panning with the model overview" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 ## Explorer
 

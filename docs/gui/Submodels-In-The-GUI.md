@@ -18,7 +18,9 @@ It is also possible to select parts of a local submodel and create another local
 
 If the selection is empty, an empty local submodel will be created. The process for updating an empty submodel is the same process used to update any local submodel.
 
-[Video: Creating local submodels](https://www.youtube.com/watch?v=YvoteWC_lnI)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/YvoteWC_lnI?mute=1" title="Creating local submodels" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 ## Instantiating Local Submodels
 
@@ -58,8 +60,17 @@ The submodel editor dialog also lets you set the submodel's **group**, which con
 
 Below you can see two examples of updating the input and output ports of a local submodel:
 
-- **Example 1** — exporting and updating ports using the functor action bar:<br> [Video: Updating local submodels ports](https://www.youtube.com/watch?v=i6T9GGqfU80)
-- **Example 2** — an additional approach to the same task:<br> [Video: Updating local submodels ports (additional approach)](https://www.youtube.com/watch?v=FK5xIYCS0KI)
+**Example 1** — exporting and updating ports using the functor action bar:
+
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/i6T9GGqfU80?mute=1" title="Updating local submodels ports" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+
+**Example 2** — an additional approach to the same task:
+
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/FK5xIYCS0KI?mute=1" title="Updating local submodels ports (additional approach)" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 Beware that connected inputs cannot be exported. They must be disconnected first.
 
@@ -69,13 +80,17 @@ It is also worth noting that it is possible to safely rename inputs and outputs.
 
 When updating a local submodel, the changes from all dependent local submodels will also be propagated. This means that updating a submodel always updates the whole chain of local submodels that use that submodel as part of their definition.
 
-[Video: Updating local submodels (propagation through a chain of dependent submodels)](https://www.youtube.com/watch?v=wDtyrRbUNo4)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/wDtyrRbUNo4?mute=1" title="Updating local submodels (propagation through a chain of dependent submodels)" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 Removing ports from a local submodel is also similar to updating the exported ports. You can remove the ports using the *export functor inputs and outputs* option on the functor action bar and unchecking the corresponding port on the *Exported Ports* dialog, or using the *Apply Changes / Edit Submodel Properties* dialog.
 
 Changing the order of the input or output ports can only be done by editing the port list on the *Apply Changes / Edit Submodel Properties* dialog.
 
-[Video: Removing ports and changing port order](https://www.youtube.com/watch?v=zx6moYBS3YU)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/zx6moYBS3YU?mute=1" title="Removing ports and changing port order" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 ## Submodel Dependencies
 
@@ -95,7 +110,9 @@ It is possible to copy local submodel definitions between models. Once the submo
 
 You can copy a local submodel definition by dragging a local submodel from the Functor Library to the model presentation area. The process is similar to the instantiation of a regular functor.
 
-[Video: Importing local submodels](https://www.youtube.com/watch?v=v8OKfyWsYoM)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/v8OKfyWsYoM?mute=1" title="Importing local submodels" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 It is also possible to copy the submodel definition by clicking the *Import submodel definition* button on the functor library bar of the local submodel tab of the Functor Library. The definitions of system and user submodels can also be imported using the corresponding *Import submodel definition* button on the functor library bar of the submodel tab of the Functor Library.
 

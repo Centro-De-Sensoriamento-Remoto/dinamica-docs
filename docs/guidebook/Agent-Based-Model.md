@@ -185,15 +185,21 @@ The black points are the agents moving across the landscape that is represented 
 
 **Homogeneous scenario: every cell has the same value in this map: 100 -  average cell value: 100 -**
 
-[Video: YouTube](https://www.youtube.com/watch?v=_bGHgmhAFqM)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/_bGHgmhAFqM?mute=1" title="Agents movement: homogeneous scenario" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 **Heterogeneous scenario: cells have values from 0 to 147 - average cell value: 100 -**
 
-[Video: YouTube](https://www.youtube.com/watch?v=SK80UU8QwHw)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/SK80UU8QwHw?mute=1" title="Agents movement: heterogeneous scenario, values 0 to 147" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 **Heterogeneous scenario: cells have values from 0 to 73 - average cell value: 50 -**
 
-[Video: YouTube](https://www.youtube.com/watch?v=ayTFM5yKmaU)
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/ayTFM5yKmaU?mute=1" title="Agents movement: heterogeneous scenario, values 0 to 73" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 
 On heterogeneous landscapes, the agents move to locations with larger concentration of resources. As a result, this areas are depleted in first place.
 
