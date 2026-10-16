@@ -1,0 +1,72 @@
+<script>
+  /* Theme selection. Precedence: ?theme= in the URL, then the reader's saved choice, then the operating system setting. */
+  /* ?theme=light or ?theme=dark is saved as the reader's choice; ?theme=auto clears it and follows the operating system again. */
+  (function () {
+    var KEY = 'dinamica-docs-theme';
+    var valid = { light: true, dark: true };
+
+    function load() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+
+    function save(theme) {
+      try {
+        if (theme) { localStorage.setItem(KEY, theme); } else { localStorage.removeItem(KEY); }
+      } catch (e) {}
+    }
+
+    function systemTheme() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    /* Swaps the theme stylesheet (just-the-docs-<scheme>.css) for the requested one. */
+    function apply(theme) {
+      var link = document.querySelector('link[rel="stylesheet"][href*="just-the-docs-"]:not(#jtd-head-nav-stylesheet)');
+      if (link) {
+        var href = link.getAttribute('href');
+        var next = href.replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css');
+        if (next !== href) { link.setAttribute('href', next); }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      window.dinamicaTheme.current = theme;
+    }
+
+    var fromUrl = new URLSearchParams(window.location.search).get('theme');
+    if (fromUrl && valid[fromUrl]) { save(fromUrl); }
+    else if (fromUrl === 'auto') { save(null); }
+
+    var saved = load();
+    window.dinamicaTheme = { apply: apply, save: save, load: load, current: null };
+    apply(saved && valid[saved] ? saved : systemTheme());
+
+    /* Without a saved choice, keep following the operating system when its setting changes. */
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () {
+        if (!load()) { apply(systemTheme()); }
+      });
+    }
+  })();
+</script>
+<script>
+  /* Navigation-free mode: ?nav=hide hides the left sidebar and the top bar. */
+  /* The setting is carried to every internal link on the page, so following a link keeps it. */
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('nav') !== 'hide') { return; }
+    document.documentElement.setAttribute('data-nav', 'hidden');
+
+    var base = window.location.origin + '{{ site.baseurl }}/';
+    document.addEventListener('DOMContentLoaded', function () {
+      var links = document.querySelectorAll('a[href]');
+      for (var i = 0; i < links.length; i++) {
+        var raw = links[i].getAttribute('href');
+        if (!raw || raw.charAt(0) === '#') { continue; }
+        var url = new URL(links[i].href, window.location.href);
+        var isPage = /(\.html|\/)$/.test(url.pathname);
+        if (url.href.indexOf(base) !== 0 || !isPage) { continue; }
+        url.searchParams.set('nav', 'hide');
+        links[i].setAttribute('href', url.href);
+      }
+    });
+  })();
+</script>

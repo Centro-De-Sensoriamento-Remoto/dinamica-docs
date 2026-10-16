@@ -49,3 +49,36 @@ html {
   border: 0;
   border-radius: 6px;
 }
+
+/* Theme toggle button in the header. */
+.theme-toggle {
+  align-self: center;
+  margin: 0 1rem;
+  padding: 0.25rem 0.75rem;
+  font: inherit;
+  font-size: 0.8rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  opacity: 0.8;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+/* Navigation-free mode (?nav=hide): no sidebar and no top bar; the content uses the freed space. */
+html[data-nav="hidden"] .side-bar,
+html[data-nav="hidden"] .main-header {
+  display: none !important;
+}
+
+html[data-nav="hidden"] .main,
+html[data-nav="hidden"] .side-bar + .main {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 90rem;
+}

@@ -1,0 +1,17 @@
+<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark theme" title="Switch between light and dark theme"></button>
+<script>
+  /* Toggle button: switches the theme and saves the choice for the following pages and visits. */
+  (function () {
+    var button = document.getElementById('theme-toggle');
+    function label() {
+      button.textContent = window.dinamicaTheme.current === 'dark' ? '☀ Light' : '☾ Dark';
+    }
+    button.addEventListener('click', function () {
+      var next = window.dinamicaTheme.current === 'dark' ? 'light' : 'dark';
+      window.dinamicaTheme.save(next);
+      window.dinamicaTheme.apply(next);
+      label();
+    });
+    label();
+  })();
+</script>
