@@ -39,11 +39,11 @@ The land use map has the following classes:
 | 5 | Urban |
 | 6 | Roads |
 
-Load `\Guidebook_Dinamica_5\Database\multi_criteria_evaluation\landuse.tif` it on the Map Viewer and change the Current color palette to "mt".
+Load `\guidebook dinamica\database\multi criteria evaluation\landuse.tif` it on the Map Viewer and change the Current color palette to "mt".
 
 ![](../image/guidebook_mce_1.2.jpg)
 
-Let's start developing the model. Place *[Load Categorical Map](../functors/Load-Categorical-Map.html)* on the sketch and open the file `\Guidebook_Dinamica_5\Database\multi_criteria_evaluation\landuse.tif`. Now place *[Calculate Map](../functors/Calculate-Map.html)* and *[Number Map](../functors/Number-Map.html)* within it. Enter "1" in **Map Number** in *[Number Map](../functors/Number-Map.html)*. Now place *[Save Map](../functors/Save-Map.html)* and enter `unconstrained_areas.tif`. We can save in the folder `\Guidebook_Dinamica_5\Models\multi_criteria_evaluation` Change file format to **Geotiff** and set **Suffix Digits** to "0".
+Let's start developing the model. Place *[Load Categorical Map](../functors/Load-Categorical-Map.html)* on the sketch and open the file `\guidebook dinamica\database\multi criteria evaluation\landuse.tif`. Now place *[Calculate Map](../functors/Calculate-Map.html)* and *[Number Map](../functors/Number-Map.html)* within it. Enter "1" in **Map Number** in *[Number Map](../functors/Number-Map.html)*. Now place *[Save Map](../functors/Save-Map.html)* and enter `unconstrained areas.tif`. We can save in the folder `\guidebook dinamica\models\multi criteria evaluation` Change file format to **Geotiff** and set **Suffix Digits** to "0".
 
 > **Tip:** **TIP**: you can increase model performance by avoiding saving intermediate map files. In this step, you will save the map just to check the result from this operation. Do not forget to connect all functors.
 
@@ -67,7 +67,7 @@ Load one *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html
 
 > **Note:** The only difference between *[Calculate  Map](../functors/Calculate-Map.html)* and *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* is that the latter outputs a categorical map.
 
-You will need *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* in order to use the functor *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)*; you can access it from the Map Algebra tab too. Although not necessary, you can save the map by placing *[Save Map](../functors/Save-Map.html)*. Save it as `distance_to_towns.tif`.  
+You will need *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* in order to use the functor *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)*; you can access it from the Map Algebra tab too. Although not necessary, you can save the map by placing *[Save Map](../functors/Save-Map.html)*. Save it as `distance to towns.tif`.  
 Now connect Categorical Map `landuse.tif` to *[Number Map](../functors/Number-Map.html)*, after setting the **Map Number** to "1". Open *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* with the Edit Functor Ports.
 
 ![](../image/guidebook_mce4.jpg)
@@ -82,7 +82,7 @@ Now connect the port **Distance** in *[Calc Distance to Feature Map](../functors
 
 ![](../image/guidebook_mce5.jpg)
 
-As a last procedure, add one *[Calculate Map](../functors/Calculate-Map.html)* and its *[Number Map](../functors/Number-Map.html)*, connect the output of *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* to its *[Number Map](../functors/Number-Map.html)* and output the result with *[Save Map](../functors/Save-Map.html)* `away_from_towns.tif`.  Notice that at this stage, we are omitting some steps, which should be well-known by now. Write in the equation box of the *[Calculate Map](../functors/Calculate-Map.html)*:
+As a last procedure, add one *[Calculate Map](../functors/Calculate-Map.html)* and its *[Number Map](../functors/Number-Map.html)*, connect the output of *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* to its *[Number Map](../functors/Number-Map.html)* and output the result with *[Save Map](../functors/Save-Map.html)* `away from towns.tif`.  Notice that at this stage, we are omitting some steps, which should be well-known by now. Write in the equation box of the *[Calculate Map](../functors/Calculate-Map.html)*:
 
 **if i1 &lt; 10000 then null else 1**
 
@@ -92,7 +92,7 @@ You will have the following model.
 
 ![](../image/guidebook_mce6.jpg)
 
-Save and run it. Open the map `away_from_towns.tif`. Is this what you got?
+Save and run it. Open the map `away from towns.tif`. Is this what you got?
 
 ![](../image/guidebook_mce7.2.jpg)
 
@@ -103,7 +103,7 @@ How would you solve the problem having the following criteria?
 
 You will need to load another *[Load Categorical Map](../functors/Load-Categorical-Map.html)* and enter the file `mainroads.tif` from folder lesson5. You will need to turn on the option **Define Null Value** and set the **Null Value** to "0". You can connect this functor directly to another *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* that you will need to place on the sketch. Use *[Categorical Map](../functors/Categorical-Map.html)* `landuse.tif` again as the **Mask**.
 Use the following equations in the respective *[Calculate Map](../functors/Calculate-Map.html)* (you will need to place one for each criterion):<br> **if i1 > 15000 then null else 1**  
-Now connect its output to *[Save Map](../functors/Save-Map.html)* `not_too_far_from_mainroads.tif`.
+Now connect its output to *[Save Map](../functors/Save-Map.html)* `not too far from mainroads.tif`.
 
 You will have the following model.
 
@@ -111,7 +111,7 @@ You will have the following model.
 
 Check its integrity, save as `my_MCE_part1&2.1.egoml` and run it.
 
-Did you get a `not_too_far_from_mainroads.tif` map like this?
+Did you get a `not too far from mainroads.tif` map like this?
 
 ![](../image/guidebook_mce9.jpg)
 
@@ -124,12 +124,12 @@ Now connect this output to *[Calc Distance to Feature Map](../functors/Calc-Dist
 
 **if i1 &lt; 1000 then null else 1**
 
-Save the output as `malaria_free_zone.tif`
+Save the output as `malaria free zone.tif`
 The model for the three criteria combined should look like this:
 
 ![](../image/guidebook_mce10.jpg)
 
-Check the model, save it as `my_MCE_part1&2complete.egoml`, run and analyze the map `malaria_free_zone.tif`. Does it look like this?
+Check the model, save it as `my_MCE_part1&2complete.egoml`, run and analyze the map `malaria free zone.tif`. Does it look like this?
 
 ![](../image/guidebook_mce11.jpg)
 
@@ -158,11 +158,11 @@ After connecting the output of the last *[Calculate Map](../functors/Calculate-M
 
 **if i1 &lt; 30 then 1 else null**
 
-Finally save the output map as `near_town_region.tif`. Note that you have added to the model three additional *[Calculate Map](../functors/Calculate-Map.html)* functors, three *[Number Map](../functors/Number-Map.html)* functors, one *[Calc Cost Map](../functors/Calc-Cost-Map.html)* and another *[Save Map](../functors/Save-Map.html)*. The model should look like the following figure.
+Finally save the output map as `near town region.tif`. Note that you have added to the model three additional *[Calculate Map](../functors/Calculate-Map.html)* functors, three *[Number Map](../functors/Number-Map.html)* functors, one *[Calc Cost Map](../functors/Calc-Cost-Map.html)* and another *[Save Map](../functors/Save-Map.html)*. The model should look like the following figure.
 
 ![](../image/guidebook_mce12.jpg)
 
-Save the model as `my_MCE_part1&2&3.egoml`, and run it. Examine map `near_town_region.tif`. Is this what you got?
+Save the model as `my_MCE_part1&2&3.egoml`, and run it. Examine map `near town region.tif`. Is this what you got?
 
 ![](../image/guidebook_mce13.jpg)
 
@@ -200,7 +200,7 @@ Now place five *[Number Map](../functors/Number-Map.html)* functors within it. O
 
 > **Important:** The *[Calculate Map](../functors/Calculate-Map.html)* does not process null cells.
 
-Change **Cell Type** to  "UnSigned 8 Bit Integer" **Null Value** to "0"; write the comment "Combine five criteria" and add *[Save Map](../functors/Save-Map.html)* to view the result, naming the file as `five_criteria_combined.tif`. Finally organize the layout left to right.
+Change **Cell Type** to  "UnSigned 8 Bit Integer" **Null Value** to "0"; write the comment "Combine five criteria" and add *[Save Map](../functors/Save-Map.html)* to view the result, naming the file as `five criteria combined.tif`. Finally organize the layout left to right.
 
 ![](../image/guidebook_mce15.jpg)
 
@@ -230,7 +230,7 @@ Save this model as `my_MCE_part1&2&3&4group.egoml` and let’s move forward to t
 
 ## Fifth step: identifying suitable areas
 
-In this step, you will identify the suitable areas equal to or greater than 1000 hectares. First, delete *[Save Map](../functors/Save-Map.html)* `five_criteria_combined.tif`. Remember that the less the software accesses the disk, the faster the model runs. Now, drag from Map Algebra tab the functor [Calc Patch Label Map](../functors/Calc-Patch-Label-Map.html). This functor labels patches of cells using sequential numbers. A patch consists of a continuous group of neighboring cells of the same category. You need this in order to solve the area criterion. Connect the output from "Combine Five Criteria" to it. Some of its parameters are:
+In this step, you will identify the suitable areas equal to or greater than 1000 hectares. First, delete *[Save Map](../functors/Save-Map.html)* `five criteria combined.tif`. Remember that the less the software accesses the disk, the faster the model runs. Now, drag from Map Algebra tab the functor [Calc Patch Label Map](../functors/Calc-Patch-Label-Map.html). This functor labels patches of cells using sequential numbers. A patch consists of a continuous group of neighboring cells of the same category. You need this in order to solve the area criterion. Connect the output from "Combine Five Criteria" to it. Some of its parameters are:
 
 **Initial Patch Label**: Set it to "1".
 
@@ -242,7 +242,7 @@ Now, place on the sketch one *[Calculate Map](../functors/Calculate-Map.html)* a
 
 **`if (t1[ [i1]["Area_In_Hectares"] ] < 1000) then null else 1`**
 
-Using this formula, the functor will analyze the size of each patch and then eliminate the patches smaller than 1000 hectares. Now place one *[Save Map](../functors/Save-Map.html)* and enter `big_areas.tif`.
+Using this formula, the functor will analyze the size of each patch and then eliminate the patches smaller than 1000 hectares. Now place one *[Save Map](../functors/Save-Map.html)* and enter `big areas.tif`.
 
 ![](../image/guidebook_mce21.jpg)
 
@@ -290,7 +290,7 @@ Open *[Mux Lookup Table](../functors/Mux-Lookup-Table.html)* with the Edit Funct
 
 Finally place *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* after the *[For Each Region](../functors/For-Each-Region.html)* and place *[Number Map](../functors/Number-Map.html)* and *[Number Table](../functors/Number-Table.html)* within it. Number them and write the following equation: **if t1[i1] > 0.5** then null else i1
 
-Save the result as `suitable_for_a_new_town.tif` on the lesson5 folder.
+Save the result as `suitable for a new town.tif` on the lesson5 folder.
 
 ![](../image/guidebook_mce30.jpg)
 
@@ -302,18 +302,18 @@ Finally you just need to organize the model in a more legible layout. Place one 
 
 ![](../image/guidebook_mce32.jpg)
 
-Close it and add the comment "Label and select big patches", close the *[Region Manager](../functors/Region-Manager.html)* and add "Calculate average slope for each big patch", close the last *[Calculate Map](../functors/Calculate-Map.html)* functor and add "Eliminate patches with average slope > 0.5" and lastly, add the comment "Save final map" to Map `suitable_for_a_new_town.tif`.
+Close it and add the comment "Label and select big patches", close the *[Region Manager](../functors/Region-Manager.html)* and add "Calculate average slope for each big patch", close the last *[Calculate Map](../functors/Calculate-Map.html)* functor and add "Eliminate patches with average slope > 0.5" and lastly, add the comment "Save final map" to Map `suitable for a new town.tif`.
 
-Save the model as `my_MCE_part1&2&3&4&5&6_complete.egoml`. This is the final model.
+Save the model as `my mce part1&2&3&4&5&6 complete.egoml`. This is the final model.
 
 ![](../image/guidebook_mce33.jpg)
 
 > **To do:** **HOME WORK**
-> Examining the map `suitable_for_a_new_town.tif`, you will note a large patch on its southwest portion, which would be the best target for a new town, considering the areal extent as an additional criterion. Would you be able to add a submodel to the current model to pinpoint this patch?
+> Examining the map `suitable for a new town.tif`, you will note a large patch on its southwest portion, which would be the best target for a new town, considering the areal extent as an additional criterion. Would you be able to add a submodel to the current model to pinpoint this patch?
 
 > **Tip:** **TIP**: You will need to recalculate the areas for the remaining patches and pass this table to *[For Each](../functors/For-Each.html)*, which allows to browse through a table. Place two *[Mux Value](../functors/Mux-Value.html)* inside the *[For Each](../functors/For-Each.html)*, one will handle the maximum area value and the other will store its key.
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞Next Lesson
+☞[Next: Simulating road expansion according to various road lattices](New-Road-Constructor.html)
 {% endraw %}

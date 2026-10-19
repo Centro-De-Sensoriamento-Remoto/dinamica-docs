@@ -47,5 +47,5 @@ Dinamica EGO has several iteration control functors. These functors in the form 
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Regions-With-For-Each-Category.html)
+☞[Next: Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region](Regions-With-For-Each-Category.html)
 {% endraw %}

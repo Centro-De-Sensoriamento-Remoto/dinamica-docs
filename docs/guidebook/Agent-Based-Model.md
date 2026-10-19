@@ -213,26 +213,15 @@ ABM highlights the causal relationships among movement, individual attributes an
 
 #### Download our AMB model and run it yourself.
 
-[Download model](http://csr.ufmg.br/~bruno/Rabbit_population_ABM.zip) ( with Gini Coefficient Submodel and Heterogeneous lanscape 100 map input included)
+The model, with the Gini Coefficient submodel and the Heterogeneous Landscape 100 input map, is in `guidebook dinamica\models\rabbit population abm`, part of [guidebook_dinamica.7z](../extra/guidebook_dinamica.7z).
 
-#### Download model inputs
-
-[Homogeneous Landscape 100 ( Hom 100)](http://www.csr.ufmg.br/wiki/recurso_coelhos_homogeneo.tif)
-
-[Heterogeneous Landscape 100 ( Het 100)](http://www.csr.ufmg.br/wiki/recurso_coelhos_heterog_media_100.tif)
-
-[Heterogeneous Landscape 50 ( Het 50)](http://www.csr.ufmg.br/wiki/recurso_coelhos_heterogeneo_50.tif)
-
-#### Download GINI coefficient
+#### GINI coefficient
 
 It is a measure of inequality developed by the Italian statistician Corrado Gini and published in 1912. It varies from 0 to 1; 0 corresponds to complete equality and 1 corresponds to complete inequality. We use the GINI index to measure the inequality in the rabbit calorie distribution.
 
 Gini Coefficient Calculation
 
-Here you can download Gini Coefficient Submodel separately.  
-To open it with the ABM you can follow the  [instructions here](../Submodels.html#sharing).
-
-[Download Gini Coefficient submodel](http://csr.ufmg.br/~bruno/Gini_Coefficient.ego)
+The Gini Coefficient submodel is in the `submodels` folder of the model, `gini coefficient.ego`. To use it with the ABM, install it as a user submodel; see [User Submodels](../Submodels.html#user-submodels).
 
 ### References
 
@@ -278,5 +267,5 @@ Weiss, G. *Multiagent Systems: A Modern Approach to Distributed Artificial Intel
 
 #### Congratulations, you have successfully completed this lesson!
 
-☞[Next: Multiple Criteria Evaluation](Multiple-Criteria-Evaluation.html)
+☞[Next: Simulating the patterns of change](Simulating-Patterns-Of-Change.html)
 {% endraw %}

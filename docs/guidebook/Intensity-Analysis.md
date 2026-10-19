@@ -25,5 +25,7 @@ Intensity Analysis measures the degree to which changes among categories are non
 
 ## Resources:
 
-[Download Intensity Analysis example with model and submodel](http://www.csr.ufmg.br/dinamica_utils/download/files/intensityAnalysis_resources.zip)
+The example model, its submodel and the input maps are in `guidebook dinamica\models\intensity analysis`, part of [guidebook_dinamica.7z](../extra/guidebook_dinamica.7z).
+
+☞[Next: Calculate variable time-step net transition rates](Variable-Time-Step-Net-Transition-Rates.html)
 {% endraw %}

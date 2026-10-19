@@ -13,9 +13,9 @@ nav_order: 16
 
 ![](../image/guidebook_region1.jpg)
 
-This subset of functors permits division of a map into several regional maps, which can be input for separate models or submodels, whose parameters are customized for each map’s region. Let’s adapt the model `Calc_forest_remaining_extent_per_state` (You can find this model in the folder: `\Guidebook_Dinamica_5\Models\using_concept_of_region`) to use the concept of regions. First open the Region Tab in the library window.
+This subset of functors permits division of a map into several regional maps, which can be input for separate models or submodels, whose parameters are customized for each map’s region. Let’s adapt the model `calc forest remaining extent per state.egoml` (You can find this model in the folder: `\guidebook dinamica\models\using concept of region`) to use the concept of regions. First open the Region Tab in the library window.
 
-These functors can be combined to produce regional maps and submodels, as well as to merge the regional maps into a single map after a processing is performed. In this lesson you will learn how to retrieve the area of the remaining forest for each state; as a result each regional map will correspond to a state area. Open the model the model `Calc_forest_remaining_extent_per_state`. Select the functors within the container *[Repeat](../functors/Repeat.html)* with the Hand tool and then drag them out of *[Repeat](../functors/Repeat.html)*.
+These functors can be combined to produce regional maps and submodels, as well as to merge the regional maps into a single map after a processing is performed. In this lesson you will learn how to retrieve the area of the remaining forest for each state; as a result each regional map will correspond to a state area. Open the model `calc forest remaining extent per state.egoml`. Select the functors within the container *[Repeat](../functors/Repeat.html)* with the Hand tool and then drag them out of *[Repeat](../functors/Repeat.html)*.
 
 ![](../image/guidebook_inc._it._model_17.jpg)![](../image/guidebook_region2.jpg)
 
@@ -31,12 +31,12 @@ Now select all functors, except the input and output maps, and place them within
 
 > **Tip:** **TIP**: it is easier to select everything to be placed within *[For Each Category](../functors/For-Each-Category.html)* and then to take only *[Load Map](../functors/Load-Map.html)* and *[Save Map](../functors/Save-Map.html)* out of it.
 
-Now break the link between *[Load Categorical Map](../functors/Load-Categorical-Map.html)* and *[Calculate Map](../functors/Calculate-Map.html)* (use the Remove Items tool and click on the arrow connecting both functors); next, connect the first to *[Region Manager](../functors/Region-Manager.html)* and to *[For Each Category](../functors/For-Each-Category.html)* too. This map will control the regionalization process splitting the other maps into several regions according to its cell classes or categories through the functor *[Regionalize Map](../functors/Regionalize-Map.html)*. Drag this functor and place it within *[For Each Category](../functors/For-Each-Category.html)*, break the link between Map `brazilian_amazon_lanscape.tif` (You can find this map in the folder: `\Guidebook_Dinamica_5\Database\using_concept_of_region`) and *[Calculate Map](../functors/Calculate-Map.html)* and finally connect the first to *[Regionalize Map](../functors/Regionalize-Map.html)*.
+Now break the link between *[Load Categorical Map](../functors/Load-Categorical-Map.html)* and *[Calculate Map](../functors/Calculate-Map.html)* (use the Remove Items tool and click on the arrow connecting both functors); next, connect the first to *[Region Manager](../functors/Region-Manager.html)* and to *[For Each Category](../functors/For-Each-Category.html)* too. This map will control the regionalization process splitting the other maps into several regions according to its cell classes or categories through the functor *[Regionalize Map](../functors/Regionalize-Map.html)*. Drag this functor and place it within *[For Each Category](../functors/For-Each-Category.html)*, break the link between Map `brazilian amazon landscape.tif` (You can find this map in the folder: `\guidebook dinamica\database\using concept of region`) and *[Calculate Map](../functors/Calculate-Map.html)* and finally connect the first to *[Regionalize Map](../functors/Regionalize-Map.html)*.
 
 ![](../image/guidebook_region6.jpg)
 
 Note that there are two *[Number Map](../functors/Number-Map.html)* functors disconnected within *[Calculate Map](../functors/Calculate-Map.html)*. You do not need the Map #2 and Value #1 anymore, so delete them. Now connect *[Regionalize Map](../functors/Regionalize-Map.html)* to Map #1. Open the [Save 
-[Save Lookup Table](../functors/Save-Lookup-Table.html) functor and change the file name to `remaining_forest_extent_per_state`. Make sure it will be saved into folder `\Guidebook_Dinamica_5\Models\using_concept_of_region`
+[Save Lookup Table](../functors/Save-Lookup-Table.html) functor and change the file name to `remaining forest extent per state`. Make sure it will be saved into folder `\guidebook dinamica\models\using concept of region`
 
 ![](../image/guidebook_region7.jpg)
 
@@ -44,7 +44,7 @@ At a last step, you will need to modify the *[Calculate Map](../functors/Calcula
 
 ![](../image/guidebook_region5.jpg)
 
-Finally save the model as a new file `calc_forest_remaining_extent_per_state_using_subregions` into folder `\Guidebook_Dinamica_5\Database\using_concept_of_region` and run it.
+Finally save the model as a new file `calc forest remaining extent per state using subregions.egoml` into folder `\guidebook dinamica\models\using concept of region` and run it.
 
 Can you explain how this model works?
 
@@ -54,5 +54,5 @@ Observe that you did not need to segregate the information per state in *[Calcul
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Successive-Calculations-With-Repeat.html)
+☞[Next: Lesson 15: Using "Repeat" to make successive calculations](Successive-Calculations-With-Repeat.html)
 {% endraw %}

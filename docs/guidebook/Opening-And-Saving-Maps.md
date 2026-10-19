@@ -10,7 +10,7 @@ nav_order: 6
 
 **Which functors will you use in this lesson?** [Load Map](../functors/Load-Map.html) and [Save Map](../functors/Save-Map.html)
 
-**What will the model do?** It will load “air_temperature.tif” file and save this map to a different file with another extension. This new map will be saved to the new format in the selected folder. We will use initially the air_temperature raster layer `Guidebook_Dinamica_5\Database\Climate_bh\air_temperature.tif`
+**What will the model do?** It will load “air temperature.tif” file and save this map to a new file in the selected folder. We will use initially the air temperature raster layer `guidebook dinamica\database\climate bh\air temperature.tif`
 
 **Let's go!**
 
@@ -18,7 +18,7 @@ There are two ways to load a raster file into Dinamica EGO. The first is through
 
 ![](../image/guidebook_imagem17.png)
 
-Double click the [Load Map](../functors/Load-Map.html) functor in the model sketch, click on the file icon to browse to the folder `Guidebook_Dinamica_5\Database\Climate_bh\` and select the air_temperature.tif file. Click OPEN and then OK to choose the map that will be loaded when the model runs.
+Double click the [Load Map](../functors/Load-Map.html) functor in the model sketch, click on the file icon to browse to the folder `guidebook dinamica\database\climate bh\` and select the air temperature.tif file. Click OPEN and then OK to choose the map that will be loaded when the model runs.
 
 > **Tip:** If the file is not listed, check if the Files of Type combo box at the bottom of the dialog window is set to the right file format.
 
@@ -36,11 +36,11 @@ Another way to load your map into Dinamica EGO is to drag the raster from the so
 
 > **Tip:** To make the model more intelligible, you MUST name alias, add comments on the functors and change their colors. For this, click on the balloon button in the functor action bar.
 
-**Learn how to save a map.** From the Input/Output tab on the Library window grab a Save Map functor and place it on the sketch. In this example we will save the “air_temperature” to another file format. To do so, click on the lightning button in the functor action bar and connect the arrow to the Save Map functor.
+**Learn how to save a map.** From the Input/Output tab on the Library window grab a Save Map functor and place it on the sketch. In this example we will save the “air temperature” to another file format. To do so, click on the lightning button in the functor action bar and connect the arrow to the Save Map functor.
 
 > **Tip:** The connection is set automatically because there is only one option for compatible ports in the respective functors and containers.
 
-Open the [Save Map](../functors/Save-Map.html) functor and click on the file icon. Note that you have to choose the file path and map format. Let’s choose “.ers”. Now, select a path to save your map and name your new file. We suggest to browse to `Guidebook_Dinamica_5\Models\load_save` and write the file name “temp_bh.ers”.
+Open the [Save Map](../functors/Save-Map.html) functor and click on the file icon. Note that you have to choose the file path and map format. Let’s choose “.tif”. Now, select a path to save your map and name your new file. We suggest to browse to `guidebook dinamica\models\load save` and write the file name “temp_bh.tif”.
 
 ![](../image/guidebook_imagem21.png)
 
@@ -51,5 +51,5 @@ The final model will look like this:
 
 Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Simple-Map-Algebra.html)
+☞[Next: Lesson 5: Implementing a simple map algebra](Simple-Map-Algebra.html)
 {% endraw %}

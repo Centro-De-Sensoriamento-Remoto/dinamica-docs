@@ -145,7 +145,7 @@ Raises an error if the number of Number Table hooks nested inside this container
 
 ### Examples
 
-The dataset distributed with Dinamica EGO includes simple example models in `Dataset\Examples\various_applications\calculate r expression`.
+The [Guidebook dataset](../extra/guidebook_dinamica.7z) includes simple example models in `guidebook dinamica\extras\examples\various applications\calculate r expression`.
 
 The following examples use a consistent set of inputs: t1 is a lookup table of land cover patches mapping Key (patch identifier) to Value (patch area); v1 is a scalar minimum area threshold; and s1 is a string giving the name to use for a threshold-flag column.
 

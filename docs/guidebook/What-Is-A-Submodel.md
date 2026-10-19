@@ -44,5 +44,5 @@ Store submodels are kept in a SQLite database, typically `C:\Users\<User>\AppDat
 
 ## Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Creating-A-Submodel.html)
+☞[Next: Lesson 11: Creating a submodel](Creating-A-Submodel.html)
 {% endraw %}

@@ -8,14 +8,14 @@ nav_order: 10
 
 The aim of this lesson is getting and inserting specifics values from and into a table on Dinamica. We will use the [Get Table Value](../functors/Get-Table-Value.html), [Set Table Cell Value](../functors/Set-Table-Cell-Value.html), [Add Table Column](../functors/Add-Table-Column.html), [Set Table By Key](../functors/Set-Table-By-Key.html) and [Get Table From Key](../functors/Get-Table-From-Key.html) functors and the following files:
 
-- The IBGE crop information Table (`Guidebook_Dinamica_5\Database\Tables\IBGE_crop_information.csv`)
-- The 1999_production_value Table (`Guidebook_Dinamica_5\Database\Tables\1999_production_value.csv`)
-- The 1999_harvested_area Table (`Guidebook_Dinamica_5\Database\Tables\1999_harvested_area.csv`)
-- The 1999_production Table (`Guidebook_Dinamica_5\Database\Tables\1999_production.csv`)
+- The IBGE crop information Table (`guidebook dinamica\database\tables\ibge crop information.csv`)
+- The 1999_production_value Table (`guidebook dinamica\database\tables\1999 production value.csv`)
+- The 1999_harvested_area Table (`guidebook dinamica\database\tables\1999 harvested area.csv`)
+- The 1999_production Table (`guidebook dinamica\database\tables\1999 production.csv`)
 
 **Let's go!**
 
-- From the Input/Output tab, grab a [Load Table](../functors/Load-Table.html) and place it on the sketch. Double click it, browse to the folder `Guidebook_Dinamica_5\Database\Tables` and open the `IBGE_crop_information.csv` file.
+- From the Input/Output tab, grab a [Load Table](../functors/Load-Table.html) and place it on the sketch. Double click it, browse to the folder `guidebook dinamica\database\tables` and open the `ibge crop information.csv` file.
 
 ![](../image/guidebook_imagem32.png)
 
@@ -51,7 +51,7 @@ The aim of this lesson is getting and inserting specifics values from and into a
 
 ![](../image/guidebook_imagem39.png)
 
-- From the Input/Output tab, grab a [Save Table](../functors/Save-Table.html) and place it on the sketch. Connect [Set Table Cell Value](../functors/Set-Table-Cell-Value.html) to [Save Table](../functors/Save-Table.html), select a folder and chose a file name (e.g.  IBGE_crop_information_update.csv). The final model will look like this:
+- From the Input/Output tab, grab a [Save Table](../functors/Save-Table.html) and place it on the sketch. Connect [Set Table Cell Value](../functors/Set-Table-Cell-Value.html) to [Save Table](../functors/Save-Table.html), browse to `\guidebook dinamica\models\add table column set table by key` and enter the file name `ibge crop information updated.csv`, which the next lesson uses. The final model will look like this:
 
 ![](../image/guidebook_imagem40.png)
 
@@ -63,5 +63,5 @@ The aim of this lesson is getting and inserting specifics values from and into a
 
 ## Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Working-With-Maps-And-Tables.html)
+☞[Next: Lesson 9: Working with maps and tables](Working-With-Maps-And-Tables.html)
 {% endraw %}

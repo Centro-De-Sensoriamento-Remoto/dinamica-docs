@@ -9,7 +9,6 @@ nav_order: 30
 ## REDD case study
 
 > **Important:** We do not support the application of deforestation modeling to fix REDD baselines for crediting purpose.
-> See <https://csr.ufmg.br/dinamica_old/redd/redd.html>
 
 ## What will you learn?
 
@@ -34,13 +33,13 @@ In this context, the model presented here aims to demonstrate the possibilities 
 
 ### Developing an econometric projection model that predicts deforestation rates based on changes in the socioeconomic context of municipalities
 
-In this example, an econometric model is coupled to a spatially-explicit simulation model of deforestation. The econometric projection model predicts deforestation rates based on changes in the socioeconomic context of municipalities [(Soares-Filho et. al, 2008](http://www.csr.ufmg.br/dinamica/publications/cap6.pdf)[,Soares-Filho et. al, 2010)](http://www.pnas.org/cgi/doi/10.1073/pnas.0913048107). A spatial lag regression is applied to compute the influence of five variables on the deforestation trajectory:  Crop area expansion, cattle herd growth, percent of protected areas, proximity to paved roads, and migration rates. A spatial neighborhood matrix allows the model to incorporate the influence of the socioeconomic context of neighboring municipalities in the prediction of deforestation rates within a certain municipality.
+In this example, an econometric model is coupled to a spatially-explicit simulation model of deforestation. The econometric projection model predicts deforestation rates based on changes in the socioeconomic context of municipalities (Soares-Filho et. al, 2008, [Soares-Filho et. al, 2010](http://www.pnas.org/cgi/doi/10.1073/pnas.0913048107)). A spatial lag regression is applied to compute the influence of five variables on the deforestation trajectory:  Crop area expansion, cattle herd growth, percent of protected areas, proximity to paved roads, and migration rates. A spatial neighborhood matrix allows the model to incorporate the influence of the socioeconomic context of neighboring municipalities in the prediction of deforestation rates within a certain municipality.
 
-Load the model `simulate_deforestation_under_socioeconomic_scenarios.egoml` from `\Guidebook_Dinamica_5\Models\REDD_case_study`. This model is composed of three main parts: the input data, pre-calculation, and the simulation model itself.
+Load the model `simulate deforestation under socioeconomic scenarios.egoml` from `\guidebook dinamica\models\redd case study`. This model is composed of three main parts: the input data, pre-calculation, and the simulation model itself.
 
 ![](../image/guidebook_redd_3.jpg)
 
-In this simplified version of [Soares-Filho et al. (2008)](http://www.csr.ufmg.br/dinamica/publications/cap6.pdf), the user can modify the scenario by changing the annual rates of crop expansion and cattle herd growth, which are input to the model. Other variables could be also changed by editing the input lookup tables.
+In this simplified version of Soares-Filho et al. (2008), the user can modify the scenario by changing the annual rates of crop expansion and cattle herd growth, which are input to the model. Other variables could be also changed by editing the input lookup tables.
 
 ![](../image/guidebook_redd_4.jpg)
 
@@ -92,4 +91,6 @@ After annual deforestation cells are identified, the model picks up the correspo
 ![Fig. 3 –Infrastructure projects in the MAP region. MAP stands for Madre de Dios (Peru), Acre (Brazil) and Pando (Bolivia).](../image/guidebook_redd_12.jpg)
 
 ### Congratulations, you have successfully completed this lesson!
+
+☞[Next: Intensity Analysis](Intensity-Analysis.html)
 {% endraw %}

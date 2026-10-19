@@ -28,7 +28,7 @@ The dataset employed in this exercise comprises:
 
 ![Fig.1 Northern Mato Grosso and its location with respect to Brazil.](../image/guidebook_cost1.1.jpg)
 
-Open Dinamica EGO and load the aforementioned maps from  `Guidebook_Dinamica_5\Database\accumulated_cost_surface_least_cost_pathway` on the Map Viewer. Open the slope map using “Pseudocolor” as the current color palette and in the Histogram click on Limits to Actual and Histogram Equalize. As a first step, you need to reclassify the land use map to depict the cost of crossing each one of its land uses. Also you need to reclassify the slope map and then combine it with the land use map.
+Open Dinamica EGO and load the aforementioned maps from  `guidebook dinamica\database\accumulated cost surface least cost pathway` on the Map Viewer. Open the slope map using “Pseudocolor” as the current color palette and in the Histogram click on Limits to Actual and Histogram Equalize. As a first step, you need to reclassify the land use map to depict the cost of crossing each one of its land uses. Also you need to reclassify the slope map and then combine it with the land use map.
 
 For the land use map we will use the following table:
 
@@ -85,7 +85,7 @@ In the third *[Calculate Map](../functors/Calculate-Map.html)* enter:
 i1*i2
 ```
 
-Save the model as `my_friction`, and run it.
+Save the model as `my friction`, and run it.
 
 Open on the Map Viewer `friction.tif`, using “Pseudocolor” as Current Color Palette and in the Histogram click on Limits to Actual and Histogram Equalize.
 
@@ -95,7 +95,7 @@ What do you see? Observe the red color representing the areas with high costs to
 
 Let’s move on to the second part of this exercise.
 
-Load `town1.tif` from `\originals` using *[Load Map](../functors/Load-Map.html)* and `railroad.tif` using *[Load Categorical Map](../functors/Load-Categorical-Map.html)*. Remember that this functor categorizes a map.
+Load `town1.tif` from `guidebook dinamica\database\accumulated cost surface least cost pathway` using *[Load Map](../functors/Load-Map.html)* and `railroad.tif` using *[Load Categorical Map](../functors/Load-Categorical-Map.html)*. Remember that this functor categorizes a map.
 
 Drag *[Calc Cost Map](../functors/Calc-Cost-Map.html)* and *[Calc Pathway Map](../functors/Calc-Pathway-Map.html)* from the Map Algebra tab and *[Save Map](../functors/Save-Map.html)*.
 
@@ -133,17 +133,17 @@ Click on *[Save Map](../functors/Save-Map.html)* with the Edit Functor, change t
 
 ![](../image/guidebook_cost10.jpg)
 
-Save the model to a new file `my_pathway.egoml`, and run it. This is going to take only a little while. Dinamica EGO has superior performance in relation to most commercial GIS packages; you may want to try this model on other software just for performance comparison. Open on the Map viewer `railway.tif`, using "PseudoColor" as **Current Color Palette**. What do you see?
+Save the model to a new file `my pathway.egoml`, and run it. This is going to take only a little while. Dinamica EGO has superior performance in relation to most commercial GIS packages; you may want to try this model on other software just for performance comparison. Open on the Map viewer `railway.tif`, using "PseudoColor" as **Current Color Palette**. What do you see?
 
 ![](../image/guidebook_cost11.2.jpg)
 
 You may try to maximize the solution for the *[Calc Cost Map](../functors/Calc-Cost-Map.html)* algorithm by setting the **Maximum Number of Passes** to “0”. Compare the time spent by this run and its resulting path with that of previous model. Did it make a big difference?
 
-This type of model can also be modified to develop simultaneously multiple paths. Open the model `join_towns.egoml` in the folder of this lesson.![](../image/guidebook_cost12.jpg)
+This type of model can also be modified to develop simultaneously multiple paths. Open the model `join towns.egoml` in the folder of this lesson.![](../image/guidebook_cost12.jpg)
 
 This model shows how you can use *[Calculate Map](../functors/Calculate-Map.html)* to merge information from several maps into a single one. The product will be a map depicting the center cells for four towns. TIP: use always a sole cell to represent a location to be reached by *[Calc Pathway Map](../functors/Calc-Pathway-Map.html)*.
 
-Now replace, into model my_pathway.egoml, the input in Map `town1.tif` with the file `multiple_towns.tif` and change the file in Map `railway.tif` to `xrailways.tif`.
+Now replace, into model `my pathway.egoml`, the input in Map `town1.tif` with the file `multiple towns.tif` and change the file in Map `railway.tif` to `xrailways.tif`.
 
 Did you get something like this?
 
@@ -151,5 +151,5 @@ Did you get something like this?
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞ [Next Lesson](Land-Use-Change-Simulation-Model.html)
+☞[Next: Lesson 18: Building a land-use and land-cover change simulation model](Land-Use-Change-Simulation-Model.html)
 {% endraw %}

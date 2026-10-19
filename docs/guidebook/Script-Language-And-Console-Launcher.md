@@ -14,11 +14,11 @@ nav_order: 24
 
 Alternatively, you may want to save the model in EGO format in [EGO programming language](../EGO-Script.html). You can open an edit EGO script language on a text editor, (e.g. [NotePad++](http://notepad-plus-plus.org/) or [Context](http://www.contexteditor.org)). But still it is much easier to use the graphical interface. For example, the Amazon logging model [(Merry et al, 2009)](http://dx.doi.org/10.1007/s00267-009-9337-1) developed in Dinamica EGO has more than one thousand script lines, even a skilled programmer would take longer writing the script than by using the graphical interface. Both script formats ([EGOML/XML](../EGOML-Script.html), [EGO](../EGO-Script.html)) are 100% compatible, so users can take back and forth a model from the graphical interface to the text editor without losing any information. Advanced modelers may use this well structured and tractable programming language.
 
-Open again the model “simulate_deforestation_from_1997_2000_30years_ahead.xml”. To make the model more intelligible on the text editor, you first need to name some key variables and then add comments to parts of the model. Let’s do this. Select the Edit Functor tool and click on the [Categorical Map](../functors/Categorical-Map.html) “23267_1997.ers”.
+Open again the model “simulate deforestation from 1997 2000 30years ahead.egoml”. To make the model more intelligible on the text editor, you first need to name some key variables and then add comments to parts of the model. Let’s do this. Select the Edit Functor tool and click on the [Categorical Map](../functors/Categorical-Map.html) “23267 1997.tif”.
 
 Write in the alias field “initial_landscape”, click on *[Calc Distance Map](../functors/Calc-Distance-Map.html)* and write the alias “distance_to_deforested”. Now save the model in EGO format.
 
-Open in a text editor, the model “simulate_deforestation_from_1997_2000_30years_ahead.ego”. The EGO script is as follows:
+Open in a text editor, the model “simulate deforestation from 1997 2000 30years ahead.ego”. The EGO script is as follows:
 
 ![](../image/guidebook_script_1.1.jpg)
 
@@ -63,5 +63,5 @@ To run Dinamica EGO from the command line, simply run `DinamicaConsole` from a c
 
 > **Tip:** **TIP**: another way to loosely couple other computer programs with Dinamica EGO is by means of functor [Run External Process](../functors/Run-External-Process.html), available in the Control Tab.  By using this functor, you will be able to make a call to an external program from within Dinamica, pass to this program intermediate results and feed its output back again into the Dinamica EGO model.
 
-☞[Next: Heuristic calibration of models by using Genetic Algorithm](Genetic-Algorithm-Calibration.html)
+☞[Next: Heuristic calibration of models using Genetic Algorithm](Genetic-Algorithm-Calibration.html)
 {% endraw %}

@@ -30,5 +30,7 @@ Figure 01: ROC curve and respective metrics.
 
 ## Resources
 
-[ROC suite resources](http://csr.ufmg.br/dinamica_utils/download/files/ROCsuite_resources.zip)
+The ROC suite models, submodels and example data are in `guidebook dinamica\models\roc suite`, part of [guidebook_dinamica.7z](../extra/guidebook_dinamica.7z). The folder also contains the installation instructions and application examples by Mas (2013b), in Spanish (`analisis roc instrucciones.pdf`).
+
+☞[Next: Final Remarks](Final-Remarks.html)
 {% endraw %}

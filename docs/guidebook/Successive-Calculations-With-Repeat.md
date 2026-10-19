@@ -10,8 +10,8 @@ In Lesson 9 we calculated the biomass of the protected areas (PA) for a single y
 
 For this, we will use:
 
-- The protected areas map in the year 2000 (`Guidebook_Dinamica_5\Database\Protected_areas\protected_areas_2000.tif`)
-- The Legal Amazon Biomass map (`Guidebook_Dinamica_5\Database\biomass\biomass.tif`)
+- The protected areas map in the year 2000 (`guidebook dinamica\database\protected areas\protected areas 2000.tif`)
+- The Legal Amazon Biomass map (`guidebook dinamica\database\biomass\biomass.tif`)
 
 **This exercise is very similar to the Lesson 9 model. But now [Calculate Map](../functors/Calculate-Map.html) produces a map containing the remaining forest for each category and every year.**
 
@@ -47,5 +47,5 @@ The result is returned in a table that contains the extracted classes and their 
 
 ## Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Landscape-Metrics.html)
+☞[Next: Lesson 16: Calculating landscape metrics](Landscape-Metrics.html)
 {% endraw %}

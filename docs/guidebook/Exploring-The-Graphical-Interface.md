@@ -102,5 +102,5 @@ In the functor action bar you will find tools that allow connecting, editing, in
 
 Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Exploring-The-Map-Viewer.html)
+☞[Next: Lesson 3: Exploring the Map Viewer](Exploring-The-Map-Viewer.html)
 {% endraw %}

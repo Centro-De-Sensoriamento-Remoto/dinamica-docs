@@ -14,7 +14,7 @@ The [Calculate Map](../functors/Calculate-Map.html) functor is for map algebra: 
 
 **Let's go!**
 
-Click on the Input/Output tab, drag a [Load Map](../functors/Load-Map.html) to the sketch and open the `air_temperature.tif` file used in the previous lesson. Next, click on the Map Algebra tab, grab and place on the sketch one [Calculate Map](../functors/Calculate-Map.html) and one [Save Map](../functors/Save-Map.html) functor. In the [Save Map](../functors/Save-Map.html) functor browse to `Guidebook_Dinamica_5\Models\simple_map_algebra` and write the file name `temperature_fahrenheit.tif`.
+Click on the Input/Output tab, drag a [Load Map](../functors/Load-Map.html) to the sketch and open the `air temperature.tif` file used in the previous lesson. Next, click on the Map Algebra tab, grab and place on the sketch one [Calculate Map](../functors/Calculate-Map.html) and one [Save Map](../functors/Save-Map.html) functor. In the [Save Map](../functors/Save-Map.html) functor browse to `guidebook dinamica\models\simple map algebra` and write the file name `temperature fahrenheit.tif`.
 
 Select the [Calculate Map](../functors/Calculate-Map.html) and click on the hook tool on action bar to create a [Number Map](../functors/Number-Map.html) inside the [Calculate Map](../functors/Calculate-Map.html) if there isn't one already. The container will resize to accommodate the [Number Map](../functors/Number-Map.html). Double click on the Number Map and enter “1” (do not write the quotation marks) as the Map Number. This is a number identifier for a map and will be represented within the equation box as `i1` (input 1).
 
@@ -60,5 +60,5 @@ Save and run the model by clicking on the run model script button on the main to
 
 Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Map-Attributes-And-Basic-Statistics.html)
+☞[Next: Lesson 6: Extracting map attributes and basic statistics](Map-Attributes-And-Basic-Statistics.html)
 {% endraw %}

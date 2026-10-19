@@ -10,15 +10,15 @@ The aim of this lesson is introducing the calculation of area of each source fea
 
 In this lesson we will use the following files:
 
-- The protected areas map in the year 2000 (`Guidebook_Dinamica_5\Database\Protected_areas\protected_areas_2000.tif`)
+- The protected areas map in the year 2000 (`guidebook dinamica\database\protected areas\protected areas 2000.tif`)
 
-- The Legal Amazon conservation priority map (`Guidebook_Dinamica_5\Database\Priority_areas\priority_areas.tif`)
+- The Legal Amazon conservation priority map (`guidebook dinamica\database\priority areas\priority areas.tif`)
 
-- The Legal Amazon biomass map (`Guidebook_Dinamica_5\Database\biomass\biomass.tif`)
+- The Legal Amazon biomass map (`guidebook dinamica\database\biomass\biomass.tif`)
 
 **Let's go!**
 
-- From the library window grab and place on the sketch the **[Load Categorical Map](../functors/Load-Categorical-Map.html)**, which is located in the Input/Output tab. Double click it and open the `protected_areas_2000.tif` file.
+- From the library window grab and place on the sketch the **[Load Categorical Map](../functors/Load-Categorical-Map.html)**, which is located in the Input/Output tab. Double click it and open the `protected areas 2000.tif` file.
 
 ![](../image/guidebook_imagem67.png)
 
@@ -34,11 +34,11 @@ In this lesson we will use the following files:
 
 > **Note:** **What is your model doing?**
 >
-> It is loading “protected_areas_2000.tif” file and then calculating the area of each category of the Legal Amazon protected areas.
+> It is loading “protected areas 2000.tif” file and then calculating the area of each category of the Legal Amazon protected areas.
 
 ## For the second part of this lesson we calculate the biomass and Carbon Dioxide content within it in high priority conservation areas.
 
-- Initially, we must open all the files that will be used. On the Input/Output tab from the library window, grab two **Load Categorical Map** and place them on the sketch. Double click each **Load Categorical Map** and load the Legal Amazon Conservation Priority (`Guidebook_Dinamica_5\Database\Priority_areas\priority_areas.tif`) and Protected Areas maps (`Guidebook_Dinamica_5\Database\Protected_areas\protected_areas_2000.tif`). Place a **[Load Map](../functors/Load-Map.html)** and open the Legal Amazon Biomass map (`Guidebook_Dinamica_5\Database\biomass\biomass.tif`).
+- Initially, we must open all the files that will be used. On the Input/Output tab from the library window, grab two **Load Categorical Map** and place them on the sketch. Double click each **Load Categorical Map** and load the Legal Amazon Conservation Priority (`guidebook dinamica\database\priority areas\priority areas.tif`) and Protected Areas maps (`guidebook dinamica\database\protected areas\protected areas 2000.tif`). Place a **[Load Map](../functors/Load-Map.html)** and open the Legal Amazon Biomass map (`guidebook dinamica\database\biomass\biomass.tif`).
 
 ![](../image/guidebook_imagem70.png)
 
@@ -91,5 +91,5 @@ In this lesson we will use the following files:
 
 ## Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](What-Is-A-Submodel.html)
+☞[Next: Lesson 10: What is a submodel, their types and where they are stored](What-Is-A-Submodel.html)
 {% endraw %}

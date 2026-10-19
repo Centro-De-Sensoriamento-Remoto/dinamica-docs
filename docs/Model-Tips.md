@@ -18,7 +18,7 @@ The following functors can be placed, directly or indirectly, inside a **[Workdi
 
 When placed inside a Workdir, the file name used by the functor becomes relative to the folder defined by the Workdir. This simplifies switching the input data folder for multiple functors in the same model. You can use several [Workdir](functors/Workdir.html) in the same model.
 
-See the example located in the folder `Examples\run_lucc_northern_mato_grosso\run_roads_with_comments_and_workdirs` of the Dinamica examples.
+See the model `mato grosso road with workdirs.egoml` in `guidebook dinamica\extras\examples\run lucc northern mato grosso\run roads with and workdirs` of the [Guidebook dataset](extra/guidebook_dinamica.7z).
 
 ## Loading Files from Zip Files
 

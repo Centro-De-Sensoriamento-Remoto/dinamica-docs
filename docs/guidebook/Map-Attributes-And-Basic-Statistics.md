@@ -12,11 +12,11 @@ In this lesson we would like to demonstrate some details on how Dinamica EGO ext
 
 > **Note:** Decorate Map Attribute Table is a submodel (more about that later) and it is stored in the Dinamica Store. To install it go to the menu Tools >> Submodel Store, search for `Decorate`, select the Decorate Map Attribute Table submodel and click on the Install button at the bottom of the Submodel Store window.
 
-**Here, we will use**: The air_temperature raster layer `Guidebook_Dinamica_5\Database\Climate_bh\air_temperature.tif`
+**Here, we will use**: The air temperature raster layer `guidebook dinamica\database\climate bh\air temperature.tif`
 
 **Let's go!**
 
-First, click on the Input/Output tab, grab and place on the sketch one [Load Map](../functors/Load-Map.html) and open the air_temperature.tif file. Next, click on the Map Algebra tab, place on the sketch one [Calculate Map](../functors/Calculate-Map.html) container. Additionally, click on the Map Algebra tab and place one [Extract Map Attributes](../functors/Extract-Map-Attributes.html) and one Decorate Map Attributes Table.
+First, click on the Input/Output tab, grab and place on the sketch one [Load Map](../functors/Load-Map.html) and open the air temperature.tif file. Next, click on the Map Algebra tab, place on the sketch one [Calculate Map](../functors/Calculate-Map.html) container. Additionally, click on the Map Algebra tab and place one [Extract Map Attributes](../functors/Extract-Map-Attributes.html) and one Decorate Map Attributes Table.
 
 ![](../image/guidebook_imagem28.png)
 
@@ -34,5 +34,5 @@ Click again on the eye icon on the functor toolbar of Decorate Map Attribute Tab
 
 Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Table-Columns.html)
+☞[Next: Lesson 7: Creating a new column and retrieving a column data from a specified table](Table-Columns.html)
 {% endraw %}

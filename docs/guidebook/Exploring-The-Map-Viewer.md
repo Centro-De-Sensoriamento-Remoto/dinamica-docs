@@ -259,5 +259,5 @@ Example:
 
 Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Opening-And-Saving-Maps.html)
+☞[Next: Lesson 4: Opening and Saving maps](Opening-And-Saving-Maps.html)
 {% endraw %}

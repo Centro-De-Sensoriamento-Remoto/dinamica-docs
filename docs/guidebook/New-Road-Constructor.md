@@ -478,4 +478,6 @@ Example showing some of the new road segments [cyan color] -- the example shows 
 ```
 Example showing some of the new road segments [cyan color] -- the example shows only a portion of the previous images for better visualization
 ```
+
+☞[Next: Projecting deforestation rates based on socioeconomic variables and developing a carbon bookkeeping model](REDD-Case-Study.html)
 {% endraw %}

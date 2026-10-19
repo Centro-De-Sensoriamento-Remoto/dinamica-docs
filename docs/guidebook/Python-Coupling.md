@@ -84,5 +84,5 @@ The full set of Python utilities available inside the expression — `dinamica.p
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Script-Language-And-Console-Launcher.html)
+☞[Next: Script language and console launcher](Script-Language-And-Console-Launcher.html)
 {% endraw %}

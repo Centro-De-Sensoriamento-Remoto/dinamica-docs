@@ -113,4 +113,6 @@ Soares-Filho et al, 2003. Simulating the spatial patterns of change through the 
 [http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.4.9617&rep=rep1&type=pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.4.9617&rep=rep1&type=pdf)
 
 Wu, Jianguo. (2013). Landscape Ecology. 10.1007/978-1-4614-5755-8_11.
+
+☞[Next: Multiple Criteria Evaluation](Multiple-Criteria-Evaluation.html)
 {% endraw %}

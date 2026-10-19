@@ -67,7 +67,7 @@ The settings under "Options \| EGO Script" control how a model selection is form
 
 The interface shows absolute file paths for readability, but the paths are stored as relative paths. To move a model without breaking its file references, keep the same relative location between the script file ([EGO Script](../EGO-Script.html) or [EGOML](../EGOML-Script.html)) and the data directory.
 
-Alternatively, use the [Workdir](../functors/Workdir.html) functor: every Load and Save functor inside it is relative to the directory set in the Workdir. A model can contain several Workdir containers. For an example, see the folder `Examples\run_lucc_northern_mato_grosso\run_roads_with_comments_and_workdirs` in the Dinamica EGO examples.
+Alternatively, use the [Workdir](../functors/Workdir.html) functor: every Load and Save functor inside it is relative to the directory set in the Workdir. A model can contain several Workdir containers. For an example, see the model `mato grosso road with workdirs.egoml` in `guidebook dinamica\extras\examples\run lucc northern mato grosso\run roads with and workdirs` of the [Guidebook dataset](../extra/guidebook_dinamica.7z).
 
 ## Loading Files from Zip Files
 

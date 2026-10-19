@@ -12,13 +12,9 @@ For matrices that cannot be decomposed into multiple-step transition matrices, t
 
 ![](../image/guidebook_model3.jpg)
 
-**To download this model and another one that runs the simulation using the multiple step transition matrices, please access:**
-
-[http://csr.ufmg.br/~britaldo/simulate_2003_in_annual_time_steps.zip](http://csr.ufmg.br/~britaldo/simulate_2003_in_annual_time_steps.zip)
-
-To work properly, these models' subfolder must be placed under the folder:
-
-\Examples\run_urban_dynamics_of_savassi_bh (This is an example provided with Dinamica EGO installation)
+This model, `calculate time-step transition rates.egoml`, and the model that runs the simulation with the resulting matrices, `savassi1996 2003 in annual steps.egoml`, are in `guidebook dinamica\models\variable time step net transition rates\simulate 2003 in annual time steps`, part of [guidebook_dinamica.7z](../extra/guidebook_dinamica.7z). Their input maps, from the urban dynamics example of the Savassi neighborhood in Belo Horizonte, are in the `originals` folder next to it.
 
 --- *[Britaldo Soares Filho](mailto:britaldo@csr.ufmg.br) 2011/03/11 13:16*
+
+☞[Next: Receiver Operating Characteristic (ROC) suite](ROC-Suite.html)
 {% endraw %}

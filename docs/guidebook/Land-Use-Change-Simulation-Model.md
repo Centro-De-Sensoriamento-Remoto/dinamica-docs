@@ -24,7 +24,7 @@ The study area with respect to Rondonia state and Brazil as illustrated in the f
 
 ![Fig.2 The study area with respect to Rondonia state and Brazil (dark green is forest, light green deforested land, and brown non-forest vegetation)](../image/guidebook_lucc_2.jpg)
 
-The input dataset represents a region of Rondonia state, around the town of Ariquenes, in the Brazilian Amazon, fig.2. Open the maps `23267_1997.tif` and `23267_2000.tif`, located in `\Guidebook_Dinamica_5\Database\LUCC_files` using the Color Palette, "Amazon". These maps correspond to a Landsat image (232/67) classified by PRODES [(INPE, 2008)](http://www.obt.inpe.br/prodes) – Brazilian program for monitoring deforestation - for the years 1997 and 2000.
+The input dataset represents a region of Rondonia state, around the town of Ariquenes, in the Brazilian Amazon, fig.2. Open the maps `23267 1997.tif` and `23267 2000.tif`, located in `\guidebook dinamica\database\lucc files` using the Color Palette, "Amazon". These maps correspond to a Landsat image (232/67) classified by PRODES [(INPE, 2008)](http://www.obt.inpe.br/prodes) – Brazilian program for monitoring deforestation - for the years 1997 and 2000.
 
 In this LUCC model, Dinamica EGO will use the 1997 map as the initial landscape and the 2000 map as the final, considering the  landscape as a bi-dimensional array of land use types.
 
@@ -48,7 +48,7 @@ The single-step matrix corresponds to a time period represented as a single time
 
 The transition rates set the net quantity of changes, that is, the percentage of land that will change to another state (land use and cover attribute), and thus they are known as net rates, and denoted in percentage. In turn, gross rates are specified as an area unit, such as hectares or km<sup>2</sup> per unit of time. In the case that there is not a solution for the multiple-step transition matrix, you still can use the submodel: Calc Net Transition Rates (See online store). Regardless matrix ergodicity, this functor calculates gross transition rates for a time-period and specified number of time-steps and then derives the matrix of mean net transition rates. Output transition matrix is an approximation of the multiple-step transition matrix at the order of 0.1% (for most cases) and thus can be used as input for multiple-step land change simulations. Or you can calculate fixed gross rate per time step (e.g. year) by dividing the accumulated change over the period by the number of steps over which the period is composed. Dinamica EGO converts gross rates into net rate, dividing the extent of change by the fraction of each land use and cover class prior to change, before passing it to the transition functors: *[Patcher](../functors/Patcher.html)* and *[Expander](../functors/Expander.html)*.
 
-Open the model `determine_transition_matrix.egoml` located in `\Guidebook_Dinamica_5\Models\LUCC_model\1_transition_matrix_calculation`
+Open the model `determine transition matrix.egoml` located in `\guidebook dinamica\models\lucc model\1 transition matrix calculation`
 
 This model calculates the single-step and multiple step matrices.
 
@@ -60,7 +60,7 @@ Open the functor *[Determine Transition Matrix](../functors/Determine-Transition
 
 ![](../image/guidebook_lucc_5.jpg)
 
-Note that *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267_1997.ers` connects to the **Initial Landscape** port and the `23267_2000.tif` to the **Final Landscape**. Check the number of time steps. In this case “3”, therefore, you want to determine the multi-step matrix per annual steps (2000 – 1997 = 3 years).
+Note that *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267 1997.tif` connects to the **Initial Landscape** port and the `23267 2000.tif` to the **Final Landscape**. Check the number of time steps. In this case “3”, therefore, you want to determine the multi-step matrix per annual steps (2000 – 1997 = 3 years).
 
 Set **Register viewer** on in the output ports and run the model. Open the resulting matrices by clicking with the right button on the output ports. Is this what you got?
 
@@ -105,14 +105,14 @@ where *Yn=An*exp(W+)* and *k* represents the breakpoints defined for the *n* inc
 
 The best-fitting curve can be approximated by a series of straight-line segments using a line-generalizing algorithm as explained in the text. This approach is used to define the breaking points for this curve and subsequently category intervals for a continuous variable (b).
 
-Now, open the model `determine_weights_of_evidence_ranges.egoml` located in `\Guidebook_Dinamica_5\Models\LUCC_model\2_weights_of_evidence_ranges_calculation`.
+Now, open the model `determine weights of evidence ranges.egoml` located in `\guidebook dinamica\models\lucc model\2 weights of evidence ranges calculation`.
 
 This model calculates ranges in order to categorize continuous gray-tone variables for deriving the Weights of Evidence. It selects the number of intervals and their buffer sizes aiming to better preserve the data structure. See the help for a further description of this method. As a result, its output is used as input for the calculation of Weights of Evidence coefficients.
 
 ![](../image/guidebook_lucc_13.jpg)
 
 In addition to the initial and final landscape maps, this model receives a raster cube composed of a series of static maps, e.g. vegetation, soil, altitude (they are named so because they do not change during model iteration. A raster cube encompasses a set of co-registered map layers.
-Open the file `23267statics.ers` from `\Guidebook_Dinamica_5\Database\LUCC_files` on the Map Viewer. An option to select the layer will appear on the Maps (right of window). Change the layer to examine the other maps.
+Open the file `23267statics.tif` from `\guidebook dinamica\database\lucc files` on the Map Viewer. An option to select the layer will appear on the Maps (right of window). Change the layer to examine the other maps.
 
 > **Tip:** **TIP**: you can build a raster cube assembling a set of co-registered raster maps through the functor *[Create Cube Map](../functors/Create-Cube-Map.html)* and extract a layer from the cube using the functor *[Extract Map Layer](../functors/Extract-Map-Layer.html)*.
 
@@ -136,7 +136,7 @@ Note that *[Name Map](../functors/Name-Map.html)* "distance" has layer named "di
 
 The raster cube contains the layers altitude, "d_all_roads" (in this examples, d means distance), "d_major_rivers", "d_paved_roads", "d_settlement", "d_trans_rivers", "protected_areas", "slope", "urban_attraction" (a potential interaction map), and "vegetation".
 
-> **Important:** Layer names must be the same as the ones specified in the header/xml file. Dinamica EGO converts Geotiff into ER Mapper format, you just need to connect *[Load Map](../functors/Load-Map.html)* to *[Save Map](../functors/Save-Map.html)*.
+> **Important:** Layer names must be the same as the ones specified in the header/xml file.
 
 Protected areas, vegetation and soil are already categorical data, thus mark them as such. The others will need to be categorized. The parameters for the categorization process are the increment – the map unit minimum buffer increment, e.g. in meters or degrees the minimum and maximum deltas representing intervals on the Y axis of the graphs in fig.4, and the tolerance angle, which measures the angle of deviation from a straight line. Some default values are suggested. The output of this functor will be a Weights of Evidence skeleton file, showing the categorization ranges, but with all weights set to zero. Run the model and open the output file with a text editor.
 
@@ -150,7 +150,7 @@ Although the mathematical fundamentals of this module may be a little hard to gr
 
 ## Third step: Calculating Weights of Evidence coefficients
 
-Open the model `determine_weights_of_evidence_coefficients.egoml` located in `\Guidebook_Dinamica_5\Models\LUCC_model\3_weights_of_evidence_coefficient_calculation`.
+Open the model `determine weights of evidence coefficients.egoml` located in `\guidebook dinamica\models\lucc model\3 weights of evidence coefficient calculation`.
 
 ![](../image/guidebook_lucc_19.jpg)
 
@@ -186,9 +186,9 @@ Now open the graphical Weights of Evidence editor within the [Save Weights](../f
 
 The only assumption for the Weights of Evidence method is that the input maps have to be spatially independent. A set of measures can be applied to assess this assumption, such as the Cramer test and the Joint-Uncertainty Information [(Bonham-Carter, 1994)](https://books.google.com/books?printsec=frontcover&vid=ISBN0080424201&vid=ISBN0080418678&vid=LCCN94028315#v=onepage&q&f=false). As a result, correlated variables must be disregarded or combined into a third that will replace the correlated pair in the model.
 
-Open model `weights_of_evidence_correlation.egoml` in `\Guidebook_Dinamica_5\Models\LUCC_model\4_weights_of_evidence_correlation`.
+Open model `weights of evidence correlation.egoml` in `\guidebook dinamica\models\lucc model\4 weights of evidence correlation`.
 
-The model in `3_and_2_weights_of_evidence_ranges_and_coefficient_calculation` corresponds to steps 2 and 3 joined together.
+The model in `3 and 2 weights of evidence ranges and coefficient calculation` corresponds to steps 2 and 3 joined together.
 
 ![](../image/guidebook_lucc_25.jpg)
 
@@ -208,29 +208,29 @@ Let’s check for correlated pairs of maps. The following pair draws our attenti
 
 Although there is no agreement on what threshold should be used to exclude a variable, all tests highlight a high correlation for this pair of variables. Hence you must exclude one of these. Let’s remove "d_major_rivers". Delete the variable from the Weights of Evidence file using its graphical editor. Open it on the *[Load Weights](../functors/Load-Weights.html)* using the eye icon.
 
-Now save the WEOFE coefficients as `new_weights.dcf` in the folder `\Guidebook_Dinamica_5\Models\LUCC_model\4_weights_of_evidence_correlation`.
+Now save the WEOFE coefficients as `new weights.dcf` in the folder `\guidebook dinamica\models\lucc model\4 weights of evidence correlation`.
 
 Great, you have come through the calibration process, now you can start setting up the simulation model. Let’s move forward.
 
 ## Fifth step: Setting up and running a LUCC simulation model
 
-Let’s start setting up the deforestation simulation model by loading the input data. You will need *[Load Categorical Map](../functors/Load-Categorical-Map.html)* to load the initial landscape: `originals/23267_1997.ers`, *[Load Map](../functors/Load-Map.html)* for `originals/23267statics.ers`, *[Load Weights](../functors/Load-Weights.html)* for `new_weights.dcf`, and *[Load Lookup Table](../functors/Load-Lookup-Table.html)* for the multi-step transition matrix: `originals/multiple_steps.csv` because you will run the model in annual time-steps. Add the following comments to each functor:
+Let’s start setting up the deforestation simulation model by loading the input data. You will need *[Load Categorical Map](../functors/Load-Categorical-Map.html)* to load the initial landscape: `23267 1997.tif`, *[Load Map](../functors/Load-Map.html)* for `23267statics.tif`, *[Load Weights](../functors/Load-Weights.html)* for `new weights.dcf`, and *[Load Lookup Table](../functors/Load-Lookup-Table.html)* for the multi-step transition matrix: `originals/multiple steps.csv` because you will run the model in annual time-steps. Add the following comments to each functor:
 
 ![](../image/guidebook_lucc_28.jpg)
 
-Now, drag a *[Repeat](../functors/Repeat.html)*, and place within it one *[Calc Distance Map](../functors/Calc-Distance-Map.html)*, one *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* from Control tab, one *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* and one *[Save Map](../functors/Save-Map.html)*. Also place two *[Name Map](../functors/Name-Map.html)* functors within *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*. Rename them with the same alias as the second and third steps. Open the *[Save Map](../functors/Save-Map.html)* and write `probabilities.ers` in the folder `\5_run_lucc`.  Leave the option **Suffix Digits** = “2”.
+Now, drag a *[Repeat](../functors/Repeat.html)*, and place within it one *[Calc Distance Map](../functors/Calc-Distance-Map.html)*, one *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* from Control tab, one *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* and one *[Save Map](../functors/Save-Map.html)*. Also place two *[Name Map](../functors/Name-Map.html)* functors within *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*. Rename them with the same alias as the second and third steps. Open the *[Save Map](../functors/Save-Map.html)* and write `probabilities.tif` in the folder `\5 run lucc`.  Leave the option **Suffix Digits** = “2”.
 
 ![](../image/guidebook_lucc_29.jpg)
 
-Drag a *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* from Simulation tab within *[Repeat](../functors/Repeat.html)*. Now let’s connect the functors: first *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267_1997.ers` to the **Initial** port of the *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)*, the output from this to *[Calc Distance Map](../functors/Calc-Distance-Map.html)*, *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* and *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*. Connect *[Load Table](../functors/Load-Table.html)* `multiple_steps.csv` to *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)*, *[Load Map](../functors/Load-Map.html)* `23267statics.ers` to *[Name Map](../functors/Name-Map.html)* "static_var", the output from *[Calc Distance Map](../functors/Calc-Distance-Map.html)* to *[Name Map](../functors/Name-Map.html)* "distance", *[Load Weights](../functors/Load-Weights.html)* `new_weigths.dcf` to *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* and its output to *[Save Map](../functors/Save-Map.html)* `probabilities.ers` (Note that this map will receive a ## suffix from the model iteration).
+Drag a *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* from Simulation tab within *[Repeat](../functors/Repeat.html)*. Now let’s connect the functors: first *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267 1997.tif` to the **Initial** port of the *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)*, the output from this to *[Calc Distance Map](../functors/Calc-Distance-Map.html)*, *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* and *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)*. Connect *[Load Table](../functors/Load-Table.html)* `multiple steps.csv` to *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)*, *[Load Map](../functors/Load-Map.html)* `23267statics.tif` to *[Name Map](../functors/Name-Map.html)* "static_var", the output from *[Calc Distance Map](../functors/Calc-Distance-Map.html)* to *[Name Map](../functors/Name-Map.html)* "distance", *[Load Weights](../functors/Load-Weights.html)* `new_weigths.dcf` to *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* and its output to *[Save Map](../functors/Save-Map.html)* `probabilities.tif` (Note that this map will receive a ## suffix from the model iteration).
 
 ![](../image/guidebook_lucc_30.jpg)
 
-Now place two additional functors, *[Patcher](../functors/Patcher.html)* from the Simulation tab and another *[Save Map](../functors/Save-Map.html)*. Enter `Landscape.ers` and leave “2” as **Suffix**. Connect the output from *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* to the *[Patcher](../functors/Patcher.html)* **Landscape** port, the output from *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* to the *[Patcher](../functors/Patcher.html)* **Probabilities** port, and the output from *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* to the **Changes** port of the *[Patcher](../functors/Patcher.html)*.
+Now place two additional functors, *[Patcher](../functors/Patcher.html)* from the Simulation tab and another *[Save Map](../functors/Save-Map.html)*. Enter `Landscape.tif` and leave “2” as **Suffix**. Connect the output from *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* to the *[Patcher](../functors/Patcher.html)* **Landscape** port, the output from *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* to the *[Patcher](../functors/Patcher.html)* **Probabilities** port, and the output from *[Calc Change Matrix](../functors/Calc-Change-Matrix.html)* to the **Changes** port of the *[Patcher](../functors/Patcher.html)*.
 
-To close the loop you will need to connect the output port **Changed Landscape** of *[Patcher](../functors/Patcher.html)* to the port **Feedback** of *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* and to *[Save Map](../functors/Save-Map.html)* `Landscape.ers` to save the maps from model execution.
+To close the loop you will need to connect the output port **Changed Landscape** of *[Patcher](../functors/Patcher.html)* to the port **Feedback** of *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* and to *[Save Map](../functors/Save-Map.html)* `Landscape.tif` to save the maps from model execution.
 
-The functor *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* enables dynamic update of the input landscape map. It receives the *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267_1997.ers` in its **Initial** port in the beginning of the simulation and thereafter the map output from *[Patcher](../functors/Patcher.html)* via the **Feedback** port.
+The functor *[Mux Categorical Map](../functors/Mux-Categorical-Map.html)* enables dynamic update of the input landscape map. It receives the *[Load Categorical Map](../functors/Load-Categorical-Map.html)* `23267 1997.tif` in its **Initial** port in the beginning of the simulation and thereafter the map output from *[Patcher](../functors/Patcher.html)* via the **Feedback** port.
 
 The functor *[Calc W. Of E. Probability Map](../functors/Calc-W-Of-E-Probability-Map.html)* calculates a transition probability map for each specified transition by summing the Weights of Evidence, using equation 4.
 
@@ -248,7 +248,7 @@ By varying their input parameters, these functions enable the formation of a var
 
 Since the input map resolution is approximately 250 meters, setting the **Mean Patch** and **Patch Size Variance** to “1” won’t allow the formation of patches.
 
-Finally verify the model and run it. Check the log reported and open the maps `probabilities3.ers` using “PseudoColor” and `landscape3.ers` using “Amazon” **Color Palette** on the Map Viewer.
+Finally verify the model and run it. Check the log reported and open the maps `probabilities3.tif` using “PseudoColor” and `landscape3.tif` using “Amazon” **Color Palette** on the Map Viewer.
 
 > **Tip:** **TIP**: When Save Map is placed within *[Repeat](../functors/Repeat.html)*, it saves one output map per time step, if you want only the final simulated landscape, drag it out of *[Repeat](../functors/Repeat.html)*.
 
@@ -256,7 +256,7 @@ Finally verify the model and run it. Check the log reported and open the maps `p
 
 ![](../image/guidebook_lucc_34.2.jpg)
 
-Observe the high probability areas for deforestation and compare the simulated map `landscape3.ers` with the final landscape `23267_2000.tif`. Do they resemble each other? In order to perform a quantitative comparison, let’s move on to the next step.
+Observe the high probability areas for deforestation and compare the simulated map `landscape3.tif` with the final landscape `23267 2000.tif`. Do they resemble each other? In order to perform a quantitative comparison, let’s move on to the next step.
 
 ## Sixth step: Validating simulation using an exponential decay function
 
@@ -264,7 +264,7 @@ Spatial models require a comparison within a neighborhood context, because even 
 
 The method we apply here is a modification of the latter and named in Dinamica EGO as *[Calc Reciprocal Similarity Map](../functors/Calc-Reciprocal-Similarity-Map.html)*. This method employs an exponential decay function with distance to weight the cell state distribution around a central cell (See scheme in fig. 5 about the Fuzzy comparison method and then go to Help for further details on this method).
 
-Open the model `determine-similarity-of-differences.egoml` in `\Guidebook_Dinamica_5\Models\LUCC_model\6_validate_using_exponential_decay_function`.
+Open the model `determine-similarity-of-differences.egoml` in `\guidebook dinamica\models\lucc model\6 validate using exponential decay function`.
 
 ![](../image/guidebook_lucc_35.2.jpg)
 
@@ -308,7 +308,7 @@ Another way to measure the spatial fitness between two maps is by means of multi
 
 ## Seventh step: Validating simulation using multiple windows and constant decay function
 
-Open the model `determine-muti-window-similarity-of-differences_complete.egoml` in folder `\Guidebook_Dinamica_5\Models\LUCC_model\7_validate_using_multiple_windows_constant_decay_function`.
+Open the model `determine-multi-window-similarity-of-differences complete.egoml` in folder `\guidebook dinamica\models\lucc model\7 validate using multiple windows constant decay function`.
 
 ![](../image/guidebook_lucc_40.jpg)
 
@@ -352,7 +352,7 @@ From the graph in fig. 6, we can assert that the simulation reached a similarity
 >
 > ![](../image/guidebook_lucc_41.2.jpg)
 
-> **Info:** In the same folder `\7_validate_using_multiple_windows_constant_decay_function` there is an other model `determine-multi-window-similarity-of-differences` that contains a Multi-Window Similarities Submodel that performs the procedure described above: calculate the minimum fuzzy similarity using maps of changes for different window sizes.
+> **Info:** In the same folder `\7 validate using multiple windows constant decay function` there is an other model `determine-multi-window-similarity-of-differences` that contains a Multi-Window Similarities Submodel that performs the procedure described above: calculate the minimum fuzzy similarity using maps of changes for different window sizes.
 >
 > ![](../image/guidebook_lucc_40.1.jpg)
 
@@ -360,9 +360,9 @@ Now that the validation phase is completed, you can start playing with the simul
 
 ## Eighth step: Running simulation with patch formation
 
-Before going through this step, open and read the file `simulating_the_spatial_patterns_of_change.pdf` in `Examples\patterns_of_change`. This paper presents and discusses the results of a series of simulations using simplified synthetic maps and varying the parameters of the transition functions. The simulation results are evaluated using selected landscape structure metrics, such as fractal dimension, patch cohesion index, and nearest neighbor distance. These simulation examples are used to show how these functions can be calibrated, as well as its potential to replicate the evolving spatial patterns of a variety of dynamic phenomena [(Soares-Filho et al., 2003)](http://marte.dpi.inpe.br/col/ltid.inpe.br/sbsr/2002/11.16.12.49/doc/06_257.pdf). You can also examine these models available in `Examples\patterns_of_change`.
+Before going through this step, read [Simulating the patterns of change](Simulating-Patterns-Of-Change.html). It presents and discusses the results of a series of simulations using simplified synthetic maps and varying the parameters of the transition functions. The simulation results are evaluated using selected landscape structure metrics, such as fractal dimension, patch cohesion index, and nearest neighbor distance. These simulation examples are used to show how these functions can be calibrated, as well as its potential to replicate the evolving spatial patterns of a variety of dynamic phenomena [(Soares-Filho et al., 2003)](http://marte.dpi.inpe.br/col/ltid.inpe.br/sbsr/2002/11.16.12.49/doc/06_257.pdf). You can also examine these models in `guidebook dinamica\extras\examples\patterns of change`.
 
-This step aims at analyzing the parameters of the *[Patcher](../functors/Patcher.html)* transition function on the structure of the simulated landscape. Open the model `simulate_deforestation_from_1997_2000_ with_patch_formation` from `Examples\setup_run_and_validate_a_lucc_model\8_run_lucc_ with_patch_formation`. This is the same model as the one in the fifth step.
+This step aims at analyzing the parameters of the *[Patcher](../functors/Patcher.html)* transition function on the structure of the simulated landscape. Open the model `simulate deforestation from 1997 2000 with patch formation.egoml` from `\guidebook dinamica\models\lucc model\8 run lucc with patch formation`. This is the same model as the one in the fifth step.
 
 ![](../image/guidebook_lucc_49.jpg)
 
@@ -372,7 +372,7 @@ Now open *[Patcher](../functors/Patcher.html)* with the Edit Functor tool.
 
 **Mean Patch Size** is set to 25 ha, **Patch Size Variance** to 50 ha, and **Patch isometry** to 1.5. Since cell size is equal to 6.25 hectares (250 x 250 meters), the patches to be formed will have in average 4 cells and a variance of 8 cells.
 
-Run the model; open both landscape3.ers files from this model and from the fifth step as well as 23267_2000.ers for visual comparison.
+Run the model; open both `landscape3.tif` files from this model and from the fifth step as well as `23267 2000.tif` for visual comparison.
 
 ![](../image/guidebook_lucc_56.jpg)
 
@@ -388,7 +388,7 @@ The *[Expander](../functors/Expander.html)* functor is dedicated only to the exp
 
 ![Fig.7 Transition probabilities transformed to simulate expansion process.](../image/guidebook_lucc_57.jpg)
 
-Now, open the model `simulate_deforestation_from_1997_2000_with_patch_formation_and_expansion.egoml` in the folder `\Guidebook_Dinamica_5\Models\LUCC_model\9_run_lucc_with_patch_formation_and_expansion`.
+Now, open the model `simulate deforestation from 1997 2000 with patch formation and expansion.egoml` in the folder `\guidebook dinamica\models\lucc model\9 run lucc with patch formation and expansion`.
 
 ![](../image/guidebook_lucc_60.1.jpg)
 
@@ -430,7 +430,7 @@ Simulation models can be envisaged as a heuristic device useful for assessing, f
 
 Thus, as the current example, we can apply the simulation model to assess the impacts of future trajectories of deforestation under various socioeconomic and public policies scenarios, on the emission of greenhouse gases [(Soares-Filho et al., 2006)](http://dx.doi.org/10.1038/nature04389), regional climate change [(Schneider et al., 2006](ftp://cola.gmu.edu/pub/ctr/ctr_226.pdf); [Sampaio et al, 2007)](http://se-server.ethz.ch/staff/af/fi159/S/Sa123.pdf), fluvial regime [(Costa et al, 2003](http://dx.doi.org/10.1016/S0022-1694(03)00267-1)[,Coe et al, 2009)](http://dx.doi.org/10.1016/j.jhydrol.2009.02.043), habitat loss and fragmentation[(Soares-Filho et al., 2006,](http://dx.doi.org/10.1038/nature04389) [Texeira et al., 2009)](http://dx.doi.org/10.1016/j.foreco.2008.10.011) as well as the loss of the forest environmental services and economic goods [(Fearnside, 1997)](http://dx.doi.org/10.1016/S0921-8009(96)00066-3).
 
-Open the model simulate_deforestation_from_1997_2000_30years_ahead.xml available in `\Guidebook_Dinamica_5\Models\LUCC_model\10_run_deforestation_trajectories`.
+Open the model `simulate deforestation from 1997 2000 30years ahead.egoml` available in `\guidebook dinamica\models\lucc model\10 run deforestation trajectories`.
 
 ![](../image/guidebook_lucc_68.jpg)
 
@@ -438,7 +438,7 @@ The only differences between this model and the prior one consist of the initial
 
 As this model uses fixed transition rates, we can consider that it projects the historical trend into the future, thus named as the historical trend scenario.
 
-Run the model and open the landscape2030.ers.
+Run the model and open `landscape2030.tif`.
 
 > **Tip:** **TIP**: You might want to save only the final landscape map. To do this, you just need to drag *[Save Map](../functors/Save-Map.html)* out of *[For](../functors/For.html)*
 
@@ -450,9 +450,9 @@ Note that the forest virtually disappears outside of protected areas, which begi
 
 Animated maps are a very powerful tool to make the general public aware of the possible outcomes of system dynamics, such as the Amazon deforestation. Go to our [movie maker tutorial](../gui/Movies-And-Command-Line.html#making-a-movie) to learn how to do it.
 
-You may want to improve this model by incorporating dynamic rates, other dynamic variables, submodels, such as the road constructor, and feedbacks from the landscape attributes to the transition rate calculation. All of these are possible in Dinamica EGO. An example of road constructor module is found in the model mato_grosso_road.xml in `Examples\run_lucc_northern_mato_grosso\run_roads_with_comments`. Also, Dinamica EGO allows the incorporation of economic, social and political scenarios into a model that integrates the effect of  these underlying causes [(Geist, & Lambin, 2001)](http://www.eldis.org/go/topics&id=14501&type=Document#.Ufba_421EZ4) on the trajectory of deforestation (usually these variables are input to the model using tables with keys assigned to a geographic unit, such as county, state or country).
+You may want to improve this model by incorporating dynamic rates, other dynamic variables, submodels, such as the road constructor, and feedbacks from the landscape attributes to the transition rate calculation. All of these are possible in Dinamica EGO. An example of road constructor module is found in the model `mato grosso road.egoml` in `guidebook dinamica\extras\examples\run lucc northern mato grosso\run roads`. Also, Dinamica EGO allows the incorporation of economic, social and political scenarios into a model that integrates the effect of  these underlying causes [(Geist, & Lambin, 2001)](http://www.eldis.org/go/topics&id=14501&type=Document#.Ufba_421EZ4) on the trajectory of deforestation (usually these variables are input to the model using tables with keys assigned to a geographic unit, such as county, state or country).
 
 ### Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](The-Wizard-Editor.html)
+☞[Next: The wizard editor](The-Wizard-Editor.html)
 {% endraw %}

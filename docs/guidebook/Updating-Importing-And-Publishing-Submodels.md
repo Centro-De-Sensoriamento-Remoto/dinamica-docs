@@ -76,5 +76,5 @@ Turning a local submodel into a user submodel makes reusing a submodel easier, t
 
 #### Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Loop-Structures.html)
+☞[Next: Lesson 13: Loop structures](Loop-Structures.html)
 {% endraw %}

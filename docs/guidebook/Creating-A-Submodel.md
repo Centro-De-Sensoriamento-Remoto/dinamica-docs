@@ -11,7 +11,7 @@ Local submodels can be created by simply selecting the parts of a model that wil
 It is also possible to select parts of a local submodel and create another local submodel using that selection. The new local submodel will be a dependency of the previous one, but the submodel creation process is basically the same. If the selection is empty, an empty local submodel will be created. The process for updating an empty submodel is the same process used to update any local submodel.
 
 Initially, we will learn how to create a submodel and next we will learn how to use it in a Model.
-We will start with the model `5_calculate_lookup_table` located in `\Guidebook_Dinamica_5\Models\creating_and_using_local_submodels`. Using this model we will answer the following question:
+We will start with the model `5 calculate lookup table.egoml` located in `\guidebook dinamica\models\creating and using local submodels`. Using this model we will answer the following question:
 
 **What is the productivity for each crop across the considered time window?**
 
@@ -53,7 +53,7 @@ Next, click OK, and again OK:
 
 ![](../image/guidebook_aaa5.png)
 
-- Create a new model script, grab a **[Load Table](../functors/Load-Table.html) Functor** and place it on the sketch. Double click the Load Table Functor and open the IBGE_crop_information_complete.csv file located in `\Guidebook_Dinamica_5\Database\Tables`. Grab a **[Reorder Table Column](../functors/Reorder-Table-Column.html)** and place it on the sketch to switch the order of the year and crop key columns. Connect the Load Table to Reorder Table Column. In the Functor Editor window insert the index of the column to be moved (1) and the new column index (0) and click OK.
+- Create a new model script, grab a **[Load Table](../functors/Load-Table.html) Functor** and place it on the sketch. Double click the Load Table Functor and open the `ibge crop information complete.csv` file located in `\guidebook dinamica\models\add table column set table by key`. Grab a **[Reorder Table Column](../functors/Reorder-Table-Column.html)** and place it on the sketch to switch the order of the year and crop key columns. Connect the Load Table to Reorder Table Column. In the Functor Editor window insert the index of the column to be moved (1) and the new column index (0) and click OK.
 
 ![](../image/guidebook_imagem82.jpg)
 
@@ -63,7 +63,7 @@ Next, click OK, and again OK:
 
 ![](../image/guidebook_aaa7.png)
 
-- To save the results to a file, grab three **[Save Table](../functors/Save-Table.html)** functors, place them on the sketch and connect to each Submodel (for the three crops). Open **Save Table** Functors, browse to the `\Guidebook_Dinamica_5\Models\creating_and_using_local_submodels` and write the file names (e.g. most_productive_year_for_crop_1.csv,  most_productive_year_for_crop_2.csv and most_productive_year_for_crop_3.csv).
+- To save the results to a file, grab three **[Save Table](../functors/Save-Table.html)** functors, place them on the sketch and connect to each Submodel (for the three crops). Open **Save Table** Functors, browse to the `\guidebook dinamica\models\creating and using local submodels` and write the file names (e.g. `most productive year for crop 1.csv`, `most productive year for crop 2.csv` and `most productive year for crop 3.csv`).
 
 - The final model will look like the one in the imagem below. Save and run the model.
 
@@ -81,5 +81,5 @@ We can infer that 2009 was the most productive year for Crop 1 along the analyze
 
 ## Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Updating-Importing-And-Publishing-Submodels.html)
+☞[Next: Lesson 12: Updating, importing and publishing a local submodel](Updating-Importing-And-Publishing-Submodels.html)
 {% endraw %}

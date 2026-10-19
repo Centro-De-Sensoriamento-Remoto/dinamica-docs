@@ -36,7 +36,7 @@ Tel + 55(31) 3409-5449 - Fax + 55(31)4409-5410<br>
 Email: dinamica@csr.ufmg.br<br>
 <http://dinamicaego.com>
 
-> **Note:** To download the files used in this guidebook and other model examples please access this link: <https://csr.ufmg.br/imagery/guidebook_dinamica_5.rar>
+> **Note:** The files used in this guidebook and other model examples are in [guidebook_dinamica.7z](../extra/guidebook_dinamica.7z). It extracts to a `guidebook dinamica` folder, which the lessons refer to.
 
 ## Contents
 

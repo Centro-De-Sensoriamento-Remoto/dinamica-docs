@@ -78,5 +78,5 @@ Another supported format is the Weights of Evidence file, a text file containing
 
 Congratulations, you have successfully completed this lesson!
 
-☞[Next Lesson](Exploring-The-Graphical-Interface.html)
+☞[Next: Lesson 2: Exploring the Graphical Interface](Exploring-The-Graphical-Interface.html)
 {% endraw %}
