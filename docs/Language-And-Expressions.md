@@ -14,4 +14,5 @@ The notations for writing a model as text, and the expression languages used ins
 - [Calculate Functors — Complete Operator Documentation](Calculate-Functors.html) — the full expression language available inside a calculator functor: operators, functions, and the shorthand family (`#`, `##`, `$`, `%`, `%%`).
 - [Calculate R Expression](functors/Calculate-R-Expression.html) — embedding R code in a model, including how tables, maps, and values convert between Dinamica and R.
 - [Calculate Python Expression](functors/Calculate-Python-Expression.html) — embedding Python code in a model, including how tables, maps, and values convert between Dinamica and Python.
+- [Coupling with R](Coupling-With-R.html) — the ways Dinamica EGO and R work together: installing the Dinamica package for R, exchanging data with a running R session through a communication session, and the legacy approaches.
 {% endraw %}

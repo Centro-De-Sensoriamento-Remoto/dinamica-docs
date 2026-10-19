@@ -10,6 +10,8 @@ parent: "Language and Expressions"
 
 This is a container functor that calls R externally with a user-defined expression. Like the other calculator functors, data is connected through hook functors placed inside its block.
 
+This is the preferred way of coupling Dinamica EGO and R. See [Coupling with R](../Coupling-With-R.html) for the other ways, which exchange data with an R session running alongside the model.
+
 ## Inputs
 
 | Name | Type | Description |
@@ -60,7 +62,7 @@ A table is transferred as a [DataFrame](https://en.wikibooks.org/wiki/R_Programm
 - Key columns are marked by an asterisk (\*) appended to their column name — this is the same convention used throughout Dinamica EGO's table representation. A key column can be Real or String, the same as any other column.
 - Each column's type is inferred from its data, the same rule that applies to any table: a numeric vector produces a Real column, a character vector produces a String column. R automatically converts string columns to Factors inside a data.frame, and a Factor is neither of those — Dinamica requires plain Character Vectors to infer String correctly. Always build tables with `stringsAsFactors = FALSE` to prevent this conversion.
 
-For further detail on the underlying table representation, see External Communication.
+The same conventions apply when tables are exchanged through a communication session; see [Coupling with R](../Coupling-With-R.html#tables).
 
 ### Expression outputs
 
@@ -100,26 +102,50 @@ dinamicaPackage("moments");
 
 ### Setup
 
-There are two ways to run R scripts from Calculate R Expression — though only the local installation is available on Linux.
+Dinamica EGO starts and stops the R interpreter automatically whenever the functor runs. There are two ways to provide the interpreter — though only the local installation is available on Linux.
 
 #### Dinamica EGO Enhancement Plugin
 
-Windows only. Download and install the Dinamica EGO Enhancement Plugin. It contains everything needed to run R scripts inside Dinamica EGO, with no further configuration.
+Windows only. Download and install the Dinamica EGO Enhancement Plugin. It contains a custom R interpreter with several pre-installed packages, and needs no further configuration. Only the pre-installed packages can be used; to install other packages, use a local R installation.
 
 #### Local R installation
 
-On Linux, this is the only option — Dinamica EGO always uses the R installation already present on the system. On Windows, it can be used as an alternative to the plugin. Either way, it requires:
+On Linux, this is the only option. On Windows, it can be used as an alternative to the plugin, with the advantage that any package can be installed with dinamicaPackage(). Either way, it requires:
 
 - R installed on the machine, with the Rscript executable (Rscript.exe on Windows) present in its bin sub-folder.
-- The Dinamica package for R installed and at its latest version.
+- On Windows, a compatible [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+- The Dinamica package for R installed and at its latest version. See [Installing the Dinamica Package for R](../Coupling-With-R.html#installing-the-dinamica-package-for-r).
 
-On Windows, this alternative installation is selected in the Dinamica EGO GUI by going to Tools → Options → Integration tab and enabling "Use alternative R installation for Calculate R Expression".
+To select the local installation, go to Tools → Options → Integration tab → R, check "Use alternative R installation", enter the path to Rscript, and click "Integrate with Alternative R".
+
+The path to Rscript can also be set with the environment variable `DINAMICA_EGO_X_ALTERNATIVE_PATH_FOR_R`, and the CRAN mirror used to install packages with `DINAMICA_EGO_X_R_CRAN_MIRROR`; see [Environment Variables](../Environment-Variables.html). On Linux, when no path is configured, `/usr/bin/Rscript` is used.
+
+#### Setting up R on Linux
+
+The following steps were written for Ubuntu 22.04 LTS:
+
+1. Install the build tools:
+
+   ```
+   sudo apt install build-essential
+   ```
+
+1. Install R, version 4.3 or higher. For other ways of installing R on Ubuntu, see [CRAN's instructions](https://cran.r-project.org/bin/linux/ubuntu).
+
+   ```
+   sudo apt install r-base
+   ```
+
+1. Install the [Dinamica package for R](../Coupling-With-R.html#installing-the-dinamica-package-for-r).
+1. Select the local installation in Dinamica EGO, as described above. The path to Rscript is usually `/usr/bin/Rscript`.
 
 Reports an error if this functor is used without either the Enhancement Plugin or a working local R installation configured.
 
 Raises an error if the number of Number Table hooks nested inside this container exceeds the capacity of the external communication message queue.
 
 ### Examples
+
+The dataset distributed with Dinamica EGO includes simple example models in `Dataset\Examples\various_applications\calculate r expression`.
 
 The following examples use a consistent set of inputs: t1 is a lookup table of land cover patches mapping Key (patch identifier) to Value (patch area); v1 is a scalar minimum area threshold; and s1 is a string giving the name to use for a threshold-flag column.
 
