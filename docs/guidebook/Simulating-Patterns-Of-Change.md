@@ -110,7 +110,7 @@ The following experiments use the same synthetic map and a single time step with
 
 Soares-Filho et al, 2003. Simulating the spatial patterns of change through the use of the DINAMICA model. Anais XI SBSR.
 
-[http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.4.9617&rep=rep1&type=pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.4.9617&rep=rep1&type=pdf)
+[Archived copy](https://web.archive.org/web/20211201043537/http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.4.9617&rep=rep1&type=pdf)
 
 Wu, Jianguo. (2013). Landscape Ecology. 10.1007/978-1-4614-5755-8_11.
 

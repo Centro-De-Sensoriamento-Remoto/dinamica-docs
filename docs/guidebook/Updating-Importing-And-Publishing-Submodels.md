@@ -39,7 +39,7 @@ Below you can see two examples of updating the inputs and output ports of a loca
 
 - Beware that connected inputs cannot be exported. They must be disconnected first. It is also worth noting that it is possible to safely rename inputs and outputs. The connections to the port will be maintained when the changes are propagated.
 
-> **Tip:** Dinamica EGO comes with a set of icons from the [Fat Cow Icon Set](http://www.fatcow.com/free-icons) that can be used to customize the local submodels created by users. The icons come in size 16x16 and 32x32 pixels. The overall color of the icon chosen is automatically used to define the color of the functor representing the submodel on the graphical interface.
+> **Tip:** Dinamica EGO comes with a set of icons from the [Fat Cow Icon Set](https://web.archive.org/web/20131231225029/http://www.fatcow.com/free-icons) that can be used to customize the local submodels created by users. The icons come in size 16x16 and 32x32 pixels. The overall color of the icon chosen is automatically used to define the color of the functor representing the submodel on the graphical interface.
 > The set of icons are usually installed in the folder `IconSamples` in your Dinamica EGO installation folder
 
 - When updating a local submodel, the changes from all dependent local submodels will also be propagated. It means that updating a submodel always updates the whole chain of local submodels that uses that submodel as part of their definition.

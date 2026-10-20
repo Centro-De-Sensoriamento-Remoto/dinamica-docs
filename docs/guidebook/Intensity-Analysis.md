@@ -10,7 +10,7 @@ Intensity Analysis measures the degree to which changes among categories are non
 
 ## Main website of intensity analysis:
 
-[Intensity Analysis Website](https://sites.google.com/site/intensityanalysis/)
+[Intensity Analysis Website](https://web.archive.org/web/20220120172509/https://sites.google.com/site/intensityanalysis/)
 
 ## Main characteristics:
 
