@@ -45,5 +45,5 @@ RegionalizeMap
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 14: Using For Each Category and Region Manager
+See practical examples of this functor in [Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region](../guidebook/Regions-With-For-Each-Category.html) of the Guidebook.
 {% endraw %}

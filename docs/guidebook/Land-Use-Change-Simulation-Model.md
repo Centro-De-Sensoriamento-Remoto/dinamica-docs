@@ -79,6 +79,8 @@ The net transition matrix is passed to the simulation model and Dinamica EGO bro
 
 ## Second step: Calculating ranges to categorize gray-tone variables
 
+> **See also:** [Weights of Evidence Calibration](../Weights-Of-Evidence-Calibration.html) explains the method, its parameters and each calibration step in more depth.
+
 The Weights of Evidence method [(Goodacre et al. 1993](http://dx.doi.org/10.1016/0040-1951(93)90011-8)[, Bonham-Carter 1994)](https://books.google.com/books?printsec=frontcover&vid=ISBN0080424201&vid=ISBN0080418678&vid=LCCN94028315#v=onepage&q&f=false) is applied in Dinamica EGO to produce a transition probability map (fig. 3), which depicts the most favorable areas for a change [(Soares-Filho et al. 2002](http://dx.doi.org/10.1016/S0304-3800(02)00059-5)[, 2004)](http://dx.doi.org/ 10.1111/j.1529-8817.2003.00769.x).
 
 Weights of Evidence consists of a Bayesian method, in which the effect of a spatial variable on a transition is calculated independently of a combined solution. The Weights of Evidence represent each variable’s influence on the spatial probability of a transition i-j and are calculated as follows.

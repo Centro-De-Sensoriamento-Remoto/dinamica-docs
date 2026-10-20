@@ -43,13 +43,11 @@ When Border Cells is greater than zero, the bounds of each region are increased 
 
 Every [Merge Regional Maps](Merge-Regional-Maps.html) or [Merge Regional Categorical Maps](Merge-Regional-Categorical-Maps.html) that reads from this container's region manager must have a matching [Regional Map](Regional-Map.html) or [Regional Categorical Map](Regional-Categorical-Map.html) registering a map under the same name in that same region manager — otherwise the model reports an error. The reverse also holds: a [Regional Map](Regional-Map.html) or [Regional Categorical Map](Regional-Categorical-Map.html) with no matching merge functor is reported with a warning, since it registers a map that nothing reads back. Registering two maps under the same name for the same region manager is likewise reported with a warning.
 
-See Lesson 14, "Using For Each Category and Region Manager," for a worked example of this container.
-
 ## Internal Name
 
 RegionManager
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 14: Using For Each Category and Region Manager
+See practical examples of this functor in [Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region](../guidebook/Regions-With-For-Each-Category.html) of the Guidebook.
 {% endraw %}

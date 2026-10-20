@@ -56,5 +56,5 @@ CalcAreas
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 9: Working with maps and tables
+See practical examples of this functor in [Lesson 9: Working with maps and tables](../guidebook/Working-With-Maps-And-Tables.html) of the Guidebook.
 {% endraw %}

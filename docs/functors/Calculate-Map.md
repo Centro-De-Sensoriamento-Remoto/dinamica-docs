@@ -80,5 +80,5 @@ CalculateMap
 ## Usage examples
 
 - [CalculateMap practical examples](../Calculate-Functors.html) in the Calculate Functors documentation
-- Lesson 5: Implementing a simple map algebra
+- [Lesson 5: Implementing simple map algebra on Dinamica EGO](../guidebook/Simple-Map-Algebra.html) in the Guidebook
 {% endraw %}

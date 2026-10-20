@@ -41,13 +41,11 @@ Executions for different categories can run simultaneously when there is no depe
 
 When Map has zero categories and a result produced by the contained functors is used outside the container, connect a matching [junction](../Functor-List.html#junction) after the container, so a value still reaches the rest of the model if there are no categories to process.
 
-See Lesson 14, "Using For Each Category and Region Manager," for a practical example of this functor.
-
 ## Internal Name
 
 ForEachCategory
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 14: Using For Each Category and Region Manager
+See practical examples of this functor in [Lesson 14: Using "For Each Category" and "Region Manager" to work with the concept of region](../guidebook/Regions-With-For-Each-Category.html) of the Guidebook.
 {% endraw %}

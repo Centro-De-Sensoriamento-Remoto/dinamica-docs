@@ -51,5 +51,5 @@ CalcPathwayMap
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 17: Building a land-use and land-cover change simulation model
+See practical examples of this functor in [Lesson 17: Calculating accumulated cost surface and least-cost pathway](../guidebook/Cost-Surface-And-Least-Cost-Pathway.html) of the Guidebook.
 {% endraw %}

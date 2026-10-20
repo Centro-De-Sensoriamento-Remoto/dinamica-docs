@@ -66,5 +66,5 @@ Expander
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 18: Building a land-use and land-cover change simulation model
+See practical examples of this functor in [Lesson 18: Building a land-use and land-cover change simulation model](../guidebook/Land-Use-Change-Simulation-Model.html) of the Guidebook.
 {% endraw %}

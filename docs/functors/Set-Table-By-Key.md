@@ -99,5 +99,5 @@ SetTableByKey
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 7: Creating a new column and retrieving a data column from tables
+See practical examples of this functor in [Lesson 7: Creating a new column and retrieving a data column from tables](../guidebook/Table-Columns.html) of the Guidebook.
 {% endraw %}

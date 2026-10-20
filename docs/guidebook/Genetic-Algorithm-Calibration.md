@@ -60,5 +60,7 @@ In conclusion, hard predictors like GA tool must incorporate prior knowledge in 
 
 ### Congratulations, you have successfully completed this lesson!
 
+> **See also:** [Weights of Evidence Calibration](../Weights-Of-Evidence-Calibration.html) explains the method, its parameters and each calibration step in more depth.
+
 ☞[Next: Agent Based Model](Agent-Based-Model.html)
 {% endraw %}

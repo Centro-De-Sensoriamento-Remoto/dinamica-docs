@@ -91,5 +91,7 @@ In this lesson we will use the following files:
 
 ## Congratulations, you have successfully completed this lesson!
 
+> **See also:** [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) covers the table and lookup table functors and techniques in more depth.
+
 ☞[Next: Lesson 10: What is a submodel, their types and where they are stored](What-Is-A-Submodel.html)
 {% endraw %}

@@ -54,5 +54,7 @@ Observe that you did not need to segregate the information per state in *[Calcul
 
 ### Congratulations, you have successfully completed this lesson!
 
+> **See also:** [Working with Subregions Using Region Manager](../Working-With-Subregions.html) covers Region Manager, regional maps and per-region results in more depth.
+
 ☞[Next: Lesson 15: Using "Repeat" to make successive calculations](Successive-Calculations-With-Repeat.html)
 {% endraw %}

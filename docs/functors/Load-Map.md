@@ -59,5 +59,5 @@ LoadMap
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 4: Opening and Saving maps
+See practical examples of this functor in [Lesson 4: Opening and Saving maps](../guidebook/Opening-And-Saving-Maps.html) of the Guidebook.
 {% endraw %}

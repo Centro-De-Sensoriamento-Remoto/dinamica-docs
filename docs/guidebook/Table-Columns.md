@@ -62,5 +62,7 @@ Using the table generated previously, we would like to demonstrate how to retrie
 
 ## Congratulations, you have successfully completed this lesson!
 
+> **See also:** [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) covers the table and lookup table functors and techniques in more depth.
+
 ☞[Next: Lesson 8: Inserting a value into a table](Inserting-A-Value-Into-A-Table.html)
 {% endraw %}

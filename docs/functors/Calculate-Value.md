@@ -63,5 +63,5 @@ CalculateValue
 ## Usage examples
 
 - [CalculateValue practical examples](../Calculate-Functors.html) in the Calculate Functors documentation
-- Lesson 8: Inserting and getting a specific value into a table
+- [Lesson 8: Inserting and getting a specific value into a table](../guidebook/Inserting-A-Value-Into-A-Table.html) in the Guidebook
 {% endraw %}

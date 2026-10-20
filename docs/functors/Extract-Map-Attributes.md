@@ -106,5 +106,5 @@ ExtractMapAttributes
 
 ## Usage examples
 
-See practical examples of this functor in Lesson 6: Extracting map attributes and basic statistics
+See practical examples of this functor in [Lesson 6: Extracting the attributes and calculating basic statistics from a map](../guidebook/Map-Attributes-And-Basic-Statistics.html) of the Guidebook.
 {% endraw %}
