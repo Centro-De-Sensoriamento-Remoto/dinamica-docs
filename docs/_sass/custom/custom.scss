@@ -23,7 +23,7 @@ html {
 }
 
 /* Content images: light card so that figures made on a white background do not clash with the dark theme. The brightness filter applies to the whole card (background and image), softening the white without creating internal contrast. */
-.main-content img:not([src*="logo"]) {
+.main-content img {
   box-sizing: border-box;
   max-width: 100%;
   height: auto;

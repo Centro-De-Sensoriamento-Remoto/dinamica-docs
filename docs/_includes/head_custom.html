@@ -97,7 +97,7 @@
     for (var i = 0; i < imgs.length; i++) {
       var img = imgs[i];
       var title = img.getAttribute('alt').trim();
-      if (!title || /logo/.test(img.getAttribute('src') || '')) { continue; }
+      if (!title) { continue; }
       var target = img.parentNode.tagName === 'A' ? img.parentNode : img;
       var holder = target.parentNode;
       var figure = document.createElement('figure');
