@@ -42,7 +42,7 @@ This functor must be placed directly inside one of the containers that consume n
 
 ### Referencing the value in an expression
 
-Once registered, the value is available inside the container's expression as vN (for example, Value Number = 1 gives v1). This applies to the verbose syntax only. The separate abbreviated syntax eliminates hook functors like Number Value entirely, referencing each connected input directly by its port name instead — see [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand).
+Once registered, the value is available inside the container's expression as `vN` (for example, Value Number = 1 gives `v1`). This applies to the verbose syntax only. The separate abbreviated syntax eliminates hook functors like Number Value entirely, referencing each connected input directly by its port name instead — see [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand).
 
 ### Visual banner
 
@@ -56,5 +56,5 @@ NumberValue
 
 ## Usage examples
 
-[Connecting data inputs](Calculate-Map.html#connecting-data-inputs) in the Calculate Map documentation — shows Number Value exposing a scalar as v1.
+[Connecting data inputs](Calculate-Map.html#connecting-data-inputs) in the Calculate Map documentation — shows Number Value exposing a scalar as `v1`.
 {% endraw %}

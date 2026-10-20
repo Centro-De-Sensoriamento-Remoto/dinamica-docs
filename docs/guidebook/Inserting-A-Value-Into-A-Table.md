@@ -39,7 +39,7 @@ The aim of this lesson is getting and inserting specifics values from and into a
 
 ![](../image/guidebook_imagem36.png)
 
-- Double-click on [Calculate Value](../functors/Calculate-Value.html) to add a logic or an algebraic expression. We divide v1 (the selected value) by 1000, `v1/1000`, and click OK.
+- Double-click on [Calculate Value](../functors/Calculate-Value.html) to add a logic or an algebraic expression. We divide `v1` (the selected value) by 1000, `v1/1000`, and click OK.
 
 ![](../image/guidebook_imagem37.png)
 

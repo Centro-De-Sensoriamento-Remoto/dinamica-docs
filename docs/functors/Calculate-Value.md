@@ -41,8 +41,8 @@ This is one of Dinamica EGO's five calculator functors. Its abbreviated (shortha
 
 Tables, lookup tables, and scalar values referenced in the expression must be connected to the functor's ports before writing the expression, using hook functors:
 
-- Tables and lookup tables → [Number Table](Number-Table.html) → referenced in the expression as t1, t2, …, t100
-- Scalar values → [Number Value](Number-Value.html) → referenced as v1, v2, …, v100
+- Tables and lookup tables → [Number Table](Number-Table.html) → referenced in the expression as `t1`, `t2`, …, `t100`
+- Scalar values → [Number Value](Number-Value.html) → referenced as `v1`, `v2`, …, `v100`
 
 Maps cannot be connected — there is no cell context in this functor. In the abbreviated syntax, tables are referenced as `%variableName` and values as `$variableName`.
 

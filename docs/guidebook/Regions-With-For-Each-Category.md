@@ -40,7 +40,7 @@ Note that there are two *[Number Map](../functors/Number-Map.html)* functors dis
 
 ![](../image/guidebook_region7.jpg)
 
-At a last step, you will need to modify the *[Calculate Map](../functors/Calculate-Map.html)*. Open it with Edit Functor. Write: **if i1 = 2 then 1 else null**. Remember that "2" represents forest.
+At a last step, you will need to modify the *[Calculate Map](../functors/Calculate-Map.html)*. Open it with Edit Functor. Write: `if i1 = 2 then 1 else null`. Remember that "2" represents forest.
 
 ![](../image/guidebook_region5.jpg)
 

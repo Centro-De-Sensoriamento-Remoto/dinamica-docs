@@ -42,7 +42,7 @@ i1 * 1.8 + 32
 
 where `i1` represents the `Belo Horizonte Temperature` map.
 
-Despite the fact that the expression is presented using the alias of the functor from where the corresponding map is coming, you specify the map in the expression just typing the identifier i1. Momentarily, that identifier will be automatically replaced by the corresponding map alias. Another easy option to enter the map identifier is to click on the corresponding map name on the list above the image expression.
+Despite the fact that the expression is presented using the alias of the functor from where the corresponding map is coming, you specify the map in the expression just typing the identifier `i1`. Momentarily, that identifier will be automatically replaced by the corresponding map alias. Another easy option to enter the map identifier is to click on the corresponding map name on the list above the image expression.
 
 > **Note:** Although you won’t need it in this lesson, you might set the null value by first turning on the Null Value option on the Load Map and then setting its value to a value outside the range of values represented in the map.
 

@@ -47,6 +47,6 @@ CreateString
 
 ## Usage examples
 
-- [Iterating over Lookup Table values](../Manipulating-Tables-And-Lookup-Tables.html#iterating-over-lookup-table-values) -- builds a per-row message from a table's key and value using \<v1>/\<v2> tags.
+- [Iterating over Lookup Table values](../Manipulating-Tables-And-Lookup-Tables.html#iterating-over-lookup-table-values) -- builds a per-row message from a table's key and value using `<v1>`/`<v2>` tags.
 - [Container functors](../EGO-Script.html#container-functors) in the EGO Script documentation -- uses Create String with Number Value to embed a computed result inside a message printed after a block completes.
 {% endraw %}

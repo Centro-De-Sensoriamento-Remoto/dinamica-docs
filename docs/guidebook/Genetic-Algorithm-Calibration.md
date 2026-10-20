@@ -42,11 +42,15 @@ Dinamica EGO´s GA tool provides a means to overcome overspecialization by enabl
 
 Open model `gareciprocal fitness1x1.ego` from `\guidebook dinamica\models\genetic algorithm\galimitedranges120\reciprocal fitness1x1` and examine *[Group](../functors/Group.html)* "Lower Bound Envelope". Open it. Each *[Calculate Lookup Table](../functors/Calculate-Lookup-Table.html)* establishes a lower bound for a weights of evidence table by using the following equation:
 
-**t1[line] - abs(t1[line]) * 1.2**
+```
+t1[line] - abs(t1[line]) * 1.2
+```
 
 Likewise, the *[Group](../functors/Group.html)* "Upper Bound Envelope" will set an upper bound as follows:
 
-**t1[line] + abs(t1[line]) * 1.2**
+```
+t1[line] + abs(t1[line]) * 1.2
+```
 
 The use of these tables as gene bounds will constrain the new genes to an envelope of ±120% of the absolute values of the original weights of evidence coefficients (using the absolute value keeps the lower bound below the upper bound for negative coefficients), thus providing a trend around which the global optimum solution must be found. Although this constraint will result in lower calibration scores (Run `validation fitness1x1.ego` located in `\guidebook dinamica\models\genetic algorithm\galimitedranges120\reciprocal fitness1x1`), it will tame the *GA tool* engine, allowing it to improve the Weights of Evidence result for application to a general prediction process (Figs. 2 and 3).
 

@@ -39,8 +39,8 @@ None.
 
 Data is passed into the expression through hook functors placed inside the container's block — the same verbose-form hook mechanism used by the calculator functors. Hooks can be added using the Create a hook button on the functor bar, or by dragging them in individually.
 
-- Tables and lookup tables → [Number Table](Number-Table.html) → available in R as t1, t2, …, t100
-- Scalar values → [Number Value](Number-Value.html) → available as v1, v2, …, v100
+- Tables and lookup tables → [Number Table](Number-Table.html) → available in R as `t1`, `t2`, …, `t100`
+- Scalar values → [Number Value](Number-Value.html) → available as `v1`, `v2`, …, `v100`
 - Strings → [Number String](Number-String.html) → available as s1, s2, …, s100
 
 Maps cannot be connected — this functor has no cell context. There is no shorthand notation; see [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the general hook mechanism and syntax.
@@ -147,7 +147,7 @@ Raises an error if the number of Number Table hooks nested inside this container
 
 The [Guidebook dataset](../extra/guidebook_dinamica.7z) includes simple example models in `guidebook dinamica\extras\examples\various applications\calculate r expression`.
 
-The following examples use a consistent set of inputs: t1 is a lookup table of land cover patches mapping Key (patch identifier) to Value (patch area); v1 is a scalar minimum area threshold; and s1 is a string giving the name to use for a threshold-flag column.
+The following examples use a consistent set of inputs: `t1` is a lookup table of land cover patches mapping Key (patch identifier) to Value (patch area); `v1` is a scalar minimum area threshold; and `s1` is a string giving the name to use for a threshold-flag column.
 
 Compute the mean and total area across all patches, and report progress to the Message Log:
 

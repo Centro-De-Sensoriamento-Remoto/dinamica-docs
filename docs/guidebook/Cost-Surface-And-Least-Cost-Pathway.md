@@ -63,7 +63,7 @@ Now place three *[Calculate Map](../functors/Calculate-Map.html)* and four *[Num
 
 ![](../image/guidebook_cost3.jpg)
 
-Now, you need to enter the land use table in the functor *[Lookup Table](../functors/Lookup-Table.html)*. Open it with Edit Functor and start adding **keys** and **values** (fill in the fields and press the plus button). Open the *[Calculate Map](../functors/Calculate-Map.html)* that contains the *[Number Table](../functors/Number-Table.html)* and write the following formula: **t1[i1]**
+Now, you need to enter the land use table in the functor *[Lookup Table](../functors/Lookup-Table.html)*. Open it with Edit Functor and start adding **keys** and **values** (fill in the fields and press the plus button). Open the *[Calculate Map](../functors/Calculate-Map.html)* that contains the *[Number Table](../functors/Number-Table.html)* and write the following formula: `t1[i1]`
 
 ![](../image/guidebook_cost4.jpg)
 

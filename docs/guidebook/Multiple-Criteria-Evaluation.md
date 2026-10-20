@@ -49,7 +49,9 @@ Let's start developing the model. Place *[Load Categorical Map](../functors/Load
 
 Now open the *[Calculate Map](../functors/Calculate-Map.html)* with the Edit Functor and write the following equation:
 
-**if i1 = 0 then null else if i1 = 1 then null else if i1 =4 then null else if i1 = 5 then null else 1**
+```
+if i1 = 0 then null else if i1 = 1 then null else if i1 =4 then null else if i1 = 5 then null else 1
+```
 
 The null value will mask out rivers, flooded plains, urban areas, and roads in subsequent map operations. Do not forget to set **Cell Type** to "Unsigned 8 Bit Integer" and **Null Value** to 0.
 
@@ -74,7 +76,9 @@ Now connect Categorical Map `landuse.tif` to *[Number Map](../functors/Number-Ma
 
 **Source** is a map containing the features to which distances will be calculated. A feature is represented by a non-null value. **Mask** is a map used to mask the distance calculation on its null cells. Let’s connect the output from *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* to **Source** and Categorical Map `landuse.tif` to **Mask**. Now open the *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* and write the following equation:
 
-**if i1 = 5 then 1 else null**
+```
+if i1 = 5 then 1 else null
+```
 
 Remember that 5 is the number identifier for urban. You do not need to change either **Cell type** or **Null Value** in both functors, although to save memory you could set "Signed 8 Bit Integer" and **Null Value** to "0" in *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)*. You may also turn on the option **Truncate Distance** in Calc Distance to Feature Map. This will avoid exceeding the maximum numerical representation selected for **Cell type**.
 
@@ -84,7 +88,9 @@ Now connect the port **Distance** in *[Calc Distance to Feature Map](../functors
 
 As a last procedure, add one *[Calculate Map](../functors/Calculate-Map.html)* and its *[Number Map](../functors/Number-Map.html)*, connect the output of *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* to its *[Number Map](../functors/Number-Map.html)* and output the result with *[Save Map](../functors/Save-Map.html)* `away from towns.tif`.  Notice that at this stage, we are omitting some steps, which should be well-known by now. Write in the equation box of the *[Calculate Map](../functors/Calculate-Map.html)*:
 
-**if i1 &lt; 10000 then null else 1**
+```
+if i1 < 10000 then null else 1
+```
 
 > **Note:** The distance map is always produced in meters; the constraint criterion is always set to null.
 
@@ -102,7 +108,12 @@ How would you solve the problem having the following criteria?
 - At least 1000 meters away from flooded plains.
 
 You will need to load another *[Load Categorical Map](../functors/Load-Categorical-Map.html)* and enter the file `mainroads.tif` from folder lesson5. You will need to turn on the option **Define Null Value** and set the **Null Value** to "0". You can connect this functor directly to another *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* that you will need to place on the sketch. Use *[Categorical Map](../functors/Categorical-Map.html)* `landuse.tif` again as the **Mask**.
-Use the following equations in the respective *[Calculate Map](../functors/Calculate-Map.html)* (you will need to place one for each criterion):<br> **if i1 > 15000 then null else 1**  
+Use the following equations in the respective *[Calculate Map](../functors/Calculate-Map.html)* (you will need to place one for each criterion):
+
+```
+if i1 > 15000 then null else 1
+```
+
 Now connect its output to *[Save Map](../functors/Save-Map.html)* `not too far from mainroads.tif`.
 
 You will have the following model.
@@ -118,11 +129,15 @@ Did you get a `not too far from mainroads.tif` map like this?
 For the flooded plains criterion, you will need to add another *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* to pinpoint the flooded areas before passing the resulting map to *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)*.
 Connect *[Categorical Map](../functors/Categorical-Map.html)* `landuse.tif` to it and write the following equation in the *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* equation box:
 
-**if i1 = 0 then 1 else null**
+```
+if i1 = 0 then 1 else null
+```
 
 Now connect this output to *[Calc Distance to Feature Map](../functors/Calc-Distance-To-Feature-Map.html)* as the **Source** port, again use *[Categorical Map](../functors/Categorical-Map.html)* `landuse.tif` as the **Mask** port, then connect its output to another *[Calculate Map](../functors/Calculate-Map.html)* and write the following equation:
 
-**if i1 &lt; 1000 then null else 1**
+```
+if i1 < 1000 then null else 1
+```
 
 Save the output as `malaria free zone.tif`
 The model for the three criteria combined should look like this:
@@ -146,17 +161,23 @@ To solve this criterion the model will establish two speeds of traveling: one fo
 
 Let’s then reclassify `Map landuse.tif` to produce the friction surface. In order to this you need to place another *[Calculate Map](../functors/Calculate-Map.html)* and write into its equation box the following equation:
 
-**if i1 = 6 then 0.1 else 0.3**
+```
+if i1 = 6 then 0.1 else 0.3
+```
 
 Now connect its output to a *[Calc Cost Map](../functors/Calc-Cost-Map.html)* functor (to its **Friction** port). You will need another *[Calculate Map](../functors/Calculate-Map.html)* to pinpoint the neighboring towns from the land-use map using the equation below:
 
-**if i1 = 5 then 1 else null**
+```
+if i1 = 5 then 1 else null
+```
 
 > **Important:** Important: Do not forget to change **Cell Type** both in *[Calculate Map](../functors/Calculate-Map.html)* that generates the friction map and also in *[Calc Cost Map](../functors/Calc-Cost-Map.html)* to "IEEE 754 Bit Real". Remember that the cell cost is expressed in fractional number.
 
 After connecting the output of the last *[Calculate Map](../functors/Calculate-Map.html)* to  the *[Calc Cost Map](../functors/Calc-Cost-Map.html)* functor (to its **Source** port), pass the output of the *[Calc Cost Map](../functors/Calc-Cost-Map.html)* to another *[Calculate Map](../functors/Calculate-Map.html)* to produce a Boolean map according to the maximum time of traveling, as follows:
 
-**if i1 &lt; 30 then 1 else null**
+```
+if i1 < 30 then 1 else null
+```
 
 Finally save the output map as `near town region.tif`. Note that you have added to the model three additional *[Calculate Map](../functors/Calculate-Map.html)* functors, three *[Number Map](../functors/Number-Map.html)* functors, one *[Calc Cost Map](../functors/Calc-Cost-Map.html)* and another *[Save Map](../functors/Save-Map.html)*. The model should look like the following figure.
 
@@ -196,7 +217,9 @@ The five titled *[Calculate Map](../functors/Calculate-Map.html)* functors produ
 
 Now place five *[Number Map](../functors/Number-Map.html)* functors within it. Open it and write the following equation.
 
-**i1*i2*i3*i4*i5**
+```
+i1*i2*i3*i4*i5
+```
 
 > **Important:** The *[Calculate Map](../functors/Calculate-Map.html)* does not process null cells.
 
@@ -240,7 +263,9 @@ This will be sufficient to store all patch label number identifiers. Leave the o
 
 Now, place on the sketch one *[Calculate Map](../functors/Calculate-Map.html)* and one *[Number Map](../functors/Number-Map.html)* and one *[Number Table](../functors/Number-Table.html)* within it. Connect *[Calc Areas](../functors/Calc-Areas.html)* to Table 1 (this implies that output of *[Calc Areas](../functors/Calc-Areas.html)* is a lookup table), and **Map** output from *[Calc Patch Label Map](../functors/Calc-Patch-Label-Map.html)* to Map #1. Now open *[Calculate Map](../functors/Calculate-Map.html)* and write:
 
-**`if (t1[ [i1]["Area_In_Hectares"] ] < 1000) then null else 1`**
+```
+if (t1[ [i1]["Area_In_Hectares"] ] < 1000) then null else 1
+```
 
 Using this formula, the functor will analyze the size of each patch and then eliminate the patches smaller than 1000 hectares. Now place one *[Save Map](../functors/Save-Map.html)* and enter `big areas.tif`.
 
@@ -258,7 +283,7 @@ Place one *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.htm
 
 > **Important:** You need *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* instead of *[Calculate Map](../functors/Calculate-Map.html)*, because patch labels will be used ahead to regionalize the slope map, set **Null Value** to "0" and **Cell Type** to "Signed 32 Bit Integer".
 
-Write: **i1*i2**, close the functor and insert the comment "Keep labels only for big patches". Now you are ready to move on to the last step.
+Write `i1*i2`, close the functor and insert the comment "Keep labels only for big patches". Now you are ready to move on to the last step.
 
 ## Sixth step: identifying suitable areas 2
 
@@ -272,7 +297,7 @@ The map to be regionalized is the `slope.tif`.  The map output from the last *[C
 
 ![](../image/guidebook_mce25.jpg)
 
-Write equation: **t1[13]** in the *[Calculate Value](../functors/Calculate-Value.html)*. Remember that 13 is the key for the average of all non null cells in the attribute table. This submodel is very similar to the one introduced in Lesson 3. Open *[Extract Map Attributes](../functors/Extract-Map-Attributes.html)* and set the option:
+Write the equation `t1[13]` in the *[Calculate Value](../functors/Calculate-Value.html)*. Remember that 13 is the key for the average of all non null cells in the attribute table. This submodel is very similar to the one introduced in Lesson 3. Open *[Extract Map Attributes](../functors/Extract-Map-Attributes.html)* and set the option:
 
 ![](../image/guidebook_mce26.jpg)
 
@@ -288,7 +313,11 @@ Open *[Mux Lookup Table](../functors/Mux-Lookup-Table.html)* with the Edit Funct
 
 ![](../image/guidebook_mce29.jpg)
 
-Finally place *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* after the *[For Each Region](../functors/For-Each-Region.html)* and place *[Number Map](../functors/Number-Map.html)* and *[Number Table](../functors/Number-Table.html)* within it. Number them and write the following equation: **if t1[i1] > 0.5** then null else i1
+Finally place *[Calculate Categorical Map](../functors/Calculate-Categorical-Map.html)* after the *[For Each Region](../functors/For-Each-Region.html)* and place *[Number Map](../functors/Number-Map.html)* and *[Number Table](../functors/Number-Table.html)* within it. Number them and write the following equation:
+
+```
+if t1[i1] > 0.5 then null else i1
+```
 
 Save the result as `suitable for a new town.tif` on the lesson5 folder.
 

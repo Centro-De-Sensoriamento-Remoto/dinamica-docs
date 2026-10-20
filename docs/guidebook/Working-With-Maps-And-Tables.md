@@ -42,7 +42,7 @@ In this lesson we will use the following files:
 
 ![](../image/guidebook_imagem70.png)
 
-- Place a **[Calculate Map](../functors/Calculate-Map.html)** on the sketch. Click on the hook tool to create three **[Number Map](../functors/Number-Map.html)** hook functors within **Calculate Map**. Assign a number to each **Number Map** (e.g. “1”, “2” and “3”, respectively). This is a number identifier for each map and will be represented within the equation box as i1, i2 and i3. Connect **Load Map** and **Load Categorical Map**  to each **Number Map**.
+- Place a **[Calculate Map](../functors/Calculate-Map.html)** on the sketch. Click on the hook tool to create three **[Number Map](../functors/Number-Map.html)** hook functors within **Calculate Map**. Assign a number to each **Number Map** (e.g. “1”, “2” and “3”, respectively). This is a number identifier for each map and will be represented within the equation box as `i1`, `i2` and `i3`. Connect **Load Map** and **Load Categorical Map**  to each **Number Map**.
 
 ![](../image/guidebook_imagem71.png)
 
@@ -69,11 +69,11 @@ In this lesson we will use the following files:
 
 ![](../image/guidebook_imagem74.png)
 
-- Write the following equation in **Calculate Value** to estimate CO2 content of high priority conservation areas using the map statistics calculated by **Extract Map Attributes** ("cellSum" and "cellArea") and the two constant values added (v1 and v2): `t1["cellSum"] * t1["cellArea"] * v1 * v2`
+- Write the following equation in **Calculate Value** to estimate CO2 content of high priority conservation areas using the map statistics calculated by **Extract Map Attributes** ("cellSum" and "cellArea") and the two constant values added (`v1` and `v2`): `t1["cellSum"] * t1["cellArea"] * v1 * v2`
 
 ![](../image/guidebook_imagem75.png)
 
-    - Grab a **[Set Lookup Table Value](../functors/Set-Lookup-Table-Value.html)** functor and place it on the sketch to insert the calculated values into a lookup table. It is important to pay attention to add the correct key to the line where the value will be inserted:
+- Grab a **[Set Lookup Table Value](../functors/Set-Lookup-Table-Value.html)** functor and place it on the sketch to insert the calculated values into a lookup table. It is important to pay attention to add the correct key to the line where the value will be inserted:
 
 ![](../image/guidebook_imagem76.png)
 

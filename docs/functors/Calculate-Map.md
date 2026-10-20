@@ -44,9 +44,9 @@ This is one of Dinamica EGO's five calculator functors. Its abbreviated (shortha
 
 All maps, tables, and scalar values referenced in the expression must be connected to the functor's ports before writing the expression, using hook functors:
 
-- Maps → [Number Map](Number-Map.html) → referenced in the expression as i1, i2, …, i100
-- Tables and lookup tables → [Number Table](Number-Table.html) → referenced as t1, t2, …, t100
-- Scalar values → [Number Value](Number-Value.html) → referenced as v1, v2, …, v100
+- Maps → [Number Map](Number-Map.html) → referenced in the expression as `i1`, `i2`, …, `i100`
+- Tables and lookup tables → [Number Table](Number-Table.html) → referenced as `t1`, `t2`, …, `t100`
+- Scalar values → [Number Value](Number-Value.html) → referenced as `v1`, `v2`, …, `v100`
 
 In the abbreviated syntax, operands are referenced directly by the variable name they are bound to, prefixed with `#` for maps, `%` for tables, and `$` for values — eliminating the hook block entirely.
 
@@ -57,7 +57,7 @@ The expression is evaluated independently once per cell across the output map. T
 - line — the row index of the current cell, starting at 1
 - column — the column index of the current cell, starting at 1
 
-When the expression references more than one map, all of them are evaluated at the same current cell — i1 and i2 always refer to the same spatial location. Connected maps do not need matching extent, resolution, or pixel dimensions: Dinamica EGO reconciles this automatically through image virtualization, transparently wrapping each input in a virtual version sharing a common extent and the highest resolution among the inputs. The one requirement that virtualization does not relax is projection — all connected maps must share the same projection.
+When the expression references more than one map, all of them are evaluated at the same current cell — `i1` and `i2` always refer to the same spatial location. Connected maps do not need matching extent, resolution, or pixel dimensions: Dinamica EGO reconciles this automatically through image virtualization, transparently wrapping each input in a virtual version sharing a common extent and the highest resolution among the inputs. The one requirement that virtualization does not relax is projection — all connected maps must share the same projection.
 
 The `iX[LINE, COL]` form samples a map at an explicit coordinate rather than the current cell. Coordinates outside the image boundary are mirrored back into range. For a row coordinate cellLine in an image of N rows, cellLine is normally expected to be in the range \[1, N\]. When cellLine is outside this range, it is mirrored back: if cellLine ≤ 0, the effective row is `1 − cellLine` (for instance, cellLine = 0 → row 1, cellLine = −1 → row 2, cellLine = −2 → row 3); if cellLine > N, the effective row is `2N + 1 − cellLine` (for instance, cellLine = N+1 → row N, cellLine = N+2 → row N−1, cellLine = N+3 → row N−2). The same formula applies independently to the column coordinate cellCol. If the target cell is null, the result is 0 rather than null.
 

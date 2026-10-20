@@ -334,7 +334,7 @@ Similar to the use of *[Mux Categorical Map](../functors/Mux-Categorical-Map.htm
 
 ![](../image/guidebook_lucc_44.jpg)
 
-*[Calculate Value](../functors/Calculate-Value.html)* selects the minimum fitness value (formula applied is min(v1, v2)) and passes it to *[Set Table Cell Value](../functors/Set-Table-Cell-Value.html)*, which also receives as input the current step as the table key.
+*[Calculate Value](../functors/Calculate-Value.html)* selects the minimum fitness value (formula applied is `min(v1, v2)`) and passes it to *[Set Table Cell Value](../functors/Set-Table-Cell-Value.html)*, which also receives as input the current step as the table key.
 
 As the *[For](../functors/For.html)* iterates, the *[Calc Reciprocal Similarity Map](../functors/Calc-Reciprocal-Similarity-Map.html)* calculates similarity values for a window size and passes them to *[Calculate Value](../functors/Calculate-Value.html):*, which selects the minimum and passes it on to *[Set Table Cell Value](../functors/Set-Table-Cell-Value.html)*, which updates the value for the table key corresponding to the model step. A second *[Set Table Cell Value](../functors/Set-Table-Cell-Value.html)* updates the maximum similarity and feedbacks the updated table to *[Mux Table](../functors/Mux-Table.html)*. When *[For](../functors/For.html)* is finished, the table is passed to *[Save Table](../functors/Save-Table.html)*.
 

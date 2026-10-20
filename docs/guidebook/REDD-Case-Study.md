@@ -62,9 +62,11 @@ Dinamica EGO does not provide a method to develop a spatial lag regression, but 
 
 Finally, the third *[For Each](../functors/For-Each.html)* converts gross deforestation rates output from *[Calc Spatial Lag](../functors/Calc-Spatial-Lag.html)* into net deforestation rates using the following formula:
 
-**if t1[v1] / t2[v1] > 1 then 1 else if t1[v1] / t2[v1] &lt; 0 then 0 else  t1[v1] / t2[v1]**
+```
+if t1[v1] / t2[v1] > 1 then 1 else if t1[v1] / t2[v1] < 0 then 0 else  t1[v1] / t2[v1]
+```
 
-where t1[v1] is the gross rate and  t2[v1] the original forest extent of a municipality.
+where `t1[v1]` is the gross rate and  `t2[v1]` the original forest extent of a municipality.
 
 ![](../image/guidebook_redd_7.jpg)
 
@@ -80,7 +82,7 @@ In order to calculate annual deforestation, the model compares in each time step
 
 ![](../image/guidebook_redd_9.jpg)
 
-A *[Load Map](../functors/Load-Map.html)* is placed within a *[Group](../functors/Group.html)* to ensure a proper order of execution. The previous land-use map is kept in *[Mux Map](../functors/Mux-Map.html)*, so both *[Calculate Map](../functors/Calculate-Map.html)* functors in this container receive the previous land-use map as **i1** and the current as **i2**.
+A *[Load Map](../functors/Load-Map.html)* is placed within a *[Group](../functors/Group.html)* to ensure a proper order of execution. The previous land-use map is kept in *[Mux Map](../functors/Mux-Map.html)*, so both *[Calculate Map](../functors/Calculate-Map.html)* functors in this container receive the previous land-use map as `i1` and the current as `i2`.
 
 ![](../image/guidebook_redd_10.1.jpg)
 

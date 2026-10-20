@@ -38,8 +38,8 @@ This is a container functor that runs a Python instance with a user-defined expr
 
 Data is passed into the expression through hook functors placed inside the container's block -- the same verbose-form hook mechanism used by the calculator functors:
 
-- Tables and lookup tables → [Number Table](Number-Table.html) → available in the expression as dinamica.inputs\["t1"\], dinamica.inputs\["t2"\], …, dinamica.inputs\["t100"\]
-- Scalar values → [Number Value](Number-Value.html) → available as dinamica.inputs\["v1"\], dinamica.inputs\["v2"\], …, dinamica.inputs\["v100"\]
+- Tables and lookup tables → [Number Table](Number-Table.html) → available in the expression as `dinamica.inputs["t1"]`, `dinamica.inputs["t2"]`, …, `dinamica.inputs["t100"]`
+- Scalar values → [Number Value](Number-Value.html) → available as `dinamica.inputs["v1"]`, `dinamica.inputs["v2"]`, …, `dinamica.inputs["v100"]`
 - Strings → [Number String](Number-String.html) → available as dinamica.inputs\["s1"\], dinamica.inputs\["s2"\], …, dinamica.inputs\["s100"\]
 
 Maps cannot be connected -- this functor has no cell context. There is no shorthand notation. See [Calculate Functors -- Complete Operator Documentation](../Calculate-Functors.html) for the general hook mechanism and syntax.
@@ -178,7 +178,7 @@ Converts several Python data shapes into a valid Dinamica table for output. Colu
 
 ### Examples
 
-The following examples use a consistent set of inputs: t1 is a table of land cover patches with columns PatchId\*, Area, and CategoryId; t2 is a lookup table mapping category identifiers to category names; and v1 is a scalar minimum area threshold.
+The following examples use a consistent set of inputs: `t1` is a table of land cover patches with columns PatchId\*, Area, and CategoryId; `t2` is a lookup table mapping category identifiers to category names; and `v1` is a scalar minimum area threshold.
 
 Install and import numpy, then inspect all inputs passed in by Dinamica:
 
@@ -259,7 +259,7 @@ dinamica.outputs['patchCount'] = total
 patchCount := ExtractStructNumber result "patchCount";
 ```
 
-Here landCoverAreas is bound to t1 and minimumArea to v1, each through a [Number Table](Number-Table.html) or [Number Value](Number-Value.html) hook. Calculate Python Expression returns a Struct containing all values assigned to dinamica.outputs; the ExtractStructNumber functor then pulls the patchCount entry out of that struct by name. See "Retrieving outputs" above for the full list of extraction functors.
+Here landCoverAreas is bound to `t1` and minimumArea to `v1`, each through a [Number Table](Number-Table.html) or [Number Value](Number-Value.html) hook. Calculate Python Expression returns a Struct containing all values assigned to dinamica.outputs; the ExtractStructNumber functor then pulls the patchCount entry out of that struct by name. See "Retrieving outputs" above for the full list of extraction functors.
 
 A more involved example: installing numpy to compute area statistics for a land cover patches table and flag outlier patches, then retrieving both the scalar statistics and the resulting table:
 
@@ -290,7 +290,7 @@ stdArea        := ExtractStructNumber result "stdArea";
 outlierPatches := ExtractStructTable  result "outlierPatches";
 ```
 
-Here landCoverPatches is bound to t1 through a single [Number Table](Number-Table.html) hook.
+Here landCoverPatches is bound to `t1` through a single [Number Table](Number-Table.html) hook.
 
 ## Internal Name
 

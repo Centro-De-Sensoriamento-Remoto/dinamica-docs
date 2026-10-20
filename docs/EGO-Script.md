@@ -1072,8 +1072,8 @@ The resulting `ValidateInputValue` functor exposes:
 | Order | Name | Type | Required | Default | Advanced | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | `inputValue` | RealValue | Yes | — | No | Value that will be validated. |
-| 2 | `validationExpression` | ImageExpression | Yes | — | No | Expression used to validate the input value. The input value should be mentioned as "v1". Must return zero if valid, non-zero if invalid. |
-| 3 | `errorMessageFormat` | String | No | `$"(The value <v1> is not valid.)"` | Yes | Message used to report an invalid value. The value can be mentioned using the tag \<v1>. |
+| 2 | `validationExpression` | ImageExpression | Yes | — | No | Expression used to validate the input value. The input value should be mentioned as `v1`. Must return zero if valid, non-zero if invalid. |
+| 3 | `errorMessageFormat` | String | No | `$"(The value <v1> is not valid.)"` | Yes | Message used to report an invalid value. The value can be mentioned using the tag `<v1>`. |
 
 **Outputs:**
 

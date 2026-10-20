@@ -43,8 +43,8 @@ This is one of Dinamica EGO's five calculator functors. Use it to recompute the 
 
 Tables, lookup tables, and scalar values referenced in the expression must be connected to the functor's ports before writing the expression, using hook functors:
 
-- Tables and lookup tables → [Number Table](Number-Table.html) → referenced in the expression as t1, t2, …, t100
-- Scalar values → [Number Value](Number-Value.html) → referenced as v1, v2, …, v100
+- Tables and lookup tables → [Number Table](Number-Table.html) → referenced in the expression as `t1`, `t2`, …, `t100`
+- Scalar values → [Number Value](Number-Value.html) → referenced as `v1`, `v2`, …, `v100`
 
 Maps cannot be connected — there is no cell context in this functor. In the abbreviated syntax, tables are referenced as `%variableName` and values as `$variableName`.
 
@@ -55,7 +55,7 @@ The expression is evaluated once per row of the base lookup table. Two keywords 
 - line — the key of the current row
 - column — the value already associated with that key in the base lookup table
 
-This allows the expression to read the row's existing value directly via column, and to look up related values from other connected tables using the current row's key — for example, t1\[line\] retrieves the value from table t1 whose key matches the current row.
+This allows the expression to read the row's existing value directly via column, and to look up related values from other connected tables using the current row's key — for example, `t1[line]` retrieves the value from table `t1` whose key matches the current row.
 
 ### Available expression features
 
