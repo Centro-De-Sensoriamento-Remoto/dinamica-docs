@@ -30,7 +30,7 @@ Open in a text editor, the model “simulate deforestation from 1997 2000 30year
 
 Now that you have learned a bit about programming with EGO script language, another resource available in Dinamica EGO is the Command Line Tool. Any model saved in Dinamica EGO, either EGOML/XML or EGO, can be run from the command prompt.
 
-To run Dinamica EGO from the command line, simply run `DinamicaConsole` from a command prompt. DinamicaConsole utility is located in the Dinamica EGO installation folder. The parameters accepted by Dinamica Command Line Tool are:
+To run Dinamica EGO from the command line, simply run [`DinamicaConsole`](../Dinamica-Console.html) from a command prompt. DinamicaConsole utility is located in the Dinamica EGO installation folder. The parameters accepted by Dinamica Command Line Tool are:
 
 | Dinamica Command Line Option | Option Description |
 |---|---|
@@ -60,6 +60,8 @@ To run Dinamica EGO from the command line, simply run `DinamicaConsole` from a c
 | -list-functors | Show the available functors. |
 | -version | Show version info. |
 | -help | Show this help. |
+
+See [Dinamica Console](../Dinamica-Console.html) for the full reference of the command line tool, including its syntax, options and examples.
 
 > **Tip:** **TIP**: another way to loosely couple other computer programs with Dinamica EGO is by means of functor [Run External Process](../functors/Run-External-Process.html), available in the Control Tab.  By using this functor, you will be able to make a call to an external program from within Dinamica, pass to this program intermediate results and feed its output back again into the Dinamica EGO model.
 
