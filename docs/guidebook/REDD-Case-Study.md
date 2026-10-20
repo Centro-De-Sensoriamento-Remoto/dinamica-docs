@@ -21,9 +21,9 @@ Tropical deforestation is the second source of anthropogenic GHG (Greenhouse Gas
 
 One of the main matters of REDD consists of measuring the contribution of a project (country, state or region level) to reducing carbon emissions from deforestation and forest degradation in order to credit this effort. This topic is one of the most contentious issues of REDD because there are several ways to weigh this reduction effort depending on the region’s deforestation history, stocks of forest carbon, and potential for future deforestation (e.g. [Cattaneo, 2008)](http://unfccc.int/resource/docs/2008/smsn/ngo/040.pdf). For example, the concept of reducing emissions below a historical baseline applies well to countries with a historically high rate of deforestation, thus with a large margin to reduce its emissions from deforestation, such as the case of Brazil with a baseline of 19.500 km2/year. On the other hand, countries with large expanses of tropical forest and current low deforestation rates (e.g.  Peru) would not be eligible to be compensated, since there is no additionality in its effort to curb deforestation (fig. 1). However, deforestation in Peru is likely to increase after the completion of the paving of Interoceanic highway, which links Brazil to the Pacific Ocean, as well other infrastructure projects underway in the region (fig. 2). These projects have already triggered a large inflow of people to the Madre de Dios department in Peru.
 
-![Fig. 1 –Different deforestation trajectories in Brazil and Peru and their implications for REDD proposals.](../image/guidebook_redd_1.jpg)
+![Fig. 1 – Different deforestation trajectories in Brazil and Peru and their implications for REDD proposals.](../image/guidebook_redd_1.jpg)
 
-![Fig. 2 –Infrastructure projects in the MAP region. MAP stands for Madre de Dios (Peru), Acre (Brazil) and Pando (Bolivia).](../image/guidebook_redd_2.jpg)
+![Fig. 2 – Infrastructure projects in the MAP region. MAP stands for Madre de Dios (Peru), Acre (Brazil) and Pando (Bolivia).](../image/guidebook_redd_2.jpg)
 
 To perform an ex ante evaluation of the potential for future deforestation under a Business-as-Usual (BAU) scenario, pioneer REDD projects, such as the JUMA conservation PPD – Project Design Document [(FAS, 2008)](https://web.archive.org/web/20150530180247/http://fas-amazonas.org/versao/2012/wordpress/wp-content/uploads/2013/06/FAS_Juma-REDD-Project-summary.pdf) adopted the use of simulation models [(Soares-Filho et al., 2006)](http://dx.doi.org/10.1038/nature04389). In this case, a set of assumptions is established to differentiate the BAU from the governance scenario, such as road paving, agricultural expansion, population movements, expansion and consolidation of protected areas and the effectiveness of public policies in curbing deforestation. The model simulates deforestation trajectories under the modeled scenarios and calculates their respective carbon emissions. So, instead of a historical baseline, the potential for reduction is compared by subtracting the accumulated amount of emissions under the governance scenario from the one under the BAU scenario by a specific future year (in general 2050).
 
@@ -90,7 +90,7 @@ After annual deforestation cells are identified, the model picks up the correspo
 
 ![](../image/guidebook_redd_11.jpg)
 
-![Fig. 3 –Infrastructure projects in the MAP region. MAP stands for Madre de Dios (Peru), Acre (Brazil) and Pando (Bolivia).](../image/guidebook_redd_12.jpg)
+![Fig. 3 – Infrastructure projects in the MAP region. MAP stands for Madre de Dios (Peru), Acre (Brazil) and Pando (Bolivia).](../image/guidebook_redd_12.jpg)
 
 ### Congratulations, you have successfully completed this lesson!
 

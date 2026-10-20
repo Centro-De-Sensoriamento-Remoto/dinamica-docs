@@ -22,7 +22,7 @@ This lesson explores the use of Dinamica EGO as a simulation platform for land-u
 
 The study area with respect to Rondonia state and Brazil as illustrated in the fig.2:
 
-![Fig.2 The study area with respect to Rondonia state and Brazil (dark green is forest, light green deforested land, and brown non-forest vegetation)](../image/guidebook_lucc_2.jpg)
+![Fig. 2 – The study area with respect to Rondonia state and Brazil (dark green is forest, light green deforested land, and brown non-forest vegetation)](../image/guidebook_lucc_2.jpg)
 
 The input dataset represents a region of Rondonia state, around the town of Ariquenes, in the Brazilian Amazon, fig.2. Open the maps `23267 1997.tif` and `23267 2000.tif`, located in `\guidebook dinamica\database\lucc files` using the Color Palette, "Amazon". These maps correspond to a Landsat image (232/67) classified by PRODES [(INPE, 2008)](https://web.archive.org/web/20140321092206/http://www.obt.inpe.br/prodes/index.php) – Brazilian program for monitoring deforestation - for the years 1997 and 2000.
 
@@ -95,7 +95,7 @@ Where W+ is the Weight of Evidence of occurring event D, given a spatial pattern
 
 Where B, C, D, and N are the values of k spatial variables that are measured at location *x,y* and represented by its weights *W+N*
 
-![Fig.3 Calculation and application of Weights of Evidence to produce a transition probability map.](../image/guidebook_lucc_10.jpg)
+![Fig. 3 – Calculation and application of Weights of Evidence to produce a transition probability map.](../image/guidebook_lucc_10.jpg)
 
 Since Weights of Evidence only applies to categorical data, it is necessary to categorize continuous gray-tone maps (quantitative data, such as distance maps, elevation, and slope). A key issue to any categorization process concerns the preservation of the data structure. The present method adapted from Agterberg & Bonham-Carter (1990), calculates ranges according to the data structure by first establishing a minimum delta – specified as the increment in the graphical interface – (*Dx*) for a continuous gray-tone variable x that is used to build n incremental buffers (*Nx*) comprising intervals from *Xminimum* to *Xminimum* + *nDx*.Each *n* defines a threshold that divides the map into two classes: *(Nx)* and *(Nx2)*. *An* is the number of cells for a buffer (*Nx*) multiple of *n* and *dn* is the number of occurrences for the modeled event (*D*) within this buffer. The quantities An and dn are obtained for an ordered sequence of buffers *N(xminimum + nDx)*. Subsequently, values of *W+* for each buffer are calculated using equations 2 to 4. A sequence of quantities *An* is plotted against *An*exp(W+)*. Thereafter breaking points for this graph are determined by applying a line-generalizing algorithm (Intergraph, 1991) that contains three parameters: 1) minimum distance interval along *x, mindx*, 2) maximum distance interval along *x, maxdx*, and 3) tolerance angle *ft*. For *dx* (a distance between two points along x) between *mindx* and  *maxdx*, a new breaking point is placed whenever *dx >= maxdx* (an angle between *v* and *v’*- vectors linking the current to the last point and the last point to its antecedent, respectively) exceeds the tolerance angle *ft*. Thus, the number of ranges decreases as a function of ft. The ranges are finally defined by linking the breaking points with straight lines. Note that *An* is practically error-free whereas *dn* is subject to a considerable amount of uncertainty because it is regarded as the realization of a random variable. Since small *An* can generate noisy values for *W+*, [Goodacre et al. (1993)](http://dx.doi.org/10.1016/0040-1951(93)90011-8) suggest that, instead of calculating it employing equations 2 and 4, one should estimate *W+* for each defined range through the following expression:
 
@@ -103,7 +103,7 @@ Since Weights of Evidence only applies to categorical data, it is necessary to c
 
 where *Yn=An*exp(W+)* and *k* represents the breakpoints defined for the *n* increments of *Dx* (Fig.4):
 
-![Fig.4 Plot of An against for the variable "distance to all roads"](../image/guidebook_lucc_12.3.jpg)
+![Fig. 4 – Plot of An against for the variable "distance to all roads"](../image/guidebook_lucc_12.3.jpg)
 
 The best-fitting curve can be approximated by a series of straight-line segments using a line-generalizing algorithm as explained in the text. This approach is used to define the breaking points for this curve and subsequently category intervals for a continuous variable (b).
 
@@ -291,7 +291,7 @@ Therefore, the resulting map only depicts the cells that have changed. These map
 
 This test employs an exponential decay function truncated outside of a window size 11x11.
 
-![Fig.5 Fuzzy comparison method using map of differences and an exponential decay function. The same process applies to constant decay function, in which all window weights are set to 1.](../image/guidebook_lucc_36.6.jpg)
+![Fig. 5 – Fuzzy comparison method using map of differences and an exponential decay function. The same process applies to constant decay function, in which all window weights are set to 1.](../image/guidebook_lucc_36.6.jpg)
 
 Open the *Similarities Submodel* with Edit Functor.
 The three parameters to set are the **Window Size**, the **Use Exponential Decay** and the **Print Similarities**.
@@ -344,7 +344,7 @@ The fitness goes from 21% at 1 by 1 cell to 90% at 11 by 11 cell resolution. Bec
 
 > **Tip:** **TIP**: Use *[Get Table Column](../functors/Get-Table-Column.html)* and *[Lookup Table](../functors/Lookup-Table.html)* to convert the column corresponding to the minimum similarity to a [lookup table type](../types/Lookup-Table-Type.html). Then, open table with the chart editor to produce the following graph.
 
-![Fig.6 Model fitness](../image/guidebook_lucc_48.1.jpg)
+![Fig. 6 – Model fitness](../image/guidebook_lucc_48.1.jpg)
 
 From the graph in fig. 6, we can assert that the simulation reached a similarity fitness value over 50% at a spatial resolution of ˜800 meters.
 
@@ -384,7 +384,7 @@ Note that the simulated landscape from this step shows a landscape structure clo
 
 The *[Expander](../functors/Expander.html)* functor is dedicated only to the expansion or contraction of previous patches of a certain class. Thus in the *[Expander](../functors/Expander.html)*, a new P<sub>ij</sub> spatial transition probability depends on the amount of cells type j around a cell type i, as depicted in fig. 7.
 
-![Fig.7 Transition probabilities transformed to simulate expansion process.](../image/guidebook_lucc_57.jpg)
+![Fig. 7 – Transition probabilities transformed to simulate expansion process.](../image/guidebook_lucc_57.jpg)
 
 Now, open the model `simulate deforestation from 1997 2000 with patch formation and expansion.egoml` in the folder `\guidebook dinamica\models\lucc model\9 run lucc with patch formation and expansion`.
 

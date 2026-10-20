@@ -12,11 +12,9 @@ The Receiver Operating Characteristic (ROC) evaluates map similarity considering
 
 ## About metrics
 
-The main ROC metrics used to evaluate the results are the area under curve (AUC) and the partial area under curve (pAUC). Figure 01 presents the standard ROC graph of true positive and false positive. The red diagonal curve represents a hypothetical model that predicts the same number of hits and false alarms. The suitability maps are interpreted on the ROC as prediction curves compared with the fixed diagonal. Each suitability evaluation generates a new curve on the graph. Curves over the fixed diagonal represent models that perform better than a random model. The final gain (relative to the suitability map) is summarized by the AUC measure. An equivalent metric can be applied to measure hit rate or error rate, this partial measure is called pAUC, as illustrated in the figure 01.
+The main ROC metrics used to evaluate the results are the area under curve (AUC) and the partial area under curve (pAUC). Fig. 1 presents the standard ROC graph of true positive and false positive. The red diagonal curve represents a hypothetical model that predicts the same number of hits and false alarms. The suitability maps are interpreted on the ROC as prediction curves compared with the fixed diagonal. Each suitability evaluation generates a new curve on the graph. Curves over the fixed diagonal represent models that perform better than a random model. The final gain (relative to the suitability map) is summarized by the AUC measure. An equivalent metric can be applied to measure hit rate or error rate, this partial measure is called pAUC, as illustrated in the figure 01.
 
-![Figure 01: ROC curve and respective metrics.](../image/guidebook_images_habitatmod_figure03.png)
-
-Figure 01: ROC curve and respective metrics.
+![Fig. 1 – ROC curve and respective metrics.](../image/guidebook_images_habitatmod_figure03.png)
 
 ## Cases
 

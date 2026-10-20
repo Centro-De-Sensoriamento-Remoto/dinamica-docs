@@ -26,7 +26,7 @@ The dataset employed in this exercise comprises:
 1. A map with the town to be connected. (town1.tif)
 1. A map with the current railroad (railroad.tif)
 
-![Fig.1 Northern Mato Grosso and its location with respect to Brazil.](../image/guidebook_cost1.1.jpg)
+![Fig. 1 – Northern Mato Grosso and its location with respect to Brazil.](../image/guidebook_cost1.1.jpg)
 
 Open Dinamica EGO and load the aforementioned maps from  `guidebook dinamica\database\accumulated cost surface least cost pathway` on the Map Viewer. Open the slope map using “Pseudocolor” as the current color palette and in the Histogram click on Limits to Actual and Histogram Equalize. As a first step, you need to reclassify the land use map to depict the cost of crossing each one of its land uses. Also you need to reclassify the slope map and then combine it with the land use map.
 
