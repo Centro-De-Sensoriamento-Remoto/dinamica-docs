@@ -53,7 +53,7 @@ When Network Error Behavior is set to Run Locally, a network error causes this c
 
 Available since Dinamica EGO 8.1.0.
 
-See Remote Execution Feature for more information about this functor.
+See [Remote Execution](../Remote-Execution.html) for how to set up the coordinator and agents and use this container.
 
 ## Internal Name
 
