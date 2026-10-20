@@ -35,6 +35,38 @@ html {
   filter: brightness(0.92);
 }
 
+/* Images with a title: the frame moves from the image to a figure that holds the image and its caption. */
+.main-content figure.captioned {
+  display: inline-block;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.25rem 0.25rem 0.75rem 0;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  filter: brightness(0.92);
+  vertical-align: top;
+}
+
+.main-content figure.captioned img {
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  filter: none;
+}
+
+.main-content figure.captioned figcaption {
+  margin-top: 0.5rem;
+  color: #333;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
 /* Embedded YouTube videos: same light card as the content images (the card color matches the images' white after their brightness filter); the frame keeps a 16:9 ratio. */
 .main-content .video {
   box-sizing: border-box;

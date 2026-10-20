@@ -376,11 +376,7 @@ Now open *[Patcher](../functors/Patcher.html)* with the Edit Functor tool.
 
 Run the model; open both `landscape3.tif` files from this model and from the fifth step as well as `23267 2000.tif` for visual comparison.
 
-![](../image/guidebook_lucc_56.jpg)
-
-```
-5th  Step---------------------------------------------- 23267_2000 ----------------------------------------------This Step
-```
+![Left: fifth step. Center: 23267 2000.tif. Right: this step.](../image/guidebook_lucc_56.jpg)
 
 Note that the simulated landscape from this step shows a landscape structure closer to that of the final historical landscape. Let’s now add the *[Expander](../functors/Expander.html)* Functor to the simulation model.
 

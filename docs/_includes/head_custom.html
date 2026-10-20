@@ -90,3 +90,32 @@
     if (font === 'sans-serif') { document.documentElement.setAttribute('data-font', 'sans-serif'); }
   })();
 </script>
+<script>
+  /* Image titles: an image with alt text is wrapped in a figure, and the alt text is shown as a caption inside the image frame. */
+  document.addEventListener('DOMContentLoaded', function () {
+    var imgs = document.querySelectorAll('.main-content img[alt]');
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      var title = img.getAttribute('alt').trim();
+      if (!title || /logo/.test(img.getAttribute('src') || '')) { continue; }
+      var target = img.parentNode.tagName === 'A' ? img.parentNode : img;
+      var holder = target.parentNode;
+      var figure = document.createElement('figure');
+      figure.className = 'captioned';
+      var caption = document.createElement('figcaption');
+      caption.textContent = title;
+      if (holder.tagName === 'P' && holder.textContent.trim() === '' && holder.children.length === 1) {
+        holder.parentNode.replaceChild(figure, holder);
+      } else {
+        holder.insertBefore(figure, target);
+      }
+      figure.appendChild(target);
+      figure.appendChild(caption);
+      (function (fig, im) {
+        /* Limits the figure to the image width, so long captions wrap instead of widening the frame. */
+        function fit() { if (im.naturalWidth) { fig.style.maxWidth = 'min(100%, ' + (im.naturalWidth + 18) + 'px)'; } }
+        if (im.complete) { fit(); } else { im.addEventListener('load', fit); }
+      })(figure, img);
+    }
+  });
+</script>
