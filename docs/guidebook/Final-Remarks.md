@@ -11,7 +11,7 @@ nav_order: 34
 
 Congratulations! You have completed this guidebook. What a haul! We hope that you have acquired the rationale for model designing with Dinamica EGO and can envision by now its enormous possibilities for environmental modeling. This is only the tip of the iceberg, now it is up to you to explore this wide avenue for the creative and ingenious design of environmental models.
 
-To go further, the [Modeling Guides](../Modeling-Guides.html) cover [tables and lookup tables](../Manipulating-Tables-And-Lookup-Tables.html), [subregions](../Working-With-Subregions.html), [Weights of Evidence calibration](../Weights-Of-Evidence-Calibration.html), [map metadata](../Map-Metadata.html) and [tips for creating models](../Model-Tips.html).
+To go further, the [Modeling Guides](../Modeling-Guides.html) cover [tables and lookup tables](../Manipulating-Tables-And-Lookup-Tables.html), [subregions](../Working-With-Subregions.html), [Weights of Evidence calibration](../Weights-Of-Evidence-Calibration.html), [additional LUCC resources](../Additional-LUCC-Resources.html), [map metadata](../Map-Metadata.html) and [tips for creating models](../Model-Tips.html).
 
 Dinamica EGO is a non-commercial purpose freeware (see copyright below). Several research programs carried out by CSR/UFMG have supported its development.  We are very grateful to all sponsors that directly or indirectly contributed to its state-of-art. See list of sponsors at www.csr.ufmg.br/dinamica.
 

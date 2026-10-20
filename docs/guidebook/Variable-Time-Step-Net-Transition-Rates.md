@@ -16,5 +16,7 @@ This model, `calculate time-step transition rates.egoml`, and the model that run
 
 --- *[Britaldo Soares Filho](mailto:britaldo@csr.ufmg.br) 2011/03/11 13:16*
 
+> **See also:** [Varying Parameters in a Simulation](../Additional-LUCC-Resources.html#varying-parameters-in-a-simulation) shows how to use a different transition matrix at each step of a simulation.
+
 ☞[Next: Receiver Operating Characteristic (ROC) suite](ROC-Suite.html)
 {% endraw %}

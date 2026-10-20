@@ -54,7 +54,7 @@ Observe that you did not need to segregate the information per state in *[Calcul
 
 ### Congratulations, you have successfully completed this lesson!
 
-> **See also:** [Working with Subregions Using Region Manager](../Working-With-Subregions.html) covers Region Manager, regional maps and per-region results in more depth.
+> **See also:** [Working with Subregions Using Region Manager](../Working-With-Subregions.html) covers Region Manager, regional maps and per-region results in more depth. [Using Subregions in a Simulation Model](../Additional-LUCC-Resources.html#using-subregions-in-a-simulation-model) applies regions to a land-use change simulation.
 
 ☞[Next: Lesson 15: Using "Repeat" to make successive calculations](Successive-Calculations-With-Repeat.html)
 {% endraw %}

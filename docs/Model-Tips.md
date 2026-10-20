@@ -1,6 +1,6 @@
 ---
 title: "Useful Tips for Creating Models"
-nav_order: 6
+nav_order: 7
 parent: "Modeling Guides"
 ---
 {% raw %}

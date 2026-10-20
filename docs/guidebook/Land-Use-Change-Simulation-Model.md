@@ -456,5 +456,7 @@ You may want to improve this model by incorporating dynamic rates, other dynamic
 
 ### Congratulations, you have successfully completed this lesson!
 
+> **See also:** [Additional LUCC Resources](../Additional-LUCC-Resources.html) extends this model with parameters that vary during the simulation, subregions, sojourn time and local saturation.
+
 ☞[Next: The wizard editor](The-Wizard-Editor.html)
 {% endraw %}

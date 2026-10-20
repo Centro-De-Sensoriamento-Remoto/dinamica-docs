@@ -68,7 +68,7 @@ where t1[v1] is the gross rate and  t2[v1] the original forest extent of a munic
 
 ![](../image/guidebook_redd_7.jpg)
 
-The econometric model passes on the predicted deforestation rates to a spatially explicit model that allocates deforestation in each municipality using the subregion approach of lesson "Using subregions in a simulation model"
+The econometric model passes on the predicted deforestation rates to a spatially explicit model that allocates deforestation in each municipality using the subregion approach of [Using Subregions in a Simulation Model](../Additional-LUCC-Resources.html#using-subregions-in-a-simulation-model)
 
 ### Developing a carbon bookkeeping model
 
