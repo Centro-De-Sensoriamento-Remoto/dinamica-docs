@@ -33,6 +33,8 @@ None.
 
 ## Notes
 
+See [Parallel Execution](../Parallel-Execution.html) for how granularity and accelerator devices are used.
+
 This functor was previously known as "ProcessorPolicy".
 
 The policy in effect before this container ran is always restored once its content finishes executing, whether or not an error occurs.

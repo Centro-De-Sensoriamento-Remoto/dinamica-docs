@@ -28,6 +28,8 @@ The `<model script filename>` argument is required and specifies the model scrip
 
 ## Workers and Memory
 
+See [Parallel Execution](Parallel-Execution.html) for how workers, granularity and accelerator devices are used.
+
 - `-processors=[processors]` — Override the number of logical processors (workers) that should be used. Pass 0 to automatically use the total number of processor cores instead.
 - `-disable-parallel-functors` — Disable parallel processing of independent functors.
 - `-disable-parallel-steps` — Disable parallel processing of independent loop steps.
