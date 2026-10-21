@@ -49,6 +49,8 @@ By default, cells equal to Map's null value are skipped, unless Include Null Val
 
 Raises an error if Keys Type is Use Map Values As Keys and Map has more than one layer, since a cell value would then no longer be unique across layers.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 ExtractMapValues

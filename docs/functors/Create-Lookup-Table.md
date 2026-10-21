@@ -44,6 +44,8 @@ The values between Initial Key and Final Key are linearly interpolated between I
 
 Final Key is included in the resulting lookup table only if the interval between it and the immediately preceding key is compatible with Increment.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CreateLookupTable

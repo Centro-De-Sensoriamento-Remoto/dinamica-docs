@@ -37,6 +37,8 @@ The new table is created by removing all rows from Format Table, keeping only it
 
 This functor was previously known as "CreateTable"; that name is still accepted for backward compatibility with existing scripts.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CreateEmptyTable

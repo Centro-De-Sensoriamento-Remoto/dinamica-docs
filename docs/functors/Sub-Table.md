@@ -42,6 +42,8 @@ This functor must be placed inside a [Table Manager](Table-Manager.html) contain
 
 Sub-tables registered under the same Table Name, distinguished by their Keys, are later combined into a single table by [Merge Sub Tables](Merge-Sub-Tables.html).
 
+See [SubTable](../Manipulating-Tables-And-Lookup-Tables.html#subtable) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 SubTable

@@ -37,6 +37,8 @@ The numbers assigned by the Number Table hooks must be sequential, starting at 1
 
 The tables can later be retrieved individually from the group with [Extract Lookup Table From Lookup Table Group](Extract-Lookup-Table-From-Lookup-Table-Group.html), using the same sequential number as the index.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CreateLookupTableGroup

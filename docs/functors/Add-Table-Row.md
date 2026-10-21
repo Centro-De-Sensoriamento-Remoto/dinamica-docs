@@ -38,6 +38,8 @@ The tuple corresponding to the new row must have elements corresponding to all o
 
 If a row with the same keys as the given tuple already exists in the input table, the existing row is updated with the new values.
 
+See [AddTableRow](../Manipulating-Tables-And-Lookup-Tables.html#addtablerow) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 AddTableRow

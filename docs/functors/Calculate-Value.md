@@ -56,6 +56,8 @@ All operations are performed using the precision defined by ImageExpression::Val
 
 Null propagation rules and defensive patterns are covered in [Null Value Handling](../Calculate-Functors.html#null-value-handling) in the Calculate Functors documentation.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CalculateValue

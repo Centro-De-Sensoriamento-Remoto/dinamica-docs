@@ -38,6 +38,8 @@ None.
 
 None.
 
+See [SetTableCellValue](../Manipulating-Tables-And-Lookup-Tables.html#settablecellvalue) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 SetTableCellValue

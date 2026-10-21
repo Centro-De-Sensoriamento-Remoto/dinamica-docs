@@ -39,6 +39,8 @@ Gets a value from a table.
 
 If the given keys are not found in the input table and Value If Not Found is not provided, this functor reports an error.
 
+See [GetTableValue](../Manipulating-Tables-And-Lookup-Tables.html#gettablevalue) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 GetTableValue

@@ -40,6 +40,8 @@ The key and value column names of Result are inherited from First Table.
 
 For background on the two set operations this functor can compute, see [relative complement](https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement) and [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference).
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CalcLookupTableDifference

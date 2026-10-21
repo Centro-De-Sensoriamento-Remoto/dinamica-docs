@@ -40,6 +40,8 @@ The key and value column names of Result are inherited from First Table.
 
 For background on this operation, see [set intersection](https://en.wikipedia.org/wiki/Intersection_(set_theory)).
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CalcLookupTableIntersection

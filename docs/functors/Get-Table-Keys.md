@@ -37,6 +37,8 @@ If the first key column of Table is of type Real, its own values are used as the
 
 If the first key column of Table is of type String, each unique string value is assigned a sequential real identifier (1, 2, 3, and so on), stored in Key, while the original string is kept in Value.
 
+See [GetTableKeys](../Manipulating-Tables-And-Lookup-Tables.html#gettablekeys) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 GetTableKeys

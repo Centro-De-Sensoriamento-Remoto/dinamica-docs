@@ -51,6 +51,8 @@ Column Names has the following format:
 | "Column_Name" | Key | String | Name of the corresponding table column. |
 | "Column_Index" | Data | Real | Index of the corresponding table column. |
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 GetTableInfo

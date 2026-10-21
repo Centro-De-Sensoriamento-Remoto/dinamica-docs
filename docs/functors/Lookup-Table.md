@@ -35,6 +35,8 @@ None.
 
 This functor passes its input value to its output unmodified, and can be used to feed the same lookup table into more than one functor, or to hold a constant lookup table.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 LookupTable

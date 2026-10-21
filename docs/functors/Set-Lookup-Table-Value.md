@@ -39,6 +39,8 @@ If Key already has a value assigned in Table, that value is replaced by Value.
 
 This functor was previously known as "UpdateLookupTable"; that name is still accepted for backward compatibility with existing scripts.
 
+See [SetLookupTableValue](../Manipulating-Tables-And-Lookup-Tables.html#setlookuptablevalue) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 SetLookupTableValue

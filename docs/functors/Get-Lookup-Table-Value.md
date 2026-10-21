@@ -40,6 +40,8 @@ If Key is not found in Table and Value If Not Found is not provided, this functo
 
 To find an approximate match, or to interpolate between neighboring keys, instead use a [Calculate Value](Calculate-Value.html), [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), or [Calculate Lookup Table](Calculate-Lookup-Table.html) with one of the Lookup Table Operators described in the Image Expression Type documentation.
 
+See [GetLookupTableValue](../Manipulating-Tables-And-Lookup-Tables.html#getlookuptablevalue) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 GetLookupTableValue

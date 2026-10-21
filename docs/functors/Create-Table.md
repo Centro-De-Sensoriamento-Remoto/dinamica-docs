@@ -31,6 +31,8 @@ This functor creates a new table using a model table as a format.
 
 The new table is created removing all elements from the input table.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CreateTable

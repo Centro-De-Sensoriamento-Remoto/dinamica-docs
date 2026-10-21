@@ -41,6 +41,8 @@ If a key column is moved to a position occupied by a data column, or a data colu
 
 A New Column Index of 0 moves the column to the last position among key columns or data columns, depending on which kind of column is being moved.
 
+See [ReorderTableColumn](../Manipulating-Tables-And-Lookup-Tables.html#reordertablecolumn) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 ReorderTableColumn

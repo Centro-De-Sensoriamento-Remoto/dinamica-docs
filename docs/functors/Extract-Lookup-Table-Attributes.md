@@ -51,6 +51,8 @@ Dynamic key and value attributes and their keys (present only when Extract Dynam
 
 The minimum and maximum key or value attributes are only determined when Table has at least one entry.
 
+See [ExtractLookupTableAttributes](../Manipulating-Tables-And-Lookup-Tables.html#extractlookuptableattributes) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 ExtractLookupTableAttributes

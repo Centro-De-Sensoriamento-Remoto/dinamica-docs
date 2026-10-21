@@ -71,6 +71,8 @@ This functor reports an error if the resulting sub-table would have no key colum
 
 This functor also reports an error if Table is a lookup table, or a table with fewer than two key columns.
 
+See [GetTableFromKey](../Manipulating-Tables-And-Lookup-Tables.html#gettablefromkey) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 GetTableFromKey

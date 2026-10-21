@@ -38,6 +38,8 @@ Sorts the content of a lookup table.
 
 The keys of Values Or Ids indicate only the order of its entries, not their content; the same is true of Sorted Values Or Ids.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 SortLookupTable

@@ -41,6 +41,8 @@ This functor is obsolete; use [Calculate Lookup Table Values](Calculate-Lookup-T
 
 All operations are performed using the precision defined by ImageExpression::Value; the final result is then converted to LookupTable::Value.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CalculateLookupTable2

@@ -36,6 +36,8 @@ None.
 
 None.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 ExtractLookupTableFromLookupTableGroup

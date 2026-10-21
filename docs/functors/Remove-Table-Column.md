@@ -36,6 +36,8 @@ None.
 
 It is not possible to remove the last remaining data column from a table.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 RemoveTableColumn

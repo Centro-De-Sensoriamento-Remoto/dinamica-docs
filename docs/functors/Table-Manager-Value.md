@@ -35,6 +35,8 @@ None.
 
 This functor is typically used to make the table manager instance from an enclosing [Table Manager](Table-Manager.html) container available to more than one functor at once.
 
+See [TableManagerValue](../Manipulating-Tables-And-Lookup-Tables.html#tablemanagervalue) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 TableManagerValue

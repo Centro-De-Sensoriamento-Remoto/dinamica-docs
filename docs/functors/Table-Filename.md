@@ -35,6 +35,8 @@ None.
 
 This functor passes its input value to its output unmodified, and can be used to feed the same table filename into more than one functor, or to hold a constant table filename.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 TableFilename

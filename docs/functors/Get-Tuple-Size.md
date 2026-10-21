@@ -35,6 +35,8 @@ None.
 
 None.
 
+See [GetTupleSize](../Manipulating-Tables-And-Lookup-Tables.html#gettuplesize) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 GetTupleSize

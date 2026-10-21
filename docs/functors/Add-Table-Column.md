@@ -62,6 +62,8 @@ adding a column named "New_Column" of type "Real" at position 2 results in
 | 1 | @#C5D9FF: 0.0 | 6 | 1.2 | 4.2 |
 | 2 | @#C5D9FF: 0.0 | 2 | 3.2 | 6.1 |
 
+See [AddTableColumn](../Manipulating-Tables-And-Lookup-Tables.html#addtablecolumn) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 AddTableColumn

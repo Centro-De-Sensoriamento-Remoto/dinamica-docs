@@ -41,6 +41,8 @@ This functor must be placed inside a [Table Manager](Table-Manager.html) contain
 
 Each sub-table combined into the result must have been previously registered under the same Table Name by a [Sub Table](Sub-Table.html) functor connected to the same table manager.
 
+See [MergeSubTables](../Manipulating-Tables-And-Lookup-Tables.html#mergesubtables) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 MergeSubTables

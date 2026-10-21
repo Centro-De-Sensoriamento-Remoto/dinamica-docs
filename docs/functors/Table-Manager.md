@@ -37,7 +37,7 @@ None.
 
 [Sub Table](Sub-Table.html) and [Merge Sub Tables](Merge-Sub-Tables.html) functors placed inside this container automatically bind their advanced Table Manager port to this container's internal output.
 
-[Download an example model](https://dinamicaego.com/dokuwiki/lib/exe/fetch.php?media=regionmanagerexample.zip) demonstrating the use of Table Manager.
+See [TableManager](../Manipulating-Tables-And-Lookup-Tables.html#tablemanager) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
 
 ## Internal Name
 

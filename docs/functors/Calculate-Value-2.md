@@ -41,6 +41,8 @@ Maps cannot be connected to this functor, since it has no cell context.
 
 See [Calculate Value](Calculate-Value.html) for further notes on syntax and available expression features, which apply equally to this functor.
 
+See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
 ## Internal Name
 
 CalculateValue2

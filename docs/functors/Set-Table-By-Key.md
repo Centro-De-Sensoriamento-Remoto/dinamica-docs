@@ -93,6 +93,8 @@ If the given keys are not yet present in Table and Sub Table is empty, this func
 
 Table's own column names are always used as the column names of the resulting table, regardless of Ignore Column Names.
 
+See [SetTableByKey](../Manipulating-Tables-And-Lookup-Tables.html#settablebykey) in [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for how this functor is used together with other table functors.
+
 ## Internal Name
 
 SetTableByKey
