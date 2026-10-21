@@ -50,7 +50,7 @@ Patcher searches for cells around a chosen location for a combined transition by
 
 Patch isometry is a number varying from 0 to 2. Patches assume a more isometric form as this number increases.
 
-The size of new patches and expansion fringes is set according to a lognormal probability distribution, so the mean and variance of the patch sizes to be formed must be specified.
+The size of each new patch or expansion fringe is drawn from a normal distribution with the given mean and variance, converted from hectares to cells, and truncated to a whole number of cells, with a minimum of one cell. When the variance is zero, every patch or fringe has the mean size.
 
 Probabilities carries one spatial-probability layer per transition, named `probability_i_to_j`, where i and j are the origin and destination categories of the transition.
 
