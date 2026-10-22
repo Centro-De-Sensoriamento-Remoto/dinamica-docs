@@ -45,6 +45,8 @@ Most data types can be passed from functors outside this container to functors i
 
 Values produced by functors inside this container, such as numbers, strings, tables and lookup tables, can be used by functors outside it, except maps: using a map produced inside the container outside it raises an error.
 
+A table or lookup table cannot be connected from outside this container directly to a contained functor's port of [Base Table Type](../types/Base-Table-Type.html), such as the port of [Number Table](Number-Table.html); place a [Table](Table.html) or [Lookup Table](Lookup-Table.html) carrier inside the container between them. See [Tables Passed Into a Run Remotely Container](../Remote-Execution.html#tables-passed-into-a-run-remotely-container).
+
 Raises an error if a contained functor's output port of type Map has a viewer attached to it.
 
 Reports a warning, and ignores the port's data, if a contained functor's output port has a viewer attached but its type cannot be displayed from inside this container.
