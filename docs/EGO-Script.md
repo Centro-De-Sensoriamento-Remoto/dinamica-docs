@@ -192,7 +192,7 @@ _ _ _ _ _ _ coordinateType _ _ := GetProjectionInfo landscape;
 patchInfo _ _ := GetElevationGraphInfo elevationGraph .no .no;
 ```
 
-A functor with no outputs at all is written as a bare call, with no assignment and no underscore — there is nothing to discard. [Print](functors/Print.html) and [Save Map](functors/Save-Map.html) are the common cases.
+A functor with no outputs at all is written as a bare call, with no assignment and no underscore — there is nothing to discard. [Save Map](functors/Save-Map.html) and [Save Table](functors/Save-Table.html) are the common cases.
 
 ### Nominal syntax
 
@@ -319,7 +319,7 @@ Not all containers are about control flow. Some functors are implemented as cont
 [Print](functors/Print.html) is the clearest example. It prints an `initialMessage` before its contents run and a `finalMessage` after they complete. Because the calculation lives inside the container, the ordering is guaranteed:
 
 ```
-Print "Beginning execution" "Finished execution" {{
+_ := Print "Beginning execution" "Finished execution" {{
     // Perform some complicated computation that produces a numeric result...
     result := ...;
 }};
@@ -328,18 +328,30 @@ Print "Beginning execution" "Finished execution" {{
 Either message can be omitted with `.none`. If the final message needs to include a value produced by the computation, a nested [Print](functors/Print.html) can be placed at the end of the body. The inner `Print` only runs after `result` is computed, since it depends on it — and [Create String](functors/Create-String.html) with [Number Value](functors/Number-Value.html) is used to embed the computed value in the message string:
 
 ```
-Print "Beginning execution" .none {{
+_ := Print "Beginning execution" .none {{
     // Perform some complicated computation that produces a numeric result...
     result := ...;
 
     message := CreateString "Finished execution. Result: <v1>" {{
         NumberValue result 1;
     }};
-    Print message .none {{ }};
+    _ := Print message .none {{ }};
 }};
 ```
 
 This would be impossible to guarantee with plain functors in a dataflow language — without the container, nothing would prevent the calculation from running before or after either print, since there is no data dependency between them.
+
+Bracketing a computation is not the only way to order a [Print](functors/Print.html). Like other containers, it has a `sequenceInput` and a `sequenceOutput` (see [Sequence ports](#sequence-ports), below), so a message can also be printed after a functor or container that is outside of it, or be placed before one. The ordering is only a constraint: a message connected this way is never printed before the functor it waits for, but other functors may still run between the two. As `sequenceInput` comes after the other optional inputs of `Print`, it is usually bound by name:
+
+```
+// Loops over all the ids; loopDone is available only after the loop finishes.
+loopDone := ForEach allIds {{
+    // ...
+}};
+
+// Printed only after the loop has finished.
+_ := Print { initialMessage = "Loop finished", sequenceInput = loopDone } {{ }};
+```
 
 ### Sequence ports
 
@@ -532,11 +544,11 @@ maskLoaded := SkipOnError .yes {{
 // maskLoaded is SkipOnError's own boolean output; mask itself -- preserved
 // on success -- is what the matching branch below actually needs.
 _ := IfThen maskLoaded {{
-    Print "Mask loaded; masking enabled" .none {{ }};
+    _ := Print "Mask loaded; masking enabled" .none {{ }};
 }};
 
 _ := IfNotThen maskLoaded {{
-    Print "Mask not found; continuing without one" .none {{ }};
+    _ := Print "Mask not found; continuing without one" .none {{ }};
 }};
 ```
 

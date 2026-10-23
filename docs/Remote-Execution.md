@@ -208,7 +208,7 @@ dinamica.outputs['selectedArea'] = area
         NumberValue selectedArea 1;
     }};
 
-    Print { initialMessage = message } {{ }};
+    _ := Print { initialMessage = message } {{ }};
 }};
 ```
 

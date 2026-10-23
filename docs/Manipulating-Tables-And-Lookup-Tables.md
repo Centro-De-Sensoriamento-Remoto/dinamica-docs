@@ -170,7 +170,7 @@ myLookupTable := LookupTable [
     3 30
 ];
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach myLookupTable {{
         key := Step;
         value := GetLookupTableValue myLookupTable key;
@@ -180,7 +180,7 @@ LogPolicy { maximumLogLevel = .result } {{
             NumberValue value 2;
         }};
 
-        Print { initialMessage = message, logLevel = .result } {{ }};
+        _ := Print { initialMessage = message, logLevel = .result } {{ }};
     }};
 }};
 ```
@@ -202,7 +202,7 @@ myTable := Table [
 
 allKeys := GetTableKeys myTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach allKeys {{
         key := Step;
         value := GetTableValue myTable key "Population";
@@ -212,7 +212,7 @@ LogPolicy { maximumLogLevel = .result } {{
             NumberValue value 2;
         }};
 
-        Print { initialMessage = message, logLevel = .result } {{ }};
+        _ := Print { initialMessage = message, logLevel = .result } {{ }};
     }};
 }};
 ```
@@ -228,7 +228,7 @@ myStringKeyedTable := Table [
 
 indexToKey := GetTableKeys myStringKeyedTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach indexToKey {{
         index := Step;
         key := GetTableValue indexToKey index 2;
@@ -239,7 +239,7 @@ LogPolicy { maximumLogLevel = .result } {{
             NumberValue value 1;
         }};
 
-        Print { initialMessage = message, logLevel = .result } {{ }};
+        _ := Print { initialMessage = message, logLevel = .result } {{ }};
     }};
 }};
 ```
@@ -255,7 +255,7 @@ myTable := Table [
 
 allKeys := GetTableKeys myTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach allKeys {{
         key := Step;
         population := GetTableValue myTable key "Population";
@@ -267,7 +267,7 @@ LogPolicy { maximumLogLevel = .result } {{
             NumberValue area 3;
         }};
 
-        Print { initialMessage = message, logLevel = .result } {{ }};
+        _ := Print { initialMessage = message, logLevel = .result } {{ }};
     }};
 }};
 ```
@@ -382,7 +382,7 @@ priceTable := Table [
 
 yearKeys := GetTableKeys priceTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach yearKeys {{
         year := Step;
         pricesInYear := GetTableFromKey priceTable year;
@@ -402,7 +402,7 @@ LogPolicy { maximumLogLevel = .result } {{
                 NumberValue price 2;
             }};
 
-            Print { initialMessage = message, logLevel = .result } {{ }};
+            _ := Print { initialMessage = message, logLevel = .result } {{ }};
         }};
     }};
 }};
@@ -421,7 +421,7 @@ priceTable := Table [
 
 yearKeys := GetTableKeys priceTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach yearKeys {{
         year := Step;
         pricesInYear := GetTableFromKey priceTable year;
@@ -443,7 +443,7 @@ LogPolicy { maximumLogLevel = .result } {{
                 NumberValue price 2;
             }};
 
-            Print { initialMessage = message, logLevel = .result } {{ }};
+            _ := Print { initialMessage = message, logLevel = .result } {{ }};
         }};
     }};
 }};
@@ -637,7 +637,7 @@ myTable := Table [
 
 allKeys := GetTableKeys myTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach allKeys {{
         key := Step;
         row := GetTableRow key myTable;
@@ -676,7 +676,7 @@ LogPolicy { maximumLogLevel = .result } {{
                 NumberString cellDisplay 1;
             }};
 
-            Print { initialMessage = message, logLevel = .result } {{ }};
+            _ := Print { initialMessage = message, logLevel = .result } {{ }};
         }};
     }};
 }};
@@ -901,8 +901,8 @@ message := CreateString "(Average across stations for Day 1: <v1>, StdDev: <v2>)
     NumberValue stdDevAcrossStations 2;
 }};
 
-LogPolicy { maximumLogLevel = .result } {{
-    Print { initialMessage = message, logLevel = .result } {{ }};
+_ := LogPolicy { maximumLogLevel = .result } {{
+    _ := Print { initialMessage = message, logLevel = .result } {{ }};
 }};
 ```
 
@@ -969,8 +969,8 @@ message := CreateString "(Average across days for Station 1: <v1>, StdDev: <v2>)
     NumberValue stdDevForStation 2;
 }};
 
-LogPolicy { maximumLogLevel = .result } {{
-    Print { initialMessage = message, logLevel = .result } {{ }};
+_ := LogPolicy { maximumLogLevel = .result } {{
+    _ := Print { initialMessage = message, logLevel = .result } {{ }};
 }};
 ```
 
@@ -990,8 +990,8 @@ message := CreateString "(Average across stations for Day 1: <v1>, StdDev: <v2>)
     NumberValue stdDevForDay 2;
 }};
 
-LogPolicy { maximumLogLevel = .result } {{
-    Print { initialMessage = message, logLevel = .result } {{ }};
+_ := LogPolicy { maximumLogLevel = .result } {{
+    _ := Print { initialMessage = message, logLevel = .result } {{ }};
 }};
 ```
 
@@ -1094,7 +1094,7 @@ reshapedTable := ExtractStructTable result "reshapedTable";
 
 allIds := GetTableKeys reshapedTable;
 
-LogPolicy { maximumLogLevel = .result } {{
+_ := LogPolicy { maximumLogLevel = .result } {{
     _ := ForEach allIds {{
         id := Step;
         row := GetTableRow id reshapedTable;
@@ -1128,7 +1128,7 @@ LogPolicy { maximumLogLevel = .result } {{
                 NumberString cellDisplay 1;
             }};
 
-            Print { initialMessage = message, logLevel = .result } {{ }};
+            _ := Print { initialMessage = message, logLevel = .result } {{ }};
         }};
     }};
 }};

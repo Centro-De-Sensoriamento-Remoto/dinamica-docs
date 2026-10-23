@@ -22,10 +22,13 @@ None.
 | Maximum Granularity | [Non Negative Integer Value Type](../types/Non-Negative-Integer-Value-Type.html) | Maximum granularity used to split a job into parallel tasks. Set to 0 to use the default granularity. | 0 |
 | Force Specified Granularity | [Boolean Value Type](../types/Boolean-Value-Type.html) | Always use the granularity specified in Maximum Granularity, even when the current granularity is already within that limit. | No |
 | Computing Target | [Enum Type](../types/Enum-Type.html) | How the contained functors should be run: Default suggests the use of accelerator computing devices when available, while still allowing regular processors to be used; Processors Only forces the use of regular processors; Accelerator Devices Only forces the use of accelerator computing devices, and raises an error during execution if none are available. | None |
+| Sequence Input | [None Type](../types/None-Type.html) | Ensures that the functor connected to this port finishes executing before this container starts. | None |
 
 ## Outputs
 
-None.
+| Name | Type | Description |
+| --- | --- | --- |
+| Sequence Output | [None Type](../types/None-Type.html) | Connect this port to another container's Sequence Input to make this container finish executing before that other container starts. |
 
 ## Group
 
