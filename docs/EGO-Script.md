@@ -355,7 +355,7 @@ _ := Print { initialMessage = "Loop finished", sequenceInput = loopDone } {{ }};
 
 ### Sequence ports
 
-Most container functors expose two optional sequencing ports alongside their regular inputs and outputs:
+Most container functors expose two sequencing ports alongside their regular inputs and outputs, an optional input and an output:
 
 - `sequenceInput` — a value connected here has no effect on the computation, but forces the functor that produced that value to complete before this container starts.
 - `sequenceOutput` — connecting this output to another container's `sequenceInput` forces this container to complete before the other one starts.
@@ -372,7 +372,7 @@ _ := Group sequenceOut {{
 }};
 ```
 
-> **Note:** Sequence ports are only needed when two containers have no natural data dependency between them — if one container already produces a value that the other consumes, the ordering is already established and no sequencing port is required. Before sequence ports were available, models used a **forced-dependency pattern** — creating a dummy data value inside one container and consuming it inside another to manufacture an artificial data dependency. This idiom still appears in older scripts but is now a last resort, used only for functors that do not expose `sequenceInput` and `sequenceOutput` ports (such as [Skip On Error](functors/Skip-On-Error.html) and [Skip All On Error](functors/Skip-All-On-Error.html), which instead expose an `executionCompletedSuccessfully` boolean output that can serve the same purpose).
+> **Note:** Sequence ports are only needed when two containers have no natural data dependency between them — if one container already produces a value that the other consumes, the ordering is already established and no sequencing port is required. Before sequence ports were available, models used a **forced-dependency pattern** — creating a dummy data value inside one container and consuming it inside another to manufacture an artificial data dependency. This idiom still appears in older scripts but is now a last resort, used only for functors that do not expose `sequenceInput` and `sequenceOutput` ports, such as [Workdir](functors/Workdir.html), [Region](functors/Region.html), [Region Manager](functors/Region-Manager.html) and [Table Manager](functors/Table-Manager.html). [Skip On Error](functors/Skip-On-Error.html) and [Skip All On Error](functors/Skip-All-On-Error.html) also lack these ports, but they expose an `executionCompletedSuccessfully` boolean output that can serve the same purpose.
 
 ### Internal output ports
 
@@ -421,7 +421,7 @@ _ := DoWhile .none {{
 
 The `SetWhileCondition` auto-binding works in both directions: the output is automatically wired to whichever enclosing `While` or `DoWhile` contains it, and the loop evaluates it before each iteration to decide whether to run the body again.
 
-A container may also expose a sequencing-only internal port (carrying no data) used to force one container to finish before another begins — see [Sequence ports](#sequence-ports).
+A container may also expose a pair of sequencing-only ordinary ports (carrying no data), an input and an output, used to force one container to finish before another begins. They are not internal ports — see [Sequence ports](#sequence-ports).
 
 ### Auto-bound ports
 
