@@ -26,9 +26,9 @@ Maps, tables, lookup tables and Weights of Evidence files can be loaded from [zi
 
 [Zip](https://en.wikipedia.org/wiki/Zip_(file_format)) files are useful to pack all files used by a model in a single archive. However, zipping all files does not increase the amount of data that Dinamica EGO can handle simultaneously. Behind the curtains, Dinamica unzips the files into a temporary folder and loads them from there.
 
-[Zip](https://en.wikipedia.org/wiki/Zip_(file_format)) files are also limited to 4 GBytes in Dinamica. If you use a file outside the zip archive, these files can be much bigger than that.
-
 To read a file located in a [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) file, you have to use a [Workdir](functors/Workdir.html) container. Then, edit the [Workdir](functors/Workdir.html) and use the [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) file name in the "folder" input port. Place a file loader ([Load Map](functors/Load-Map.html), [Load Weights](functors/Load-Weights.html) etc) inside the [Workdir](functors/Workdir.html) container. The file name mentioned in the file loader must match the name used by the file contained in the [zip](https://en.wikipedia.org/wiki/Zip_(file_format)) archive.
+
+The same approach works for maps stored in `.tar`, `.tar.gz`, `.tgz`, `.7z`, `.rar` and `.gz` files, and for archives stored at a URL. The [Workdir](functors/Workdir.html) page lists all the supported locations.
 
 ## Loops
 

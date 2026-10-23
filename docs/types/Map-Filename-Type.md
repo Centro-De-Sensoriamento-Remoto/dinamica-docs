@@ -7,7 +7,7 @@ grand_parent: "Core Concepts"
 {% raw %}
 # Map Filename Type
 
-A Map Filename is a filename referring to a map file on disk. The file's format is automatically selected based on the filename's extension, and if no path is given, the file is located relative to the model script.
+A Map Filename is a filename referring to a map file on disk. The file's format is automatically selected based on the filename's extension, and if no path is given, the file is located relative to the model script. The filename can also be a URL, an `s3://`, `mem://` or `vsi://` location, or a STACIT query; see [Load Map](../functors/Load-Map.html).
 
 ## GUI Editor
 

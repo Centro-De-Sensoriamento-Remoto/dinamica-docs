@@ -7,7 +7,7 @@ grand_parent: "Core Concepts"
 {% raw %}
 # Folder Type
 
-A Folder value is a path to a folder, directory, or zip archive. It's the required input to the [Workdir](../functors/Workdir.html) container — see [Workdir Type](Workdir-Type.html) for how that container turns a Folder path into an active working directory — and it's also what [Folder Junction](../functors/Folder-Junction.html) picks between when choosing one of two possible folders coming from different execution pipelines.
+A Folder value is a path to a folder, directory, or archive. When used by [Workdir](../functors/Workdir.html), it can also be a URL, an `s3://`, `mem://` or `vsi://` location, or a STACIT query. It's the required input to the [Workdir](../functors/Workdir.html) container — see [Workdir Type](Workdir-Type.html) for how that container turns a Folder path into an active working directory — and it's also what [Folder Junction](../functors/Folder-Junction.html) picks between when choosing one of two possible folders coming from different execution pipelines.
 
 ## GUI Editor
 
