@@ -52,7 +52,7 @@ When an expression references more than one connected map, all of them are evalu
 
 ### Available expression features
 
-All expression language features are available: image operators (`iX`, `iX[line,col]`), the `line` and `column` spatial keywords, lookup table operators ([section 5](#5-lookup-table-operators)), multi-column table operators ([section 6](#6-multi-column-table-operators)), neighbourhood functions (`nbMin`, `nbMax`, `nbAverage`, etc. — [section 7](#7-image-neighborhood-functions)), neighbourhood indexing (`nbMinRef`, `nbMaxRef` — [section 8](#8-image-neighborhood-indexing-functions)), and the convolution operator (`nbConvol` — [section 9](#9-convolution-operator)).
+All expression language features are available: image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`), the `line` and `column` spatial keywords, lookup table operators ([section 5](#5-lookup-table-operators)), multi-column table operators ([section 6](#6-multi-column-table-operators)), neighbourhood functions (`nbMin`, `nbMax`, `nbAverage`, etc. — [section 7](#7-image-neighborhood-functions)), neighbourhood indexing (`nbMinRef`, `nbMaxRef` — [section 8](#8-image-neighborhood-indexing-functions)), and the convolution operator (`nbConvol` — [section 9](#9-convolution-operator)).
 
 ---
 
@@ -106,7 +106,7 @@ Evaluates an expression **once** and returns a single **scalar value**. Because 
 
 **Available:** all arithmetic and logical operators (sections [1](#1-general-operators) and [2](#2-general-functions)), scalar value references (`vX`), and lookup table queries (`tX[...]`) in all single-key and multi-column forms ([section 5](#5-lookup-table-operators), [section 6](#6-multi-column-table-operators)).
 
-**Not available:** image operators (`iX`, `iX[line,col]`), the `line` and `column` spatial keywords, neighbourhood functions, neighbourhood indexing functions, and the convolution operator. These all require a cell or row context that does not exist in [Calculate Value](functors/Calculate-Value.html).
+**Not available:** image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`), the `line` and `column` spatial keywords, neighbourhood functions, neighbourhood indexing functions, and the convolution operator. These all require a cell or row context that does not exist in [Calculate Value](functors/Calculate-Value.html).
 
 ---
 
@@ -139,7 +139,7 @@ Within the expression, **`line` refers to the key of the current row** being ite
 
 **Available:** arithmetic and logical operators (sections [1](#1-general-operators) and [2](#2-general-functions)), scalar references (`vX`), lookup table queries (`tX[...]`) in all single-key and multi-column forms ([section 5](#5-lookup-table-operators), [section 6](#6-multi-column-table-operators)), `line` (as the current row key), and `column` (as the current row's value in the base lookup table).
 
-**Not available:** `iX`, `iX[line,col]`, neighbourhood functions, neighbourhood indexing, and convolution. There is no spatial grid.
+**Not available:** `iX`, `iX[line,col]`, `iX[[line,col]]`, neighbourhood functions, neighbourhood indexing, and convolution. There is no spatial grid.
 
 ---
 
@@ -312,6 +312,7 @@ Available in all five calculator functors.
 | --- | --- | --- | --- |
 | Get Image Value | `iX` | Returns the value of image X at the **current cell**. | `i2` |
 | Get Image Value At Location | `iX[LINE_EXPR, COL_EXPR]` | Returns the value of image X at the **specified (line, column) coordinate**. Coordinates outside the image boundary are **mirrored** back into range. For a row coordinate `cellLine` in an image of N rows, `cellLine` is normally expected to be in the range \[1, N\]. When `cellLine` is outside this range, it is mirrored back: if `cellLine` ≤ 0, the effective row is `1 − cellLine` (for instance, `cellLine` = 0 → row 1, `cellLine` = −1 → row 2, `cellLine` = −2 → row 3); if `cellLine` > N, the effective row is `2N + 1 − cellLine` (for instance, `cellLine` = N+1 → row N, `cellLine` = N+2 → row N−1, `cellLine` = N+3 → row N−2). The same formula applies independently to the column coordinate `cellCol`. If the target cell is null, **returns 0** (not null). | `i1[line - 1, column - 2]` |
+| Get Image Value At Location (null-preserving) | `iX[[LINE_EXPR, COL_EXPR]]` | Same as `iX[LINE_EXPR, COL_EXPR]` (1-indexed coordinates, out-of-bounds coordinates mirrored back into range), except that **returns null** when the target cell is null. The null propagates through the rest of the expression like any other null value. It is accepted wherever `iX[LINE_EXPR, COL_EXPR]` is. | `i1[[line - 1, column]]` |
 | Get Image Null Sentinel Value | `null(iX)` | Returns the **numeric sentinel value** stored in image X to represent missing data (e.g. −1, 32767, or any other number defined when the image was created). Unlike the abstract `null` keyword, this is a real number that participates normally in arithmetic — but be aware that using it as if it were a regular data value may produce misleading results. | `if null(i2) > 2 then 1 else null` |
 | Get Line Number | `line` | In map calculators: returns the **row index** of the current cell, **counting from 1**. In lookup table calculators: returns the **key of the current row**. | `line + 1` |
 | Get Column Number | `column` | In map calculators: returns the **column index** of the current cell being processed, **counting from 1**. In lookup table calculators: returns the **value associated with the key of the current row** in the base lookup table. | `if column / 2 > 50 then 1 else null` |
@@ -578,7 +579,7 @@ Guarding the test with `isNull` fixes it: `if not isNull(i2) and i2 = 1 then 1 e
 
 > **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only. The two exceptions below involve `iX` references and neighbourhood functions, which do not exist in the other three calculator functors.
 
-- **Coordinate lookup** `iX[LINE_EXPR, COL_EXPR]` — accessing a map at a specific coordinate returns **0**, not null, when the target cell **is null**. Coordinates that fall **outside the image boundary** are mirrored back into range rather than producing an error. For a row coordinate `cellLine` in an image of N rows, `cellLine` is normally expected to be in the range \[1, N\]. When `cellLine` is outside this range, it is mirrored back: if `cellLine` ≤ 0, the effective row is `1 − cellLine` (for instance, `cellLine` = 0 → row 1, `cellLine` = −1 → row 2, `cellLine` = −2 → row 3); if `cellLine` > N, the effective row is `2N + 1 − cellLine` (for instance, `cellLine` = N+1 → row N, `cellLine` = N+2 → row N−1, `cellLine` = N+3 → row N−2). The same formula applies independently to the column coordinate `cellCol`. It can be a source of subtle bugs: an expression that tests `i1[line-1, column] > 0` will silently treat a null neighbour as zero rather than null. A table or lookup-table key lookup (`tX[EXPR]`) that finds no matching key still returns null as normal — this exception applies only to map coordinate lookups.
+- **Coordinate lookup** `iX[LINE_EXPR, COL_EXPR]` — accessing a map at a specific coordinate returns **0**, not null, when the target cell **is null**. Coordinates that fall **outside the image boundary** are mirrored back into range rather than producing an error. For a row coordinate `cellLine` in an image of N rows, `cellLine` is normally expected to be in the range \[1, N\]. When `cellLine` is outside this range, it is mirrored back: if `cellLine` ≤ 0, the effective row is `1 − cellLine` (for instance, `cellLine` = 0 → row 1, `cellLine` = −1 → row 2, `cellLine` = −2 → row 3); if `cellLine` > N, the effective row is `2N + 1 − cellLine` (for instance, `cellLine` = N+1 → row N, `cellLine` = N+2 → row N−1, `cellLine` = N+3 → row N−2). The same formula applies independently to the column coordinate `cellCol`. It can be a source of subtle bugs: an expression that tests `i1[line-1, column] > 0` will silently treat a null neighbour as zero rather than null. A table or lookup-table key lookup (`tX[EXPR]`) that finds no matching key still returns null as normal — this exception applies only to map coordinate lookups. To get a null result instead, use the null-preserving form `iX[[LINE_EXPR, COL_EXPR]]`, which returns null when the target cell is null.
 - **Neighbourhood functions** `nbN(iX, h, w)` — operators such as `nbSum`, `nbAverage`, `nbMax`, and so on aggregate over a window of cells and **exclude null cells from the calculation**. If `i1` is null at the current cell, the neighbourhood function simply ignores it and aggregates the remaining non-null cells in the window.
 
 ---
@@ -1008,7 +1009,7 @@ The steps differ by group of calculator functors. Each group is described separa
 - **Native compilation.** Expression calculations across all five calculator functors can be compiled to native code automatically (requires the optional native expression support package), delivering near-C performance — no user action is needed beyond installing the package.
 - **Overflow produces null.** If the result exceeds the Cell Type's range, the cell becomes null rather than wrapping. Applies to [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only — the only two functors with a Cell Type parameter.
 - **Neighbourhood functions ignore nulls.** All `nbN` operators ([section 7](#7-image-neighborhood-functions)) skip null cells in their window; only non-null cells contribute to the statistic.
-- **`iX[LINE, COL]` returns 0, not null, when the target cell is null.** Coordinates outside the image boundary are mirrored rather than treated as out-of-bounds. This is the one exception to the general null-propagation rule. See [section 4](#4-image-operators-and-functions) and [Null Value Handling](#null-value-handling).
+- **`iX[LINE, COL]` returns 0, not null, when the target cell is null.** Coordinates outside the image boundary are mirrored rather than treated as out-of-bounds. This is the one exception to the general null-propagation rule. See [section 4](#4-image-operators-and-functions) and [Null Value Handling](#null-value-handling). Use `iX[[LINE, COL]]` to get null instead.
 
 ---
 
