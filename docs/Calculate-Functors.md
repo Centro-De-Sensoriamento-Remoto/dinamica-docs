@@ -200,6 +200,7 @@ Every construct in the language — including a conditional — is itself just a
 | `vX` | Connected scalar value X | All five functors |
 | `line` | Spatial row index of the current cell, **starting at 1** *(map calculators)* **or** key of the current row *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
 | `column` | Spatial column index of the current cell, **starting at 1** *(map calculators)* **or** value associated with the current row's key *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
+| `_name` | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All five functors |
 
 X ranges from 1 to 100. In logical expressions, **zero is false** and any non-zero value is true.
 
@@ -212,6 +213,7 @@ The table below lists all infix and prefix operators in **descending precedence 
 | Precedence | Operator | Syntax | Description | Example |
 | --- | --- | --- | --- | --- |
 | 1 | **Conditional** | `if EXPR then EXPR else EXPR` | Evaluates to the second expression if the condition is true, otherwise the third. Can be nested. | `if i1 > 0 then i1 else 0` |
+| 1 | **Local Variables** | `let _a: EXPR, _b: EXPR in EXPR` | Binds one or more local variables and evaluates the body with them in scope. See [Local Variables](#local-variables-let-in). | `let _a: i1 * 2 in _a + _a ^ 2` |
 | 2 | **Boolean Or** | `EXPR or EXPR` / `EXPR \|\| EXPR` | True if either argument is true. **Short-circuit evaluated** — the right side is skipped if the left is already true. | `isNull(i1) \|\| i1 > 100` |
 | 2 | **Boolean And** | `EXPR and EXPR` / `EXPR && EXPR` | True only if both arguments are true. **Short-circuit evaluated** — the right side is skipped if the left is already false. | `not isNull(i1) and i1 > 0` |
 | 3 | **Equal** | `EXPR = EXPR` / `EXPR == EXPR` | True if both sides are equal. | `i1 == 2` |
@@ -229,6 +231,23 @@ The table below lists all infix and prefix operators in **descending precedence 
 | 8 | **Catch Error (`?`)** | `EXPR ? EXPR` | If the left expression produces an algebraic error (division by zero, key not found, etc.), evaluate and return the **fallback expression** instead. The fallback can be any expression, including another calculation, a conditional, or a nested `?`. | `(i1 / i2) ? (i1 - i2)` |
 | 9 | **Boolean Not** | `not EXPR` / `! EXPR` | Inverts a boolean value. | `not isNull(i1)` |
 | 9 | **Negate** | `-EXPR` | Arithmetic negation. | `-ceil(i1 + i2)` |
+
+## Local Variables (`let ... in`)
+
+A `let` expression gives names to intermediate results so they can be reused without repeating the sub-expression:
+
+```
+let _ndvi: (i1 - i2) / (i1 + i2),
+    _scaled: _ndvi * 100,
+in if _ndvi > 0.3 then _scaled else 0
+```
+
+- Bindings are separated by commas; a trailing comma before `in` is allowed.
+- Each binding is evaluated **once per evaluation unit**, in order, and can use the variables bound before it. A variable cannot be used in its own binding.
+- A variable is visible only inside the `let` that declares it (its later bindings and its body). A nested `let` can declare a variable with the same name as an outer one; the inner one hides the outer one.
+- A `let` is an ordinary expression: it can be used as a function argument, as an operand (inside parentheses) or inside another `let`. The body extends as far to the right as possible.
+- All bindings are evaluated even when the body does not use them, so there is no short-circuit. A binding that results in null makes the variable null; use `isNull(_a)` to test it.
+- Stochastic functions are drawn once per binding: `let _r: rand in _r - _r` is always 0.
 
 ---
 
