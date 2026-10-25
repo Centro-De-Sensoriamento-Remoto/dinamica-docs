@@ -9,7 +9,9 @@ grand_parent: "Functor List"
 
 ## Description
 
-Evaluates an algebraic or logical expression once and returns a single scalar value, in the same way as [Calculate Value](Calculate-Value.html), but performing all internal operations using double-precision reals throughout, rather than the precision defined by ImageExpression::Value.
+**This functor is deprecated and should not be used.** Use [Calculate Value](Calculate-Value.html) instead.
+
+It computes a single value by evaluating an algebraic or logical expression once, in the same way as [Calculate Value](Calculate-Value.html). The only difference is how the data used in the expression is connected: through hooks that identify it by name, instead of by number.
 
 ## Inputs
 
@@ -35,13 +37,15 @@ Evaluates an algebraic or logical expression once and returns a single scalar va
 
 ## Notes
 
-Tables, lookup tables, and scalar values referenced in the expression must be connected through hook functors before the expression is written: tables and lookup tables through [Number Table](Number-Table.html) (referenced as `t1`, `t2`, … in the verbose form), and scalar values through [Number Value](Number-Value.html) (`v1`, `v2`, …).
+The data used in the expression is connected through [Name Table](Name-Table.html) and [Name Value](Name-Value.html) hooks placed inside this container. Each hook gives its data a name, and the expression refers to the data by that name, with the same prefixes used by the [calculator shorthand](../EGO-Script.html#calculator-functor-shorthand): a table or lookup table registered as `rates` is referenced as `%rates`, and a value registered as `threshold` as `$threshold`. The functors that replace this one use [Number Table](Number-Table.html) and [Number Value](Number-Value.html) hooks instead, which identify the data by number (`t1`, `v1`, …).
 
 Maps cannot be connected to this functor, since it has no cell context.
 
-See [Calculate Value](Calculate-Value.html) for further notes on syntax and available expression features, which apply equally to this functor.
+See [Calculate Value](Calculate-Value.html) for the expression features, which apply equally to this functor.
 
 See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
+This functor is kept only so that older models that use it continue to load and run.
 
 ## Internal Name
 

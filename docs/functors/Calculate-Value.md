@@ -50,7 +50,7 @@ Maps cannot be connected — there is no cell context in this functor. In the ab
 
 Image operators (`iX`), the line and column spatial keywords, neighbourhood functions, neighbourhood indexing, and convolution are not available — there is no cell or row context. Available features are arithmetic and logical operators and table and lookup table queries (`tX[...]`) in all single-key and multi-column forms. See [The Expression Language](../Calculate-Functors.html#the-expression-language) for the complete reference, or [Image Expression Type](../types/Image-Expression-Type.html) for the navigable operator index.
 
-All operations are performed using the precision defined by ImageExpression::Value; the final result is then converted to a double-precision real. See [Calculate Value 2](Calculate-Value-2.html) for a variant that instead performs all operations using double precision throughout.
+All operations are performed using the precision defined by ImageExpression::Value; the final result is then converted to a double-precision real.
 
 ### Null value handling
 

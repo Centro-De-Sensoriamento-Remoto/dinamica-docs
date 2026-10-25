@@ -9,9 +9,9 @@ grand_parent: "Functor List"
 
 ## Description
 
-Computes a new lookup table by evaluating an algebraic or logical expression once for every key of a format lookup table.
+**This functor is deprecated and should not be used.** Use [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html) or [Calculate Lookup Table Keys And Values](Calculate-Lookup-Table-Keys-And-Values.html) instead.
 
-This functor is obsolete; use [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html) or [Calculate Lookup Table Keys And Values](Calculate-Lookup-Table-Keys-And-Values.html) instead.
+It computes a lookup table by evaluating an algebraic or logical expression once for every key of a format lookup table, in the same way as [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html). The only difference is how the data used in the expression is connected: through hooks that identify it by name, instead of by number.
 
 ## Inputs
 
@@ -39,9 +39,23 @@ This functor is obsolete; use [Calculate Lookup Table Values](Calculate-Lookup-T
 
 ## Notes
 
+The data used in the expression is connected through [Name Table](Name-Table.html) and [Name Value](Name-Value.html) hooks placed inside this container. Each hook gives its data a name, and the expression refers to the data by that name, with the same prefixes used by the [calculator shorthand](../EGO-Script.html#calculator-functor-shorthand): a table or lookup table registered as `rates` is referenced as `%rates`, and a value registered as `threshold` as `$threshold`. The functors that replace this one use [Number Table](Number-Table.html) and [Number Value](Number-Value.html) hooks instead, which identify the data by number (`t1`, `v1`, …).
+
+For example, this call copies the values of the lookup table registered as `table`:
+
+```
+result := CalculateLookupTable2 [ %table[line] ] formatTable {{
+    NameTable formatTable "table";
+}};
+```
+
 All operations are performed using the precision defined by ImageExpression::Value; the final result is then converted to LookupTable::Value.
 
+See [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html) for the expression features, which apply equally to this functor.
+
 See [Manipulating Tables and Lookup Tables](../Manipulating-Tables-And-Lookup-Tables.html) for techniques that combine the table and lookup table functors.
+
+This functor is kept only so that older models that use it continue to load and run.
 
 ## Internal Name
 

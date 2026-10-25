@@ -9,7 +9,9 @@ grand_parent: "Functor List"
 
 ## Description
 
-**This functor is deprecated.** It computes a new continuous raster map by evaluating an algebraic or logical expression independently for every cell of the output map, in exactly the same way as [Calculate Map](Calculate-Map.html). It is kept only so that older models built with it continue to load and run; new models should use [Calculate Map](Calculate-Map.html) instead.
+**This functor is deprecated and should not be used.** Use [Calculate Map](Calculate-Map.html) instead.
+
+It computes a continuous raster map by evaluating an algebraic or logical expression independently for every cell of the output map, in the same way as [Calculate Map](Calculate-Map.html). The only difference is how the data used in the expression is connected: through hooks that identify it by name, instead of by number.
 
 ## Inputs
 
@@ -38,9 +40,13 @@ grand_parent: "Functor List"
 
 ## Notes
 
-Behaves identically to [Calculate Map](Calculate-Map.html) in every respect except its internal name; see that functor's Notes for the hook mechanism, image virtualization, and null-value handling that both share.
+The data used in the expression is connected through [Name Map](Name-Map.html), [Name Table](Name-Table.html) and [Name Value](Name-Value.html) hooks placed inside this container. Each hook gives its data a name, and the expression refers to the data by that name, with the same prefixes used by the [calculator shorthand](../EGO-Script.html#calculator-functor-shorthand): a map registered as `distance` is referenced as `#distance`, a table or lookup table registered as `rates` as `%rates`, and a value registered as `threshold` as `$threshold`. The functors that replace this one use [Number Map](Number-Map.html), [Number Table](Number-Table.html) and [Number Value](Number-Value.html) hooks instead, which identify the data by number (`i1`, `t1`, `v1`, …).
 
-This functor is obsolete and is retained only for backward compatibility with existing models.
+At least one map must be connected through a Name Map hook, unless Result Format is connected, since the format of the output map is taken from them.
+
+See [Calculate Map](Calculate-Map.html) for image virtualization, null-value handling and the expression features, which apply equally to this functor.
+
+This functor is kept only so that older models that use it continue to load and run.
 
 ## Internal Name
 
