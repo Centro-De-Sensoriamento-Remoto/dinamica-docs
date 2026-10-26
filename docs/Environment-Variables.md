@@ -6,7 +6,7 @@ parent: "Getting Started"
 {% raw %}
 # Environment Variables
 
-Some Dinamica EGO settings can be defined through environment variables. Every variable name starts with `DINAMICA_EGO_X_`, where `X` is Dinamica EGO's major version number. For example, the temporary folder of Dinamica EGO 8 is set with `DINAMICA_EGO_8_TEMP_DIR`.
+Some Dinamica EGO settings can be defined through environment variables. Every variable name starts with `DINAMICA_EGO_X_`, where `X` is Dinamica EGO's major version number. The exception is `DINAMICA_EGO_SKIP_TEMP_CLEANUP`, which has no version number. For example, the temporary folder of Dinamica EGO 8 is set with `DINAMICA_EGO_8_TEMP_DIR`.
 
 ## How Settings Are Looked Up
 
@@ -45,6 +45,7 @@ These variables are meant for development builds and for troubleshooting. Regula
 | `DINAMICA_EGO_X_INSTALLATION_DIRECTORY` | Folder where Dinamica EGO is installed, used to locate its own files (libraries, plugins, and the `Data` folder). It must be defined for Dinamica EGO to start on Windows and Linux; change it only to run Dinamica EGO from another folder, such as a development build. On Windows, the portable Dinamica Console defines it for its own process when it is missing. |
 | `DINAMICA_EGO_X_PDB_PATH` | Windows only. Folder with the debug symbol (`.pdb`) files used to print stack traces when Dinamica EGO crashes. When not defined, the installation folder is used. |
 | `DINAMICA_EGO_X_MAC_DEV_PATH` | macOS only. Folder with the Dinamica EGO binaries, used instead of the folder of the running executable. Intended for development builds. |
+| `DINAMICA_EGO_SKIP_TEMP_CLEANUP` | Not versioned: the name is the same in every Dinamica EGO version. When defined with any non-empty value, the temporary folder is not removed when Dinamica EGO quits, so temporary maps and compiled libraries can be inspected after a run. |
 
 ## Defining an Environment Variable
 
