@@ -213,7 +213,7 @@ The table below lists all infix and prefix operators in **descending precedence 
 | Precedence | Operator | Syntax | Description | Example |
 | --- | --- | --- | --- | --- |
 | 1 | **Conditional** | `if EXPR then EXPR else EXPR` | Evaluates to the second expression if the condition is true, otherwise the third. Can be nested. | `if i1 > 0 then i1 else 0` |
-| 1 | **Local Variables** | `let _a: EXPR, _b: EXPR in EXPR` | Binds one or more local variables and evaluates the body with them in scope. See [Local Variables](#local-variables-let-in). | `let _a: i1 * 2 in _a + _a ^ 2` |
+| 1 | **Local Variables** | `let _a: EXPR, _b: EXPR in EXPR` | Binds one or more local variables and evaluates the body with them in scope. See [Local Variables](#local-variables-let--in). | `let _a: i1 * 2 in _a + _a ^ 2` |
 | 2 | **Boolean Or** | `EXPR or EXPR` / `EXPR \|\| EXPR` | True if either argument is true. **Short-circuit evaluated** — the right side is skipped if the left is already true. | `isNull(i1) \|\| i1 > 100` |
 | 2 | **Boolean And** | `EXPR and EXPR` / `EXPR && EXPR` | True only if both arguments are true. **Short-circuit evaluated** — the right side is skipped if the left is already false. | `not isNull(i1) and i1 > 0` |
 | 3 | **Equal** | `EXPR = EXPR` / `EXPR == EXPR` | True if both sides are equal. | `i1 == 2` |

@@ -37,7 +37,7 @@ During logical expression evaluation, **zero is false** and **any non-zero value
 
 ## Local Variables
 
-A `let ... in` expression binds intermediate results to local variables named with the `_` sigil, for example `let _a: i1 * 2, _b: _a + i2 in _a / _b`. Local variables are valid in both the verbose and abbreviated syntaxes and in all calculator functors. See [Local Variables](../Calculate-Functors.html#local-variables-let-in) for the rules.
+A `let ... in` expression binds intermediate results to local variables named with the `_` sigil, for example `let _a: i1 * 2, _b: _a + i2 in _a / _b`. Local variables are valid in both the verbose and abbreviated syntaxes and in all calculator functors. See [Local Variables](../Calculate-Functors.html#local-variables-let--in) for the rules.
 
 ## Null Value Handling
 
