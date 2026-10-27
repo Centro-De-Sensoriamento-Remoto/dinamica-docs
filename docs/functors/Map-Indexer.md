@@ -1,6 +1,6 @@
 ---
 title: "Map Indexer"
-nav_order: 35
+nav_order: 36
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

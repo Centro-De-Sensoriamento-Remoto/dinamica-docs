@@ -1,6 +1,6 @@
 ---
 title: "Insert Map Layer"
-nav_order: 34
+nav_order: 35
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Extract Struct String"
-nav_order: 5
+nav_order: 6
 parent: "Integration Functors"
 grand_parent: "Functor List"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Extract Categorical Map Attributes"
-nav_order: 28
+nav_order: 29
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

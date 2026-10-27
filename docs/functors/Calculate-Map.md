@@ -9,7 +9,7 @@ grand_parent: "Functor List"
 
 ## Description
 
-Computes a new continuous raster map by evaluating an algebraic or logical expression independently for every cell of the output map. The expression result is always computed as a real (floating-point) value and then converted to the output map's chosen Cell Type. Use this functor when the expression produces continuous or measured values; use [Calculate Categorical Map](Calculate-Categorical-Map.html) instead when the expression produces integer class codes that downstream functors should treat as categories.
+Computes a new continuous raster map by evaluating an algebraic or logical expression independently for every cell of the output map. The expression result is always computed as a real (floating-point) value and then converted to the output map's chosen Cell Type. Use this functor when the expression produces continuous or measured values; use [Calculate Categorical Map](Calculate-Categorical-Map.html) instead when the expression produces integer class codes that downstream functors should treat as categories. To calculate several maps in one pass, sharing inputs and intermediate results, use [Calculate Multiple Maps](Calculate-Multiple-Maps.html).
 
 This is one of Dinamica EGO's five calculator functors. Its abbreviated (shorthand) syntax is `#`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
 

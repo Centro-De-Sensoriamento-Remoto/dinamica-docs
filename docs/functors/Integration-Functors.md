@@ -10,6 +10,7 @@ has_children: true
 - [Calculate Python Expression](Calculate-Python-Expression.html)
 - [Calculate R Expression](Calculate-R-Expression.html)
 - [Extract Struct Lookup Table](Extract-Struct-Lookup-Table.html)
+- [Extract Struct Map](Extract-Struct-Map.html)
 - [Extract Struct Number](Extract-Struct-Number.html)
 - [Extract Struct String](Extract-Struct-String.html)
 - [Extract Struct Table](Extract-Struct-Table.html)

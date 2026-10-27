@@ -1,6 +1,6 @@
 ---
 title: "Receive Tuple"
-nav_order: 12
+nav_order: 13
 parent: "Integration Functors"
 grand_parent: "Functor List"
 ---

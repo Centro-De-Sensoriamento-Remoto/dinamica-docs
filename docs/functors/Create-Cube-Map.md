@@ -1,6 +1,6 @@
 ---
 title: "Create Cube Map"
-nav_order: 23
+nav_order: 24
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

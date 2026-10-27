@@ -1,6 +1,6 @@
 ---
 title: "Extract Map Attributes"
-nav_order: 29
+nav_order: 30
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Boolean Value"
-nav_order: 38
+nav_order: 39
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

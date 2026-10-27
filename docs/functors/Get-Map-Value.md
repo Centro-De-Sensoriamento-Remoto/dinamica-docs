@@ -1,6 +1,6 @@
 ---
 title: "Get Map Value"
-nav_order: 32
+nav_order: 33
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

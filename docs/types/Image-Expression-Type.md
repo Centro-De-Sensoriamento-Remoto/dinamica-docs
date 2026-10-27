@@ -39,6 +39,10 @@ During logical expression evaluation, **zero is false** and **any non-zero value
 
 A `let ... in` expression binds intermediate results to local variables named with the `_` sigil, for example `let _a: i1 * 2, _b: _a + i2 in _a / _b`. Local variables are valid in both the verbose and abbreviated syntaxes and in all calculator functors. See [Local Variables](../Calculate-Functors.html#local-variables-let--in) for the rules.
 
+## Struct Expressions
+
+A struct expression, written `{ name1: expression1, name2: expression2, ... }`, produces several results from one evaluation, one for each named field. It is accepted only by [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html), and only as the whole expression or as the body of the `let ... in` that is the whole expression, so that the fields can share local variables. See [Struct Expressions](../Calculate-Functors.html#struct-expressions) for the rules.
+
 ## Null Value Handling
 
 A null value in any operand poisons the entire expression result. The keyword `null` marks the current evaluation unit as missing — it is an abstract sentinel with no numeric value, available in all five calculator functors. This is distinct from `null(iX)`, which returns the numeric sentinel value stored in a specific image and is only available in map calculators. Two operators interrupt null propagation: `isNull()` and `?`. See [Null Value Handling](../Calculate-Functors.html#null-value-handling) for the complete rules, exceptions specific to map calculators, and defensive patterns.

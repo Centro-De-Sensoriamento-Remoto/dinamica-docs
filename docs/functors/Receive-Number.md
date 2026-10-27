@@ -1,6 +1,6 @@
 ---
 title: "Receive Number"
-nav_order: 9
+nav_order: 10
 parent: "Integration Functors"
 grand_parent: "Functor List"
 ---

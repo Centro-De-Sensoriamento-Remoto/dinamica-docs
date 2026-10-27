@@ -1,6 +1,6 @@
 ---
 title: "Send String"
-nav_order: 15
+nav_order: 16
 parent: "Integration Functors"
 grand_parent: "Functor List"
 ---

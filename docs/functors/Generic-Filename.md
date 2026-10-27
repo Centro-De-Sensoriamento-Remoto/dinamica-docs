@@ -1,6 +1,6 @@
 ---
 title: "Generic Filename"
-nav_order: 44
+nav_order: 45
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

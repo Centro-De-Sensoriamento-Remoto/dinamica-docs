@@ -1,6 +1,6 @@
 ---
 title: "Map"
-nav_order: 50
+nav_order: 51
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

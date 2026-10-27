@@ -1,6 +1,6 @@
 ---
 title: "Integer Value"
-nav_order: 47
+nav_order: 48
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

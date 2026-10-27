@@ -1,6 +1,6 @@
 ---
 title: "Get Map Categories"
-nav_order: 31
+nav_order: 32
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

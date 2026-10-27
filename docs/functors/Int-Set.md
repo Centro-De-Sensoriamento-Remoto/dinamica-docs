@@ -1,6 +1,6 @@
 ---
 title: "Int Set"
-nav_order: 46
+nav_order: 47
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

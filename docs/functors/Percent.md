@@ -1,6 +1,6 @@
 ---
 title: "Percent"
-nav_order: 65
+nav_order: 66
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

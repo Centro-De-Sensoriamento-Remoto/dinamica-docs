@@ -1,6 +1,6 @@
 ---
 title: "Categorical Map"
-nav_order: 39
+nav_order: 40
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

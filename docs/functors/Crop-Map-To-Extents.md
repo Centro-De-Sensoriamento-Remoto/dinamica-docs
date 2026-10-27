@@ -1,6 +1,6 @@
 ---
 title: "Crop Map To Extents"
-nav_order: 27
+nav_order: 28
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

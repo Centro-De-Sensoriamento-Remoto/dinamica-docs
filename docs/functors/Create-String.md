@@ -1,6 +1,6 @@
 ---
 title: "Create String"
-nav_order: 26
+nav_order: 27
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

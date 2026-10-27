@@ -1,6 +1,6 @@
 ---
 title: "Extract Map Layer"
-nav_order: 30
+nav_order: 31
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

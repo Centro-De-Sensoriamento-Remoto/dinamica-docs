@@ -1,6 +1,6 @@
 ---
 title: "Receive String"
-nav_order: 10
+nav_order: 11
 parent: "Integration Functors"
 grand_parent: "Functor List"
 ---

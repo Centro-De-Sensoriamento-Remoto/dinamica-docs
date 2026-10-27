@@ -1,6 +1,6 @@
 ---
 title: "Struct"
-nav_order: 70
+nav_order: 71
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

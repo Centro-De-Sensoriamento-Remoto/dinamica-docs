@@ -1,6 +1,6 @@
 ---
 title: "Real Value"
-nav_order: 68
+nav_order: 69
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Null Value"
-nav_order: 58
+nav_order: 59
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

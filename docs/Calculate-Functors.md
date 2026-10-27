@@ -16,9 +16,12 @@ Dinamica EGO provides a family of five **calculator functors** that evaluate an 
 | --- | --- | --- | --- |
 | [Calculate Map](functors/Calculate-Map.html) | `#` | Raster map (continuous) | Once per cell across a spatial grid |
 | [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) | `##` | Raster map (categorical) | Once per cell across a spatial grid |
+| [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) | `#*` | Struct of raster maps (continuous), one per field | Once per cell across a spatial grid |
 | [Calculate Value](functors/Calculate-Value.html) | `$` | Single scalar value | Once, with no spatial or row context |
 | [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) | `%` | Lookup table (values computed) | Once per row of a base lookup table |
 | [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html) | %% | Lookup table (keys and values computed) | Once per row — two separate expressions |
+
+[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) is a variant of Calculate Map that evaluates a struct expression, `{ name: expression, ... }`, and returns one map for each field in a single [Struct](types/Struct-Type.html). Its shorthand symbol is `#*`, and it is described in its [own section](#calculatemultiplemaps). Except where noted, everything stated for Calculate Map applies to it.
 
 The shorthand symbols are also referred to as **abbreviated syntax** — both terms mean the same thing and are used interchangeably in this documentation and in the Dinamica EGO GUI options.
 
@@ -81,6 +84,28 @@ Use [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) when th
 ### Available expression features
 
 Identical to [Calculate Map](functors/Calculate-Map.html): all operators, spatial keywords, neighbourhood functions, indexing functions, and convolution are available.
+
+---
+
+## CalculateMultipleMaps
+
+[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) computes several **continuous raster maps** in one pass. Its expression is a [struct expression](#struct-expressions) whose fields are evaluated once for every cell; each field produces one output map. Local variables declared with `let ... in` around the struct are calculated once per cell and shared by all fields, and every input map is read once per cell.
+
+Its shorthand symbol is `#*`.
+
+### Inputs and Parameters
+
+The inputs are the same as those of [Calculate Map](functors/Calculate-Map.html), except that the expression must be a struct expression and that Cell Type, Null Value, Result Is Sparse and Result Format apply to all the output maps.
+
+### Output
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Result | Struct Type | Struct containing one map for each field of the expression, stored under the name of the field. Use [Extract Struct Map](functors/Extract-Struct-Map.html) to retrieve a map. |
+
+### Available expression features
+
+Same as [Calculate Map](functors/Calculate-Map.html). The calculation always runs on the processors.
 
 ---
 
@@ -171,7 +196,7 @@ Same as [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.h
 
 # Connecting Data Inputs
 
-All data referenced in any expression must be connected to the functor's ports before writing the expression. This is done through **hook** functors — [Number Map](functors/Number-Map.html), [Number Table](functors/Number-Table.html), and [Number Value](functors/Number-Value.html) — which bind a connected data source to a numbered identifier used inside the expression. The same port types apply across all five functors:
+All data referenced in any expression must be connected to the functor's ports before writing the expression. This is done through **hook** functors — [Number Map](functors/Number-Map.html), [Number Table](functors/Number-Table.html), and [Number Value](functors/Number-Value.html) — which bind a connected data source to a numbered identifier used inside the expression. The same port types apply across all the calculator functors:
 
 - **Maps** are connected via a [Number Map](functors/Number-Map.html) hook → referenced as `i1`, `i2`, …, `i100`
 - **Tables and lookup tables** are connected via a [Number Table](functors/Number-Table.html) hook → referenced as `t1`, `t2`, …, `t100`
@@ -179,7 +204,7 @@ All data referenced in any expression must be connected to the functor's ports b
 
 > **Tip:** Give every connected functor a descriptive alias. The expression editor lists all available identifiers with their aliases at the top, making complex models much easier to read and maintain. The alias is also what generates the functor's variable name, and that variable name is exactly what the shorthand notation references: a map aliased `regions`, for example, is bound to the variable `regions` and is then referenced in a shorthand expression as `#regions`, a table or lookup table as `%regions`, and a value as `$regions`. See [Calculator functor shorthand](EGO-Script.html#calculator-functor-shorthand) for details on the shorthand notation.
 
-> **Note:** Map hook connections (`NumberMap` / `iX`) are only meaningful in [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html). In [Calculate Value](functors/Calculate-Value.html), [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html) there is no cell context, and `iX` references cannot be used in the expression.
+> **Note:** Map hook connections (`NumberMap` / `iX`) are only meaningful in [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html). In [Calculate Value](functors/Calculate-Value.html), [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html) there is no cell context, and `iX` references cannot be used in the expression.
 
 ---
 
@@ -195,12 +220,12 @@ Every construct in the language — including a conditional — is itself just a
 
 | Symbol | Refers to | Available in |
 | --- | --- | --- |
-| `iX` | Value of map X at the current cell | [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only |
+| `iX` | Value of map X at the current cell | [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only |
 | `tX` | Connected table or lookup table X (used with a bracket operator) | All five functors |
 | `vX` | Connected scalar value X | All five functors |
 | `line` | Spatial row index of the current cell, **starting at 1** *(map calculators)* **or** key of the current row *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
 | `column` | Spatial column index of the current cell, **starting at 1** *(map calculators)* **or** value associated with the current row's key *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
-| `_name` | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All five functors |
+| `_name` | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All calculator functors |
 
 X ranges from 1 to 100. In logical expressions, **zero is false** and any non-zero value is true.
 
@@ -248,6 +273,28 @@ in if _ndvi > 0.3 then _scaled else 0
 - A `let` is an ordinary expression: it can be used as a function argument, as an operand (inside parentheses) or inside another `let`. The body extends as far to the right as possible.
 - All bindings are evaluated even when the body does not use them, so there is no short-circuit. A binding that results in null makes the variable null; use `isNull(_a)` to test it.
 - Stochastic functions are drawn once per binding: `let _r: rand in _r - _r` is always 0.
+
+## Struct Expressions
+
+A struct expression produces several results from a single evaluation. It is a list of named fields between braces:
+
+```
+{ ndvi: (i1 - i2) / (i1 + i2), mask: if i1 > i2 then 1 else 0 }
+```
+
+- Each field is a name and an expression separated by `:`. Fields are separated by commas; a trailing comma before `}` is allowed. At least one field is required.
+- A field name starts with a letter or `_` and continues with letters, digits or `_`. Names are case insensitive and must be unique within the struct. They have no sigil, because they are never referenced inside the expression; they are the names under which the results are returned.
+- A struct is accepted only as the whole expression, or as the body of a `let ... in` that is the whole expression. This includes a `let` whose body is another `let`. A struct cannot be a function argument, an operand, a branch of `if ... then ... else`, the body of a `let` that is not at the top of the expression, or a field of another struct. A field can itself contain a `let ... in` that produces a single value.
+- Variables declared by the `let` around the struct are visible to every field and are calculated once per evaluation, however many fields use them:
+
+  ```
+  let _ndvi: (i1 - i2) / (i1 + i2) in
+  { ndvi: _ndvi, scaled: _ndvi * 100, mask: if _ndvi > 0.3 then 1 else 0 }
+  ```
+
+- Fields are evaluated in the order written and cannot refer to each other. A value needed by more than one field is declared with `let`.
+- Each field has its own result. When the evaluation of a field results in null or an algebraic error, only that result is null; a field that uses a null local variable is null.
+- Only [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) accepts a struct expression, and it accepts nothing else. The other calculator functors report an error if their expression is a struct.
 
 ---
 
@@ -632,6 +679,48 @@ result := CalculateMap {
 }};
 ```
 
+## CalculateMultipleMaps
+
+The maps in the resulting struct are retrieved with [Extract Struct Map](functors/Extract-Struct-Map.html):
+
+```
+// Shorthand — vegetation index, its scaled version and a mask, calculated in one pass
+indices := #* [
+    let _ndvi: (#nir - #red) / (#nir + #red)
+    in {
+        ndvi: _ndvi,
+        scaled: _ndvi * 100,
+        mask: if _ndvi > 0.3 then 1 else 0
+    }
+] .float32 .default .no .none;
+
+// Verbose equivalent
+indices := CalculateMultipleMaps {
+    expression = [
+        let _ndvi: (i1 - i2) / (i1 + i2)
+        in {
+            ndvi: _ndvi,
+            scaled: _ndvi * 100,
+            mask: if _ndvi > 0.3 then 1 else 0
+        }
+    ],
+    cellType = .float32,
+    nullValue = .default,
+    resultIsSparse = .no,
+    resultFormat = .none
+} {{
+    // i1
+    NumberMap nir 1;
+    // i2
+    NumberMap red 2;
+}};
+
+// Retrieves each map from the struct
+ndvi := ExtractStructMap indices "ndvi";
+scaled := ExtractStructMap indices "scaled";
+mask := ExtractStructMap indices "mask";
+```
+
 ## CalculateCategoricalMap (`##`)
 
 ```
@@ -999,6 +1088,8 @@ The steps differ by group of calculator functors. Each group is described separa
 
 ## CalculateMap and CalculateCategoricalMap
 
+> **Note:** [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) follows the same steps; its expression must be a [struct expression](#struct-expressions).
+
 1. **Connect your inputs first.** Connect all required maps ([Number Map](functors/Number-Map.html)), tables ([Number Table](functors/Number-Table.html)), and scalars ([Number Value](functors/Number-Value.html)) to the operator's ports before opening the editor.
 1. **Open the expression editor.** All connected identifiers appear with their aliases at the top.
 1. **Write the expression** using the listed identifiers.
@@ -1024,6 +1115,7 @@ The steps differ by group of calculator functors. Each group is described separa
 # Notes and Caveats
 
 - **Choose the right functor for the output type.** Use [Calculate Map](functors/Calculate-Map.html) for continuous rasters, [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) for class-coded rasters (so that downstream functors treat them as categorical), [Calculate Value](functors/Calculate-Value.html) for a single scalar, and the two lookup table calculators ([Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html)) for row-by-row table construction.
+- **Several maps from the same inputs.** Use [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) when more than one map is calculated from the same inputs or shares intermediate results, instead of repeating the sub-expressions in several [Calculate Map](functors/Calculate-Map.html) functors.
 - **`line` and `column` are context-dependent.** In [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html), `line` is the spatial row index and `column` is the spatial column index of the current pixel, both **starting at 1**. In [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html), both are still available but take on row-oriented meanings: `line` is the key of the current table row, and `column` is the value already associated with that key in the base lookup table. A different table's value for that same key can be retrieved with `%someTable[line]`. See [section 4](#4-image-operators-and-functions) for full details.
 - **Native compilation.** Expression calculations across all five calculator functors can be compiled to native code automatically (requires the optional native expression support package), delivering near-C performance — no user action is needed beyond installing the package.
 - **Overflow produces null.** If the result exceeds the Cell Type's range, the cell becomes null rather than wrapping. Applies to [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only — the only two functors with a Cell Type parameter.
@@ -1037,6 +1129,7 @@ The steps differ by group of calculator functors. Each group is described separa
 | Functor | Internal name |
 | --- | --- |
 | Calculate Map | `CalculateMap` |
+| Calculate Multiple Maps | `CalculateMultipleMaps` |
 | Calculate Categorical Map | `CalculateCategoricalMap` |
 | Calculate Value | `CalculateValue` |
 | Calculate Lookup Table Values | `CalculateLookupTableValues` |

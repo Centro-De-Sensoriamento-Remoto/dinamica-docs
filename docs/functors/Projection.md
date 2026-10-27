@@ -1,6 +1,6 @@
 ---
 title: "Projection"
-nav_order: 67
+nav_order: 68
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

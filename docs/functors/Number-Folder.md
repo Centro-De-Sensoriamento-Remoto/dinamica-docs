@@ -1,6 +1,6 @@
 ---
 title: "Number Folder"
-nav_order: 60
+nav_order: 61
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

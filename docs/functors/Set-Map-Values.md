@@ -1,6 +1,6 @@
 ---
 title: "Set Map Values"
-nav_order: 37
+nav_order: 38
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---

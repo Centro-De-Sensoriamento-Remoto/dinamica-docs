@@ -1,6 +1,6 @@
 ---
 title: "Positive Integer Value"
-nav_order: 66
+nav_order: 67
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
 ---
