@@ -37,11 +37,11 @@ During logical expression evaluation, **zero is false** and **any non-zero value
 
 ## Local Variables
 
-A `let ... in` expression binds intermediate results to local variables named with the `_` sigil, for example `let _a: i1 * 2, _b: _a + i2 in _a / _b`. Local variables are valid in both the verbose and abbreviated syntaxes and in all calculator functors. See [Local Variables](../Calculate-Functors.html#local-variables-let--in) for the rules.
+A `let ... in` expression binds intermediate results to local variables named with the `_` sigil, for example `let _a: i1 * 2, _b: _a + i2 in _a / _b`. Local variables are valid in both the verbose and abbreviated syntaxes and in all calculator functors. See [Local Variables](../Calculate-Functors.html#local-variables-let--in) for the rules.[^8150]
 
 ## Struct Expressions
 
-A struct expression, written `{ name1: expression1, name2: expression2, ... }`, produces several results from one evaluation, one for each named field. It is accepted only by [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html), and only as the whole expression or as the body of the `let ... in` that is the whole expression, so that the fields can share local variables. See [Struct Expressions](../Calculate-Functors.html#struct-expressions) for the rules.
+A struct expression, written `{ name1: expression1, name2: expression2, ... }`, produces several results from one evaluation, one for each named field. It is accepted only by [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html), and only as the whole expression or as the body of the `let ... in` that is the whole expression, so that the fields can share local variables. See [Struct Expressions](../Calculate-Functors.html#struct-expressions) for the rules.[^8150]
 
 ## Null Value Handling
 
@@ -134,4 +134,7 @@ For the full EGO Script syntax — including the hook-block form and conversion 
 None — Image Expression Type converts to or from no other type.
 
 See [Type System](../Type-System.html) for the complete conversion reference across all types.
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}

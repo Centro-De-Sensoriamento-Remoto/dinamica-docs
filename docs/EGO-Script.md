@@ -564,7 +564,7 @@ A family of **calculator functors** evaluates an expression and returns a result
 | --- | --- |
 | [Calculate Map](Calculate-Functors.html) | a map |
 | [Calculate Categorical Map](Calculate-Functors.html) | a categorical map |
-| [Calculate Multiple Maps](Calculate-Functors.html) | a struct with one map for each field of a [struct expression](Calculate-Functors.html#struct-expressions) |
+| [Calculate Multiple Maps](Calculate-Functors.html)[^8150] | a struct with one map for each field of a [struct expression](Calculate-Functors.html#struct-expressions) |
 | [Calculate Lookup Table Values](Calculate-Functors.html) | a lookup table (keys taken from a base table; values computed) |
 | [Calculate Lookup Table Keys And Values](Calculate-Functors.html) | a lookup table (both keys and values computed) |
 | [Calculate Value](Calculate-Functors.html) | a single value |
@@ -577,7 +577,7 @@ Each of these functors can be written in two syntactic forms: the **verbose form
 | --- | --- |
 | `#` | `CalculateMap` |
 | `##` | `CalculateCategoricalMap` |
-| `#*` | `CalculateMultipleMaps` |
+| `#*`[^8150] | `CalculateMultipleMaps` |
 | `%` | `CalculateLookupTableValues` |
 | `%%` | `CalculateLookupTableKeysAndValues` |
 | `$` | `CalculateValue` |
@@ -1152,4 +1152,7 @@ When the GUI saves a script or generates an EGO Script fragment, a set of option
 | ↳ **Also inline: Suitable functors bound to feedback inputs** | Extends inlining to functors whose output feeds back into a loop's mux. |
 | **Use abbreviated syntax for Calculate family functors** | Whether the `Calculate` family is written using the shorthand symbol (`#`, `##`, `#*`, `%`, etc.) or the full functor name. See the [Calculator functor shorthand](#calculator-functor-shorthand) section for details. |
 | **Preferred number of columns before wrapping comments** | The line width at which the generator wraps long comment text. |
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}

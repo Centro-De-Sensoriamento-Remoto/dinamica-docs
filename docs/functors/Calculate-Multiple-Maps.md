@@ -3,7 +3,10 @@ title: "Calculate Multiple Maps"
 nav_order: 22
 parent: "Map Algebra Functors"
 grand_parent: "Functor List"
+since: "8.15.0"
+development: true
 ---
+{% include development_banner.html %}
 {% raw %}
 # Calculate Multiple Maps
 

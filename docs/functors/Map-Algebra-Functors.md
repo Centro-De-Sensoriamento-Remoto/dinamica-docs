@@ -30,7 +30,7 @@ has_children: true
 - ~~[Calculate Categorical Map2](Calculate-Categorical-Map2.html)~~
 - [Calculate Map](Calculate-Map.html)
 - ~~[Calculate Map2](Calculate-Map2.html)~~
-- [Calculate Multiple Maps](Calculate-Multiple-Maps.html)
+- [Calculate Multiple Maps](Calculate-Multiple-Maps.html) (8.15.0, development)
 - [Create Categorical Map](Create-Categorical-Map.html)
 - [Create Cube Map](Create-Cube-Map.html)
 - [Create Kml](Create-Kml.html)

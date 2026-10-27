@@ -16,12 +16,12 @@ Dinamica EGO provides a family of five **calculator functors** that evaluate an 
 | --- | --- | --- | --- |
 | [Calculate Map](functors/Calculate-Map.html) | `#` | Raster map (continuous) | Once per cell across a spatial grid |
 | [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) | `##` | Raster map (categorical) | Once per cell across a spatial grid |
-| [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) | `#*` | Struct of raster maps (continuous), one per field | Once per cell across a spatial grid |
+| [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html)[^8150] | `#*` | Struct of raster maps (continuous), one per field | Once per cell across a spatial grid |
 | [Calculate Value](functors/Calculate-Value.html) | `$` | Single scalar value | Once, with no spatial or row context |
 | [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) | `%` | Lookup table (values computed) | Once per row of a base lookup table |
 | [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html) | %% | Lookup table (keys and values computed) | Once per row — two separate expressions |
 
-[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) is a variant of Calculate Map that evaluates a struct expression, `{ name: expression, ... }`, and returns one map for each field in a single [Struct](types/Struct-Type.html). Its shorthand symbol is `#*`, and it is described in its [own section](#calculatemultiplemaps). Except where noted, everything stated for Calculate Map applies to it.
+[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) is a variant of Calculate Map that evaluates a struct expression, `{ name: expression, ... }`, and returns one map for each field in a single [Struct](types/Struct-Type.html). Its shorthand symbol is `#*`, and it is described in its [own section](#calculatemultiplemaps). Except where noted, everything stated for Calculate Map applies to it.[^8150]
 
 The shorthand symbols are also referred to as **abbreviated syntax** — both terms mean the same thing and are used interchangeably in this documentation and in the Dinamica EGO GUI options.
 
@@ -55,7 +55,7 @@ When an expression references more than one connected map, all of them are evalu
 
 ### Available expression features
 
-All expression language features are available: image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`), the `line` and `column` spatial keywords, lookup table operators ([section 5](#5-lookup-table-operators)), multi-column table operators ([section 6](#6-multi-column-table-operators)), neighbourhood functions (`nbMin`, `nbMax`, `nbAverage`, etc. — [section 7](#7-image-neighborhood-functions)), neighbourhood indexing (`nbMinRef`, `nbMaxRef` — [section 8](#8-image-neighborhood-indexing-functions)), and the convolution operator (`nbConvol` — [section 9](#9-convolution-operator)).
+All expression language features are available: image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`[^8150]), the `line` and `column` spatial keywords, lookup table operators ([section 5](#5-lookup-table-operators)), multi-column table operators ([section 6](#6-multi-column-table-operators)), neighbourhood functions (`nbMin`, `nbMax`, `nbAverage`, etc. — [section 7](#7-image-neighborhood-functions)), neighbourhood indexing (`nbMinRef`, `nbMaxRef` — [section 8](#8-image-neighborhood-indexing-functions)), and the convolution operator (`nbConvol` — [section 9](#9-convolution-operator)).
 
 ---
 
@@ -89,9 +89,9 @@ Identical to [Calculate Map](functors/Calculate-Map.html): all operators, spatia
 
 ## CalculateMultipleMaps
 
-[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) computes several **continuous raster maps** in one pass. Its expression is a [struct expression](#struct-expressions) whose fields are evaluated once for every cell; each field produces one output map. Local variables declared with `let ... in` around the struct are calculated once per cell and shared by all fields, and every input map is read once per cell.
+[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) computes several **continuous raster maps** in one pass. Its expression is a [struct expression](#struct-expressions) whose fields are evaluated once for every cell; each field produces one output map. Local variables declared with `let ... in` around the struct are calculated once per cell and shared by all fields, and every input map is read once per cell.[^8150]
 
-Its shorthand symbol is `#*`.
+Its shorthand symbol is `#*`.[^8150]
 
 ### Inputs and Parameters
 
@@ -131,7 +131,7 @@ Evaluates an expression **once** and returns a single **scalar value**. Because 
 
 **Available:** all arithmetic and logical operators (sections [1](#1-general-operators) and [2](#2-general-functions)), scalar value references (`vX`), and lookup table queries (`tX[...]`) in all single-key and multi-column forms ([section 5](#5-lookup-table-operators), [section 6](#6-multi-column-table-operators)).
 
-**Not available:** image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`), the `line` and `column` spatial keywords, neighbourhood functions, neighbourhood indexing functions, and the convolution operator. These all require a cell or row context that does not exist in [Calculate Value](functors/Calculate-Value.html).
+**Not available:** image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`[^8150]), the `line` and `column` spatial keywords, neighbourhood functions, neighbourhood indexing functions, and the convolution operator. These all require a cell or row context that does not exist in [Calculate Value](functors/Calculate-Value.html).
 
 ---
 
@@ -164,7 +164,7 @@ Within the expression, **`line` refers to the key of the current row** being ite
 
 **Available:** arithmetic and logical operators (sections [1](#1-general-operators) and [2](#2-general-functions)), scalar references (`vX`), lookup table queries (`tX[...]`) in all single-key and multi-column forms ([section 5](#5-lookup-table-operators), [section 6](#6-multi-column-table-operators)), `line` (as the current row key), and `column` (as the current row's value in the base lookup table).
 
-**Not available:** `iX`, `iX[line,col]`, `iX[[line,col]]`, neighbourhood functions, neighbourhood indexing, and convolution. There is no spatial grid.
+**Not available:** `iX`, `iX[line,col]`, `iX[[line,col]]`[^8150], neighbourhood functions, neighbourhood indexing, and convolution. There is no spatial grid.
 
 ---
 
@@ -225,7 +225,7 @@ Every construct in the language — including a conditional — is itself just a
 | `vX` | Connected scalar value X | All five functors |
 | `line` | Spatial row index of the current cell, **starting at 1** *(map calculators)* **or** key of the current row *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
 | `column` | Spatial column index of the current cell, **starting at 1** *(map calculators)* **or** value associated with the current row's key *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
-| `_name` | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All calculator functors |
+| `_name`[^8150] | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All calculator functors |
 
 X ranges from 1 to 100. In logical expressions, **zero is false** and any non-zero value is true.
 
@@ -259,7 +259,7 @@ The table below lists all infix and prefix operators in **descending precedence 
 
 ## Local Variables (`let ... in`)
 
-A `let` expression gives names to intermediate results so they can be reused without repeating the sub-expression:
+A `let` expression gives names to intermediate results so they can be reused without repeating the sub-expression:[^8150]
 
 ```
 let _ndvi: (i1 - i2) / (i1 + i2),
@@ -276,7 +276,7 @@ in if _ndvi > 0.3 then _scaled else 0
 
 ## Struct Expressions
 
-A struct expression produces several results from a single evaluation. It is a list of named fields between braces:
+A struct expression produces several results from a single evaluation. It is a list of named fields between braces:[^8150]
 
 ```
 { ndvi: (i1 - i2) / (i1 + i2), mask: if i1 > i2 then 1 else 0 }
@@ -378,7 +378,7 @@ Available in all five calculator functors.
 | --- | --- | --- | --- |
 | Get Image Value | `iX` | Returns the value of image X at the **current cell**. | `i2` |
 | Get Image Value At Location | `iX[LINE_EXPR, COL_EXPR]` | Returns the value of image X at the **specified (line, column) coordinate**. Coordinates outside the image boundary are **mirrored** back into range. For a row coordinate `cellLine` in an image of N rows, `cellLine` is normally expected to be in the range \[1, N\]. When `cellLine` is outside this range, it is mirrored back: if `cellLine` ≤ 0, the effective row is `1 − cellLine` (for instance, `cellLine` = 0 → row 1, `cellLine` = −1 → row 2, `cellLine` = −2 → row 3); if `cellLine` > N, the effective row is `2N + 1 − cellLine` (for instance, `cellLine` = N+1 → row N, `cellLine` = N+2 → row N−1, `cellLine` = N+3 → row N−2). The same formula applies independently to the column coordinate `cellCol`. If the target cell is null, **returns 0** (not null). | `i1[line - 1, column - 2]` |
-| Get Image Value At Location (null-preserving) | `iX[[LINE_EXPR, COL_EXPR]]` | Same as `iX[LINE_EXPR, COL_EXPR]` (1-indexed coordinates, out-of-bounds coordinates mirrored back into range), except that **returns null** when the target cell is null. The null propagates through the rest of the expression like any other null value. It is accepted wherever `iX[LINE_EXPR, COL_EXPR]` is. | `i1[[line - 1, column]]` |
+| Get Image Value At Location (null-preserving)[^8150] | `iX[[LINE_EXPR, COL_EXPR]]` | Same as `iX[LINE_EXPR, COL_EXPR]` (1-indexed coordinates, out-of-bounds coordinates mirrored back into range), except that **returns null** when the target cell is null. The null propagates through the rest of the expression like any other null value. It is accepted wherever `iX[LINE_EXPR, COL_EXPR]` is. | `i1[[line - 1, column]]` |
 | Get Image Null Sentinel Value | `null(iX)` | Returns the **numeric sentinel value** stored in image X to represent missing data (e.g. −1, 32767, or any other number defined when the image was created). Unlike the abstract `null` keyword, this is a real number that participates normally in arithmetic — but be aware that using it as if it were a regular data value may produce misleading results. | `if null(i2) > 2 then 1 else null` |
 | Get Line Number | `line` | In map calculators: returns the **row index** of the current cell, **counting from 1**. In lookup table calculators: returns the **key of the current row**. | `line + 1` |
 | Get Column Number | `column` | In map calculators: returns the **column index** of the current cell being processed, **counting from 1**. In lookup table calculators: returns the **value associated with the key of the current row** in the base lookup table. | `if column / 2 > 50 then 1 else null` |
@@ -681,7 +681,7 @@ result := CalculateMap {
 
 ## CalculateMultipleMaps
 
-The maps in the resulting struct are retrieved with [Extract Struct Map](functors/Extract-Struct-Map.html):
+The maps in the resulting struct are retrieved with [Extract Struct Map](functors/Extract-Struct-Map.html):[^8150]
 
 ```
 // Shorthand — vegetation index, its scaled version and a mask, calculated in one pass
@@ -1115,7 +1115,7 @@ The steps differ by group of calculator functors. Each group is described separa
 # Notes and Caveats
 
 - **Choose the right functor for the output type.** Use [Calculate Map](functors/Calculate-Map.html) for continuous rasters, [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) for class-coded rasters (so that downstream functors treat them as categorical), [Calculate Value](functors/Calculate-Value.html) for a single scalar, and the two lookup table calculators ([Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html)) for row-by-row table construction.
-- **Several maps from the same inputs.** Use [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) when more than one map is calculated from the same inputs or shares intermediate results, instead of repeating the sub-expressions in several [Calculate Map](functors/Calculate-Map.html) functors.
+- **Several maps from the same inputs.** Use [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) when more than one map is calculated from the same inputs or shares intermediate results, instead of repeating the sub-expressions in several [Calculate Map](functors/Calculate-Map.html) functors.[^8150]
 - **`line` and `column` are context-dependent.** In [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html), `line` is the spatial row index and `column` is the spatial column index of the current pixel, both **starting at 1**. In [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html), both are still available but take on row-oriented meanings: `line` is the key of the current table row, and `column` is the value already associated with that key in the base lookup table. A different table's value for that same key can be retrieved with `%someTable[line]`. See [section 4](#4-image-operators-and-functions) for full details.
 - **Native compilation.** Expression calculations across all five calculator functors can be compiled to native code automatically (requires the optional native expression support package), delivering near-C performance — no user action is needed beyond installing the package.
 - **Overflow produces null.** If the result exceeds the Cell Type's range, the cell becomes null rather than wrapping. Applies to [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only — the only two functors with a Cell Type parameter.
@@ -1129,9 +1129,12 @@ The steps differ by group of calculator functors. Each group is described separa
 | Functor | Internal name |
 | --- | --- |
 | Calculate Map | `CalculateMap` |
-| Calculate Multiple Maps | `CalculateMultipleMaps` |
+| Calculate Multiple Maps[^8150] | `CalculateMultipleMaps` |
 | Calculate Categorical Map | `CalculateCategoricalMap` |
 | Calculate Value | `CalculateValue` |
 | Calculate Lookup Table Values | `CalculateLookupTableValues` |
 | Calculate Lookup Table Keys and Values | `CalculateLookupTableKeysAndValues` |
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}

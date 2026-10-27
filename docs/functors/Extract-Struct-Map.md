@@ -3,7 +3,10 @@ title: "Extract Struct Map"
 nav_order: 4
 parent: "Integration Functors"
 grand_parent: "Functor List"
+since: "8.15.0"
+development: true
 ---
+{% include development_banner.html %}
 {% raw %}
 # Extract Struct Map
 
