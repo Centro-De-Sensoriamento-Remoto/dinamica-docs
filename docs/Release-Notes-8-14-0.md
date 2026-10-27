@@ -95,7 +95,7 @@ The support for GDAL virtual file systems was reworked. Loaders and writers, and
 
 ## 8. EGO Script defaults
 
-The following options under *Tools* -> *Options* | *EGO Script* are now enabled by default:
+The following options under *Tools => Options \| EGO Script* are now enabled by default:
 
 - Inlining using the extended syntax.
 - Use abbreviated syntax for Calculate family functors.

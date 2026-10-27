@@ -33,5 +33,5 @@ The [Enhancement Plugin for Dinamica EGO 8.14.0](https://csr.ufmg.br/dinamica_ut
 
 - **Python** - [Calculate Python Expression](functors/Calculate-Python-Expression.html) does not require the plugin.
 - **R** - the plugin is needed only to use R without providing your own R installation. It supplies the R interpreter used by [Calculate R Expression](functors/Calculate-R-Expression.html) on Windows. Setup is described in [Coupling With R](Coupling-With-R.html).
-- **Native expression compilation** - expressions are compiled to native code only when the plugin is installed and the option *Tools => Options | Advanced | Disable compilation of native expressions* is cleared. See [Native Expression Compilation](gui/Options-And-Performance.html#native-expression-compilation).
+- **Native expression compilation** - expressions are compiled to native code only when the plugin is installed and the option *Tools => Options \| Advanced \| Disable compilation of native expressions* is cleared. See [Native Expression Compilation](gui/Options-And-Performance.html#native-expression-compilation).
 {% endraw %}
