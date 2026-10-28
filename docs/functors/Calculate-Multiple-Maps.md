@@ -67,42 +67,68 @@ CalculateMultipleMaps
 
 The following script calculates a vegetation index, a scaled version of it and a mask in a single pass over the input maps, and then extracts each result from the struct:
 
-```
-// Shorthand
-multi := #* [
-    let _ndvi: (#nir - #red) / (#nir + #red)
-    in {
-        ndvi: _ndvi,
-        scaled: _ndvi * 100,
-        mask: if _ndvi > 0.3 then 1 else 0
-    }
-] .float32 .default .no .none;
+Shorthand:
 
-// Verbose equivalent
-multi := CalculateMultipleMaps {
-    expression = [
-        let _ndvi: (i1 - i2) / (i1 + i2),
-            _scaled: _ndvi * 100
+```
+@charset = UTF-8
+Script {{
+    // Near infrared band.
+    nir := LoadMap "c:/nir.tif";
+    // Red band.
+    red := LoadMap "c:/red.tif";
+
+    // Vegetation index, its scaled version and a mask, calculated in one pass.
+    multi := #* [
+        let _ndvi: (#nir - #red) / (#nir + #red)
         in {
             ndvi: _ndvi,
-            scaled: _scaled,
+            scaled: _ndvi * 100,
             mask: if _ndvi > 0.3 then 1 else 0
         }
-    ],
-    cellType = .float32,
-    nullValue = .default,
-    resultIsSparse = .no,
-    resultFormat = .none
-} {{
-    // i1
-    NumberMap nir 1;
-    // i2
-    NumberMap red 2;
-}};
+    ] .float32 .default .no .none;
 
-// Retrieves each map from the struct
-ndvi := ExtractStructMap multi "ndvi";
-scaled := ExtractStructMap multi "scaled";
-mask := ExtractStructMap multi "mask";
+    // Retrieves each map from the struct.
+    ndvi := ExtractStructMap multi "ndvi";
+    scaled := ExtractStructMap multi "scaled";
+    mask := ExtractStructMap multi "mask";
+}};
+```
+
+Verbose equivalent:
+
+```
+@charset = UTF-8
+Script {{
+    // Near infrared band.
+    nir := LoadMap "c:/nir.tif";
+    // Red band.
+    red := LoadMap "c:/red.tif";
+
+    // Vegetation index, its scaled version and a mask, calculated in one pass.
+    multi := CalculateMultipleMaps {
+        expression = [
+            let _ndvi: (i1 - i2) / (i1 + i2)
+            in {
+                ndvi: _ndvi,
+                scaled: _ndvi * 100,
+                mask: if _ndvi > 0.3 then 1 else 0
+            }
+        ],
+        cellType = .float32,
+        nullValue = .default,
+        resultIsSparse = .no,
+        resultFormat = .none
+    } {{
+        // i1
+        NumberMap nir 1;
+        // i2
+        NumberMap red 2;
+    }};
+
+    // Retrieves each map from the struct.
+    ndvi := ExtractStructMap multi "ndvi";
+    scaled := ExtractStructMap multi "scaled";
+    mask := ExtractStructMap multi "mask";
+}};
 ```
 {% endraw %}
