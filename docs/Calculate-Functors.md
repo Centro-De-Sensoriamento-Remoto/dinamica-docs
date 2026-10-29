@@ -72,7 +72,7 @@ Use [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) when th
 | Expression | Image Expression Type | **Yes** | — | The formula used to compute each output cell's category code. |
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for each output cell. |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in the output. |
-| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored. |
+| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to the output. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -100,7 +100,7 @@ Its shorthand symbol is `#*`.[^8150]
 | Expression | Image Expression Type | **Yes** | — | A [struct expression](#struct-expressions), `{ name: expression, ... }`. Each field produces one output map. Local variables declared by a `let ... in` around the struct are calculated once per cell and shared by all fields. |
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for the cells of all the output maps. |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in all the output maps. |
-| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored. |
+| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to all the output maps; its category information, if any, is ignored. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
