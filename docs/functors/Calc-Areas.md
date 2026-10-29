@@ -48,7 +48,7 @@ The resulting table has the following format.
 
 **References**
 
-Santini, M., Taramelli, A. and Sorichetta, A., 2010: [ASPHAA: A GIS-Based Algorithm to Calculate Cell Area on a Latitude-Longitude (Geographic) Regular Grid](https://www.researchgate.net/publication/220606016_ASPHAA_A_GIS-Based_algorithm_to_calculate_cell_area_on_a_latitude-longitude_Geographic_regular_grid). Transactions in GIS, 14(3), 351-377.
+Santini, M., Taramelli, A. and Sorichetta, A., 2010: [ASPHAA: A GIS-Based Algorithm to Calculate Cell Area on a Latitude-Longitude (Geographic) Regular Grid](https://doi.org/10.1111/j.1467-9671.2010.01200.x). Transactions in GIS, 14(3), 351-377.
 
 ## Internal Name
 
