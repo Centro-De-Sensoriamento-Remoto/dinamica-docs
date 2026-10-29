@@ -21,7 +21,7 @@ Dinamica EGO provides a family of five **calculator functors** that evaluate an 
 | [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) | `%` | Lookup table (values computed) | Once per row of a base lookup table |
 | [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html) | %% | Lookup table (keys and values computed) | Once per row — two separate expressions |
 
-[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) is a variant of Calculate Map that evaluates a struct expression, `{ name: expression, ... }`, and returns one map for each field in a single [Struct](types/Struct-Type.html). Its shorthand symbol is `#*`, and it is described in its [own section](#calculatemultiplemaps). Except where noted, everything stated for Calculate Map applies to it.[^8150]
+[Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) is a variant of Calculate Map that evaluates a struct expression, `{ name: expression, ... }`, and returns one map for each field in a single [Struct](types/Struct-Type.html). Its shorthand symbol is `#*`, and it is described in its [own section](#calculatemultiplemaps-). Except where noted, everything stated for Calculate Map applies to it.[^8150]
 
 The shorthand symbols are also referred to as **abbreviated syntax** — both terms mean the same thing and are used interchangeably in this documentation and in the Dinamica EGO GUI options.
 
@@ -87,7 +87,7 @@ Identical to [Calculate Map](functors/Calculate-Map.html): all operators, spatia
 
 ---
 
-## CalculateMultipleMaps
+## CalculateMultipleMaps (`#*`)
 
 [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) computes several **continuous raster maps** in one pass. Its expression is a [struct expression](#struct-expressions) whose fields are evaluated once for every cell; each field produces one output map. Local variables declared with `let ... in` around the struct are calculated once per cell and shared by all fields, and every input map is read once per cell.[^8150]
 
@@ -95,7 +95,13 @@ Its shorthand symbol is `#*`.[^8150]
 
 ### Inputs and Parameters
 
-The inputs are the same as those of [Calculate Map](functors/Calculate-Map.html), except that the expression must be a struct expression and that Cell Type, Null Value, Result Is Sparse and Result Format apply to all the output maps.
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| Expression | Image Expression Type | **Yes** | — | A [struct expression](#struct-expressions), `{ name: expression, ... }`. Each field produces one output map. Local variables declared by a `let ... in` around the struct are calculated once per cell and shared by all fields. |
+| Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for the cells of all the output maps. |
+| Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in all the output maps. |
+| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored. |
+| Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to all the output maps; its category information, if any, is ignored. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
 
@@ -679,7 +685,7 @@ result := CalculateMap {
 }};
 ```
 
-## CalculateMultipleMaps
+## CalculateMultipleMaps (`#*`)
 
 The maps in the resulting struct are retrieved with [Extract Struct Map](functors/Extract-Struct-Map.html):[^8150]
 
