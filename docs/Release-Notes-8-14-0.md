@@ -134,7 +134,13 @@ The following options under *Tools => Options \| EGO Script* are now enabled by 
 
 ---
 
-## 12. Documentation
+## 12. Categorizations
+
+- **Category limit** - a [categorization](types/Categorization-Type.html) now accepts up to 2,000,000,000 categories, up from 20,000,000.
+
+---
+
+## 13. Documentation
 
 The documentation moved to a new site, built from the `dinamica-docs` repository.
 {% endraw %}

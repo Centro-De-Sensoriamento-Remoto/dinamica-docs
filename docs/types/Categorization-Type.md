@@ -41,7 +41,7 @@ Commas between elements are optional. Categories do not need to be contiguous.
 
 > **Note:** Because a category value is a signed 32-bit integer, a categorization cannot be attached to a map whose cell type is Unsigned 32-bit Integer or Float 32-bit — neither type can represent the full range and precision of a signed 32-bit integer.
 
-> **Note:** A categorization accepts at most 20,000,000 categories; defining more raises an error. This default is used in most situations and is rarely a practical limit.
+> **Note:** A categorization accepts at most 2,000,000,000 categories; defining more raises an error. This default is used in most situations and is rarely a practical limit.
 
 ## Automatic Conversions
 
