@@ -93,7 +93,7 @@ Window-based spatial aggregation: `nbMin`, `nbMax`, `nbSum`, `nbProd`, `nbCount`
 
 ### Image Neighborhood Indexing Functions
 
-Neighbourhood statistics used as indices to retrieve values from a lookup table or a second image: `nbMinRef`, `nbMaxRef`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.
+Find the cell with the minimum or the maximum value in the window and use its position to retrieve a value from a lookup table or a second image: `nbMinRef`, `nbMaxRef`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.
 
 → [Image Neighborhood Indexing Functions](../Calculate-Functors.html#8-image-neighborhood-indexing-functions)
 

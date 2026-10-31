@@ -478,7 +478,7 @@ The window centre defaults to the current cell when `y` and `x` are omitted. For
 
 > **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only.
 
-These operators compute a neighbourhood statistic and then use the result as an **index** to retrieve a value from either a connected Lookup Table or a second image. `TABLE` below always refers to a **Lookup Table** specifically — see section 5 for the operators that query one directly.
+These operators find the cell holding the minimum or the maximum value of `IMAGE` in the window, and then use the **position** of that cell, not its value, to retrieve a value from a connected Lookup Table or from a second image. `TABLE` below always refers to a **Lookup Table** specifically — see section 5 for the operators that query one directly.
 
 > If `TABLE` is bound to a multi-column Table (not a Lookup Table), an error is reported. See section 6 for multi-column tables.
 
@@ -490,13 +490,21 @@ These operators compute a neighbourhood statistic and then use the result as an 
 `nbN(IMAGE, h, w, TABLE)` <br>
 `nbN(IMAGE, h, w, IMAGE2)`
 
-When a **TABLE** (Lookup Table) is provided: the statistic is used as a key to query it, equivalent to `TABLE[statistic]` from section 5. <br>
-When an **IMAGE2** is provided: the statistic is used as a pixel coordinate to sample `IMAGE2`.
+The window is defined as in [section 7](#7-image-neighborhood-functions): same `h`, `w`, `y` and `x` parameters, same mirroring of the cells outside the image, and null cells of `IMAGE` are excluded.
+
+When a **TABLE** (Lookup Table) is provided: the key is the **index of the cell in the window**, from 1 to h × w, advancing left-to-right, then top-to-bottom. These are the same keys used by `nbConvol` (see the grids in [section 9](#9-convolution-operator)). The result is the value stored in `TABLE` for that key. <br>
+When an **IMAGE2** is provided: the result is the value of `IMAGE2` at the **coordinate of the cell** in the image. For a window cell outside the image, this is the mirrored coordinate, the cell whose value was actually read from `IMAGE`.
+
+If several cells hold the minimum (or the maximum), the first one in the window order wins: left-to-right, then top-to-bottom.
+
+The result is null when every cell of `IMAGE` in the window is null, when the key is not present in `TABLE`, or when the coordinate falls outside `IMAGE2`.
 
 | Operator | Syntax | Description | Example |
 | --- | --- | --- | --- |
-| MinRef | `nbMinRef(...)` | Finds the minimum in the window, then uses it as an index into the Lookup Table (or a coordinate into IMAGE2). | `nbMinRef(i4, 2, 3, t1, line, column)` |
-| MaxRef | `nbMaxRef(...)` | Finds the maximum in the window, then uses it as an index into the Lookup Table (or a coordinate into IMAGE2). | `nbMaxRef(i4, 2, 3, i1, line, column)` |
+| MinRef | `nbMinRef(...)` | Finds the cell with the minimum value in the window, then returns the value of the Lookup Table at that cell's window index (or of IMAGE2 at that cell's coordinate). | `nbMinRef(i4, 2, 3, t1, line, column)` |
+| MaxRef | `nbMaxRef(...)` | Finds the cell with the maximum value in the window, then returns the value of the Lookup Table at that cell's window index (or of IMAGE2 at that cell's coordinate). | `nbMaxRef(i4, 2, 3, i1, line, column)` |
+
+**Example:** In a 3 × 3 window of `i1` centred on the current cell, the minimum is at the second row, third column. `nbMinRef(i1, 3, 3, t1)` returns `t1[6]`, and `nbMinRef(i1, 3, 3, i2)` returns the value of `i2` at `line`, `column + 1`.
 
 ---
 
