@@ -469,8 +469,8 @@ The window centre defaults to the current cell when `y` and `x` are omitted. For
 | Average | `nbAverage(...)` | Arithmetic mean of non-null cells in the window | `round(nbAverage(i1, 7, 7))` |
 | Median | `nbMedian(...)` | Median of non-null cells. For an even count, the **greater** of the two central values is returned. | `nbMedian(i1, 5, 5)` |
 | Mode | `nbMode(...)` | Most frequent value among non-null cells. Returns null if no mode exists; returns the **lesser** value if multiple modes tie. | `nbMode(i1, 5, 5)` |
-| Variance | `nbVar(...)` | Population variance of non-null cells: sum of (xi - mean)^2 / n | `nbVar(i4, 7, 7) / 25` |
-| Standard Deviation | `nbStdDev(...)` | Population standard deviation of non-null cells: sqrt of variance | `nbStdDev(i2, 3, 3, line+1, column)` |
+| Variance | `nbVar(...)` | Population variance of non-null cells: sum of (xi - mean)^2 / n. A window with a single non-null cell gives 0. | `nbVar(i4, 7, 7) / 25` |
+| Standard Deviation | `nbStdDev(...)` | Population standard deviation of non-null cells: sqrt of variance. A window with a single non-null cell gives 0. | `nbStdDev(i2, 3, 3, line+1, column)` |
 
 ---
 
