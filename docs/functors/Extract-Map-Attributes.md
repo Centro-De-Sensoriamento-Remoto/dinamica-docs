@@ -78,8 +78,8 @@ If an attribute cannot be determined, its entry is omitted from Attributes rathe
 | Key | Predefined Name | Description |
 | --- | --- | --- |
 | 13 | "meanCell" | average (excluding null cells) |
-| 14 | "cellVar" | variance (excluding null cells) |
-| 15 | "cellStd" | standard deviation (excluding null cells) |
+| 14 | "cellVar" | population variance (excluding null cells): sum of (xi - mean)^2 / n |
+| 15 | "cellStd" | population standard deviation (excluding null cells): sqrt of the variance |
 | 16 | "modeCell" | mode (excluding null cells) |
 | 17 | "medianCell" | median (excluding null cells) |
 | 18 | "uniqueCells" | total unique occurrences (excluding null cells) |
