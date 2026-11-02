@@ -258,7 +258,7 @@ The table below lists all infix and prefix operators in **descending precedence 
 | 6 | **Multiply** | `EXPR * EXPR` |  | `i1 * 2.5` |
 | 6 | **Divide** | `EXPR / EXPR` |  | `i1 / i2` |
 | 6 | **Modulo** | `EXPR % EXPR` | Remainder after integer division | `i1 % 100` |
-| 7 | **Power** | `EXPR ^ EXPR` | Exponentiation | `i1 ^ 3` |
+| 7 | **Power** | `EXPR ^ EXPR` | Exponentiation. `x ^ 0` and `1 ^ y` are 1 even when the other operand is null. See [Null Value Handling](#null-value-handling). | `i1 ^ 3` |
 | 8 | **Catch Error (`?`)** | `EXPR ? EXPR` | If the left expression produces an algebraic error (division by zero, key not found, etc.), evaluate and return the **fallback expression** instead. The fallback can be any expression, including another calculation, a conditional, or a nested `?`. | `(i1 / i2) ? (i1 - i2)` |
 | 9 | **Boolean Not** | `not EXPR` / `! EXPR` | Inverts a boolean value. | `not isNull(i1)` |
 | 9 | **Negate** | `-EXPR` | Arithmetic negation. | `-ceil(i1 + i2)` |
@@ -676,12 +676,14 @@ A null value in any operand **poisons the entire expression**: the result become
 | `v1 / 0` | Always null — division by zero is null regardless of operand type |
 | `t1[v1]` | Null if the key `v1` is not found in lookup table `t1` |
 | `i1 + t1[line] / v1 ^ 3` | Null if the map cell `i1`, the table lookup `t1[line]`, or the value `v1` is null |
+| `i1 ^ 0` | **Never null** — a power with exponent 0 is 1, even when `i1` is null |
+| `1 ^ i1` | **Never null** — a power with base 1 is 1, even when `i1` is null |
 | `if isNull(t1[v1]) then 1 else 2` | **Never null** — `isNull` itself always resolves to 0 or 1 |
 | `if isNull(v1) then i2 else t1[line]` | May be null, depending on `i2` or the table lookup `t1[line]` |
 | `(100 / v2) ? 0` | **Never null** — div-by-zero on a value falls back to 0 |
 | `(t1[v1]) ? i1` | If the key `v1` is not found in `t1`, falls back to `i1`; may still be null if `i1` is null |
 
-The poison spreads through the entire chain: if `i1` is null, then `i1 + 5` is null, `(i1 + 5) * v1` is null, and so on. There is no way to "un-null" a result once a null has entered the calculation — except by explicitly testing for it first.
+The poison spreads through the entire chain: if `i1` is null, then `i1 + 5` is null, `(i1 + 5) * v1` is null, and so on. There is no way to "un-null" a result once a null has entered the calculation — except by explicitly testing for it first. The power operator is an exception: `x ^ 0` and `1 ^ y` are 1 even when `x` or `y` is null, so `(i1 + 5) ^ 0` is 1 for every cell.
 
 A null value inside an `if...then...else` test propagates the same way, regardless of which branch would otherwise have been taken. In `(if (i1 / 3 > 9) then i2 else 1 + i3) + 10`, a null `i1` makes `i1 / 3` null, which makes the comparison `i1 / 3 > 9` null, which makes the whole conditional null — and adding 10 to that null result is still null. Wrapping the expression in `?` catches it: `( (if (i1 / 3 > 9) then i2 else 1 + i3) + 10 ) ? 20` evaluates to 20 whenever the inner expression comes out null for any reason, including a null test clause.
 

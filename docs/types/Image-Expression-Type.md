@@ -45,7 +45,7 @@ A struct expression, written `{ name1: expression1, name2: expression2, ... }`, 
 
 ## Null Value Handling
 
-A null value in any operand poisons the entire expression result. The keyword `null` marks the current evaluation unit as missing — it is an abstract sentinel with no numeric value, available in all six calculator functors. This is distinct from `null(iX)`, which returns the numeric sentinel value stored in a specific image and is only available in map calculators. Two operators interrupt null propagation: `isNull()` and `?`. See [Null Value Handling](../Calculate-Functors.html#null-value-handling) for the complete rules, exceptions specific to map calculators, and defensive patterns.
+A null value in any operand poisons the entire expression result. The keyword `null` marks the current evaluation unit as missing — it is an abstract sentinel with no numeric value, available in all six calculator functors. This is distinct from `null(iX)`, which returns the numeric sentinel value stored in a specific image and is only available in map calculators. Two operators interrupt null propagation: `isNull()` and `?`. The power operator `^` also results in 1, not null, when its exponent is 0 or its base is 1. See [Null Value Handling](../Calculate-Functors.html#null-value-handling) for the complete rules, exceptions specific to map calculators, and defensive patterns.
 
 ## Operators
 
