@@ -55,7 +55,7 @@ When an expression references more than one connected map, all of them are evalu
 
 ### Available expression features
 
-All expression language features are available: image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`[^8150]), the `line` and `column` spatial keywords, lookup table operators ([section 5](#5-lookup-table-operators)), multi-column table operators ([section 6](#6-multi-column-table-operators)), neighbourhood functions (`nbMin`, `nbMax`, `nbAverage`, etc. — [section 7](#7-image-neighborhood-functions)), neighbourhood indexing (`nbMinRef`, `nbMaxRef` — [section 8](#8-image-neighborhood-indexing-functions)), and the convolution operator (`nbConvol` — [section 9](#9-convolution-operator)).
+All expression language features are available: image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`[^8150]), the `line` and `column` spatial keywords, lookup table operators ([section 5](#5-lookup-table-operators)), multi-column table operators ([section 6](#6-multi-column-table-operators)), neighbourhood functions (`nbMin`, `nbMax`, `nbAverage`, etc. — [section 7](#7-image-neighborhood-functions)), neighbourhood indexing (`nbMinRef`, `nbMaxRef` — [section 8](#8-image-neighborhood-indexing-functions)), the convolution operator (`nbConvol` — [section 9](#9-convolution-operator)), and the neighbourhood reduce operator (`nbReduce`[^8150] — [section 10](#10-neighborhood-reduce-operator)).
 
 ---
 
@@ -137,7 +137,7 @@ Evaluates an expression **once** and returns a single **scalar value**. Because 
 
 **Available:** all arithmetic and logical operators (sections [1](#1-general-operators) and [2](#2-general-functions)), scalar value references (`vX`), and lookup table queries (`tX[...]`) in all single-key and multi-column forms ([section 5](#5-lookup-table-operators), [section 6](#6-multi-column-table-operators)).
 
-**Not available:** image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`[^8150]), the `line` and `column` spatial keywords, neighbourhood functions, neighbourhood indexing functions, and the convolution operator. These all require a cell or row context that does not exist in [Calculate Value](functors/Calculate-Value.html).
+**Not available:** image operators (`iX`, `iX[line,col]`, `iX[[line,col]]`[^8150]), the `line` and `column` spatial keywords, neighbourhood functions, neighbourhood indexing functions, the convolution operator, and the neighbourhood reduce operator (`nbReduce`[^8150]). These all require a cell or row context that does not exist in [Calculate Value](functors/Calculate-Value.html).
 
 ---
 
@@ -170,7 +170,7 @@ Within the expression, **`line` refers to the key of the current row** being ite
 
 **Available:** arithmetic and logical operators (sections [1](#1-general-operators) and [2](#2-general-functions)), scalar references (`vX`), lookup table queries (`tX[...]`) in all single-key and multi-column forms ([section 5](#5-lookup-table-operators), [section 6](#6-multi-column-table-operators)), `line` (as the current row key), and `column` (as the current row's value in the base lookup table).
 
-**Not available:** `iX`, `iX[line,col]`, `iX[[line,col]]`[^8150], neighbourhood functions, neighbourhood indexing, and convolution. There is no spatial grid.
+**Not available:** `iX`, `iX[line,col]`, `iX[[line,col]]`[^8150], neighbourhood functions, neighbourhood indexing, convolution, and `nbReduce`[^8150]. There is no spatial grid.
 
 ---
 
@@ -563,6 +563,102 @@ In all cases the total number of keys required in the table is h × w.
 ```
 nbConvol(i1, t1, 3, 3)
 ```
+
+---
+
+# 10. Neighborhood Reduce Operator
+
+> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only.
+
+`nbReduce` combines the cells of a window into a single value using an expression written in the expression itself.[^8150] It covers the operators of sections 7 to 9 and any other aggregation that can be computed with a running accumulator.
+
+**Syntax:** `nbReduce(IMAGE, INIT, REDUCE, h, w)` / `nbReduce(IMAGE, INIT, REDUCE, h, w, y, x)`
+
+| Parameter | Meaning |
+| --- | --- |
+| `IMAGE` | The image scanned by the window (`iX`) |
+| `INIT` | Initial value of the accumulator |
+| `REDUCE` | Expression that combines the accumulator with the current element of the window |
+| `h` | Number of window rows |
+| `w` | Number of window columns |
+| `y`, `x` | Line and column of the window centre (optional; default `line`, `column`) |
+
+`REDUCE` can use five [local variables](#local-variables-let--in):
+
+| Local variable | Meaning |
+| --- | --- |
+| `_acc` | Current value of the accumulator |
+| `_elem` | Value of `IMAGE` at the current element; null when the cell is null |
+| `_eline` | Line of the current element in `IMAGE` |
+| `_ecolumn` | Column of the current element in `IMAGE` |
+| `_eindex` | Index of the current element in the window, from 1 to h × w, left-to-right, then top-to-bottom (the same keys as `nbConvol` in [section 9](#9-convolution-operator)) |
+
+For each cell of the result:
+
+1. `h`, `w`, `y`, `x` and `INIT` are evaluated once.
+2. `_acc` receives the value of `INIT`.
+3. Every cell of the window is visited left-to-right, then top-to-bottom. For each one, `_elem`, `_eline`, `_ecolumn` and `_eindex` receive its values and `_acc` receives the value of `REDUCE`.
+4. The result is the final value of `_acc`.
+
+Rules:
+
+- The window is defined as in [section 7](#7-image-neighborhood-functions): same `h`, `w`, `y` and `x` parameters, same mirroring of the cells outside the image, and even-sized windows displaced toward the top-left corner. `_eline` and `_ecolumn` are the mirrored coordinates, so `_elem` is always the value of `IMAGE` at (`_eline`, `_ecolumn`).
+- **Null cells are not skipped.** Since null [poisons](#null-value-handling) any arithmetic, `_acc + _elem` becomes null at the first null cell. To skip null cells, test them: `if isNull(_elem) then _acc else _acc + _elem`.
+- Inside `REDUCE`, `iX`, `vX`, `tX`, `line` and `column` refer to the current cell of the result, as anywhere else in the expression. The values of the current element are available only through the five local variables. For example, `i2[_eline, _ecolumn]` reads a second image at the current element.
+- The five local variables are visible only in `REDUCE`. `INIT`, `h`, `w`, `y` and `x` cannot use them. Local variables declared by an outer `let` are visible in all the arguments.
+- An `nbReduce` inside `REDUCE` declares its own five local variables, which hide the outer ones.
+- Each `nbReduce` uses five of the 100 positions available for local variables, so at most 20 `nbReduce` can be nested.
+- `nbReduce` always produces a single value and can be used anywhere an expression is accepted: `nbReduce(i1, 0, _acc + 1, 3, 3) + 1`.
+- Expressions that use `nbReduce` are not compiled to native code and are not supported on GPU accelerators.
+
+**Example:** Sum of the non-null cells of `i1` in a 3x3 window, plus the number of null cells multiplied by 10:
+
+```
+nbReduce(i1, 0, if isNull(_elem) then _acc + 10 else _acc + _elem, 3, 3)
+```
+
+The expressions below produce the same values as the operators of sections 7 to 9 for a 3x3 window. They hold for any window size: replace `3, 3` with the number of rows and columns of the window, in the operator and in every `nbReduce` call. An anchor, `y` and `x`, can also be added to all of them.
+
+```
+// nbSum(i1, 3, 3)
+nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + _elem, 3, 3)
+
+// nbProd(i1, 3, 3)
+nbReduce(i1, null, if isNull(_elem) then _acc else (_acc * _elem) ? _elem, 3, 3)
+
+// nbCount(i1, 3, 3)
+nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + 1, 3, 3)
+
+// nbMin(i1, 3, 3); nbMax is the same with max
+nbReduce(i1, null, if isNull(_elem) then _acc else (min(_acc, _elem) ? _elem), 3, 3)
+
+// nbAverage(i1, 3, 3)
+nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + _elem, 3, 3)
+    / nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + 1, 3, 3)
+
+// nbVar(i1, 3, 3); nbStdDev is sqrt of the last division
+let _n: nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + 1, 3, 3),
+    _mean: nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + _elem, 3, 3) / _n
+in nbReduce(i1, 0, if isNull(_elem) then _acc else _acc + (_elem - _mean) ^ 2, 3, 3) / _n
+
+// nbConvol(i1, t1, 3, 3)
+nbReduce(i1, null, if isNull(_elem) then _acc else (_acc ? 0) + _elem * (t1[_eindex] ? 0), 3, 3)
+
+// nbMinRef(i1, 3, 3, t1); nbMaxRef is the same with max
+let _min: nbReduce(i1, null, if isNull(_elem) then _acc else (min(_acc, _elem) ? _elem), 3, 3)
+in t1[nbReduce(i1, null,
+    if not isNull(_acc) or isNull(_elem) then _acc else if _elem == _min then _eindex else null, 3, 3)]
+
+// nbMinRef(i1, 3, 3, i2); nbMaxRef is the same with max
+let _min: nbReduce(i1, null, if isNull(_elem) then _acc else (min(_acc, _elem) ? _elem), 3, 3),
+    _line: nbReduce(i1, null,
+        if not isNull(_acc) or isNull(_elem) then _acc else if _elem == _min then _eline else null, 3, 3),
+    _column: nbReduce(i1, null,
+        if not isNull(_acc) or isNull(_elem) then _acc else if _elem == _min then _ecolumn else null, 3, 3)
+in i2[_line, _column]
+```
+
+In the `nbMinRef` expressions, the second `nbReduce` keeps the position of the first element equal to the minimum, which is the element the native operator selects when several cells hold the minimum. `nbMedian` and `nbMode` need every value of the window, not a running accumulator, so they have no `nbReduce` equivalent.
 
 ---
 

@@ -103,6 +103,12 @@ Kernel-weighted convolution via `nbConvol`. Available in [Calculate Map](../func
 
 → [Convolution Operator](../Calculate-Functors.html#9-convolution-operator)
 
+### Neighborhood Reduce
+
+Combination of the cells of a window into a single value using an accumulator and an expression, via `nbReduce`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.[^8150]
+
+→ [Neighborhood Reduce Operator](../Calculate-Functors.html#10-neighborhood-reduce-operator)
+
 ## EGO Script
 
 In an EGO Script `.ego` file, an image expression is enclosed in square brackets `[ ]`. The same expression can be written in **verbose form** (numbered identifiers, hook block required) or **abbreviated form** (named operands, no hook block). The following example, evaluated for each cell of a raster map, restores noisy pixels using a growing neighbourhood median window — combining multiple maps, a value operand, a neighbourhood function, and the `?` catch-error operator:
