@@ -15,7 +15,7 @@ How the values of a functor's ports are edited in the graphical interface. Open 
 
 ## Calculator Functor Editors
 
-This applies to [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html), [Calculate Lookup Table Values](../functors/Calculate-Lookup-Table-Values.html), [Calculate Lookup Table Keys And Values](../functors/Calculate-Lookup-Table-Keys-And-Values.html), and [Calculate Value](../functors/Calculate-Value.html).
+This applies to [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html), [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html), [Calculate Lookup Table Values](../functors/Calculate-Lookup-Table-Values.html), [Calculate Lookup Table Keys And Values](../functors/Calculate-Lookup-Table-Keys-And-Values.html), and [Calculate Value](../functors/Calculate-Value.html).
 
 - Hovering the mouse over a name such as `i1`, `t1`, `v1`, etc. in the editor of the port containing the expression displays the tooltip for the functor and output port to which the corresponding NumberMap, NumberTable, or NumberValue is connected.
 - Clicking a name such as `i1`, `t1`, `v1`, etc. in the editor of the port containing the expression inserts the corresponding identifier at the current cursor position in the expression.

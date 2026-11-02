@@ -38,7 +38,7 @@ Calculates basic statistics from a map for each class delimited by a categorical
 
 Attributes has columns "Attribute" (key, the attribute's numeric code) and "Category" (key, the class value from Categorical Map), with the corresponding statistic in the "Value" data column.
 
-Each attribute has a predefined name that can be used to retrieve it by name (rather than by numeric key) in [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Value](Calculate-Value.html), and the lookup table calculators.
+Each attribute has a predefined name that can be used to retrieve it by name (rather than by numeric key) in [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Multiple Maps](Calculate-Multiple-Maps.html), [Calculate Value](Calculate-Value.html), and the lookup table calculators.
 
 If an attribute cannot be determined for a class, its entry is omitted from Attributes rather than being filled with a placeholder. Minimum and maximum values are only determined when the class has at least one non-null cell.
 

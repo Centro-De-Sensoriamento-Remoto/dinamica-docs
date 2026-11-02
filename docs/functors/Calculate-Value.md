@@ -11,7 +11,7 @@ grand_parent: "Functor List"
 
 Evaluates an algebraic or logical expression once and returns a single scalar value. Unlike the map and lookup table calculators, there is no current cell, row, or spatial grid: the expression is evaluated in a purely scalar context, drawing only on tables, lookup tables, and scalar values connected through hooks.
 
-This is one of Dinamica EGO's five calculator functors. Its abbreviated (shorthand) syntax is `$`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
+This is one of Dinamica EGO's six calculator functors. Its abbreviated (shorthand) syntax is `$`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
 
 ## Inputs
 

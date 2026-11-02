@@ -11,7 +11,7 @@ grand_parent: "Functor List"
 
 Computes a new categorical raster map by evaluating an algebraic or logical expression independently for every cell of the output map. Functionally identical to [Calculate Map](Calculate-Map.html) — the same inputs, parameters, and expression language apply — except that its output is typed as a categorical map, preserving category semantics for downstream functors that distinguish categorical maps from continuous ones (e.g. [Calc Areas](Calc-Areas.html), [For Each Category](For-Each-Category.html)). Use this functor when the expression produces integer class codes; use [Calculate Map](Calculate-Map.html) instead for continuous or measured values.
 
-This is one of Dinamica EGO's five calculator functors. Its abbreviated (shorthand) syntax is `##`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
+This is one of Dinamica EGO's six calculator functors. Its abbreviated (shorthand) syntax is `##`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
 
 ## Inputs
 

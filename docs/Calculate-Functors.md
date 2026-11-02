@@ -10,7 +10,7 @@ parent: "Language and Expressions"
 
 # Overview
 
-Dinamica EGO provides a family of five **calculator functors** that evaluate an algebraic or logical expression and return a result of a specific type. All five share the same underlying **Image Expression Language**, but they differ in what they output, how many expressions they accept, and which language features are available in each context.
+Dinamica EGO provides a family of six **calculator functors** that evaluate an algebraic or logical expression and return a result of a specific type. All six share the same underlying **Image Expression Language**, but they differ in what they output, how many expressions they accept, and which language features are available in each context.
 
 | Functor | EGO Script Shorthand | Output Type | Evaluation context |
 | --- | --- | --- | --- |
@@ -218,7 +218,7 @@ All data referenced in any expression must be connected to the functor's ports b
 
 The expression is written in Dinamica EGO's **Image Expression Language** — a concise algebra where every term operates on the current evaluation unit (a cell, a table row, or nothing, depending on the functor). The language has eight categories of operators and functions described below.
 
-Unless a restriction is noted, every operator is available in all five calculator functors.
+Unless a restriction is noted, every operator is available in all six calculator functors.
 
 Every construct in the language — including a conditional — is itself just an expression that resolves to one value, and any expression can appear anywhere another one is expected. This makes conditionals freely composable: two `if...then...else` results can be summed directly, a conditional's own test can be replaced with another conditional, and so on, without any special syntax for combining them. For example, `if (if i1 > 0 then 1 else i2) then i2 else 1 + i3` nests one conditional inside another's test.
 
@@ -227,8 +227,8 @@ Every construct in the language — including a conditional — is itself just a
 | Symbol | Refers to | Available in |
 | --- | --- | --- |
 | `iX` | Value of map X at the current cell | [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only |
-| `tX` | Connected table or lookup table X (used with a bracket operator) | All five functors |
-| `vX` | Connected scalar value X | All five functors |
+| `tX` | Connected table or lookup table X (used with a bracket operator) | All six functors |
+| `vX` | Connected scalar value X | All six functors |
 | `line` | Spatial row index of the current cell, **starting at 1** *(map calculators)* **or** key of the current row *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
 | `column` | Spatial column index of the current cell, **starting at 1** *(map calculators)* **or** value associated with the current row's key *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
 | `_name`[^8150] | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All calculator functors |
@@ -239,7 +239,7 @@ X ranges from 1 to 100. In logical expressions, **zero is false** and any non-ze
 
 # 1. General Operators
 
-The table below lists all infix and prefix operators in **descending precedence order** (highest precedence = evaluated first). All operators are available in all five calculator functors.
+The table below lists all infix and prefix operators in **descending precedence order** (highest precedence = evaluated first). All operators are available in all six calculator functors.
 
 | Precedence | Operator | Syntax | Description | Example |
 | --- | --- | --- | --- | --- |
@@ -308,7 +308,7 @@ A struct expression produces several results from a single evaluation. It is a l
 
 ## Mathematical Functions
 
-All mathematical functions are available in all five calculator functors.
+All mathematical functions are available in all six calculator functors.
 
 | Function | Syntax | Description | Example |
 | --- | --- | --- | --- |
@@ -333,7 +333,7 @@ All mathematical functions are available in all five calculator functors.
 
 ## Clamping Functions
 
-All clamping functions are available in all five calculator functors.
+All clamping functions are available in all six calculator functors.
 
 | Function | Syntax | Description | Example |
 | --- | --- | --- | --- |
@@ -342,7 +342,7 @@ All clamping functions are available in all five calculator functors.
 
 ## Random / Stochastic Functions
 
-All stochastic functions are available in all five calculator functors. They generate a new random sample **for each evaluation unit** each time the expression is evaluated. In [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html), this means one sample per cell, making them suitable for spatially stochastic models. In [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html), one sample is drawn per table row. In [Calculate Value](functors/Calculate-Value.html), a single sample is drawn for the whole expression.
+All stochastic functions are available in all six calculator functors. They generate a new random sample **for each evaluation unit** each time the expression is evaluated. In [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html), this means one sample per cell, making them suitable for spatially stochastic models. In [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html), one sample is drawn per table row. In [Calculate Value](functors/Calculate-Value.html), a single sample is drawn for the whole expression.
 
 | Function | Syntax | Description | Example |
 | --- | --- | --- | --- |
@@ -355,10 +355,10 @@ All stochastic functions are available in all five calculator functors. They gen
 
 | Function | Syntax | Description | Example |
 | --- | --- | --- | --- |
-| Literal value | `2`, `-3.5e-2`, etc. | Any numeric literal, including scientific notation. Available in all five calculator functors. | `2 + i1 / -3.5e-2` |
-| Abort | `abort` | Immediately halts model execution. Useful as a guard inside a conditional to catch unexpected states. Available in all five calculator functors. | `if i1 > 0 then i1 * i2 + 4 else abort` |
-| Is Null | `isNull(EXPR)` | Returns 1 if the expression is null, 0 otherwise. Immune to the null poisoning rule — always resolves to 0 or 1. Available in all five calculator functors. | `if not isNull(i1) then i1 else i2` |
-| Null | `null` | Makes the current evaluation unit null — the cell, row, or scalar result is marked as missing and any further arithmetic using it propagates null. This is an **abstract** null, not a numeric value; it cannot be used in arithmetic and has no numeric representation. Available in all five calculator functors. | `if i1 > 2 then i1 else null` |
+| Literal value | `2`, `-3.5e-2`, etc. | Any numeric literal, including scientific notation. Available in all six calculator functors. | `2 + i1 / -3.5e-2` |
+| Abort | `abort` | Immediately halts model execution. Useful as a guard inside a conditional to catch unexpected states. Available in all six calculator functors. | `if i1 > 0 then i1 * i2 + 4 else abort` |
+| Is Null | `isNull(EXPR)` | Returns 1 if the expression is null, 0 otherwise. Immune to the null poisoning rule — always resolves to 0 or 1. Available in all six calculator functors. | `if not isNull(i1) then i1 else i2` |
+| Null | `null` | Makes the current evaluation unit null — the cell, row, or scalar result is marked as missing and any further arithmetic using it propagates null. This is an **abstract** null, not a numeric value; it cannot be used in arithmetic and has no numeric representation. Available in all six calculator functors. | `if i1 > 2 then i1 else null` |
 
 > **Note on null and equality:** Writing `i1 == null` does **not** test for null — because null participates in no arithmetic comparison, it always produces null itself, poisoning the expression. Always use `isNull(i1)` instead. See the [Null Value Handling](#null-value-handling) section for full details.
 
@@ -366,7 +366,7 @@ All stochastic functions are available in all five calculator functors. They gen
 
 # 3. Value Operators
 
-Available in all five calculator functors.
+Available in all six calculator functors.
 
 | Operator | Syntax | Description | Example |
 | --- | --- | --- | --- |
@@ -376,7 +376,7 @@ Available in all five calculator functors.
 
 # 4. Image Operators and Functions
 
-> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only. These operators require a cell context that does not exist in [Calculate Value](functors/Calculate-Value.html), [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), or [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html).
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only. These operators require a cell context that does not exist in [Calculate Value](functors/Calculate-Value.html), [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), or [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html).
 >
 > **Exception:** `line` and `column` are also available in the two lookup table calculators, where they take on row-oriented meanings instead of spatial ones: `line` is the key of the current row, and `column` is the value associated with that key in the base lookup table being iterated.
 
@@ -397,7 +397,7 @@ Available in all five calculator functors.
 
 # 5. Lookup Table Operators
 
-These operators query a **Lookup Table** (`tX`) — a single-key table — and return the associated value. The key lookup rule is controlled by a prefix operator inside the brackets. Available in all five calculator functors.
+These operators query a **Lookup Table** (`tX`) — a single-key table — and return the associated value. The key lookup rule is controlled by a prefix operator inside the brackets. Available in all six calculator functors.
 
 **General syntax:** `tX[RULE EXPR]`
 
@@ -423,7 +423,7 @@ The bound operators (`<=`, `<`, `>=`, `>`, `><`, `/`) are especially useful for 
 
 # 6. Multi-Column Table Operators
 
-These operators query a regular **Table** (`tX`) — one with multiple key columns and one or more data columns — using a set of keys simultaneously. Available in all five calculator functors.
+These operators query a regular **Table** (`tX`) — one with multiple key columns and one or more data columns — using a set of keys simultaneously. Available in all six calculator functors.
 
 **General syntax:** `tX[ [KEY1, KEY2, ...] ]` or `tX[ [KEY1, KEY2, ...] [COL] ]`
 
@@ -441,7 +441,7 @@ These operators allow joining spatial data to rich tabular datasets at the cell 
 
 # 7. Image Neighborhood Functions
 
-> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only. A spatial grid is required.
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only. A spatial grid is required.
 
 Neighborhood operators aggregate values from a rectangular window centred on the current cell.
 
@@ -476,7 +476,7 @@ The window centre defaults to the current cell when `y` and `x` are omitted. For
 
 # 8. Image Neighborhood Indexing Functions
 
-> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only.
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only.
 
 These operators find the cell holding the minimum or the maximum value of `IMAGE` in the window, and then use the **position** of that cell, not its value, to retrieve a value from a connected Lookup Table or from a second image. `TABLE` below always refers to a **Lookup Table** specifically — see section 5 for the operators that query one directly.
 
@@ -510,7 +510,7 @@ The result is null when every cell of `IMAGE` in the window is null, when the ke
 
 # 9. Convolution Operator
 
-> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only.
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only.
 
 `nbConvol` applies a kernel-weighted convolution to an image — for spatial filtering such as Gaussian blur or edge detection.
 
@@ -568,7 +568,7 @@ nbConvol(i1, t1, 3, 3)
 
 # 10. Neighborhood Reduce Operator
 
-> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only.
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only.
 
 `nbReduce` combines the cells of a window into a single value using an expression written in the expression itself.[^8150] It covers the operators of sections 7 to 9 and any other aggregation that can be computed with a running accumulator.
 
@@ -664,11 +664,11 @@ In the `nbMinRef` expressions, the second `nbReduce` keeps the position of the f
 
 # Null Value Handling
 
-## General rule (all five functors)
+## General rule (all six functors)
 
-A null value in any operand **poisons the entire expression**: the result becomes null regardless of what the rest of the expression does. This is not a special case — it is the default behaviour for every operator and every operand type, across all five calculator functors.
+A null value in any operand **poisons the entire expression**: the result becomes null regardless of what the rest of the expression does. This is not a special case — it is the default behaviour for every operator and every operand type, across all six calculator functors.
 
-> **Note:** The keyword `null` (available in all five functors) is an **abstract** sentinel — it carries no numeric value and cannot participate in arithmetic. It is distinct from `null(iX)` (available in map calculators only), which returns the **numeric** value that image X uses internally to mark missing cells. These two are not interchangeable: `null` poisons any expression that uses it; `null(iX)` is a regular number that happens to be the image's no-data sentinel.
+> **Note:** The keyword `null` (available in all six functors) is an **abstract** sentinel — it carries no numeric value and cannot participate in arithmetic. It is distinct from `null(iX)` (available in map calculators only), which returns the **numeric** value that image X uses internally to mark missing cells. These two are not interchangeable: `null` poisons any expression that uses it; `null(iX)` is a regular number that happens to be the image's no-data sentinel.
 
 | Expression | Null behaviour |
 | --- | --- |
@@ -741,7 +741,7 @@ else i2
 
 The exhaustive form is only worth writing out when each of the four combinations genuinely needs different treatment; when they don't, as here, the shorter forms above are equivalent and preferable.
 
-If the computed real value exceeds the range of the chosen Cell Type, that cell is also written as null rather than wrapping or clipping. This range check applies to [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only — the only two functors that accept a Cell Type parameter and write to a typed cell grid.
+If the computed real value exceeds the range of the chosen Cell Type, that cell is also written as null rather than wrapping or clipping. This range check applies to [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only — the only three functors that accept a Cell Type parameter and write to a typed cell grid.
 
 ## When a conditional's test needs guarding against null
 
@@ -753,7 +753,7 @@ Guarding the test with `isNull` fixes it: `if not isNull(i2) and i2 = 1 then 1 e
 
 ## Exceptions in map calculators
 
-> **Availability:** [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only. The two exceptions below involve `iX` references and neighbourhood functions, which do not exist in the other three calculator functors.
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only. The two exceptions below involve `iX` references and neighbourhood functions, which do not exist in the other three calculator functors.
 
 - **Coordinate lookup** `iX[LINE_EXPR, COL_EXPR]` — accessing a map at a specific coordinate returns **0**, not null, when the target cell **is null**. Coordinates that fall **outside the image boundary** are mirrored back into range rather than producing an error. For a row coordinate `cellLine` in an image of N rows, `cellLine` is normally expected to be in the range \[1, N\]. When `cellLine` is outside this range, it is mirrored back: if `cellLine` ≤ 0, the effective row is `1 − cellLine` (for instance, `cellLine` = 0 → row 1, `cellLine` = −1 → row 2, `cellLine` = −2 → row 3); if `cellLine` > N, the effective row is `2N + 1 − cellLine` (for instance, `cellLine` = N+1 → row N, `cellLine` = N+2 → row N−1, `cellLine` = N+3 → row N−2). The same formula applies independently to the column coordinate `cellCol`. It can be a source of subtle bugs: an expression that tests `i1[line-1, column] > 0` will silently treat a null neighbour as zero rather than null. A table or lookup-table key lookup (`tX[EXPR]`) that finds no matching key still returns null as normal — this exception applies only to map coordinate lookups. To get a null result instead, use the null-preserving form `iX[[LINE_EXPR, COL_EXPR]]`, which returns null when the target cell is null.
 - **Neighbourhood functions** `nbN(iX, h, w)` — operators such as `nbSum`, `nbAverage`, `nbMax`, and so on aggregate over a window of cells and **exclude null cells from the calculation**. If `i1` is null at the current cell, the neighbourhood function simply ignores it and aggregates the remaining non-null cells in the window.
@@ -1215,7 +1215,7 @@ t1[line] / v1
 t1[ [i1, i2] ["TransitionProb"] ]
 ```
 
-`i1`, `i2` = map layers providing the composite key values; `t1` = multi-key probability table. Looks up a transition probability using two map values as composite keys. Available in [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html); the same syntax works in the table calculators by substituting `line` or `vX` for `iX`.
+`i1`, `i2` = map layers providing the composite key values; `t1` = multi-key probability table. Looks up a transition probability using two map values as composite keys. Available in [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html); the same syntax works in the table calculators by substituting `line` or `vX` for `iX`.
 
 ---
 
@@ -1253,9 +1253,9 @@ The steps differ by group of calculator functors. Each group is described separa
 
 - **Choose the right functor for the output type.** Use [Calculate Map](functors/Calculate-Map.html) for continuous rasters, [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) for class-coded rasters (so that downstream functors treat them as categorical), [Calculate Value](functors/Calculate-Value.html) for a single scalar, and the two lookup table calculators ([Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html), [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html)) for row-by-row table construction.
 - **Several maps from the same inputs.** Use [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) when more than one map is calculated from the same inputs or shares intermediate results, instead of repeating the sub-expressions in several [Calculate Map](functors/Calculate-Map.html) functors.[^8150]
-- **`line` and `column` are context-dependent.** In [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html), `line` is the spatial row index and `column` is the spatial column index of the current pixel, both **starting at 1**. In [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html), both are still available but take on row-oriented meanings: `line` is the key of the current table row, and `column` is the value already associated with that key in the base lookup table. A different table's value for that same key can be retrieved with `%someTable[line]`. See [section 4](#4-image-operators-and-functions) for full details.
-- **Native compilation.** Expression calculations across all five calculator functors can be compiled to native code automatically (requires the optional native expression support package), delivering near-C performance — no user action is needed beyond installing the package.
-- **Overflow produces null.** If the result exceeds the Cell Type's range, the cell becomes null rather than wrapping. Applies to [Calculate Map](functors/Calculate-Map.html) and [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) only — the only two functors with a Cell Type parameter.
+- **`line` and `column` are context-dependent.** In [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html), `line` is the spatial row index and `column` is the spatial column index of the current pixel, both **starting at 1**. In [Calculate Lookup Table Values](functors/Calculate-Lookup-Table-Values.html) and [Calculate Lookup Table Keys And Values](functors/Calculate-Lookup-Table-Keys-And-Values.html), both are still available but take on row-oriented meanings: `line` is the key of the current table row, and `column` is the value already associated with that key in the base lookup table. A different table's value for that same key can be retrieved with `%someTable[line]`. See [section 4](#4-image-operators-and-functions) for full details.
+- **Native compilation.** Expression calculations across all six calculator functors can be compiled to native code automatically (requires the optional native expression support package), delivering near-C performance — no user action is needed beyond installing the package.
+- **Overflow produces null.** If the result exceeds the Cell Type's range, the cell becomes null rather than wrapping. Applies to [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only — the only three functors with a Cell Type parameter.
 - **Neighbourhood functions ignore nulls.** All `nbN` operators ([section 7](#7-image-neighborhood-functions)) skip null cells in their window; only non-null cells contribute to the statistic.
 - **`iX[LINE, COL]` returns 0, not null, when the target cell is null.** Coordinates outside the image boundary are mirrored rather than treated as out-of-bounds. This is the one exception to the general null-propagation rule. See [section 4](#4-image-operators-and-functions) and [Null Value Handling](#null-value-handling). Use `iX[[LINE, COL]]` to get null instead.
 

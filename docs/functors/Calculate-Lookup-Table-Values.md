@@ -11,7 +11,7 @@ grand_parent: "Functor List"
 
 Generates a new lookup table by evaluating an expression once per row of a base lookup table. The keys of the output table are inherited unchanged from the base table; only the values are computed by the expression.
 
-This is one of Dinamica EGO's five calculator functors. Use it to recompute the values of an existing lookup table row by row while keeping the same key structure; use [Calculate Lookup Table Keys And Values](Calculate-Lookup-Table-Keys-And-Values.html) instead when the keys also need to be recomputed. Its abbreviated (shorthand) syntax is `%`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
+This is one of Dinamica EGO's six calculator functors. Use it to recompute the values of an existing lookup table row by row while keeping the same key structure; use [Calculate Lookup Table Keys And Values](Calculate-Lookup-Table-Keys-And-Values.html) instead when the keys also need to be recomputed. Its abbreviated (shorthand) syntax is `%`. See [Calculator functor shorthand](../EGO-Script.html#calculator-functor-shorthand) in the EGO Script documentation for the verbose and abbreviated forms, and [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html) for the full expression language reference.
 
 ## Inputs
 

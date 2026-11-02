@@ -7,7 +7,7 @@ grand_parent: "Core Concepts"
 {% raw %}
 # Image Expression Type
 
-The Image Expression Language is used by the five [calculator functors](../Calculate-Functors.html) to evaluate algebraic and logical expressions. The complete operator reference — including full syntax tables, availability notes, null value handling, EGO Script examples, and practical examples — is in [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html).
+The Image Expression Language is used by the six [calculator functors](../Calculate-Functors.html) to evaluate algebraic and logical expressions. The complete operator reference — including full syntax tables, availability notes, null value handling, EGO Script examples, and practical examples — is in [Calculate Functors — Complete Operator Documentation](../Calculate-Functors.html).
 
 ## GUI Editor
 
@@ -45,7 +45,7 @@ A struct expression, written `{ name1: expression1, name2: expression2, ... }`, 
 
 ## Null Value Handling
 
-A null value in any operand poisons the entire expression result. The keyword `null` marks the current evaluation unit as missing — it is an abstract sentinel with no numeric value, available in all five calculator functors. This is distinct from `null(iX)`, which returns the numeric sentinel value stored in a specific image and is only available in map calculators. Two operators interrupt null propagation: `isNull()` and `?`. See [Null Value Handling](../Calculate-Functors.html#null-value-handling) for the complete rules, exceptions specific to map calculators, and defensive patterns.
+A null value in any operand poisons the entire expression result. The keyword `null` marks the current evaluation unit as missing — it is an abstract sentinel with no numeric value, available in all six calculator functors. This is distinct from `null(iX)`, which returns the numeric sentinel value stored in a specific image and is only available in map calculators. Two operators interrupt null propagation: `isNull()` and `?`. See [Null Value Handling](../Calculate-Functors.html#null-value-handling) for the complete rules, exceptions specific to map calculators, and defensive patterns.
 
 ## Operators
 
@@ -57,7 +57,7 @@ Arithmetic, logical, and conditional operators with full precedence rules, inclu
 
 ### General Functions
 
-Mathematical functions (`sqrt`, `sin`, `cos`, `ln`, `exp`, `abs`, `ceil`, `floor`, `round`, `max`, `min`, `clamp`, `clampMod`, `signal`, `pi`), stochastic functions (`rand`, `rUniform`, `rNormal`, `rPoisson`), and control functions (`abort`, `isNull()`, `null`). All functions in this section are available in all five calculator functors.
+Mathematical functions (`sqrt`, `sin`, `cos`, `ln`, `exp`, `abs`, `ceil`, `floor`, `round`, `max`, `min`, `clamp`, `clampMod`, `signal`, `pi`), stochastic functions (`rand`, `rUniform`, `rNormal`, `rPoisson`), and control functions (`abort`, `isNull()`, `null`). All functions in this section are available in all six calculator functors.
 
 → [General Functions](../Calculate-Functors.html#2-general-functions)
 
@@ -69,7 +69,7 @@ Retrieves a scalar value connected to a `vX` port.
 
 ### Image Operators and Functions
 
-Operators that work at the current cell: `iX` (cell value), `iX[line, col]` (coordinate lookup with boundary mirroring), `null(iX)` (numeric sentinel value of image X — distinct from the abstract `null` keyword), `line`, and `column`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only; `line` and `column` are also available in the two lookup table calculators with row-oriented meanings.
+Operators that work at the current cell: `iX` (cell value), `iX[line, col]` (coordinate lookup with boundary mirroring), `null(iX)` (numeric sentinel value of image X — distinct from the abstract `null` keyword), `line`, and `column`. Available in [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html) only; `line` and `column` are also available in the two lookup table calculators with row-oriented meanings.
 
 → [Image Operators and Functions](../Calculate-Functors.html#4-image-operators-and-functions)
 
@@ -87,25 +87,25 @@ Multi-key table queries using a set of composite keys, returning values from a n
 
 ### Image Neighborhood Functions
 
-Window-based spatial aggregation: `nbMin`, `nbMax`, `nbSum`, `nbProd`, `nbCount`, `nbAverage`, `nbMedian`, `nbMode`, `nbVar`, `nbStdDev`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.
+Window-based spatial aggregation: `nbMin`, `nbMax`, `nbSum`, `nbProd`, `nbCount`, `nbAverage`, `nbMedian`, `nbMode`, `nbVar`, `nbStdDev`. Available in [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html) only.
 
 → [Image Neighborhood Functions](../Calculate-Functors.html#7-image-neighborhood-functions)
 
 ### Image Neighborhood Indexing Functions
 
-Find the cell with the minimum or the maximum value in the window and use its position to retrieve a value from a lookup table or a second image: `nbMinRef`, `nbMaxRef`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.
+Find the cell with the minimum or the maximum value in the window and use its position to retrieve a value from a lookup table or a second image: `nbMinRef`, `nbMaxRef`. Available in [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html) only.
 
 → [Image Neighborhood Indexing Functions](../Calculate-Functors.html#8-image-neighborhood-indexing-functions)
 
 ### Convolution
 
-Kernel-weighted convolution via `nbConvol`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.
+Kernel-weighted convolution via `nbConvol`. Available in [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html) only.
 
 → [Convolution Operator](../Calculate-Functors.html#9-convolution-operator)
 
 ### Neighborhood Reduce
 
-Combination of the cells of a window into a single value using an accumulator and an expression, via `nbReduce`. Available in [Calculate Map](../functors/Calculate-Map.html) and [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) only.[^8150]
+Combination of the cells of a window into a single value using an accumulator and an expression, via `nbReduce`. Available in [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html) only.[^8150]
 
 → [Neighborhood Reduce Operator](../Calculate-Functors.html#10-neighborhood-reduce-operator)
 

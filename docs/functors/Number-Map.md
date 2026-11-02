@@ -11,7 +11,7 @@ grand_parent: "Functor List"
 
 Placeholder used to register a map under a given number in the container it is placed inside. This functor produces no output itself: the enclosing container inspects its input ports and performs the actual registration.
 
-This functor can be placed inside [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Select Map](Select-Map.html), and [Calculate Python Expression](Calculate-Python-Expression.html) (where map values are not currently supported, so connecting this hook to that container raises an error at runtime).
+This functor can be placed inside [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Multiple Maps](Calculate-Multiple-Maps.html), [Select Map](Select-Map.html), and [Calculate Python Expression](Calculate-Python-Expression.html) (where map values are not currently supported, so connecting this hook to that container raises an error at runtime).
 
 ## Inputs
 

@@ -37,7 +37,7 @@ Extracts general attributes and basic statistics from a map, returning them as a
 
 ## Notes
 
-Each attribute has a predefined name that can be used to retrieve it by name (rather than by numeric key) with the `tX["NAME"]` syntax in [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Value](Calculate-Value.html), and the lookup table calculators.
+Each attribute has a predefined name that can be used to retrieve it by name (rather than by numeric key) with the `tX["NAME"]` syntax in [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Multiple Maps](Calculate-Multiple-Maps.html), [Calculate Value](Calculate-Value.html), and the lookup table calculators.
 
 If an attribute cannot be determined, its entry is omitted from Attributes rather than being filled with a placeholder. Minimum and maximum values are only determined when the map has at least one non-null cell.
 
