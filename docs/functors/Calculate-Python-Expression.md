@@ -42,7 +42,7 @@ Data is passed into the expression through hook functors placed inside the conta
 - Scalar values → [Number Value](Number-Value.html) → available as `dinamica.inputs["v1"]`, `dinamica.inputs["v2"]`, …, `dinamica.inputs["v100"]`
 - Strings → [Number String](Number-String.html) → available as dinamica.inputs\["s1"\], dinamica.inputs\["s2"\], …, dinamica.inputs\["s100"\]
 
-Maps cannot be connected -- this functor has no cell context. There is no shorthand notation. See [Calculate Functors -- Complete Operator Documentation](../Calculate-Functors.html) for the general hook mechanism and syntax.
+Maps cannot be connected: a model that places a [Number Map](Number-Map.html) inside this functor fails to load. There is no shorthand notation. See [Calculate Functors -- Complete Operator Documentation](../Calculate-Functors.html) for the general hook mechanism and syntax.
 
 Every table or lookup table arriving through dinamica.inputs is represented in Python as a list of lists: the first inner list contains the column names (the header row) and every subsequent inner list is a row of data. The header carries plain column names only -- no asterisk marking key columns, no type annotation -- so which columns were keys in the original table is information Python doesn't receive and can't recover from the input alone. Code that needs that distinction has to be told it separately, for instance by also connecting the key count as its own [Number Value](Number-Value.html) hook.
 

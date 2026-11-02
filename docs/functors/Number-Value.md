@@ -38,7 +38,7 @@ Number Value only stores the value and the number under which it should be regis
 
 ### Valid containers
 
-This functor must be placed directly inside one of the containers that consume numbered values — [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Multiple Maps](Calculate-Multiple-Maps.html), [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html), [Calculate Value](Calculate-Value.html), [Create String](Create-String.html), [Calculate R Expression](Calculate-R-Expression.html), [Calculate Python Expression](Calculate-Python-Expression.html), or [Calculate Lookup Table Keys And Values](Calculate-Lookup-Table-Keys-And-Values.html). Placing it inside any other functor is not supported and will fail validation.
+This functor must be placed directly inside one of the containers that consume numbered values — [Calculate Map](Calculate-Map.html), [Calculate Categorical Map](Calculate-Categorical-Map.html), [Calculate Multiple Maps](Calculate-Multiple-Maps.html), [Calculate Lookup Table Values](Calculate-Lookup-Table-Values.html), [Calculate Value](Calculate-Value.html), [Create String](Create-String.html), [Calculate R Expression](Calculate-R-Expression.html), [Calculate Python Expression](Calculate-Python-Expression.html), or [Calculate Lookup Table Keys And Values](Calculate-Lookup-Table-Keys-And-Values.html).
 
 ### Referencing the value in an expression
 
