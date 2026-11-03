@@ -12,6 +12,7 @@ Changes compared to version 8.14.0.
 ## 1. Image expressions
 
 - **Local variables** - `let _a: EXPR, _b: EXPR in EXPR` declares local variables in image expressions. Each binding is evaluated once and can use the previous ones. See [Local Variables](Calculate-Functors.html#local-variables-let--in).
+- **Neighborhood reduce** - `nbReduce(iX, INIT, REDUCE, h, w)` combines the cells of a window into a single value. The accumulator `_acc` starts with `INIT`, and `REDUCE` combines it with each cell of the window, available through `_elem`, `_eline`, `_ecolumn` and `_eindex`. It is available in Calculate Map, Calculate Categorical Map and Calculate Multiple Maps. See [Neighborhood Reduce Operator](Calculate-Functors.html#10-neighborhood-reduce-operator).
 - **Null-preserving position access** - the new expression `iX[[line, col]]` returns the value of an image at the given position, like `iX[line, col]`, but returns null instead of 0 when the cell is null. See [Image Operators and Functions](Calculate-Functors.html).
 - Fixed the GPU implementation of `iX[line, col]`, which returned null instead of 0 for a null cell. It now behaves like the CPU implementation.
 
