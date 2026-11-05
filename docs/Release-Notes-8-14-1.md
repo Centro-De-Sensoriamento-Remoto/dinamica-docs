@@ -5,7 +5,7 @@ nav_exclude: true
 {% raw %}
 # Dinamica EGO 8.14.1
 
-Changes compared to version 8.13.0.
+Changes compared to version [8.13.0](https://csr.ufmg.br/dokuwiki/doku.php?id=what_is_new_8_13_0).
 
 ## 1. GDAL virtual file systems
 

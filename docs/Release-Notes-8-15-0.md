@@ -7,7 +7,7 @@ nav_exclude: true
 
 > **Development version.** Dinamica EGO 8.15.0 is currently under development. This list may change before release.
 
-Changes compared to version 8.14.0.
+Changes compared to version [8.14.0](Release-Notes-8-14-0.html).
 
 ## 1. Image expressions
 
