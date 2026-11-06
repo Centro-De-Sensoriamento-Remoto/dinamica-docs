@@ -44,7 +44,8 @@ When an expression references more than one connected map, all of them are evalu
 | Expression | Image Expression Type | **Yes** | — | The algebraic or logical formula used to compute each output cell. |
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for each output cell (e.g., byte, int16, float32). |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in the output. |
-| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. |
+| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. Version 8.14.1 and earlier; replaced by Result Sparsity. |
+| Result Sparsity[^8150] | Enum Type | No | Automatic | Defines how the output map is stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. Models created with earlier versions are converted automatically: `False` becomes `Dense`, `True` becomes `Sparse`, and a model that does not set Result Is Sparse uses `Automatic`. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format (extent, resolution, projection) is applied to the output. Category information in the reference map is ignored. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -72,7 +73,8 @@ Use [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) when th
 | Expression | Image Expression Type | **Yes** | — | The formula used to compute each output cell's category code. |
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for each output cell. |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in the output. |
-| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. |
+| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. Version 8.14.1 and earlier; replaced by Result Sparsity. |
+| Result Sparsity[^8150] | Enum Type | No | Automatic | Defines how the output map is stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. Models created with earlier versions are converted automatically: `False` becomes `Dense`, `True` becomes `Sparse`, and a model that does not set Result Is Sparse uses `Automatic`. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to the output. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -100,7 +102,7 @@ Its shorthand symbol is `#*`.[^8150]
 | Expression | Image Expression Type | **Yes** | — | A [struct expression](#struct-expressions), `{ name: expression, ... }`. Each field produces one output map. Local variables declared by a `let ... in` around the struct are calculated once per cell and shared by all fields. |
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for the cells of all the output maps. |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in all the output maps. |
-| Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. |
+| Result Sparsity | Enum Type | No | Automatic | Defines how the output maps are stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output maps sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes every field null, and dense otherwise. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to all the output maps; its category information, if any, is ignored. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -791,6 +793,31 @@ result := CalculateMap {
 }};
 ```
 
+From version 8.15.0, the `resultIsSparse` port is replaced by `resultSparsity`, whose values are `.dense`, `.sparse` and `.auto`, the default. The same calculation, letting the functor choose how the result is stored:[^8150]
+
+```
+// Shorthand — normalise a map to the [0, 1] range
+result := # [ (#inputMap - $minVal) / ($maxVal - $minVal) ] .float32 .default .auto .none;
+
+// Verbose equivalent
+result := CalculateMap {
+    expression = [ (i1 - v1) / (v2 - v1) ],
+    cellType = .float32,
+    nullValue = .default,
+    resultSparsity = .auto,
+    resultFormat = .none
+} {{
+    // i1
+    NumberMap   inputMap 1;
+    // v1
+    NumberValue minVal   1;
+    // v2
+    NumberValue maxVal   2;
+}};
+```
+
+Scripts created with earlier versions keep working: `.no` is read as `.dense` and `.yes` as `.sparse`.
+
 ## CalculateMultipleMaps (`#*`)
 
 The maps in the resulting struct are retrieved with [Extract Struct Map](functors/Extract-Struct-Map.html):[^8150]
@@ -813,7 +840,7 @@ Script {{
             scaled: _ndvi * 100,
             mask: if _ndvi > 0.3 then 1 else 0
         }
-    ] .float32 .default .no .none;
+    ] .float32 .default .auto .none;
 
     // Retrieves each map from the struct.
     ndvi := ExtractStructMap indices "ndvi";
@@ -844,7 +871,7 @@ Script {{
         ],
         cellType = .float32,
         nullValue = .default,
-        resultIsSparse = .no,
+        resultSparsity = .auto,
         resultFormat = .none
     } {{
         // i1
@@ -890,6 +917,8 @@ landUse := CalculateCategoricalMap {
     NumberValue highThreshold   2;
 }};
 ```
+
+From version 8.15.0, `.no` and `resultIsSparse = .no` above are written as `.auto` and `resultSparsity = .auto`, as in [Calculate Map](#calculatemap--1).[^8150]
 
 ## CalculateValue (`$`)
 

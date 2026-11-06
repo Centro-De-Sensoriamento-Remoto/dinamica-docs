@@ -30,7 +30,7 @@ This is one of Dinamica EGO's calculator functors. Its abbreviated (shorthand) s
 | --- | --- | --- | --- |
 | Cell Type | [Cell Type](../types/Cell-Type.html) | Data type for the cells of all the output maps. | Signed 32 Bit Integer |
 | Null Value | [Null Value Type](../types/Null-Value-Type.html) | Sentinel value representing "no data" in all the output maps. | .default |
-| Result Is Sparse | [Boolean Value Type](../types/Boolean-Value-Type.html) | If true, the output maps store only non-null cells, saving memory at the expense of random-access speed. This is an advanced port. | No |
+| Result Sparsity | [Enum Type](../types/Enum-Type.html) | Defines how the output maps are stored. `.dense` stores all cells. `.sparse` stores only the non-null cells, saving memory at the expense of random-access speed. `.auto` makes the output maps sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes every field null, and dense otherwise. This is an advanced port. | .auto |
 | Result Format | [Map Type](../types/Map-Type.html) | Reference map whose spatial format (extent, resolution, projection) is applied to the output maps; its category information, if any, is ignored. Prefer this port over a Number Map hook when a map is needed only for format purposes, since a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier goes unused in the expression. This is an advanced port. | .none |
 
 ## Outputs
@@ -85,7 +85,7 @@ Script {{
             scaled: _ndvi * 100,
             mask: if _ndvi > 0.3 then 1 else 0
         }
-    ] .float32 .default .no .none;
+    ] .float32 .default .auto .none;
 
     // Retrieves each map from the struct.
     ndvi := ExtractStructMap multi "ndvi";
@@ -116,7 +116,7 @@ Script {{
         ],
         cellType = .float32,
         nullValue = .default,
-        resultIsSparse = .no,
+        resultSparsity = .auto,
         resultFormat = .none
     } {{
         // i1

@@ -46,6 +46,7 @@ How a map's cells are actually kept — fully in memory, as a sparse mapping of 
 
 - **Loaders** such as [Load Map](../functors/Load-Map.html) and [Load Categorical Map](../functors/Load-Categorical-Map.html) expose a `storageMode` input — an [Enum Type](Enum-Type.html) port — offering the full range of choices: `.default` (use the global memory allocation policy), `.preferMemory` (load fully into memory), `.preferDisk` (page from disk on demand), or `.loadAsSparse` (store only non-null cells).
 - **Most functors that create or calculate a map** — such as [Create Map](../functors/Create-Map.html), [Create Categorical Map](../functors/Create-Categorical-Map.html), [Calculate Map](../functors/Calculate-Map.html), and [Calc Slope Map](../functors/Calc-Slope-Map.html) — expose a simpler Boolean flag that forces the output to be stored as sparse when true, or fully in memory when false. The flag's name varies by functor (`createAsSparse`, `resultIsSparse`, `slopeIsSparse`, and similar). Since these functors compute their map's cells directly rather than reading them from an existing file, they have no on-disk paging option — that only applies to a map already backed by a file, as with the loaders above.
+  - From version 8.15.0, [Calculate Map](../functors/Calculate-Map.html), [Calculate Categorical Map](../functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](../functors/Calculate-Multiple-Maps.html) replace the flag with `resultSparsity`, an [Enum Type](Enum-Type.html) port whose values are `.dense`, `.sparse` and `.auto`, the default. With `.auto`, the output is sparse when the calculation visits only the non-null cells of a sparse input map, and dense otherwise.[^8150]
 - When a functor exposes no storage-related input at all, the runtime chooses the storage strategy automatically — the same choice `.default` makes for a loaded map.
 
 ## Automatic Conversions
@@ -54,4 +55,7 @@ How a map's cells are actually kept — fully in memory, as a sparse mapping of 
 - **Converted to**: [Projection Type](Projection-Type.html).
 
 See [Type System](../Type-System.html) for the complete conversion reference across all types, including which conversions are subtyping versus registered converters.
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}

@@ -25,7 +25,8 @@ This is one of Dinamica EGO's six calculator functors. Its abbreviated (shorthan
 | --- | --- | --- | --- |
 | Cell Type | [Cell Type](../types/Cell-Type.html) | Data type for each output cell. | Signed 32 Bit Integer |
 | Null Value | [Null Value Type](../types/Null-Value-Type.html) | Sentinel value representing "no data" in the output. | .default |
-| Result Is Sparse | [Boolean Value Type](../types/Boolean-Value-Type.html) | If true, only non-null cells are stored, saving memory at the expense of random-access speed. This is an advanced port. | No |
+| Result Is Sparse | [Boolean Value Type](../types/Boolean-Value-Type.html) | If true, only non-null cells are stored, saving memory at the expense of random-access speed. This is an advanced port. Version 8.14.1 and earlier; replaced by Result Sparsity. | No |
+| Result Sparsity[^8150] | [Enum Type](../types/Enum-Type.html) | Defines how the output map is stored. `.dense` stores all cells. `.sparse` stores only the non-null cells, saving memory at the expense of random-access speed. `.auto` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. Models created with earlier versions are converted automatically: `.no` becomes `.dense`, `.yes` becomes `.sparse`, and a model that does not set Result Is Sparse uses `.auto`. This is an advanced port. | .auto |
 | Result Format | [Map Type](../types/Map-Type.html) | Reference map whose spatial format (extent, resolution, projection) is applied to the output; its category information, if any, is ignored. Prefer this port over a Number Map hook when a map is needed only for format purposes, since a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier goes unused in the expression. This is an advanced port. | .none |
 
 ## Outputs
@@ -47,4 +48,7 @@ See [Calculate Functors — Complete Operator Documentation](../Calculate-Functo
 ## Internal Name
 
 CalculateCategoricalMap
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}
