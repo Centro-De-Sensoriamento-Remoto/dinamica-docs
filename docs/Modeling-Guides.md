@@ -14,5 +14,6 @@ Guides to modeling tasks that go beyond a single functor.
 - [Additional LUCC Resources](Additional-LUCC-Resources.html) — extensions to the land-use and land-cover change simulation model of the Guidebook: varying transition matrices, Weights of Evidence coefficients and Patcher and Expander parameters during a simulation, using subregions, sojourn time and deterministic transitions, and local saturation.
 - [Map Metadata](Map-Metadata.html) — writing a metadata file next to each saved map: template keywords, a template example, and an expanded metadata file.
 - [Remote Execution](Remote-Execution.html) — running parts of a model on other machines: setting up the coordinator and agents, configuring Dinamica EGO, the Run Remotely container, using several coordinators, and the limitations.
+- [Handling Errors](Handling-Errors.html) — capturing errors with Skip On Error and Skip All On Error, falling back to a matched set of values with junctions, testing for success only, and keeping partial results with conditional containers.
 - [Useful Tips for Creating Models](Model-Tips.html) — practical tips that don't fit neatly under a single functor or language feature.
 {% endraw %}

@@ -13,11 +13,11 @@ A Kml Timeline is built entirely through repeated calls to [Set Kml Timeline](..
 
 ## GUI Editor
 
-Input [ports](../EGO-Script.html#ports) of type Kml Timeline are non-editable, so a Kml Timeline value cannot be defined using an editor in the graphical interface. A Kml Timeline value must always come from connecting an output produced by another functor -- [Set Kml Timeline](../functors/Set-Kml-Timeline.html) or [Mux Kml Timeline](../functors/Mux-Kml-Timeline.html) -- supplied by wiring that output to the input.
+Input [ports](../Functors-And-Ports.html#ports) of type Kml Timeline are non-editable, so a Kml Timeline value cannot be defined using an editor in the graphical interface. A Kml Timeline value must always come from connecting an output produced by another functor -- [Set Kml Timeline](../functors/Set-Kml-Timeline.html) or [Mux Kml Timeline](../functors/Mux-Kml-Timeline.html) -- supplied by wiring that output to the input.
 
 ## EGO Script
 
-For the same reason, input [ports](../EGO-Script.html#ports) of type Kml Timeline cannot receive a constant in [EGO Script](../EGO-Script.html) -- see [Constants](../EGO-Script.html#constants). Unlike [Kml](Kml-Type.html), there is no generic carrier functor for Kml Timeline either; a Kml Timeline is always obtained directly from [Set Kml Timeline](../functors/Set-Kml-Timeline.html) or [Mux Kml Timeline](../functors/Mux-Kml-Timeline.html), and reused by referencing the variable bound to its output:
+For the same reason, input [ports](../Functors-And-Ports.html#ports) of type Kml Timeline cannot receive a constant in [EGO Script](../EGO-Script.html) -- see [Constants](../EGO-Script.html#constants). Unlike [Kml](Kml-Type.html), there is no generic carrier functor for Kml Timeline either; a Kml Timeline is always obtained directly from [Set Kml Timeline](../functors/Set-Kml-Timeline.html) or [Mux Kml Timeline](../functors/Mux-Kml-Timeline.html), and reused by referencing the variable bound to its output:
 
 ```
 // landUse2020 and landUse2021 are Categorical Maps loaded earlier in the model.

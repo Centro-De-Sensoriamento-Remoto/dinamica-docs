@@ -13,11 +13,11 @@ A Kml is produced either by rendering a [Categorical Map](Categorical-Map-Type.h
 
 ## GUI Editor
 
-Input [ports](../EGO-Script.html#ports) of type Kml are non-editable, so a Kml value cannot be defined using an editor in the graphical interface. A Kml value must always come from connecting an output produced by another functor -- [Create Kml](../functors/Create-Kml.html) or [Load Compressed Kml](../functors/Load-Compressed-Kml.html) -- supplied by wiring that output to the input.
+Input [ports](../Functors-And-Ports.html#ports) of type Kml are non-editable, so a Kml value cannot be defined using an editor in the graphical interface. A Kml value must always come from connecting an output produced by another functor -- [Create Kml](../functors/Create-Kml.html) or [Load Compressed Kml](../functors/Load-Compressed-Kml.html) -- supplied by wiring that output to the input.
 
 ## EGO Script
 
-For the same reason, input [ports](../EGO-Script.html#ports) of type Kml cannot receive a constant in [EGO Script](../EGO-Script.html) -- see [Constants](../EGO-Script.html#constants). A Kml is always obtained by calling a functor that produces one, and reused by referencing the variable bound to its output:
+For the same reason, input [ports](../Functors-And-Ports.html#ports) of type Kml cannot receive a constant in [EGO Script](../EGO-Script.html) -- see [Constants](../EGO-Script.html#constants). A Kml is always obtained by calling a functor that produces one, and reused by referencing the variable bound to its output:
 
 ```
 // Renders a categorical map as a Google Earth overlay and saves it.

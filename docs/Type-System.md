@@ -1,6 +1,6 @@
 ---
 title: "Type System"
-nav_order: 3
+nav_order: 4
 parent: "Core Concepts"
 has_children: true
 ---
@@ -13,7 +13,7 @@ Every port in the engine has a **type**, and a port accepts a value if it's exac
 
 Each type here is implemented by a dedicated type class, named after the data it represents with a `Type` suffix: [Region Manager Type](types/Region-Manager-Type.html) is the class backing the region manager data, [Table Type](types/Table-Type.html) the class backing tables, and so on. This page refers to every type by that full class name and links each one to its own page.
 
-See [Ports](EGO-Script.html#ports) on the EGO Script page for how a port's type governs what it can receive, and [Basic Data Flow](Basic-Data-Flow.html#functors-and-connections) for the general rule this page's conversions follow.
+See [Ports](Functors-And-Ports.html#ports) for how a port's type governs what it can receive, and [Basic Data Flow](Basic-Data-Flow.html#functors-and-connections) for the general rule this page's conversions follow.
 
 ## How automatic conversion works
 
@@ -25,7 +25,7 @@ The second reason is content validation: the source value's type is compatible, 
 
 **Information loss.** Failing outright and losing information are two different things — a conversion that never fails can still be irreversible. [Real Value Type](types/Real-Value-Type.html) → [Integer Value Type](types/Integer-Value-Type.html) is the clearest example: it rounds down, so `3.9` and `3.1` both become `3` (and `-3.1` becomes `-4`), and neither the original value nor the fact that something was lost survives the conversion. It fails only for values outside the integer range. The opposite case — guaranteed to succeed \*and\* fully recoverable — describes the widening direction of that same numeric chain instead; see [Value types](#value-types) below for exactly which steps are which. Every table from here on carries a **Notes** column stating this directly for the specific pair on that row; a plain `—` means the conversion always succeeds.
 
-**Sequencing.** A conversion **to [None Type](types/None-Type.html)** is registered for almost every type in the system. This isn't meant to transform data — it's what lets [sequence ports](EGO-Script.html#sequence-ports) accept a connection from any container's output regardless of what that container actually produces: connecting an output to a [None Type](types/None-Type.html)-typed input creates a dependency edge without needing the value itself, so the engine schedules the connected functor to run after the one that produced it. The types that support this are listed separately in [Sequencing](#sequencing) below, rather than repeated in every table.
+**Sequencing.** A conversion **to [None Type](types/None-Type.html)** is registered for almost every type in the system. This isn't meant to transform data — it's what lets [sequence ports](Functors-And-Ports.html#sequence-ports) accept a connection from any container's output regardless of what that container actually produces: connecting an output to a [None Type](types/None-Type.html)-typed input creates a dependency edge without needing the value itself, so the engine schedules the connected functor to run after the one that produced it. The types that support this are listed separately in [Sequencing](#sequencing) below, rather than repeated in every table.
 
 ### Converters and subtyping
 
@@ -297,7 +297,7 @@ Several of the types above convert to and from [Table Type](types/Table-Type.htm
 
 ## Sequencing
 
-A conversion **to [None Type](types/None-Type.html)** — used to force an execution order between two functors rather than to transform a value, most visibly through the `sequenceInput`/`sequenceOutput` ports [EGO Script](EGO-Script.html#sequence-ports) exposes on most containers — is registered for the following types:
+A conversion **to [None Type](types/None-Type.html)** — used to force an execution order between two functors rather than to transform a value, most visibly through the `sequenceInput`/`sequenceOutput` [ports](Functors-And-Ports.html#sequence-ports) exposed by most containers — is registered for the following types:
 
 [Connection Info Type](types/Connection-Info-Type.html), [Boolean Value Type](types/Boolean-Value-Type.html), [Code Type](types/Code-Type.html), [Date Type](types/Date-Type.html), [Enum Type](types/Enum-Type.html), [Folder Type](types/Folder-Type.html), [Generic Filename Type](types/Generic-Filename-Type.html), [Image Expression Type](types/Image-Expression-Type.html), [Index Or Name Type](types/Index-Or-Name-Type.html), [Int Set Type](types/Int-Set-Type.html), [Integer Value Type](types/Integer-Value-Type.html), [Log Tag Type](types/Log-Tag-Type.html), [Name Type](types/Name-Type.html), [Non Negative Integer Value Type](types/Non-Negative-Integer-Value-Type.html), [Null Value Type](types/Null-Value-Type.html), [Percent Type](types/Percent-Type.html), [Positive Integer Value Type](types/Positive-Integer-Value-Type.html), [Real Value Type](types/Real-Value-Type.html), [String Type](types/String-Type.html), [Struct Type](types/Struct-Type.html), [Workdir Type](types/Workdir-Type.html), [Categorical Map Type](types/Categorical-Map-Type.html), [Categorization Type](types/Categorization-Type.html), [Cell Type](types/Cell-Type.html), [Kml Type](types/Kml-Type.html), [Kml Timeline Type](types/Kml-Timeline-Type.html), [Kmz Filename Type](types/Kmz-Filename-Type.html), [Map Type](types/Map-Type.html), [Map Filename Type](types/Map-Filename-Type.html), [Projection Type](types/Projection-Type.html), [Weights Of Evidence Skeleton Type](types/Weights-Of-Evidence-Skeleton-Type.html), [Change Matrix Type](types/Change-Matrix-Type.html), [Neighborhood Table Type](types/Neighborhood-Table-Type.html), [Percent Matrix Type](types/Percent-Matrix-Type.html), [Transition Function Parameter Matrix Type](types/Transition-Function-Parameter-Matrix-Type.html), [Transition Matrix Type](types/Transition-Matrix-Type.html), [Transition Set Type](types/Transition-Set-Type.html), [Weights Type](types/Weights-Type.html), [Weights Filename Type](types/Weights-Filename-Type.html), [Elevation Graph Type](types/Elevation-Graph-Type.html), [Region Manager Type](types/Region-Manager-Type.html), [Base Table Type](types/Base-Table-Type.html), [Lookup Table Type](types/Lookup-Table-Type.html), [Lookup Table Filename Type](types/Lookup-Table-Filename-Type.html), [Lookup Table Group Type](types/Lookup-Table-Group-Type.html), [Table Filename Type](types/Table-Filename-Type.html), [Table Type](types/Table-Type.html), [Table Manager Type](types/Table-Manager-Type.html), [Table Value Type](types/Table-Value-Type.html), [Tuple Type](types/Tuple-Type.html)
 {% endraw %}

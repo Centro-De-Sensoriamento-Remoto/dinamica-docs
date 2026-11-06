@@ -25,11 +25,11 @@ Maps whose cells represent values — temperature, probabilities, distances, and
 
 ## GUI Editor
 
-Input [ports](../EGO-Script.html#ports) of type Map are non-editable, so a map cannot be defined using an editor in the graphical interface. A Map value must always come from connecting an output produced by another functor — a loader such as [Load Map](../functors/Load-Map.html), or a calculator such as [Calculate Map](../functors/Calculate-Map.html) — supplied by wiring that output to the input.
+Input [ports](../Functors-And-Ports.html#ports) of type Map are non-editable, so a map cannot be defined using an editor in the graphical interface. A Map value must always come from connecting an output produced by another functor — a loader such as [Load Map](../functors/Load-Map.html), or a calculator such as [Calculate Map](../functors/Calculate-Map.html) — supplied by wiring that output to the input.
 
 ## EGO Script
 
-For the same reason, input [ports](../EGO-Script.html#ports) of type Map cannot receive a constant in [EGO Script](../EGO-Script.html) — see [Constants](../EGO-Script.html#constants). A Map is always obtained by calling a functor that produces one, and reused by referencing the variable bound to its output. The filename passed to a loader such as [Load Map](../functors/Load-Map.html) is itself a [Map Filename](Map-Filename-Type.html) constant — an ordinary quoted string, validated against the expected extension:
+For the same reason, input [ports](../Functors-And-Ports.html#ports) of type Map cannot receive a constant in [EGO Script](../EGO-Script.html) — see [Constants](../EGO-Script.html#constants). A Map is always obtained by calling a functor that produces one, and reused by referencing the variable bound to its output. The filename passed to a loader such as [Load Map](../functors/Load-Map.html) is itself a [Map Filename](Map-Filename-Type.html) constant — an ordinary quoted string, validated against the expected extension:
 
 ```
 // Loads a map, computes its slope, and saves the result.

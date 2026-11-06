@@ -17,11 +17,11 @@ Because [Sub Table](../functors/Sub-Table.html) auto-binds only to the enclosing
 
 ## GUI Editor
 
-Input [ports](../EGO-Script.html#ports) of type Table Manager are non-editable, so a Table Manager value cannot be defined using an editor in the graphical interface. A Table Manager value must always come from the internal output of an enclosing [Table Manager](../functors/Table-Manager.html) container -- there is no functor that produces one directly outside that context.
+Input [ports](../Functors-And-Ports.html#ports) of type Table Manager are non-editable, so a Table Manager value cannot be defined using an editor in the graphical interface. A Table Manager value must always come from the internal output of an enclosing [Table Manager](../functors/Table-Manager.html) container -- there is no functor that produces one directly outside that context.
 
 ## EGO Script
 
-For the same reason, input [ports](../EGO-Script.html#ports) of type Table Manager cannot receive a constant in [EGO Script](../EGO-Script.html) -- see [Constants](../EGO-Script.html#constants). A Table Manager is read with the `variable = tableManager;` internal-output form at the top of a [Table Manager](../functors/Table-Manager.html) block -- see [Internal output ports](../EGO-Script.html#internal-output-ports) -- or received automatically wherever [Sub Table](../functors/Sub-Table.html), [Merge Sub Tables](../functors/Merge-Sub-Tables.html), or [Table Manager Value](../functors/Table-Manager-Value.html) auto-bind to the enclosing container. [Table Manager](../functors/Table-Manager.html) itself has no outputs, so it is called as a bare statement, with no assignment and no underscore:
+For the same reason, input [ports](../Functors-And-Ports.html#ports) of type Table Manager cannot receive a constant in [EGO Script](../EGO-Script.html) -- see [Constants](../EGO-Script.html#constants). A Table Manager is read with the `variable = tableManager;` internal-output form at the top of a [Table Manager](../functors/Table-Manager.html) block -- see [Internal output ports](../EGO-Script.html#internal-output-ports) -- or received automatically wherever [Sub Table](../functors/Sub-Table.html), [Merge Sub Tables](../functors/Merge-Sub-Tables.html), or [Table Manager Value](../functors/Table-Manager-Value.html) auto-bind to the enclosing container. [Table Manager](../functors/Table-Manager.html) itself has no outputs, so it is called as a bare statement, with no assignment and no underscore:
 
 ```
 // regionOneAreas and regionTwoAreas are Tables produced independently -- for

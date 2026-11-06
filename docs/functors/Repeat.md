@@ -21,7 +21,7 @@ This container executes the functors it contains a specified number of times. Ea
 
 | Name | Type | Description | Default Value |
 | --- | --- | --- | --- |
-| Sequence Input | [None Type](../types/None-Type.html) | None | Ensures that the functor connected to this port finishes executing before this container starts. See [Sequence ports](../EGO-Script.html#sequence-ports) in the EGO Script documentation. |
+| Sequence Input | [None Type](../types/None-Type.html) | None | Ensures that the functor connected to this port finishes executing before this container starts. See [Sequence ports](../Functors-And-Ports.html#sequence-ports). |
 
 ## Outputs
 

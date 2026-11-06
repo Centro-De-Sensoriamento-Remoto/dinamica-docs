@@ -152,7 +152,7 @@ Lists the keys of a table's first key column.
 
 ## Iterating over Lookup Table values
 
-A [For Each](functors/For-Each.html) loop executes once per row of the table connected to its `elements` port, which accepts either a general Table or a Lookup Table; over a Lookup Table that means once per key. Inside the loop, a [Step](functors/Step.html) functor retrieves the current key — its input auto-binds to the container's current iteration value, the same mechanism described in [Internal output ports](EGO-Script.html#internal-output-ports), so it needs no explicit wiring. From there, the key can be used directly, or passed to [Get Lookup Table Value](functors/Get-Lookup-Table-Value.html) to retrieve the corresponding value.
+A [For Each](functors/For-Each.html) loop executes once per row of the table connected to its `elements` port, which accepts either a general Table or a Lookup Table; over a Lookup Table that means once per key. Inside the loop, a [Step](functors/Step.html) functor retrieves the current key — its input auto-binds to the container's current iteration value, the same mechanism described in [Auto-bound ports](Functors-And-Ports.html#auto-bound-ports), so it needs no explicit wiring. From there, the key can be used directly, or passed to [Get Lookup Table Value](functors/Get-Lookup-Table-Value.html) to retrieve the corresponding value.
 
 A loop like this can often run its iterations in parallel — see [Basic Data Flow](Basic-Data-Flow.html) for the conditions that allow it.
 
@@ -340,7 +340,7 @@ Retrieving the sub-table for `Year` 2007 — a single key, since `Year` is leftm
 | Boston | 4332 |
 | Chelsea | 233 |
 
-To instead retrieve by `City` first, `City` would need to be reordered ahead of `Year`, since `GetTableFromKey` can only key off the leftmost column(s). With three key columns, the same idea nests: peel off the leftmost key to get a sub-table, then peel off the next leftmost key of *that* sub-table, and so on — which is exactly how nested `ForEach` loops iterate a multi-key table one column at a time; see [Container functors](EGO-Script.html#container-functors) for how nesting containers this way affects execution order.
+To instead retrieve by `City` first, `City` would need to be reordered ahead of `Year`, since `GetTableFromKey` can only key off the leftmost column(s). With three key columns, the same idea nests: peel off the leftmost key to get a sub-table, then peel off the next leftmost key of *that* sub-table, and so on — which is exactly how nested `ForEach` loops iterate a multi-key table one column at a time; see [Containers: the second ordering source](Basic-Data-Flow.html#containers-the-second-ordering-source) for how nesting containers this way affects execution order.
 
 **Example** — building the table above, retrieving the 2007 sub-table, updating one of its prices with [Set Table Cell Value](functors/Set-Table-Cell-Value.html), writing it back, and finally reordering `City` ahead of `Year` to key by `City` instead:
 
@@ -626,7 +626,7 @@ Every example so far assumes the reader already knows a table's shape — its co
 
 [String](functors/String.html) and [Real Value](functors/Real-Value.html) each convert a `TableValue` the same conditional way: the conversion only succeeds if the `TableValue` actually holds that type, and raises an error otherwise — converting an already-typed, known `RealValue` or String, by contrast, never fails. Wrapping each attempt in its own [Skip On Error](functors/Skip-On-Error.html) turns that failure into "produced nothing" instead of aborting the model, so only the attempt that actually matches the `TableValue`'s real type ever produces a display string; the other attempt simply fails silently and produces nothing. A [String Junction](functors/String-Junction.html) then picks whichever one exists.
 
-> **Note:** A junction always tries its first port before its second — see [Carrying and selecting values across iterations](EGO-Script.html#carrying-and-selecting-values-across-iterations) for this rule stated generally, since it applies identically to every Junction functor (`String`, `Table`, `Value`, `Lookup Table`, `Map`, `Categorical Map`, `Folder`). It makes no practical difference here, though: the two attempts below are mutually exclusive by construction, so only one of `stringDisplay`/`realDisplay` is ever available for the junction to pick regardless of port order.
+> **Note:** A junction always tries its first port before its second — see [Muxes and junctions](Functors-And-Ports.html#muxes-and-junctions) for this rule stated generally, since it applies identically to every Junction functor (`String`, `Table`, `Value`, `Lookup Table`, `Map`, `Categorical Map`, `Folder`). It makes no practical difference here, though: the two attempts below are mutually exclusive by construction, so only one of `stringDisplay`/`realDisplay` is ever available for the junction to pick regardless of port order.
 
 ```
 myTable := Table [
