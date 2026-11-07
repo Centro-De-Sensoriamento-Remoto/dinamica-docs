@@ -45,7 +45,7 @@ When an expression references more than one connected map, all of them are evalu
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for each output cell (e.g., byte, int16, float32). |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in the output. |
 | Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. Version 8.14.1 and earlier; replaced by Result Sparsity. |
-| Result Sparsity[^8150] | Enum Type | No | Automatic | Defines how the output map is stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. Models created with earlier versions are converted automatically: `False` becomes `Dense`, `True` becomes `Sparse`, and a model that does not set Result Is Sparse uses `Dense`, because the flag defaulted to `False`. |
+| Result Sparsity[^8150] | Enum Type | No | Automatic | Defines how the output map is stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. See [Null-strict maps](#null-strict-maps). Models created with earlier versions are converted automatically: `False` becomes `Dense`, `True` becomes `Sparse`, and a model that does not set Result Is Sparse uses `Dense`, because the flag defaulted to `False`. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format (extent, resolution, projection) is applied to the output. Category information in the reference map is ignored. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -74,7 +74,7 @@ Use [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) when th
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for each output cell. |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in the output. |
 | Result Is Sparse | Boolean Value Type | No | False | If `True`, only non-null cells are stored — saves memory but slows random access. Version 8.14.1 and earlier; replaced by Result Sparsity. |
-| Result Sparsity[^8150] | Enum Type | No | Automatic | Defines how the output map is stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. Models created with earlier versions are converted automatically: `False` becomes `Dense`, `True` becomes `Sparse`, and a model that does not set Result Is Sparse uses `Dense`, because the flag defaulted to `False`. |
+| Result Sparsity[^8150] | Enum Type | No | Automatic | Defines how the output map is stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output map sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes the result null, and dense otherwise. See [Null-strict maps](#null-strict-maps). Models created with earlier versions are converted automatically: `False` becomes `Dense`, `True` becomes `Sparse`, and a model that does not set Result Is Sparse uses `Dense`, because the flag defaulted to `False`. |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to the output. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -102,7 +102,7 @@ Its shorthand symbol is `#*`.[^8150]
 | Expression | Image Expression Type | **Yes** | — | A [struct expression](#struct-expressions), `{ name: expression, ... }`. Each field produces one output map. Local variables declared by a `let ... in` around the struct are calculated once per cell and shared by all fields. |
 | Cell Type | Cell Type Type | No | Signed 32-bit Integer | Data type for the cells of all the output maps. |
 | Null Value | Null Value Type | No | Based on Cell Type | Sentinel value representing "no data" in all the output maps. |
-| Result Sparsity | Enum Type | No | Automatic | Defines how the output maps are stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output maps sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes every field null, and dense otherwise. |
+| Result Sparsity | Enum Type | No | Automatic | Defines how the output maps are stored. `Dense` stores all cells. `Sparse` stores only the non-null cells — saves memory but slows random access. `Automatic` makes the output maps sparse when the calculation visits only the non-null cells of a sparse input map, because a null cell in it always makes every field null, and dense otherwise. See [Null-strict maps](#null-strict-maps). |
 | Result Format | Map Type | No | None | Optional reference map whose spatial format is applied to all the output maps; its category information, if any, is ignored. Prefer this port over a `NumberMap` hook when the map is needed only for format purposes — a hook defines an identifier in the expression namespace and blocks abbreviated syntax if that identifier is unused in the expression. |
 
 ### Output
@@ -761,6 +761,69 @@ Guarding the test with `isNull` fixes it: `if not isNull(i2) and i2 = 1 then 1 e
 
 - **Coordinate lookup** `iX[LINE_EXPR, COL_EXPR]` — accessing a map at a specific coordinate returns **0**, not null, when the target cell **is null**. Coordinates that fall **outside the image boundary** are mirrored back into range rather than producing an error. For a row coordinate `cellLine` in an image of N rows, `cellLine` is normally expected to be in the range \[1, N\]. When `cellLine` is outside this range, it is mirrored back: if `cellLine` ≤ 0, the effective row is `1 − cellLine` (for instance, `cellLine` = 0 → row 1, `cellLine` = −1 → row 2, `cellLine` = −2 → row 3); if `cellLine` > N, the effective row is `2N + 1 − cellLine` (for instance, `cellLine` = N+1 → row N, `cellLine` = N+2 → row N−1, `cellLine` = N+3 → row N−2). The same formula applies independently to the column coordinate `cellCol`. It can be a source of subtle bugs: an expression that tests `i1[line-1, column] > 0` will silently treat a null neighbour as zero rather than null. A table or lookup-table key lookup (`tX[EXPR]`) that finds no matching key still returns null as normal — this exception applies only to map coordinate lookups. To get a null result instead, use the null-preserving form `iX[[LINE_EXPR, COL_EXPR]]`, which returns null when the target cell is null.
 - **Neighbourhood functions** `nbN(iX, h, w)` — operators such as `nbSum`, `nbAverage`, `nbMax`, and so on aggregate over a window of cells and **exclude null cells from the calculation**. If `i1` is null at the current cell, the neighbourhood function simply ignores it and aggregates the remaining non-null cells in the window.
+
+## Null-strict maps[^8150]
+{: #null-strict-maps}
+
+> **Availability:** [Calculate Map](functors/Calculate-Map.html), [Calculate Categorical Map](functors/Calculate-Categorical-Map.html) and [Calculate Multiple Maps](functors/Calculate-Multiple-Maps.html) only.
+
+An input map is **null-strict** for an expression when a null cell in that map always makes the result null, whatever the values of the other operands. In `i1 + i2`, both maps are null-strict: a null in either one poisons the sum. In `if isNull(i1) then i2 else i1 + i2`, only `i2` is null-strict: a null `i2` makes both branches null, while a null `i1` gives `i2`, which may hold a value.
+
+When a null-strict input map is sparse, the calculation skips its null cells, because their result is known in advance. The expression is evaluated only at the non-null cells of that map, and every other cell of the result is null. The result is the same as evaluating every cell. This happens when:
+
+- the map is sparse, including a sparse map virtualized to match the format of the other input maps;
+- less than 1% of its cells are non-null, or the map has less than 5000 cells;
+- the expression does not use `abort`, since skipping cells could skip an `abort`.
+
+If several input maps meet these conditions, the one with the fewest non-null cells is used. When a map is used this way, the calculation runs on the processors and without parallelism. The map used is listed in the debug log, under the `FUNCTOR_EXECUTION` subsystem. With the Result Sparsity port set to `.auto`, the result is sparse whenever a map is used this way, and dense otherwise.
+
+### How a map is classified
+
+Dinamica EGO decides whether a map is null-strict by analysing the expression once, before the calculation, assuming the cell of that map is null and the cells of the other maps unknown. A map is null-strict only when every possible path through the expression gives null under that assumption. The rules follow the null handling described above:
+
+| Construct | Result when the analysed map is null |
+| --- | --- |
+| `iX` | Null |
+| Arithmetic, comparisons, `min`, `max`, `clamp`, unary functions (`abs`, `sqrt`, `exp`, `round`, `sin`, …), random number generators | Null if any operand is null |
+| Lookup table and table lookups (`tX[EXPR]`, …) | Null if the key is null |
+| `x ^ y` | 1 when `y` is 0 or `x` is 1, otherwise null if any operand is null |
+| `isNull(EXPR)` | Never null: 1 or 0 |
+| `EXPR ? FALLBACK` | The fallback when `EXPR` is null |
+| `if TEST then A else B` | Null if `TEST` is null; otherwise `A` when `TEST` is true and `B` when it is false. When `TEST` can be either, both branches must be null |
+| `not EXPR` | Null if `EXPR` is null |
+| `A and B`, `A or B` | Null if `A` is null. `B` only counts when `A` does not decide the result: `A` true for `and`, `A` false for `or` |
+| `let _x: VALUE in BODY` | The body, with `_x` holding the result of `VALUE`, null included |
+| `{ name: EXPR, ... }` | Null only when every field is null |
+| `iX[[LINE_EXPR, COL_EXPR]]` | Null when the coordinates are `line` and `column`, since it reads the current cell |
+| `iX[LINE_EXPR, COL_EXPR]` | Never null for certain: a null target cell reads as 0, and other coordinates read other cells |
+| Neighbourhood functions (`nbSum`, `nbAverage`, `nbMinRef`, `nbConvol`, `nbReduce`, …) | Never null for certain: null cells of the window are ignored |
+| `line`, `column`, `null(iX)`, values (`vX`), constants | Do not depend on the analysed map. The constant `null` is always null |
+
+### Examples
+
+| Expression | Null-strict maps | Why the others are not |
+| --- | --- | --- |
+| `i1 * i2 + 4` | `i1`, `i2` | — |
+| `(i1 / i2) ? 0` | none | `?` replaces any null by 0 |
+| `if i2 > 0 then i1 else 0` | `i2` | A null `i1` gives 0 when `i2 <= 0` |
+| `if i2 > 0 then i1 else i1 * 2` | `i1`, `i2` | — |
+| `if not isNull(i2) and i2 = 1 then 1 else i1` | none | A null `i2` gives `i1`; a null `i1` gives 1 when `i2 = 1` |
+| `if isNull(i1) then null else i1 + i2` | `i1`, `i2` | — |
+| `nbSum(i1, 3, 3)` | none | The window may contain non-null cells |
+| `i1[line, column] + i2` | `i2` | A null `i1` cell reads as 0 |
+| `i1[[line, column]] + i2` | `i1`, `i2` | — |
+| `{ a: i1, b: i1 + i2 }` | `i1` | Field `a` is not null when only `i2` is null |
+| `let _x: i1 * 2 in if isNull(_x) then 0 else _x` | none | The test on `_x` replaces a null `i1` by 0 |
+
+Accumulators in iterative models usually have no null-strict map, since they keep the previous value when an input is null:
+
+```
+if not isNull(i1) then (if isNull(i2) then 0 else i2) + i1 else i2
+```
+
+Here `i1` is a new observation and `i2` the accumulated value. A null `i1` returns `i2`, and a null `i2` restarts the sum at `i1`, so neither map is null-strict and every cell is calculated.
+
+To keep a calculation restricted to the non-null cells of a sparse map, write the expression so that a null in that map reaches every result: leave its operands unguarded, avoid `?` and `isNull` around them, and make every `else` branch, and every struct field, depend on that map too.
 
 ---
 
