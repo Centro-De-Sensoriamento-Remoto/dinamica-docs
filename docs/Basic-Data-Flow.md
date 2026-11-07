@@ -1,6 +1,6 @@
 ---
 title: "Basic Data Flow"
-nav_order: 1
+nav_order: 2
 parent: "Core Concepts"
 ---
 {% raw %}
@@ -12,11 +12,11 @@ A Dinamica EGO model is, at its core, a graph: **functors** connected through th
 
 ## Functors and connections
 
-A **functor** is a processing unit with a fixed set of typed input and output [ports](Functors-And-Ports.html#ports). A **connection** links one functor's output port to another's input port, carrying a value from the first to the second. See [Functors and Ports](Functors-And-Ports.html) for the kinds of ports a functor can have.
+The functors of a model and their typed ports are described in [Functors and Ports](Functors-And-Ports.html). What matters for execution is the **connection**: a link from one functor's output port to another's input port, carrying a value from the first to the second.
 
-In [EGO Script](EGO-Script.html), a connection is expressed by giving an output a variable name and reusing that same name as an input elsewhere — see [Functors, variables, and binding](EGO-Script.html#functors-variables-and-binding). In the GUI, the same connection is drawn as a wire between two functor boxes. Either way, what the engine sees is a connection between two ports; the variable name or the wire is only how that connection happens to be written down.
+In [EGO Script](EGO-Script.html), a connection is written by giving an output a variable name and reusing that name as an input elsewhere — see [Functors, variables, and binding](EGO-Script.html#functors-variables-and-binding). In the GUI, it is drawn as a wire between two functor boxes. Either way, what the engine sees is a connection between two ports; the variable name or the wire is only how that connection happens to be written down.
 
-A connection doesn't require its two ports to share exactly the same type. When the types are compatible, the value is converted automatically as part of crossing the connection — a Real value connected to a port expecting a Tuple becomes a one-element Tuple, for instance. This conversion is a property of the connection itself, not of the value: the same value, written directly into that port as a literal constant instead of connected to it, is not converted at all — a constant is parsed by its target port's own type-specific parser, which recognizes only that one type's literal syntax and rejects every other form, however closely related the types might otherwise be. See [Constants](EGO-Script.html#constants) for how this distinction is expressed in EGO Script specifically, and [Type System](Type-System.html) for the complete catalog of types and their conversions.
+A connection doesn't require its two ports to share exactly the same type. When the types are compatible, the value is converted automatically as it crosses the connection — a Real value connected to a port expecting a Tuple becomes a one-element Tuple, for instance. This conversion belongs to the connection, not to the value. The same value written directly into the port as a constant is not converted at all: a constant is parsed by the port's own type, which recognizes only that type's literal syntax and rejects every other form, however closely related the types might otherwise be. [Type System](Type-System.html) lists every type and its conversions, and [Constants](EGO-Script.html#constants) shows how constants are written in EGO Script.
 
 ## Data dependencies drive execution order
 
@@ -26,19 +26,19 @@ Two functors that share no such chain have no ordering relationship at all. They
 
 ## Containers: the second ordering source
 
-**Container functors** group a nested set of functors so that they execute as a single unit — the container starts, its contents run, then it finishes. This has a consequence beyond simple grouping: a dependency on anything produced *inside* a container is really a dependency on the *whole container*. If functor B consumes a value from something inside container A, B will not start until every functor inside A has finished — not just the specific one that produced the value. See [Containers](Functors-And-Ports.html#containers) for the kinds of containers, and [Container functors](EGO-Script.html#container-functors) for how they are expressed in EGO Script.
+[Container functors](Functors-And-Ports.html#containers) group a nested set of functors so that they execute as a single unit — the container starts, its contents run, then it finishes. This has a consequence beyond simple grouping: a dependency on anything produced *inside* a container is really a dependency on the *whole container*. If functor B consumes a value from something inside container A, B will not start until every functor inside A has finished — not just the specific one that produced the value.
 
 This makes containers useful even when nothing inside them shares data with anything outside: wrapping two otherwise-independent functors in a container guarantees they run together, in the order the container defines — an ordering that a plain data dependency could never enforce on its own.
 
 ## Containers control whether and how their content runs
 
-Grouping and ordering are only part of what a container does. A container has full control over whether its contents run at all, and how many times. [Group](functors/Group.html) runs its contents exactly once, unconditionally — it exists purely for organization and ordering. [If Then](functors/If-Then.html) and [If Not Then](functors/If-Not-Then.html) run their contents only when a condition holds. Loop containers — [Repeat](functors/Repeat.html), [For](functors/For.html), [For Each](functors/For-Each.html), [For Each Category](functors/For-Each-Category.html), [For Each Region](functors/For-Each-Region.html), [While](functors/While.html), [Do While](functors/Do-While.html), and others — run their contents repeatedly, each according to its own rule: a fixed count, a numeric range, the rows of a table, the categories of a map, or a condition re-evaluated before every pass. From inside the block, a functor has no say in any of this — it simply runs, or doesn't, or runs again, whenever the container decides to.
+Grouping and ordering are only part of what a container does. A container also decides whether its contents run at all, and how many times: [Group](functors/Group.html) runs them exactly once, [If Then](functors/If-Then.html) and [If Not Then](functors/If-Not-Then.html) only when a condition holds, and loop containers such as [For Each](functors/For-Each.html) or [While](functors/While.html) once per element, step or pass, each according to its own rule. From inside the block, a functor has no say in any of this — it simply runs, or doesn't, or runs again, whenever the container decides to.
 
-A container that branches or repeats generally needs to exchange a small amount of state with its contents beyond ordinary connections — a loop's current element going in, or its repeat condition coming back out. This happens through dedicated **internal ports**, a separate channel between the container and the functors nested inside it — see [Internal ports](Functors-And-Ports.html#internal-ports) for the internal ports of every container. See [Internal output ports](EGO-Script.html#internal-output-ports) and [Internal input ports](EGO-Script.html#internal-input-ports) for how this is expressed in EGO Script.
+To make those decisions, a container that branches or repeats usually exchanges a small amount of state with its contents beyond ordinary connections — a loop's current element going in, or its repeat condition coming back out. This exchange goes through [internal ports](Functors-And-Ports.html#internal-ports), a separate channel between the container and the functors nested inside it.
 
 ## Ordering without data: sequence connections
 
-Sometimes two functors, or two containers, need to run in a specific order even though neither produces a value the other needs. For this, some functors expose sequencing-only ports that carry no data of their own — a connection between them exists purely to force an order. This is the same graph mechanism as an ordinary connection; it simply carries nothing, which is possible because almost every type in the system converts automatically to the type these ports share — see [Type System](Type-System.html#sequencing) for that conversion listed against every type it applies to. See [Sequence ports](Functors-And-Ports.html#sequence-ports) for the containers that expose these ports, and [Sequence ports](EGO-Script.html#sequence-ports) for the EGO Script syntax.
+Sometimes two functors, or two containers, need to run in a specific order even though neither produces a value the other needs. For this, most containers expose [sequence ports](Functors-And-Ports.html#sequence-ports) that carry no data of their own: a connection between them exists only to force an order. It is the same graph mechanism as an ordinary connection that simply carries nothing, which works because almost every type in the system converts automatically to the type these ports share — see [Type System](Type-System.html#sequencing).
 
 ## The one exception: feedback in loops
 

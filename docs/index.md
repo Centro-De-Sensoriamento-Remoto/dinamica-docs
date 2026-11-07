@@ -15,6 +15,7 @@ Reference documentation for [Dinamica EGO](https://dinamicaego.com), the environ
 | Learn Dinamica EGO step by step | [Guidebook](guidebook/index.html) |
 | Work in the graphical interface | [Graphical Interface](gui/index.html) |
 | Write or read a model as text | [EGO Script](EGO-Script.html) |
+| Understand functors, ports and containers | [Functors and Ports](Functors-And-Ports.html) |
 | Understand how a model executes | [Basic Data Flow](Basic-Data-Flow.html) |
 | Reuse parts of a model | [Submodels](Submodels.html) |
 | Run a model from the command line | [Dinamica Console](Dinamica-Console.html) |
@@ -25,7 +26,7 @@ Reference documentation for [Dinamica EGO](https://dinamicaego.com), the environ
 ## Sections
 
 - [Getting Started](Getting-Started.html) — the [Guidebook](guidebook/index.html), a step-by-step course from the interface basics to land-use change simulation and calibration, [Dinamica Console](Dinamica-Console.html), for running models from the command line, and the [Environment Variables](Environment-Variables.html) Dinamica EGO reads.
-- [Core Concepts](Core-Concepts.html) — how a model executes ([Basic Data Flow](Basic-Data-Flow.html)), how maps of different extents and resolutions are combined ([Image Virtualization](Image-Virtualization.html)), and the data types and their conversions ([Type System](Type-System.html)).
+- [Core Concepts](Core-Concepts.html) — what functors and ports are ([Functors and Ports](Functors-And-Ports.html)), how a model executes ([Basic Data Flow](Basic-Data-Flow.html)), how maps of different extents and resolutions are combined ([Image Virtualization](Image-Virtualization.html)), and the data types and their conversions ([Type System](Type-System.html)).
 - [Graphical Interface](gui/index.html) — the model editor, functor and port editors, submodels in the interface, options, keyboard shortcuts, and the Map Viewer.
 - [Language and Expressions](Language-And-Expressions.html) — [EGO Script](EGO-Script.html), [EGOML](EGOML-Script.html), [Submodels](Submodels.html), and the expression languages of the calculator functors, including R and Python.
 - [Modeling Guides](Modeling-Guides.html) — tables and lookup tables, subregions, Weights of Evidence calibration, map metadata, and practical tips for building models.

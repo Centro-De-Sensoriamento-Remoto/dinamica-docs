@@ -1,6 +1,6 @@
 ---
 title: "Functors and Ports"
-nav_order: 2
+nav_order: 1
 parent: "Core Concepts"
 ---
 {% raw %}
@@ -14,7 +14,7 @@ This page describes functors and ports independently of how a model is written. 
 
 ## Ports
 
-A **port** is a typed connection point. A connection links an output port of one functor to an input port of another, and the value produced by the first becomes the input of the second. The port's **type** determines what it can receive: an input port accepts a value of its exact type, or of any type that converts to it automatically across the connection. That conversion belongs to the connection, not to the value — a constant written directly into a port is parsed by the port's own type and never converted. See [Basic Data Flow](Basic-Data-Flow.html#functors-and-connections) for this distinction and [Type System](Type-System.html) for every type and conversion.
+A **port** is a typed connection point. A connection links an output port of one functor to an input port of another, and the value produced by the first becomes the input of the second. The port's **type** determines what it can receive: a value of its exact type, or of any type that converts to it automatically as it crosses the connection. A constant written directly into a port is never converted; see [Basic Data Flow](Basic-Data-Flow.html#functors-and-connections) for why, and [Type System](Type-System.html) for every type and its conversions.
 
 An input port is either **required** or **optional**. A required port must always receive something, either a connection or a constant, and a model whose required inputs are not all supplied cannot run. An optional port has a **default value**, specific to that port and shown on the functor's page, which is used whenever the port is left unset. A functor always lists its optional ports after its required ones, which is what allows a textual call to simply stop supplying inputs once it reaches the optional ones it doesn't need.
 
@@ -90,7 +90,7 @@ Two families of functors manage how a value moves from one iteration, or one dat
 
 A **mux** carries a value across the iterations of a loop. It has two inputs — an initial value and a feedback value — and on the first iteration it emits the initial value, while on every later iteration it emits the feedback value produced during the previous one. A mux at the start of a loop body, fed back by a value computed at its end, therefore holds the loop's running state. Its feedback input is the one exception to the rule that a functor waits for everything it consumes, as explained in [Basic Data Flow](Basic-Data-Flow.html#the-one-exception-feedback-in-loops). The family includes [Mux Map](functors/Mux-Map.html), [Mux Categorical Map](functors/Mux-Categorical-Map.html), [Mux Table](functors/Mux-Table.html), [Mux Lookup Table](functors/Mux-Lookup-Table.html), [Mux Value](functors/Mux-Value.html) and [Mux Tuple](functors/Mux-Tuple.html), among others.
 
-A **junction** chooses between two dataflows. If its first input carries data, the junction passes it through; if not, it passes the second one instead, and if neither carries data it reports an error. Junctions are mostly used to supply a fallback when a value may be missing, such as when part of a model was skipped by an error-handling container. The family includes [Map Junction](functors/Map-Junction.html), [Categorical Map Junction](functors/Categorical-Map-Junction.html), [Table Junction](functors/Table-Junction.html), [Lookup Table Junction](functors/Lookup-Table-Junction.html), [Value Junction](functors/Value-Junction.html), [String Junction](functors/String-Junction.html) and [Folder Junction](functors/Folder-Junction.html).
+A **junction** chooses between two dataflows. If its first input carries data, the junction passes it through; if not, it passes the second one instead, and if neither carries data it reports an error. Junctions are mostly used to supply a fallback when a value may be missing, such as when part of a model was skipped by an error-handling container. The family includes [Map Junction](functors/Map-Junction.html), [Categorical Map Junction](functors/Categorical-Map-Junction.html), [Table Junction](functors/Table-Junction.html), [Lookup Table Junction](functors/Lookup-Table-Junction.html), [Value Junction](functors/Value-Junction.html), [String Junction](functors/String-Junction.html) and [Folder Junction](functors/Folder-Junction.html). [Carrying and selecting values across iterations](EGO-Script.html#carrying-and-selecting-values-across-iterations) shows both in EGO Script.
 
 See [Carrying and selecting values across iterations](EGO-Script.html#carrying-and-selecting-values-across-iterations) for an example of both in EGO Script.
 

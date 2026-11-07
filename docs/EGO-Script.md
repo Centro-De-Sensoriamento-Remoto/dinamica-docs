@@ -277,11 +277,7 @@ Setting the `@inline` property on a functor prevents it from being inlined when 
 
 ## Container functors
 
-A **container functor** holds other functors and runs them as part of its own execution. The kinds of containers, what each does with its contents, and the internal ports through which they communicate are described in [Containers](Functors-And-Ports.html#containers); how containers affect execution order is described in [Basic Data Flow](Basic-Data-Flow.html#containers-the-second-ordering-source). This section covers how containers are written in EGO Script. See [Handling Errors](Handling-Errors.html) for how the error-handling containers are combined with junctions and conditional containers.
-
-The [calculator functors](#calculator-functor-shorthand) described later in this section are also containers: each holds the expression it evaluates, and in its verbose form holds a block of operand definitions.
-
-The contained functors are written inside a double-brace block `{{ … }}` that follows the container call:
+A **container functor** holds other functors and runs them as part of its own execution — see [Containers](Functors-And-Ports.html#containers) for the kinds of containers and [Basic Data Flow](Basic-Data-Flow.html#containers-the-second-ordering-source) for how they affect execution order. In EGO Script, the contained functors are written inside a double-brace block `{{ … }}` that follows the container call:
 
 ```
 _ := Group .none {{
@@ -291,9 +287,9 @@ _ := Group .none {{
 }};
 ```
 
-Containers nest to any depth, and like any functor they may carry properties such as a label or color (see [Functor properties](#functor-properties), below).
+Containers nest to any depth, and like any functor they may carry properties such as a label or color (see [Functor properties](#functor-properties), below). The [calculator functors](#calculator-functor-shorthand) are containers too: each holds the expression it evaluates and, in its verbose form, a block of operand definitions.
 
-A container exchanges data with the functors inside it through **internal ports**: internal output ports carry values from the container into the block, and internal input ports carry values from the block back to the container.
+A container communicates with its contents through internal ports — [internal output ports](#internal-output-ports) carry values into the block, and [internal input ports](#internal-input-ports) carry values back to the container — and can be ordered against other containers through [sequence ports](#sequence-ports). The subsections below show how each of these is written, followed by the loop idioms built on muxes and junctions. For combining the error-handling containers with junctions and conditional containers, see [Handling Errors](Handling-Errors.html).
 
 Some containers exist to bracket a computation with side effects that happen before and after it — see [Containers](Functors-And-Ports.html#containers). [Print](functors/Print.html) is the clearest example: it prints an `initialMessage` before its contents run and a `finalMessage` after they complete:
 
@@ -414,7 +410,7 @@ _ := DoWhile .none {{
 }};
 ```
 
-> **Note:** A mux's feedback input is the one exception to the dependency rule in [Functors, variables, and binding](#functors-variables-and-binding) — the mux does not wait for the functor that produces its feedback value to run before it runs; it emits the value that functor produced on the previous iteration instead. This is also why, in the example above, `nextCount` is passed into `MuxValue` on a line above the line that assigns `nextCount`: the mux and the calculator each depend on the other's output, so no matter which one is written first in the script, the other's variable is necessarily used before it is assigned. See [Basic Data Flow](Basic-Data-Flow.html#the-one-exception-feedback-in-loops) for this same exception explained generally, independent of EGO Script, including why it's what makes loops schedulable at all and when a loop's iterations can run in parallel.
+> **Note:** A mux's feedback input is the one exception to the dependency rule in [Functors, variables, and binding](#functors-variables-and-binding) — the mux does not wait for the functor that produces its feedback value to run before it runs; it emits the value that functor produced on the previous iteration instead. This is also why, in the example above, `nextCount` is passed into `MuxValue` on a line above the line that assigns `nextCount`: the mux and the calculator each depend on the other's output, so no matter which one is written first in the script, the other's variable is necessarily used before it is assigned. [Basic Data Flow](Basic-Data-Flow.html#the-one-exception-feedback-in-loops) explains why this exception is what makes loops schedulable at all, and when a loop's iterations can run in parallel.
 
 A [junction](Functors-And-Ports.html#muxes-and-junctions) selects between two dataflows: it passes its first input through if that input carries data, and its second input otherwise. If both are empty, the junction reports an error:
 
