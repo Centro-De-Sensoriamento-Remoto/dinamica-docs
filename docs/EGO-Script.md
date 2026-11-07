@@ -509,6 +509,8 @@ proximityMap := ## [
 ] .int8 .default .no .none;
 ```
 
+From version 8.15.0, the `resultIsSparse` port of Calculate Map, Calculate Categorical Map and Calculate Multiple Maps is replaced by `resultSparsity`, whose values are `.dense`, `.sparse` and `.auto`, the default. In the examples above, `resultIsSparse = .no` and `.no` are then written as `resultSparsity = .auto` and `.auto`. Scripts created with earlier versions keep working: `.no` is read as `.dense` and `.yes` as `.sparse`.[^8150]
+
 ```
 hilltops := % [
     if %saddleHeights[line] >= $minimumHeight and %saddleAngles[line] >= $minimumSlopeAngle then 1 else null
