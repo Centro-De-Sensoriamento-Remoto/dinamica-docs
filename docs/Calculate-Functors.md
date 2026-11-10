@@ -413,7 +413,7 @@ These operators query a **Lookup Table** (`tX`) — a single-key table — and r
 | Equal upper bound | `tX[>= EXPR]` | Returns the value for the **smallest key >= EXPR**. | `t2[>= i1 + i3]` |
 | Strict upper bound | `tX[> EXPR]` | Returns the value for the **smallest key > EXPR**. | `t2[> i7]` |
 | Closest key | `tX[>< EXPR]` | Returns the value for the key **nearest to EXPR** (ties go to the lower key). | `t2[>< 3 + i7]` |
-| Linear interpolation | `tX[/ EXPR]` | Returns a **linearly interpolated value** between the two surrounding keys. | `t2[/ i2]` |
+| Linear interpolation | `tX[/ EXPR]` | Returns a **linearly interpolated value** between the two surrounding keys. A key equal to a table key, including the first and the last, returns that key's value. A key **outside the range** of the table keys returns **null**; the value is not extrapolated or clamped. | `t2[/ i2]` |
 | Key existence test | `tX[? EXPR]` / `tX[=? EXPR]` / `tX[==? EXPR]` | Returns **1** if EXPR matches a key in the table, **0** otherwise. Does not retrieve a value. | `t2[? i2]` |
 | Named attribute | `tX["NAME"]` | Returns the value bound to a **predefined attribute name** (e.g. `"cellArea"`). Only valid for tables produced by [Extract Map Attributes](functors/Extract-Map-Attributes.html) or [Extract Lookup Table Attributes](functors/Extract-Lookup-Table-Attributes.html). | `t2["cellArea"]` |
 
