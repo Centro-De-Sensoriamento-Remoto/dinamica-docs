@@ -48,6 +48,8 @@ When Null Value is given, any cell already equal to the file's own null value (i
 
 The crop window (First/Second Window Coordinate X/Y) must either be left entirely at .none, loading the map in full, or have all four coordinates defined together; a partially defined window is not accepted.
 
+When the crop window is defined, Storage Mode applies only to the window. Prefer Memory and Load As Sparse read only the cells inside the window from the file, using multiple tasks, and keep them in memory as a regular or a sparse map. Load As Sparse keeps only the non-null cells. When loading maps in parallel is disabled, the window is instead copied from the file kept on disk, using multiple tasks for Prefer Memory and a single task for Load As Sparse. Prefer Disk keeps the window as a view of the file, read on demand. With Default, the memory allocation policy chooses between memory and disk. When that choice depends on the size of the map, the size of the whole file is used, not the size of the window, so a small window of a large file can be kept on disk.
+
 If Step is .none, the loaded filename has no numeric suffix.
 
 For a list of file formats that Load Categorical Map can load, the supported [projections](https://en.wikipedia.org/wiki/Map_projection) and [datums](https://en.wikipedia.org/wiki/Datum_(geodesy)), check the supported map formats.
