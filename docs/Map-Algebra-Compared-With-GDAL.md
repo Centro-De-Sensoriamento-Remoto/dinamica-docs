@@ -1,6 +1,6 @@
 ---
 title: "Map Algebra Compared with GDAL"
-nav_order: 5
+nav_order: 8
 parent: "Language and Expressions"
 ---
 {% raw %}

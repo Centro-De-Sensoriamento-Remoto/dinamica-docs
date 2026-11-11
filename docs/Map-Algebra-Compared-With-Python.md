@@ -1,6 +1,6 @@
 ---
 title: "Map Algebra Compared with Python"
-nav_order: 6
+nav_order: 9
 parent: "Language and Expressions"
 ---
 {% raw %}
