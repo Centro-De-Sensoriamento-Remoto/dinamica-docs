@@ -36,6 +36,7 @@ Changes compared to version [8.14.0](Release-Notes-8-14-0.html).
 - **Loading sparse maps in parallel** - Load Map and Load Categorical Map with the storage mode `.loadAsSparse` now read the map using multiple tasks, as is already done for maps loaded in memory. Each task reads its part of the map and keeps only the non-null cells. Invalid real values (NaN and infinity) are read as null cells. The map is read by a single task when loading maps in parallel is disabled, for example with the `--disable-parallel-map-load` option of DinamicaConsole.
 - **Saving maps** - [Save Map](functors/Save-Map.html) writes the cells to the file in blocks of lines instead of one line at a time, in every format except ASCII (`.asc`). Maps kept in memory are written directly from their cells, without an intermediate copy. Sparse maps are written by visiting only their non-null cells, instead of looking up each cell of the map. Results are unchanged.
 - **GeoTIFF compression** - compressed GeoTIFF (`.tif`) maps are now saved with DEFLATE instead of LZW, and the compression uses up to 4 threads.
+- **Sparse GeoTIFF maps** - sparse maps saved as GeoTIFF (`.tif`) leave out of the file the blocks whose cells are all null, using the `SPARSE_OK` creation option of GDAL. The files are smaller, and the blocks left out are read as null cells by Dinamica EGO and by other software that reads GeoTIFF files with GDAL.
 
 ---
 
