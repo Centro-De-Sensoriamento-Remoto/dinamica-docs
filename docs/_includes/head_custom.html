@@ -119,3 +119,28 @@
     }
   });
 </script>
+<script>
+  /* Anchor links: scrolls to the #fragment again after the page finishes loading. */
+  /* On a first, uncached visit, Firefox jumps to the anchor early and content loaded later pushes it out of view. */
+  (function () {
+    if (!window.location.hash) { return; }
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    var userScrolled = false;
+    ['wheel', 'touchmove', 'keydown', 'mousedown'].forEach(function (ev) {
+      window.addEventListener(ev, function () { userScrolled = true; }, { once: true, passive: true });
+    });
+
+    /* Does nothing once the reader has started scrolling. */
+    function jump() {
+      if (userScrolled) { return; }
+      var el = document.getElementById(id);
+      if (el) { el.scrollIntoView(); }
+    }
+
+    /* Web fonts can still change line heights after the load event, so it scrolls once more when they are ready. */
+    window.addEventListener('load', function () {
+      jump();
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(jump); }
+    });
+  })();
+</script>
