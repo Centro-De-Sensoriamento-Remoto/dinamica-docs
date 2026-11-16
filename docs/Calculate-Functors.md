@@ -275,6 +275,7 @@ let _ndvi: (i1 - i2) / (i1 + i2),
 in if _ndvi > 0.3 then _scaled else 0
 ```
 
+- Each binding is written as `_name: expression`: the variable name, a colon `:`, and the expression whose result the variable holds.
 - Bindings are separated by commas; a trailing comma before `in` is allowed.
 - Each binding is evaluated **once per evaluation unit**, in order, and can use the variables bound before it. A variable cannot be used in its own binding.
 - A variable is visible only inside the `let` that declares it (its later bindings and its body). A nested `let` can declare a variable with the same name as an outer one; the inner one hides the outer one.
