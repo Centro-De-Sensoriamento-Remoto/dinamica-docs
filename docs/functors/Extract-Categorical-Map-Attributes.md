@@ -42,6 +42,8 @@ Each attribute has a predefined name that can be used to retrieve it by name (ra
 
 If an attribute cannot be determined for a class, its entry is omitted from Attributes rather than being filled with a placeholder. Minimum and maximum values are only determined when the class has at least one non-null cell.
 
+When Categorical Map is sparse, only its non-null cells are visited; the cells where it is null are skipped.[^8150] The results are the same as for a dense map, including the number of null cells of each class.
+
 Dynamic attributes, computed across all non-null cells of all layers within each class:
 
 | Key | Predefined Name | Description |
@@ -66,4 +68,7 @@ Statistical attributes (present only when Extract Statistical Attributes is true
 ## Internal Name
 
 ExtractCategoricalMapAttributes
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}

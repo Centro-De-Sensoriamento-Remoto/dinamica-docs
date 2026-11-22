@@ -41,6 +41,8 @@ Each attribute has a predefined name that can be used to retrieve it by name (ra
 
 If an attribute cannot be determined, its entry is omitted from Attributes rather than being filled with a placeholder. Minimum and maximum values are only determined when the map has at least one non-null cell.
 
+When Map is sparse, only its non-null cells are visited; the null cells are skipped.[^8150] The results are the same as for a dense map, including the number of null cells.
+
 **Basic attributes**
 
 | Key | Predefined Name | Description |
@@ -107,4 +109,7 @@ ExtractMapAttributes
 ## Usage examples
 
 See practical examples of this functor in [Lesson 6: Extracting the attributes and calculating basic statistics from a map](../guidebook/Map-Attributes-And-Basic-Statistics.html) of the Guidebook.
+
+[^8150]: Available in Dinamica EGO 8.15.0, currently a development version. Details may change before release.
+
 {% endraw %}
