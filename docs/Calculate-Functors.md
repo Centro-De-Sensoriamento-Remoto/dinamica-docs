@@ -233,9 +233,11 @@ Every construct in the language — including a conditional — is itself just a
 | `vX` | Connected scalar value X | All six functors |
 | `line` | Spatial row index of the current cell, **starting at 1** *(map calculators)* **or** key of the current row *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
 | `column` | Spatial column index of the current cell, **starting at 1** *(map calculators)* **or** value associated with the current row's key *(table calculators)* | All except [Calculate Value](functors/Calculate-Value.html) |
-| `_name`[^8150] | Local variable introduced by a `let ... in` expression. The name starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. It never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All calculator functors |
+| `_name`[^8150] | Local variable introduced by a `let ... in` expression. The leading `_` is the sigil of local variables and is written both where the variable is declared and wherever it is used. The name after it starts with a letter or `_` and continues with letters, digits or `_`, and is case insensitive. Because of the sigil, a local variable never collides with a function, a constant or an operand: none of them starts with `_`, and in the concise notation maps, tables and values are prefixed with `#`, `%` and `$`. | All calculator functors |
 
 X ranges from 1 to 100. In logical expressions, **zero is false** and any non-zero value is true.
+
+> **Note:** Unlike EGO Script variables, expressions are case insensitive. Keywords, function and constant names, operands, local variables and struct field names can be written in any mix of upper and lower case: `If I1 > 0 Then Abs(I2) Else Null` is the same as `if i1 > 0 then abs(i2) else null`, and `_ndvi` and `_NDVI` are the same local variable. Two parts of an expression keep their case: the text between double quotes, such as a column name, and the names after `#`, `%` and `$` in the concise notation, which refer to [EGO Script variables](EGO-Script.html#functors-variables-and-binding) and are case sensitive like them.
 
 ---
 
@@ -276,9 +278,11 @@ in if _ndvi > 0.3 then _scaled else 0
 ```
 
 - Each binding is written as `_name: expression`: the variable name, a colon `:`, and the expression whose result the variable holds.
+- A local variable name always starts with the sigil `_`, in its binding and in every use: `_ndvi: ...` declares the variable, and `_ndvi` reads it. The sigil sets local variables apart from the values that come from outside the expression, such as `iX`, `tX` and `vX` or `#name`, `%name` and `$name` in the concise notation, and from the names of functions and constants. A local variable can therefore be named after any of them: `_min` and `_line` do not collide with the function `min` or with `line`.
 - Bindings are separated by commas; a trailing comma before `in` is allowed.
 - Each binding is evaluated **once per evaluation unit**, in order, and can use the variables bound before it. A variable cannot be used in its own binding.
 - A variable is visible only inside the `let` that declares it (its later bindings and its body). A nested `let` can declare a variable with the same name as an outer one; the inner one hides the outer one.
+- Two bindings with the same name in one `let` are allowed: the later variable hides the earlier one after its binding, so its own expression still reads the earlier one. Names are case insensitive, so `_ndvi` and `_NDVI` are the same variable.
 - A `let` is an ordinary expression: it can be used as a function argument, as an operand (inside parentheses) or inside another `let`. The body extends as far to the right as possible.
 - All bindings are evaluated even when the body does not use them, so there is no short-circuit. A binding that results in null makes the variable null; use `isNull(_a)` to test it.
 - Stochastic functions are drawn once per binding: `let _r: rand in _r - _r` is always 0.
@@ -292,7 +296,7 @@ A struct expression produces several results from a single evaluation. It is a l
 ```
 
 - Each field is a name and an expression separated by `:`. Fields are separated by commas; a trailing comma before `}` is allowed. At least one field is required.
-- A field name starts with a letter or `_` and continues with letters, digits or `_`. Names are case insensitive and must be unique within the struct. They have no sigil, because they are never referenced inside the expression; they are the names under which the results are returned.
+- A field name starts with a letter or `_` and continues with letters, digits or `_`. Names are case insensitive and must be unique within the struct. Unlike local variables, they have no sigil, because they are never referenced inside the expression; they are the names under which the results are returned. A leading `_` is part of the name: `{ _ndvi: ... }` returns a result named `_ndvi`, not `ndvi`.
 - A struct is accepted only as the whole expression, or as the body of a `let ... in` that is the whole expression. This includes a `let` whose body is another `let`. A struct cannot be a function argument, an operand, a branch of `if ... then ... else`, the body of a `let` that is not at the top of the expression, or a field of another struct. A field can itself contain a `let ... in` that produces a single value.
 - Variables declared by the `let` around the struct are visible to every field and are calculated once per evaluation, however many fields use them:
 
