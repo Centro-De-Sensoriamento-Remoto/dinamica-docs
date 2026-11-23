@@ -87,6 +87,8 @@ From there, the minimum delta is tuned iteratively:
 1. For any row where `Significant = No`, read that row's `Possible_Transitions` value and set the minimum delta slightly above it, then repeat from step 1.
 1. If several rows are not significant at once, use the largest `Possible_Transitions` value among them as the basis for the next minimum delta.
 
+This loop can also be driven automatically within a single model run -- see [Automating the Range Tuning Loop](#automating-the-range-tuning-loop) below.
+
 Each continuous gray-tone variable goes through this tuning individually -- the ranges for one variable do not carry over to another. Category variables skip this section entirely, since none of the four Skeleton parameters apply to them.
 
 ## Determining Coefficients
@@ -229,6 +231,104 @@ Group {{
 ```
 
 The saved `coefficients.dcf` is the finished Weights object -- reload it with [Load Weights](functors/Load-Weights.html) wherever [Calc W. Of E. Probability Map](functors/Calc-W-Of-E-Probability-Map.html) needs it (see [Using the Weights Downstream](#using-the-weights-downstream)). The saved `report.csv` can be opened directly in a spreadsheet to review `Contrast` and `Significant` per range, without needing to scroll the message log.
+
+## Automating the Range Tuning Loop
+
+The manual procedure in [Determining Ranges for a Continuous Variable](#determining-ranges-for-a-continuous-variable) above adjusts Minimum Delta by hand, rerunning the model and reading the `Significant` column each time. This example automates that same procedure in a single model run.
+
+The key that makes this possible: a [Weights Of Evidence Skeleton](types/Weights-Of-Evidence-Skeleton-Type.html) can be expressed as a Table instead of a fixed literal, using the column format `From*`, `To*`, `Variable_Name*`, `Categorical`, `Increment`, `Minimum_Delta`, `Maximum_Delta`, `Tolerance_Angle` -- `Categorical` is 0 for a continuous gray-tone variable, 1 for a category variable. A Table [converts to a Skeleton automatically](Type-System.html#table-format-of-table-shaped-types) wherever one is expected, and unlike a literal, a Table's cells can be rewritten by ordinary functors such as [Set Table Cell Value](functors/Set-Table-Cell-Value.html). That is what lets Minimum Delta change from one iteration to the next.
+
+The model wraps the range-and-coefficient calculation in a [Do While](functors/Do-While.html) loop. Each pass: runs both calibration functors using the current Skeleton table, drills into the resulting `report` to find every range for the variable and transition in question, and scans them for any row where `Significant` is 0. If it finds one, it takes the largest `Possible_Transitions` among the failing rows, moves Minimum Delta just past it, writes that back into the Skeleton table, and loops again. Once every row comes back significant, the loop stops and the results are saved -- the same two outputs as the basic example above.
+
+This assumes exactly one variable and one transition, so each `Range_Lower_Limit` maps to exactly one row; a model with more variables or transitions would need one additional nested [For Each](functors/For-Each.html) per extra key column -- see "Sub-Tables" in [Manipulating Tables and Lookup Tables](Manipulating-Tables-And-Lookup-Tables.html).
+
+```
+// ---- Fixed inputs ----
+Group {{
+    initialLandscape := LoadCategoricalMap "landscape_1997.tif";
+    finalLandscape   := LoadCategoricalMap "landscape_2000.tif";
+}};
+
+// continuous gray-tone
+distanceToRoads := LoadMap "d_all_roads.tif";
+
+// Starting Skeleton, expressed as a Table so Minimum_Delta can be
+// rewritten each iteration below.
+startingSkeleton := Table [
+    "From*", "To*", "Variable_Name*", "Categorical", "Increment", "Minimum_Delta", "Maximum_Delta", "Tolerance_Angle",
+    2, 1, "roads/layer_0", 0, 100, 1, 500000, 5
+];
+
+// Tune Minimum Delta until every range in the report comes back
+// Significant.
+_ := DoWhile {{
+    skeletonTable := MuxTable startingSkeleton nextSkeletonTable;
+
+    ranges := DetermineWeightsOfEvidenceRanges {
+        initialLandscape = initialLandscape,
+        finalLandscape = finalLandscape,
+        skeleton = skeletonTable
+    } {{
+        NameMap distanceToRoads "roads";
+    }};
+
+    { weights = weights, report = report } := DetermineWeightsOfEvidenceCoefficients {
+        initialLandscape = initialLandscape,
+        finalLandscape = finalLandscape,
+        ranges = ranges
+    } {{
+        NameMap distanceToRoads "roads";
+    }};
+
+    // Drop the three fixed keys (Transition_From, Transition_To,
+    // Variable) in one call, leaving a table keyed by Range_Lower_Limit
+    // and Range_Upper_Limit -- one row per determined range.
+    rangesForVariable := GetTableFromKey report [2, 1, "roads/layer_0"];
+    lowerLimits := GetTableKeys rangesForVariable;
+
+    _ := ForEach lowerLimits {{
+        anySoFar   := MuxValue 0 nextAny;
+        worstSoFar := MuxValue 0 nextWorst;
+
+        lowerLimit := Step;
+
+        // Peel off Range_Lower_Limit too, landing on the single row for
+        // this range, still formally keyed by Range_Upper_Limit.
+        thisRange := GetTableFromKey rangesForVariable lowerLimit;
+        upperLimitKeys := GetTableKeys thisRange;
+        upperLimit := GetTableValue upperLimitKeys [1] 2;
+
+        significant := GetTableValue thisRange upperLimit "Significant";
+        possible    := GetTableValue thisRange upperLimit "Possible_Transitions";
+
+        isNonSignificant := $ [ not $significant ];
+
+        nextAny := $ [ $isNonSignificant or $anySoFar ];
+
+        nextWorst := $ [
+            if $isNonSignificant and $possible > $worstSoFar
+            then $possible
+            else $worstSoFar
+        ];
+    }};
+
+    // Move Minimum Delta just past the range that failed significance,
+    // and loop again if anything still needs it.
+    newMinimumDelta := $ [ $nextWorst + 1 ];
+
+    nextSkeletonTable := SetTableCellValue skeletonTable "Minimum_Delta" [2, 1, "roads/layer_0"] newMinimumDelta;
+
+    keepGoing := $ [ $nextAny ];
+
+    _ := SetWhileCondition keepGoing;
+}};
+
+// Step 3: save the results
+Group {{
+    SaveWeights { weights = weights, filename = "coefficients.dcf" };
+    SaveTable   { table = report, filename = "report.csv" };
+}};
+```
 
 ## Tips
 
