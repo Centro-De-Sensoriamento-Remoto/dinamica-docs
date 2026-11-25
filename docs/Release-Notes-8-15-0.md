@@ -70,4 +70,12 @@ None of these changes affect results.
 ## 5. Interface
 
 - Removed the Twitter entry from the Help menu.
+- Fixed the transparency of the graph action bar on Linux.
+
+### Functor editor
+
+- **Identifiers shown with names and icons** - fixed several problems in expressions whose identifiers are shown with their names and icons. Long lines could extend past the right edge of the editor and hide part of the expression, the expression could be displayed incorrectly, the arrow keys could move the cursor to the wrong place, double-clicking an identifier did not always select it, and undo could stop working or restore the wrong text. Typing in long expressions is also faster.
+- The expression editor opens showing the beginning of the expression.
+- **Window size** - the functor editor window opens large enough to show its content without scroll bars whenever it fits on the screen.
+- **Resizing** - port descriptions are no longer displayed with wrong line breaks or cut off after resizing or scrolling the window, and the editors no longer flicker while the window is resized.
 {% endraw %}
