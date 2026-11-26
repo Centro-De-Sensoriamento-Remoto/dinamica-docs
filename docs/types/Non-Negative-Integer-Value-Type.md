@@ -23,6 +23,21 @@ Non-negative integers in Dinamica EGO use the standard representation for intege
 
 It is not possible to enter integer values using any notation other than decimal.
 
+## Light Enum
+
+A port of this type can be presented in the GUI as a dropdown of labelled options instead of a numeric field. This is called a **light enum**. The value stored and passed to other functors is still an integer; only the editor changes. Use it when a port selects one of a few options identified by numbers but must remain an integer, instead of an [Enum Type](Enum-Type.html).
+
+In EGO Script, the light enum is defined by the `@lightenum.<portName>` property placed before the carrier functor:
+
+```
+@lightenum.constant = {"enabled":true,"values":{"0":"Disabled","1":"Partial","2":"Full"}}
+mode := NonNegativeIntegerValue 0;
+```
+
+In the GUI, it is set using the *Make port available as an enum value* control. When the carrier port is exported as a submodel input, the light enum carries over to the submodel interface.
+
+See [Light enum](../EGO-Script.html#light-enum) for the property format and [Submodels In The GUI](../gui/Submodels-In-The-GUI.html) for the GUI control.
+
 ## Automatic Conversions
 
 - **Converted from**: [Positive Integer Value Type](Positive-Integer-Value-Type.html) — lossless; widening, the value itself is unchanged. [Real Value Type](Real-Value-Type.html) — can fail on negative input; lossy (truncates) otherwise. [Integer Value Type](Integer-Value-Type.html) — can fail; no valid target when the value is negative. [Boolean Value Type](Boolean-Value-Type.html) — True → 1, False → 0. [Index Or Name Type](Index-Or-Name-Type.html) — can fail; only succeeds if the value holds an index rather than a name. [Log Tag Type](Log-Tag-Type.html) — converts to the level's number (e.g. Info → 4). [Cell Type](Cell-Type.html) — converts to the cell type's number (e.g. Signed 32 Bit Integer → 5). [Table Value Type](Table-Value-Type.html).
