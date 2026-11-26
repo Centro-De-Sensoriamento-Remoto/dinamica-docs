@@ -74,6 +74,7 @@ None of these changes affect results.
 - Removed the Twitter entry from the Help menu.
 - Opening the documentation of a functor from the graph action bar no longer hides the navigation panel of the documentation website.
 - Fixed importing a submodel into a model that contains a hollow functor.
+- Functor and submodel tooltips break their lines at the real width of the text, so lines are no longer broken too early or too wide.
 - **Linux** - fixed the graph action bar, which could disappear or lose its transparency. OpenGL rendering is no longer forced, avoiding display problems on newer Linux systems.
 
 ### Functor editor
